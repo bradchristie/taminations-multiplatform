@@ -436,7 +436,7 @@
   <tam title="Couples Hinge"
        from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Hinge Right" hands="gripright" beats="3" scaleX="1.5" scaleY="3" />
     </path>
@@ -454,7 +454,7 @@
   <tam title="Couples Hinge"
        from="Left-Hand Two-Faced Lines"
        formation="Two-Faced Lines LH"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Hinge Left" hands="gripleft" beats="3" scaleX="1.5" scaleY="3" />
     </path>
@@ -472,7 +472,7 @@
   <tam title="Couples Hinge"
        from="Two-Faced Tidal Line"
        formation="Two-Faced Tidal Line RH"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Hinge Right" hands="gripright" beats="3" scaleX="3" scaleY="1.5" />
     </path>
@@ -488,9 +488,26 @@
   </tam>
 
   <tam title="Couples Hinge"
+       formation="Two-Faced Tidal Line LH" display="none"
+       difficulty="1">
+    <path>
+      <move select="Hinge Left" hands="gripleft" beats="3" scaleX="3" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Hinge Left" hands="gripboth" beats="3" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Hinge Left" beats="3" hands="gripboth" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Hinge Left" hands="gripleft" beats="3" scaleX="3" scaleY="1.5" />
+    </path>
+  </tam>
+
+  <tam title="Couples Hinge"
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       fractions="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Quarter Left" beats="3" hands="left" offsetX="-.5" offsetY="3" />
     </path>
@@ -506,9 +523,27 @@
   </tam>
 
   <tam title="Couples Hinge"
+       from="Lines Facing In"
+       formation="Normal Lines" display="none"
+       difficulty="2">
+    <path>
+      <move select="Hinge Right" beats="3" scaleX="1.5" scaleY="3" />
+    </path>
+    <path>
+      <move select="Hinge Right" beats="3" hands="left" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Quarter Left" beats="3" hands="right" offsetX="-1.5" offsetY="1" />
+    </path>
+    <path>
+      <move select="Quarter Left" beats="3" hands="left" offsetX="-.5" offsetY="3" />
+    </path>
+  </tam>
+
+  <tam title="Couples Hinge"
        from="Tidal Line"
        formation="Tidal Line RH"
-       fractions="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Hinge Right" beats="3" scaleX="3" scaleY="1.5" />
     </path>
@@ -522,4 +557,23 @@
       <move select="Quarter Left" beats="3" hands="left" offsetX="-1" offsetY="1.5" />
     </path>
   </tam>
+
+  <tam title="Couples Hinge"
+       from="Tidal Line LH"
+       formation="Tidal Line LH" display="none"
+       difficulty="2">
+    <path>
+      <move select="Quarter Left" beats="3" hands="right" offsetX="-3" offsetY="0.5" />
+    </path>
+    <path>
+      <move select="Quarter Left" beats="3" hands="left" offsetX="-1" offsetY="1.5" />
+    </path>
+    <path>
+      <move select="Hinge Right" beats="3" scaleX="3" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Hinge Right" beats="3" hands="left" scaleY=".5" />
+    </path>
+  </tam>
+
 </tamination>
