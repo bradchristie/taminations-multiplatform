@@ -71,3 +71,4 @@ fabric.properties
 build/
 release/
 local.properties
+callindex.xml

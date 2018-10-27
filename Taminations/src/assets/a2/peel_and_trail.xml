@@ -229,10 +229,8 @@
     </path>
   </tam>
 
-  <tam title="As Couples Peel and Trail"
-       from="Two-Faced Lines"
-       formation="Two-Faced Lines RH"
-       fractions="" >
+  <tam title="As Couples Peel and Trail" group=" "
+       formation="Two-Faced Lines RH">
     <path>
       <move select="Extend Right" beats="2" scaleX="2" scaleY="1.5" />
       <move select="Swing Right" beats="3" scaleX="1.5" scaleY="1.5" />
@@ -249,10 +247,26 @@
     </path>
   </tam>
 
-  <tam title="All 8 Peel and Trail"
-       from="Mini-Waves"
-       formation="Static MiniWaves RH"
-       fractions="" >
+  <tam title="As Couples Peel and Trail" group=" " display="none"
+       formation="Two-Faced Lines LH">
+    <path>
+      <move select="Belle Reverse Wheel" hands="gripleft" beats="5" offsetX="-2" offsetY="-1.5" />
+    </path>
+    <path>
+      <move select="Beau Reverse Wheel" hands="gripright" beats="5" offsetX="-2" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Swing Left" beats="3" scaleX=".5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="1.5" />
+      <move select="Swing Left" beats="3" scaleX="1.5" scaleY="1.5" />
+    </path>
+  </tam>
+
+  <tam title="All 8 Peel and Trail" group=" "
+       formation="Static MiniWaves RH">
     <path>
       <move select="Forward 3" />
       <move select="Swing Right" />
