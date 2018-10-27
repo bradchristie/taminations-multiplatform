@@ -1,0 +1,59 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.bradchristie.taminationsapp">
+
+    <uses-feature
+            android:name="android.hardware.microphone"
+            android:required="false" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- PocketSphinx needs to write temp files -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+            android:supportsRtl="true"
+            android:allowBackup="false"
+            android:hardwareAccelerated="false"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Light.NoTitleBar">
+        <activity android:name="com.bradchristie.taminations.Taminations">
+            <!-- This is the activity to start the app -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- Search for calls -->
+            <intent-filter>
+                <action android:name="com.google.android.gms.actions.SEARCH_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <!-- Allow web apps to launch Taminations by linking to intent -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="taminations" />
+            </intent-filter>
+            <!-- This is to intercept http://www.tamtwirlers.com/taminations -->
+            <!-- Works in some cases -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <data android:scheme="https"
+                      android:host="www.tamtwirlers.org"
+                      android:pathPrefix="/taminations"/>
+            </intent-filter>
+            <!-- And this is for Taminations://www.tamtwirlers.org/taminations/... -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <data android:scheme="taminations"
+                      android:host="www.tamtwirlers.org"
+                      android:pathPrefix="/taminations"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

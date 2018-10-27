@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Taminations</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <style>
+.loading {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vw;
+}
+</style>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/taminations/sw.js',{scope:"/taminations/"})
+      .then(function(reg) {
+        // registration worked
+      }).catch(function(error) {
+        // registration failed
+        console.log('Registration failed with ' + error);
+      });
+    }
+    var rot = 0
+    function rotate() {
+      var logo = document.getElementById("loading-logo")
+      if (logo != null) {
+        logo.style.transform = "rotate(" + rot + "deg)"
+        rot += 5
+        window.requestAnimationFrame( rotate )
+      }
+    }
+    var head = document.getElementsByTagName('head').item(0)
+    var kot = document.createElement("script")
+    kot.src = "lib/kotlin.js"
+    kot.onload = function() {
+      var tam = document.createElement("script")
+      tam.src = "Taminations.js"
+      head.appendChild(tam)
+    }
+    head.appendChild(kot)
+
+</script>
+</head>
+<body style="background-color: #fff3e7">
+
+<div class="loading">
+  <div>
+    <img id="loading-logo" src="tam120.png" style="height: 20vh; width: 20vh;"
+         onload="rotate()"/>
+  </div><div>
+  <p>Loading . . .</p>
+</div>
+</div>
+</body>
+</html>

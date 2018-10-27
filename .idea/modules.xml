@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Taminations/Taminations.iml" filepath="$PROJECT_DIR$/Taminations/Taminations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Taminations-multiplatform.iml" filepath="$PROJECT_DIR$/Taminations-multiplatform.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Taminations/Taminations_commonMain.iml" filepath="$PROJECT_DIR$/Taminations/Taminations_commonMain.iml" group="Taminations" />
+      <module fileurl="file://$PROJECT_DIR$/Taminations/Taminations_commonTest.iml" filepath="$PROJECT_DIR$/Taminations/Taminations_commonTest.iml" group="Taminations" />
+      <module fileurl="file://$PROJECT_DIR$/Taminations/Taminations_iosMain.iml" filepath="$PROJECT_DIR$/Taminations/Taminations_iosMain.iml" group="Taminations" />
+      <module fileurl="file://$PROJECT_DIR$/Taminations/Taminations_iosTest.iml" filepath="$PROJECT_DIR$/Taminations/Taminations_iosTest.iml" group="Taminations" />
+      <module fileurl="file://$PROJECT_DIR$/Taminations/Taminations_jsMain.iml" filepath="$PROJECT_DIR$/Taminations/Taminations_jsMain.iml" group="Taminations" />
+      <module fileurl="file://$PROJECT_DIR$/Taminations/Taminations_jsTest.iml" filepath="$PROJECT_DIR$/Taminations/Taminations_jsTest.iml" group="Taminations" />
+    </modules>
+  </component>
+</project>
