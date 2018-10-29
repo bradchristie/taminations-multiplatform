@@ -36,7 +36,6 @@ object TamUtils {
   private var doccount = 4  // because we have 4 documents to read at startup
   lateinit var calldoc: TamDocument
   lateinit var indexdoc: TamDocument
-  private lateinit var formationDoc: TamDocument
   private lateinit var movementDoc: TamDocument
   var calllistdata:List<CallListDatum> = listOf()
   var callmap:MutableMap<String,MutableList<CallListDatum>> = mutableMapOf()
@@ -44,6 +43,8 @@ object TamUtils {
   //  Used to check sequencer abbreviations - don't let the use make
   //  an abbreviation for a real word.
   var words:MutableSet<String> = mutableSetOf()
+  //  Build map of formations for fast retrieval
+  private var formations:MutableMap<String,TamElement> = mutableMapOf()
   private var initCallback:() -> Unit = { }
   init {
     System.getXMLAsset("src/calls") {
@@ -77,7 +78,12 @@ object TamUtils {
       }
       checkForInit()
     }
-    System.getXMLAsset("src/formations") { formationDoc = it; checkForInit() }
+    System.getXMLAsset("src/formations") {
+      it.evalXPath("/formations/formation").forEach { f ->
+        formations[f.attr("name")] = f
+      }
+      checkForInit()
+    }
     System.getXMLAsset("src/moves") { movementDoc = it; checkForInit() }
   }
 
@@ -108,8 +114,7 @@ object TamUtils {
       callback(tam)
   }
 
-  fun getFormation(fname:String):TamElement =
-      formationDoc.evalXPath("/formations/formation[@name='$fname']").first()
+  fun getFormation(fname:String):TamElement = formations[fname]!!
 
   private fun translate(elem:TamElement):List<Movement> = when (elem.tag) {
     "path" -> translatePath(elem)

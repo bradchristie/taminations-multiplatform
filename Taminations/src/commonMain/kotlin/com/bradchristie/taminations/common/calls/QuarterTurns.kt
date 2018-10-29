@@ -34,6 +34,7 @@ abstract class QuarterTurns(name:String) : Action(name) {
     val move = select(ctx,d)
     //  If leader or trailer, make sure to adjust quarter turn
     //  so handhold is possible
+    /*
     if (move != "Stand") {
       if (d.data.leader) {
         val d2 = ctx.dancerInBack(d)!!
@@ -47,7 +48,7 @@ abstract class QuarterTurns(name:String) : Action(name) {
         if (dist > 2 && dist < 5)
           offsetX = (dist-2)/2
       }
-    }
+    } */
     return TamUtils.getMove(move).skew(offsetX,0.0)
   }
 

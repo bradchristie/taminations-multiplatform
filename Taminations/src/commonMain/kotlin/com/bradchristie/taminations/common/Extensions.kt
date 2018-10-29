@@ -129,6 +129,7 @@ val Double.cos:Double get() = cos(this)
 val Double.toDegrees:Double get() = this * 180 / PI
 val Double.toRadians:Double get() = this * PI / 180
 fun Double.isApprox(y:Double,delta:Double=0.1):Boolean = (this-y).abs < delta
+fun Double.isApproxInt(delta:Double=0.1):Boolean = (this-this.round).abs < delta
 fun Double.angleDiff(a2:Double):Double =
     ((((this-a2) % (PI*2)) + (PI*3)) % (PI*2)) - PI
 fun Double.angleEquals(a2:Double) = this.angleDiff(a2).isApprox(0.0)

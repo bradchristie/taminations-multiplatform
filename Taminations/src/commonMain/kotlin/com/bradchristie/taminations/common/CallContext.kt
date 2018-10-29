@@ -345,7 +345,11 @@ class CallContext {
 
   //  Once a mapping of two formations is found,
   //  this computes the difference between the two.
-  fun computeFormationOffsets(ctx2: CallContext, mapping:IntArray):Array<Vector> {
+  data class FormationMatchResult(
+    var transform:Matrix,
+    var offsets:Array<Vector>
+  )
+  fun computeFormationOffsets(ctx2: CallContext, mapping:IntArray):FormationMatchResult {
     var dvbest = emptyArray<Vector>()
     var dtotbest = 0.0
     //  We don't know how the XML formation needs to be turned to overlap
@@ -371,7 +375,7 @@ class CallContext {
       dvbest += v1 - v2
       dtotbest += dvbest[j].length
     }
-    return dvbest
+    return FormationMatchResult(rotmat,dvbest)
   }
 
 
@@ -458,8 +462,8 @@ class CallContext {
         if (mapindex >= ctx1.dancers.count()) {
           //  All dancers mapped
           //  Rate the mapping and save if best
-          val offsets = ctx1.computeFormationOffsets(ctx2,mapping)
-          val totOffset = offsets.fold(0.0) { s,v -> s+v.length }
+          val matchResult = ctx1.computeFormationOffsets(ctx2,mapping)
+          val totOffset = matchResult.offsets.fold(0.0) { s,v -> s+v.length }
           if (bestmapping == null || totOffset < bestOffset) {
             bestmapping = mapping.copyOf()
             bestOffset = totOffset
@@ -562,6 +566,8 @@ class CallContext {
       "Sausage RH",
       "T-Bone URRD",
       "T-Bone RUUL",
+      "T-Bone DLDL",
+      "T-Bone RDRD",
       "Static Square"
   )
   data class BestMapping(
@@ -571,6 +577,7 @@ class CallContext {
       var totOffset:Double
   )
   fun matchStandardFormation() {
+    System.log("Attempting formation match")
     //  Make sure newly added animations are finished
     dancers.forEach { d -> d.path.recalculate(); d.animateToEnd() }
     //  Work on a copy with all dancers active, mapping only uses active dancers
@@ -583,14 +590,18 @@ class CallContext {
       val mapping = matchFormations(ctx1,ctx2,sexy=false,fuzzy=true,rotate=true,handholds=false)
       if (mapping != null) {
         //  If it does, get the offsets
-        val offsets = ctx1.computeFormationOffsets(ctx2,mapping)
-        val totOffset = offsets.fold(0.0) { s,v -> s+v.length }
+        val matchResult = ctx1.computeFormationOffsets(ctx2,mapping)
+        //  If the match is at some odd angle (not a multiple of 90 degrees)
+        //  then consider it bogus
+        val angsnap = matchResult.transform.angle/(PI/4)
+        System.log("    $f: $angsnap")
+        val totOffset = matchResult.offsets.fold(0.0) { s,v -> s+v.length }
         //  Favor formations closer to the top of the list
-        if (bestMapping==null || totOffset+0.1 < bestMapping!!.totOffset)
+        if (angsnap.isApproxInt() && (bestMapping==null || totOffset+0.1 < bestMapping!!.totOffset))
           bestMapping = BestMapping(
               f,  // only used for debugging
               mapping,
-              offsets,
+              matchResult.offsets,
               totOffset
           )
       }

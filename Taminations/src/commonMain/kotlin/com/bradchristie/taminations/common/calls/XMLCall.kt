@@ -49,14 +49,14 @@ class XMLCall(val xelem: TamElement,
       ctx3.extendPaths()
       ctx3.analyze()
     }
-    val vdif = ctx.computeFormationOffsets(ctx2,xmlmap)
+    val matchResult = ctx.computeFormationOffsets(ctx2,xmlmap)
     xmlmap.forEachIndexed { i3, m ->
       val p = Path(allp[m shr 1])
       if (p.movelist.isEmpty())
         p.add(TamUtils.getMove("Stand"))
       //  Scale active dancers to fit the space they are in
       //  Compute difference between current formation and XML formation
-      val vd = vdif[i3].rotate(-ctx.actives[i3].tx.angle)
+      val vd = matchResult.offsets[i3].rotate(-ctx.actives[i3].tx.angle)
       //  Apply formation difference to first movement of XML path
       if (vd.length > 0.1)
         p.skewFirst(-vd.x,-vd.y)
@@ -84,7 +84,7 @@ class XMLCall(val xelem: TamElement,
     super.postProcess(ctx, i)
     //  If just this one call then assume it knows what
     //  the ending formation should be
-    if (ctx.callstack.count() > 1)
+    if (i > 0)
       ctx.matchStandardFormation()
   }
 

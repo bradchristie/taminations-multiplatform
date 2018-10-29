@@ -32,7 +32,7 @@ abstract class CodedCall(name:String) : Call(name.capWords()) {
       val c = callname.toLowerCase()
       return when (c) {
         in "and".r -> And()
-        in "and roll".r -> Roll()
+        in "roll".r -> Roll()
         in "and spread".r -> Spread()
         in "sweep (a quarter|1/4)".r -> SweepAQuarter()
         in "beaus?".r -> Beaus()

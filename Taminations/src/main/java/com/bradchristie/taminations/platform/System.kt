@@ -102,7 +102,7 @@ actual object System {
   actual fun audio(filename:String) = Audio(filename)
 
   actual fun log(msg:String) {
-    Log.i("Taminations",msg)
+    Log.d("Taminations",msg)
   }
 
 }
