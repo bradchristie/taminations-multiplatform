@@ -577,7 +577,6 @@ class CallContext {
       var totOffset:Double
   )
   fun matchStandardFormation() {
-    System.log("Attempting formation match")
     //  Make sure newly added animations are finished
     dancers.forEach { d -> d.path.recalculate(); d.animateToEnd() }
     //  Work on a copy with all dancers active, mapping only uses active dancers
@@ -594,7 +593,6 @@ class CallContext {
         //  If the match is at some odd angle (not a multiple of 90 degrees)
         //  then consider it bogus
         val angsnap = matchResult.transform.angle/(PI/4)
-        System.log("    $f: $angsnap")
         val totOffset = matchResult.offsets.fold(0.0) { s,v -> s+v.length }
         //  Favor formations closer to the top of the list
         if (angsnap.isApproxInt() && (bestMapping==null || totOffset+0.1 < bestMapping!!.totOffset))
