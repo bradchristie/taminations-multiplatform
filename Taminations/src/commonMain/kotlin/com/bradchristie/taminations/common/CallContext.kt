@@ -142,8 +142,8 @@ class CallContext {
     val f = if (tam.hasAttribute("formation"))
       TamUtils.getFormation(tam.attr("formation"))
     else
-      tam.evalXPath("formation").firstOrNull() ?: tam
-    dancers = f.evalXPath("dancer").mapIndexed { i, element ->
+      tam.children("formation").firstOrNull() ?: tam
+    dancers = f.children("dancer").mapIndexed { i, element ->
       //  TODO later this assumes square geometry
       //  Make sure each dancer in the list is immediately followed by its
       //  diagonal opposite.  Required for mapping.
@@ -201,7 +201,7 @@ class CallContext {
   }
 
   private fun checkForAction(calltext:String) {
-    if (callstack.filter{c -> c is Action || c is XMLCall}.isEmpty())
+    if (callstack.none { c -> c is Action || c is XMLCall})
       throw CallError("$calltext does nothing")
   }
 
@@ -428,7 +428,7 @@ class CallContext {
     val mapping = IntArray(ctx1.dancers.count()) { -1 }
     var bestmapping:IntArray? = null
     var bestOffset = 0.0
-    val rotated = BooleanArray(ctx1.dancers.count(), { false })
+    val rotated = BooleanArray(ctx1.dancers.count()) { false }
     var mapindex = 0
     while (mapindex >= 0 && mapindex < ctx1.dancers.count()) {
       var nextmapping = mapping[mapindex] + 1
@@ -723,6 +723,14 @@ class CallContext {
       dancers.all { d -> isInCouple(d) } &&
       dancers.asSequence().filter { d -> d.data.leader }.count() == 4 &&
       dancers.asSequence().filter { d -> d.data.leader }.count() == 4
+
+  //  Return true if dancers are at squared set positions
+  fun isSquare():Boolean = dancers.all { d ->
+    d.location.let {
+      (it.x.abs.isApprox(3.0) && it.y.abs.isApprox(1.0)) ||
+      (it.x.abs.isApprox(1.0) && it.y.abs.isApprox(3.0))
+    }
+  }
 
   //  Get direction dancer would roll
   data class Rolling(val direction:Double) {
