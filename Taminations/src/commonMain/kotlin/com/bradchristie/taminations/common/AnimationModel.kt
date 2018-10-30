@@ -123,9 +123,9 @@ class AnimationModel(private val layout: AnimationLayout,
       }
       Application.titleBar.title = tam.attr("title").replace(Regex("\\(.*\\)"),"")
       layout.animationView.setAnimation(tam)
-      val tamsaysa = tam.evalXPath("taminator")
+      val tamsaysa = tam.children("taminator")
       if (tamsaysa.count() > 0) {
-        val tamsays = tam.evalXPath("taminator")
+        val tamsays = tam.children("taminator")
             .firstOrNull()?.textContent?.trim()?.replace(Regex("\\s+")," ") ?: " "
         layout.saysText.text = tamsays
         layout.saysText.opacity = 1.0

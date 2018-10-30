@@ -33,7 +33,7 @@ class XMLCall(val xelem: TamElement,
 
   override fun performCall(ctx: CallContext, i:Int) {
     //  TODO handle case where xelem is a xref
-    val allp = xelem.evalXPath("path").map { Path(translatePath(it)) }
+    val allp = xelem.children("path").map { Path(translatePath(it)) }
     //  If moving just some of the dancers,
     //  see if we can keep them in the same shape
     if (ctx.actives.count() < ctx.dancers.count()) {

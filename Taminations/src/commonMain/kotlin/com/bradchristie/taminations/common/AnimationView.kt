@@ -633,19 +633,19 @@ class AnimationView : Canvas() {
         Application.sendMessage(Request.Action.ANIMATION_DONE)
       isRunning = false
       beats = 0.0
-      val tlist = tam!!.evalXPath("formation")
+      val tlist = tam!!.children("formation")
       val formation = when {
         tlist.count() > 0 -> tlist.first()
         tam!!.hasAttribute("formation") -> TamUtils.getFormation(tam!!.getAttribute("formation")!!)
         else -> tam!!  // formation passed in for sequencer
       }
-      val flist = formation.evalXPath("dancer")
+      val flist = formation.children("dancer")
       dancers = arrayOf()
 
       //  Get numbers for dancers and couples
       //  This fetches any custom numbers that might be defined in
       //  the animation to match a Callerlab or Ceder Chest illustration
-      val paths = tam!!.evalXPath("path")
+      val paths = tam!!.children("path")
       val numbers = when {
         geometry == Geometry.HEXAGON ->
           arrayOf("A", "E", "I",
@@ -679,11 +679,9 @@ class AnimationView : Canvas() {
       var icount = -1
       val im = Matrix()
       if (interactiveDancer > 0) {
-        val selector = when(interactiveDancer) {
-          Gender.BOY -> "dancer[@gender='boy']"
-          else ->  "dancer[@gender='girl']"
+        val glist = formation.children("dancer").filter { d ->
+          d["gender"] == if (interactiveDancer == Gender.BOY) "boy" else "girl"
         }
-        val glist = formation.evalXPath(selector)
         icount = (random() * glist.count()).i
         //  If the animations starts with "Heads" or "Sides"
         //  then select the first dancer.

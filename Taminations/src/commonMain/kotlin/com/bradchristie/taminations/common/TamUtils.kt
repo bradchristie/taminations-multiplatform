@@ -36,7 +36,6 @@ object TamUtils {
   private var doccount = 4  // because we have 4 documents to read at startup
   lateinit var calldoc: TamDocument
   lateinit var indexdoc: TamDocument
-  private lateinit var movementDoc: TamDocument
   var calllistdata:List<CallListDatum> = listOf()
   var callmap:MutableMap<String,MutableList<CallListDatum>> = mutableMapOf()
   //  Keep a set of all words used in calls.
@@ -45,6 +44,8 @@ object TamUtils {
   var words:MutableSet<String> = mutableSetOf()
   //  Build map of formations for fast retrieval
   private var formations:MutableMap<String,TamElement> = mutableMapOf()
+  //  And map of moves
+  private var moves:MutableMap<String,TamElement> = mutableMapOf()
   private var initCallback:() -> Unit = { }
   init {
     System.getXMLAsset("src/calls") {
@@ -80,11 +81,16 @@ object TamUtils {
     }
     System.getXMLAsset("src/formations") {
       it.evalXPath("/formations/formation").forEach { f ->
-        formations[f.attr("name")] = f
+        formations[f["name"]] = f
       }
       checkForInit()
     }
-    System.getXMLAsset("src/moves") { movementDoc = it; checkForInit() }
+    System.getXMLAsset("src/moves") {
+      it.evalXPath("/moves/path").forEach { m ->
+        moves[m["name"]] = m
+      }
+      checkForInit()
+    }
   }
 
   //  Needed for web version
@@ -100,7 +106,7 @@ object TamUtils {
   //  Returns animation element, looking up cross-reference if needed.
   fun tamXref(tam:TamElement, callback:(TamElement)->Unit) {
     if (tam.hasAttribute("xref-link")) {
-      val link = tam.getAttribute("xref-link")!!
+      val link = tam["xref-link"]
       System.getXMLAsset(link) {
         var s = "//tam"
         if (tam.hasAttribute("xref-title"))
@@ -127,7 +133,7 @@ object TamUtils {
   //  are moves or movements.
   //  Returns an array of movements
   fun translatePath(pathelem:TamElement):List<Movement> {
-    val elemlist = pathelem.evalXPath("*")
+    val elemlist = pathelem.children("*")
     //  Send the result to translate
     //  to recursively process "move" elements
     return elemlist.flatMap { translate(it) }
@@ -144,7 +150,8 @@ object TamUtils {
   private fun translateMove(move:TamElement):List<Movement> {
     //  First retrieve the requested path
     val movename = move.attr("select")
-    val pathelem = movementDoc.evalXPath("/moves/path[@name='$movename']").first()
+    val pathelem = moves[movename]!!
+      //movementDoc.evalXPath("/moves/path[@name='$movename']").first()
     //  Get the list of movements
     val movements = translatePath(pathelem)
     //  Get any modifications
@@ -176,15 +183,13 @@ object TamUtils {
   /**
    *   Gets a named path (move) from the file of moves
    */
-  fun getMove(name:String): Path =
-      Path(translate(movementDoc.evalXPath("/moves/path[@name='$name']").first()))
-
+  fun getMove(name:String): Path = Path(translate(moves[name]!!))
 
   /**
    *   Returns an array of numbers to use numbering the dancers
    */
   fun getNumbers(tam:TamElement):Array<String> {
-    val paths = tam.evalXPath("path")
+    val paths = tam.children("path")
     val retval = arrayOf("1","2","3","4","5","6","7","8",
         "","","","","","","","")
     val np = min(paths.count(),4)
@@ -214,7 +219,7 @@ object TamUtils {
         "2","4","2","4",
         "5","6","5","6",
         " "," "," "," ")
-    val paths = tam.evalXPath("path")
+    val paths = tam.children("path")
     for (i in 0 until paths.count()) {
       val p = paths[i]
       val c = p.attr("couples")

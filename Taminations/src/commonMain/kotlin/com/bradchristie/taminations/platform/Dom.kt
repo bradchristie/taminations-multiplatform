@@ -25,9 +25,11 @@ expect class TamElement {
 
   fun hasAttribute(tag:String) : Boolean
   fun getAttribute(tag:String) : String?
+  fun children(tag:String) : List<TamElement>
   fun evalXPath(expr:String) : List<TamElement>
 }
 fun TamElement.attr(tag:String) = this.getAttribute(tag) ?: ""
+operator fun TamElement.get(tag:String) = this.attr(tag)
 
 expect class TamDocument {
   fun evalXPath(expr:String) : List<TamElement>

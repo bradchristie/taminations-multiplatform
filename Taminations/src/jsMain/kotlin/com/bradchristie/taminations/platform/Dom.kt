@@ -29,6 +29,10 @@ actual class TamElement(private val e: Element) {
   actual val textContent = e.textContent ?: ""
   actual fun hasAttribute(tag: String): Boolean = e.hasAttribute(tag)
   actual fun getAttribute(tag: String): String? = e.getAttribute(tag)
+  actual fun children(tag:String):List<TamElement> {
+    val nodes = e.getElementsByTagName(tag)
+    return (0 until nodes.length).map { TamElement(nodes.item(it) as Element) }
+  }
 
   actual fun evalXPath(expr: String): List<TamElement> {
     val mydoc = e.ownerDocument.unsafeCast<XMLDocumentWithXPath>()
@@ -40,7 +44,6 @@ actual class TamElement(private val e: Element) {
       document.location!!.href = "notsupported.html"
       listOf()
     }
-
   }
 
 }
