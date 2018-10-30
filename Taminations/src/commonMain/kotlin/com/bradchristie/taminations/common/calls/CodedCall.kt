@@ -35,6 +35,7 @@ abstract class CodedCall(name:String) : Call(name.capWords()) {
         in "roll".r -> Roll()
         in "and spread".r -> Spread()
         in "sweep (a quarter|1/4)".r -> SweepAQuarter()
+        in "back away".r -> BackAway()
         in "beaus?".r -> Beaus()
         in "belles?".r -> Belles()
         in "box counter rotate".r -> BoxCounterRotate()

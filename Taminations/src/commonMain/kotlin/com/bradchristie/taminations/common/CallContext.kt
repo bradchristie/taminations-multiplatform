@@ -661,7 +661,7 @@ class CallContext {
   private fun dancersInFront(d: Dancer):List<Dancer> = dancersInOrder(d, isInFrontF(d))
 
   //  Return all the dancers in back, in order
-  private fun dancersInBack(d: Dancer):List<Dancer> = dancersInOrder(d, isInBackF(d))
+  fun dancersInBack(d: Dancer):List<Dancer> = dancersInOrder(d, isInBackF(d))
 
   //  Return outer 2, 4 , 6 dancers
   fun outer(num:Int):List<Dancer> =
