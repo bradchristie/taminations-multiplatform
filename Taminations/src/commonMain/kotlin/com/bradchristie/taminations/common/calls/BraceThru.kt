@@ -26,7 +26,7 @@ import com.bradchristie.taminations.common.LevelObject
 class BraceThru : Action("Brace Thru") {
 
   override val level = LevelObject("a1")
-  override val requires = listOf("b1/courtesy_turn","b1/turn_back")
+  override val requires = listOf("b1/pass_thru","b1/courtesy_turn","b1/turn_back","b2/wheel_around")
 
 
   override fun perform(ctx: CallContext, i: Int) {
