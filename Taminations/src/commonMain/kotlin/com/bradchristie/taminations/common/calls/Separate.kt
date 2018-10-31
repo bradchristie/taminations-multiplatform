@@ -22,7 +22,6 @@ package com.bradchristie.taminations.common.calls
 import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.CallError
 import com.bradchristie.taminations.common.TamUtils
-import com.bradchristie.taminations.platform.System
 
 class Separate : Action("Separate") {
 
@@ -31,8 +30,6 @@ class Separate : Action("Separate") {
   override fun perform(ctx: CallContext, i: Int) {
     if (ctx.actives.count() != 4)
       throw CallError("Who is going to Separate?")
-
-    System.log("outer 4: "+ctx.outer(4).map { it.number }.joinToString(" "))
 
     when {
 

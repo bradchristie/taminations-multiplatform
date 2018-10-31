@@ -50,6 +50,7 @@ abstract class CodedCall(name:String) : Call(name.capWords()) {
         in "cloverleaf".r -> Cloverleaf()
         in "courtesy turn".r -> CourtesyTurn()
         in "cross run".r -> CrossRun()
+        in "cross".r -> Cross()
         in "ends?".r -> Ends()
         in "face (in|out|left|right)".r -> FaceIn(c)
         in "facing (dancers?)?".r -> FacingDancers()
