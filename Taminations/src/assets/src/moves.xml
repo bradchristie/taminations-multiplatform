@@ -742,4 +742,14 @@
     <move select="BackRun Left" hands="left" />
   </path>
 
+  <path name="Beau Cross">
+    <movement hands="left" beats="2" cx1="1" cy1="0" cx2=".8" cy2="-2" x2="4" y2="-2"
+              cx3="1" cx4="1" cy4="-.4" x4="2" y4="-.4" />
+  </path>
+
+  <path name="Belle Cross">
+    <movement hands="right" beats="2" cx1="1" cy1="0" cx2=".8" cy2="2" x2="4" y2="2"
+              cx3="1" cx4="1" cy4=".4" x4="2" y4=".4" />
+  </path>
+
 </moves>
