@@ -39,6 +39,11 @@ class CallContext {
     fun angle(d1: Dancer, d2: Dancer):Double =
         d2.location.concatenate(d1.tx.inverse()).angle
 
+    //  Difference between the angles two dancers are facing
+    //  If the angle is 0 the dancers are facing the same direction
+    //  Angle returned is in the range -pi to pi
+    fun angleDiff(d1:Dancer, d2:Dancer):Double = d1.angle.angleDiff(d2.angle)
+
     //  Distance between two dancers
     fun distance(d1: Dancer, d2: Dancer) =
         (d1.location - d2.location).length
@@ -674,7 +679,7 @@ class CallContext {
 
   //  Return true if this dancer is part of a couple facing same direction
   fun isInCouple(d: Dancer, d2:Dancer?=d.data.partner):Boolean {
-    return d2 != null && d.tx.angle.angleEquals(d2.tx.angle)
+    return d2 != null && angleDiff(d,d2).isApprox(0.0)
   }
 
   //  Return true if this dancer is in tandem with another dancer

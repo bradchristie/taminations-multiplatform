@@ -125,6 +125,8 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
 
   val location: Vector get() = tx.location
 
+  //  angle the dancer is facing relative to the positive x-axis
+  val angle:Double get() = tx.angle
 
   /**
    *   Used for hexagon handholds

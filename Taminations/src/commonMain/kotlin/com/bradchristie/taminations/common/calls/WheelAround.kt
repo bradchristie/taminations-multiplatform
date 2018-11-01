@@ -20,19 +20,19 @@ package com.bradchristie.taminations.common.calls
 */
 
 import com.bradchristie.taminations.common.*
+import com.bradchristie.taminations.common.CallContext.Companion.isRight
 
 class WheelAround : Action("Wheel Around") {
 
   override val level = LevelObject("b2")
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
-    val d2 = d.data.partner ?: throw CallError("Dancer $d is not part of a Facing Couple")
+    val d2 = listOfNotNull(d.data.partner,ctx.dancerToRight(d),ctx.dancerToLeft(d))
+      .firstOrNull { ctx.isInCouple(d,it) }
+      ?: throw CallError("Dancer $d is not part of a Facing Couple")
     if (!d2.data.active)
       throw CallError("Dancer $d must Wheel Around with partner")
-    if ((d.data.beau xor d2.data.beau) && (d.data.belle xor d2.data.belle))
-      return TamUtils.getMove(if (d.data.beau) "Beau Wheel" else "Belle Wheel")
-    else
-      throw CallError("Dancer $d is not part of a Facing Couple")
+    return TamUtils.getMove(if (isRight(d,d2)) "Beau Wheel" else "Belle Wheel")
   }
 
 }
