@@ -21,7 +21,6 @@ package com.bradchristie.taminations.platform
 
 //  ViewGroup is any view that contains child views
 
-//  Default constructor wraps ViewGroup on an existing HTML div
 expect abstract class ViewGroup : View {
 
   val children: MutableList<View>
@@ -37,4 +36,8 @@ expect abstract class ViewGroup : View {
 
   open fun clear()
 
+}
+
+fun View.removeFromParent() {
+  parentView?.removeView(this)
 }

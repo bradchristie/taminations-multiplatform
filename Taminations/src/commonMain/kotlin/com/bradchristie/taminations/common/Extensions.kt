@@ -126,13 +126,14 @@ val Double.sqrt:Double get() = sqrt(this)
 val Double.sq:Double get() = this * this
 val Double.sin:Double get() = sin(this)
 val Double.cos:Double get() = cos(this)
-val Double.toDegrees:Double get() = this * 180 / PI
 val Double.toRadians:Double get() = this * PI / 180
 fun Double.isApprox(y:Double,delta:Double=0.1):Boolean = (this-y).abs < delta
+infix fun Double.isAbout(y:Double):Boolean = this.isApprox(y)
 fun Double.isApproxInt(delta:Double=0.1):Boolean = (this-this.round).abs < delta
 fun Double.angleDiff(a2:Double):Double =
     ((((this-a2) % (PI*2)) + (PI*3)) % (PI*2)) - PI
 fun Double.angleEquals(a2:Double) = this.angleDiff(a2).isApprox(0.0)
+infix fun Double.isAround(a2:Double):Boolean = this.angleEquals(a2)
 //  These can be used as functions or operators: a.min(b) or a min b
 infix fun Int.min(i:Int) = min(this,i)
 infix fun Int.max(i:Int) = max(this,i)
@@ -142,12 +143,20 @@ val Int.abs:Int get() = abs(this)
 infix fun Double.max(x:Double) = max(this,x)
 infix fun Double.min(x:Double) = min(this,x)
 
-fun Double.IEEErem(p:Double):Double {
-  val r = (this % p).abs
-  return if (r.isNaN() || r==p || r <= p.abs/2.0)
+/*  IEEErem computes the number equal to x - (y Q),
+    where Q is the quotient of x / y rounded to the nearest integer
+    (if x / y falls halfway between two integers, the even integer is returned).
+    Unlike the rem operator (%) which for positive numbers gives a result
+    between 0 and y, IEEErem returns a result between -y/2 and y/2.
+ */
+@Suppress("FunctionName")
+fun Double.IEEErem(y:Double):Double
+{
+  val r = (this % y).abs
+  return if (r.isNaN() || r==y || r <= y.abs/2.0)
     r
   else
-    this.sign * (r - p)
+    this.sign * (r - y)
 }
 
 

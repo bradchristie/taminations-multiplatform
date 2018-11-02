@@ -34,6 +34,7 @@ import com.bradchristie.taminations.platform.LinearLayout
 import com.bradchristie.taminations.platform.Page
 import com.bradchristie.taminations.platform.System.later
 import com.bradchristie.taminations.platform.View
+import com.bradchristie.taminations.platform.removeFromParent
 import kotlin.properties.Delegates.notNull
 
 class Taminations : Activity(), ActivityCompat.OnRequestPermissionsResultCallback
@@ -134,6 +135,7 @@ actual object Application : Page() {
     fillParent()
     //  Add the title bar
     //titleBar = TitleBar()
+    titleBar.removeFromParent()
     appendView(titleBar) {
       weight = 1
     }
@@ -149,6 +151,7 @@ actual object Application : Page() {
   override fun doRequest(request: Request): Boolean {
     //  Hard-wire some pages for landscape
     if (request.action == Request.Action.PRACTICE ||
+        request.action == Request.Action.TUTORIAL ||
         request.action == Request.Action.STARTPRACTICE)
       Taminations.context.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
     //  Definition page from Practice is landscape

@@ -350,6 +350,7 @@ class CallContext {
 
   //  Once a mapping of two formations is found,
   //  this computes the difference between the two.
+  @Suppress("ArrayInDataClass")
   data class FormationMatchResult(
     var transform:Matrix,
     var offsets:Array<Vector>
@@ -575,6 +576,7 @@ class CallContext {
       "T-Bone RDRD",
       "Static Square"
   )
+  @Suppress("ArrayInDataClass")
   data class BestMapping(
       var name:String,
       var mapping:IntArray,
@@ -654,7 +656,7 @@ class CallContext {
   //  Return dancers that are in between two other dancers
   fun inBetween(d1: Dancer, d2: Dancer):List<Dancer> =
       dancers.filter { it != d1 && it != d2 &&
-          (distance(it, d1) + distance(it, d2)).isApprox(distance(d1, d2))  }
+          (distance(it, d1) + distance(it, d2)) isAbout distance(d1, d2) }
 
   //  Return all the dancers to the right, in order
   fun dancersToRight(d: Dancer):List<Dancer> = dancersInOrder(d, isRightF(d))
@@ -674,12 +676,12 @@ class CallContext {
 
     //  Return true if this dancer is in a wave or mini-wave
   fun isInWave(d:Dancer,d2:Dancer?=d.data.partner):Boolean {
-    return d2 != null && angle(d, d2).angleEquals(angle(d2, d))
+    return d2 != null && angle(d, d2) isAround angle(d2, d)
   }
 
   //  Return true if this dancer is part of a couple facing same direction
   fun isInCouple(d: Dancer, d2:Dancer?=d.data.partner):Boolean {
-    return d2 != null && angleDiff(d,d2).isApprox(0.0)
+    return d2 != null && angleDiff(d,d2) isAbout 0.0
   }
 
   //  Return true if this dancer is in tandem with another dancer
