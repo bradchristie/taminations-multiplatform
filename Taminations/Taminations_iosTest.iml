@@ -4,9 +4,9 @@
     <facet type="kotlin-language" name="Kotlin">
       <configuration version="3" platform="Native " useProjectSettings="false" isTestModule="true" externalProjectId=":Taminations">
         <sourceSets>
+          <sourceSet>Taminations_commonMain</sourceSet>
           <sourceSet>Taminations_iosMain</sourceSet>
           <sourceSet>Taminations_commonTest</sourceSet>
-          <sourceSet>Taminations_commonMain</sourceSet>
         </sourceSets>
         <newMppModelJpsModuleKind>COMPILATION_AND_SOURCE_SET_HOLDER</newMppModelJpsModuleKind>
         <compilerSettings />
@@ -27,12 +27,12 @@
     <orderEntry type="jdk" jdkName="Kotlin SDK" jdkType="KotlinSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Taminations_commonTest" />
-    <orderEntry type="module" module-name="Taminations_commonMain" />
-    <orderEntry type="module" module-name="Taminations_iosMain" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.0" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-test-common:1.3.0" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-test-annotations-common:1.3.0" level="project" />
     <orderEntry type="library" name="Gradle: Kotlin/Native:stdlib:1.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-test-annotations-common:1.3.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-test-common:1.3.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.0" level="project" />
+    <orderEntry type="module" module-name="Taminations_iosMain" />
+    <orderEntry type="module" module-name="Taminations_commonMain" />
   </component>
   <component name="TestModuleProperties" production-module="Taminations_iosMain" />
 </module>

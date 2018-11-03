@@ -27,6 +27,8 @@ class CallListModel(private val view: CallListView) {
 
   fun reset(level:String, search:String = "") {
     view.clearItems()
+    if (search.isEmpty())
+      view.searchInput.text = ""
     val d = LevelObject.find(level)
     val list = d.doc.evalXPath(d.selector)
     list.filter { it.attr("title").toLowerCase().contains(search.toLowerCase()) }
