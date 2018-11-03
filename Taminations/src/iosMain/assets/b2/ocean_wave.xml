@@ -103,7 +103,7 @@
   <tam title="Step to a Left-Hand Wave"
        from="Facing Lines"
        formation="Normal Lines"
-       fractions="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
     </path>
@@ -115,6 +115,58 @@
     </path>
     <path>
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Heads Step to a Wave" group=" "
+       formation="Static Square"
+       difficulty="2">
+    <path>
+      <move select="Extend Left" beats="3" scaleX="3" />
+    </path>
+    <path>
+      <move select="Forward 3" offsetY=".25" />
+    </path>
+    <path/>
+    <path/>
+  </tam>
+
+  <tam title="Sides Step to a Wave" group=" "
+       formation="Static Square" display="none"
+       difficulty="2">
+    <path/>
+    <path/>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="3" />
+    </path>
+    <path>
+      <move select="Forward 3" offsetY=".25" />
+    </path>
+  </tam>
+
+  <tam title="Heads Step to a Left-Hand Wave" group=" "
+       formation="Static Square"
+       difficulty="2">
+    <path>
+      <move select="Forward 3" offsetY="-.25" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3" />
+    </path>
+    <path/>
+    <path/>
+  </tam>
+
+  <tam title="Sides Step to a Left-Hand Wave" group=" "
+       formation="Static Square" display="none"
+       difficulty="2">
+    <path/>
+    <path/>
+    <path>
+      <move select="Forward 3" offsetY="-.25" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3" />
     </path>
   </tam>
 

@@ -1066,6 +1066,8 @@
   <call level="Basic and Mainstream" link="b1/grand_square" sublevel="Basic 1" text="headsstarthrusidesfacegrandsquare" title="Heads Star Thru, Sides Face, Grand Square" />
   <call level="Challenge" link="c2/grand_chain_eight" sublevel="C-2" text="headsstartsplitgrandchaineight" title="Heads Start Split Grand Chain Eight" />
   <call level="Advanced" link="a1/split_square_thru" sublevel="A-1" text="headsstartsplitsquarethru" title="Heads Start Split Square Thru" />
+  <call level="Basic and Mainstream" link="b2/ocean_wave" sublevel="Basic 2" text="headssteptoalefthandwave" title="Heads Step to a Left-Hand Wave" />
+  <call level="Basic and Mainstream" link="b2/ocean_wave" sublevel="Basic 2" text="headssteptoawave" title="Heads Step to a Wave" />
   <call level="Basic and Mainstream" link="b2/wheel_around" sublevel="Basic 2" text="headswheelaround" title="Heads Wheel Around" />
   <call level="Basic and Mainstream" link="b1/dive_thru" sublevel="Basic 1" text="headswheelaroundandmakeanarchsidesdivethru" title="Heads Wheel Around and make an Arch, Sides Dive Thru" />
   <call level="Challenge" link="c1/wheel_fan_thru" sublevel="C-1" text="headswheelfanthru" title="Heads Wheel Fan Thru" />
@@ -1662,6 +1664,8 @@
   <call level="Basic and Mainstream" link="b1/square_thru" sublevel="Basic 1" text="sidessquarethru3" title="Sides Square Thru 3" />
   <call level="Basic and Mainstream" link="b1/square_thru" sublevel="Basic 1" text="sidessquarethru4" title="Sides Square Thru 4" />
   <call level="Advanced" link="a1/split_square_thru" sublevel="A-1" text="sidesstartsplitsquarethru" title="Sides Start Split Square Thru" />
+  <call level="Basic and Mainstream" link="b2/ocean_wave" sublevel="Basic 2" text="sidessteptoalefthandwave" title="Sides Step to a Left-Hand Wave" />
+  <call level="Basic and Mainstream" link="b2/ocean_wave" sublevel="Basic 2" text="sidessteptoawave" title="Sides Step to a Wave" />
   <call level="Challenge" link="c1/wheel_fan_thru" sublevel="C-1" text="sideswheelfanthru" title="Sides Wheel Fan Thru" />
   <call level="Advanced" link="a1/wheel_thru" sublevel="A-1" text="sideswheelthru" title="Sides Wheel Thru" />
   <call level="Challenge" link="c3b/sidetrack" sublevel="C-3B" text="sidetrack" title="Sidetrack" />

@@ -50,6 +50,36 @@
     </path>
   </tam>
 
+  <tam title="Scoot Back" from="Right-Hand T-Bone" display="none">
+    <formation>
+      <dancer gender="boy" x="-1.0" y="1" angle="0" />
+      <dancer gender="girl" x="-1.0" y="-1" angle="270" />
+    </formation>
+    <path>
+      <move select="Extend Right" scaleY=".25" beats="1.5"/>
+      <move select="Swing Right" scaleX=".75" scaleY=".75" />
+      <move select="Extend Left" scaleY=".25" beats="1.5"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="6" />
+    </path>
+  </tam>
+
+  <tam title="Scoot Back" from="Left-Hand T-Bone" display="none">
+    <formation>
+      <dancer gender="boy" x="-1.0" y="-1" angle="0" />
+      <dancer gender="girl" x="-1.0" y="1" angle="90" />
+    </formation>
+    <path>
+      <move select="Extend Left" scaleY=".25" beats="1.5"/>
+      <move select="Swing Left" scaleX=".75" scaleY=".75" />
+      <move select="Extend Right" scaleY=".25" beats="1.5"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="6" />
+    </path>
+  </tam>
+
   <tam title="Scoot Back"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGBG"
@@ -135,6 +165,86 @@
     </path>
     <path>
       <move select="Run Left" beats="6" scaleX=".5" />
+    </path>
+  </tam>
+
+  <tam title="Scoot Back" display="none"
+       from="T-Bones URUR" formation="T-Bone URUR">
+    <path>
+      <move select="Extend Right" scaleY=".25" beats="1.5"/>
+      <move select="Swing Right" scaleX=".75" scaleY=".75" />
+      <move select="Extend Left" scaleY=".25" beats="1.5"/>
+    </path>
+    <path>
+      <move select="Run Left" scaleX="0.5" beats="6" />
+    </path>
+    <path>
+      <move select="Extend Right" scaleY=".25" beats="1.5"/>
+      <move select="Swing Right" scaleX=".75" scaleY=".75" />
+      <move select="Extend Left" scaleY=".25" beats="1.5"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="6" />
+    </path>
+  </tam>
+
+  <tam title="Scoot Back" display="none"
+       from="T-Bones LULU" formation="T-Bone LULU">
+    <path>
+      <move select="Run Right" beats="6" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="1.5" scaleY=".25" />
+      <move select="Swing Left" scaleX=".75" scaleY=".75" />
+      <move select="Extend Right" beats="1.5" scaleY=".25" />
+    </path>
+    <path>
+      <move select="Run Right" scaleX="0.5" beats="6" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="1.5" scaleY=".25" />
+      <move select="Swing Left" scaleX=".75" scaleY=".75" />
+      <move select="Extend Right" beats="1.5" scaleY=".25" />
+    </path>
+  </tam>
+
+  <tam title="Scoot Back" display="none"
+       from="T-Bones DLDL" formation="T-Bone DLDL">
+    <path>
+      <move select="Run Left" beats="6" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="1.5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" beats="1.5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Run Left" beats="6" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="1.5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" beats="1.5" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Scoot Back" display="none"
+       from="T-Bones RDRD" formation="T-Bone RDRD">
+    <path>
+      <move select="Run Right" beats="6" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="1.5" scaleY=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" beats="1.5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Run Right" beats="6" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="1.5" scaleY=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" beats="1.5" scaleY=".5" />
     </path>
   </tam>
 
