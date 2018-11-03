@@ -65,10 +65,12 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
-##########
+##########  Files added for Taminations  ##########
 
 .gradle/
 build/
 release/
 local.properties
 callindex.xml
+src/main/assets/
+src/iosMain/assets/

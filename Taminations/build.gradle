@@ -45,7 +45,7 @@ task syncAndroidAssets(type: Sync) {
 //  Copy XML files from common area to iOS-specific location
 task syncIosAssets(type: Sync) {
     from 'src/assets'
-    into 'src/iosmain/assets'
+    into 'src/iosMain/assets'
 }
 //  Copy XML files from common area to Javascript build location
 task syncJsAssets(type: Sync) {
