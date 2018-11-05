@@ -24,6 +24,9 @@ import com.bradchristie.taminations.common.Color.Companion.RED
 import com.bradchristie.taminations.common.Color.Companion.WHITE
 import com.bradchristie.taminations.platform.*
 
+//  These are abbreviations used in the sequencer.
+//  There is a standard list of abbreviations,
+//  the user can add or delete to them.
 class AbbreviationsPage : Page() {
 
   override val view = AbbreviationsView()
@@ -40,6 +43,9 @@ class AbbreviationsPage : Page() {
 
 }
 
+//  The view is just two columns of editable text boxes
+//  Pressing return in any box triggers the program to
+//  register and save changes
 class AbbreviationsView : ScrollingLinearLayout() {
 
   data class AbbreviationItem(val abbr:String, val expa:String)
@@ -161,12 +167,16 @@ class AbbreviationModel(val view:AbbreviationsView) {
 
   }
 
+  //  This routine is called when the user presses return
   fun saveAbbreviations() {
+    //  First remove all the old abbreviations
     Storage.keys.forEach {
       if (it.matches("abbrev \\S+".r))
         Storage.remove(it)
     }
+    //  Clear any old errors
     view.clearErrors()
+    //  Process all the current abbreviations
     (0 until view.numItems).forEach { i ->
       when {
         //  error if duplicate
@@ -180,6 +190,8 @@ class AbbreviationModel(val view:AbbreviationsView) {
         view[i].abbr.isNotBlank() -> view.markError(i)
       }
     }
+    //  Be sure we have a blank row at the bottom
+    //  for adding a new abbreviation
     if (view[view.numItems-1].abbr.isNotBlank())
       view.addItem("","")
 
