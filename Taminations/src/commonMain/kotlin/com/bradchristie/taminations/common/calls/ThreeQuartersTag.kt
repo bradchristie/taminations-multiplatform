@@ -23,8 +23,8 @@ import com.bradchristie.taminations.common.*
 
 class ThreeQuartersTag : Action("3/4 Tag the Line") {
 
-  override val level = LevelObject("plus")
-  override val requires = listOf("plus/three_quarters_tag_the_line")
+  override val level = LevelObject("ms")
+  override val requires = listOf("ms/three_quarters_tag_the_line")
 
   override fun perform(ctx: CallContext, i: Int) {
     if (ctx.actives.count() < 8)
