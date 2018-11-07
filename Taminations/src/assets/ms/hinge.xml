@@ -576,4 +576,40 @@
     </path>
   </tam>
 
+  <tam title="Couples Hinge"
+       from="Two-Faced Tidal Line"
+       formation="Two-Faced Tidal Line RH"
+       difficulty="2">
+    <path>
+      <move select="Hinge Right" beats="3" scaleX="3" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Hinge Right" beats="3" hands="both" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Hinge Right" beats="3" hands="both" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Hinge Right" beats="3" scaleX="3" scaleY="1.5" />
+    </path>
+  </tam>
+
+  <tam title="Couples Hinge"
+       from="Two-Faced Tidal Line LH"
+       formation="Two-Faced Tidal Line LH" display="none"
+       difficulty="2">
+    <path>
+      <move select="Hinge Left" beats="3" scaleX="3" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Hinge Left" beats="3" hands="both" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Hinge Left" beats="3" hands="both" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Hinge Left" beats="3" scaleX="3" scaleY="1.5" />
+    </path>
+  </tam>
+
 </tamination>
