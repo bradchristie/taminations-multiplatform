@@ -4,8 +4,8 @@
     <facet type="kotlin-language" name="Kotlin">
       <configuration version="3" platform="JavaScript " useProjectSettings="false" isTestModule="true" externalProjectId=":Taminations">
         <sourceSets>
-          <sourceSet>Taminations_commonMain</sourceSet>
           <sourceSet>Taminations_jsMain</sourceSet>
+          <sourceSet>Taminations_commonMain</sourceSet>
           <sourceSet>Taminations_commonTest</sourceSet>
         </sourceSets>
         <newMppModelJpsModuleKind>COMPILATION_AND_SOURCE_SET_HOLDER</newMppModelJpsModuleKind>

@@ -17,4 +17,4 @@ pluginManagement {
 }
 rootProject.name = 'Taminations-multiplatform'
 
-include ':Taminations'
+include ':Taminations', ':pocketsphinx-android-5prealpha-release'

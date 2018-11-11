@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/Taminations/Taminations_iosTest.iml" filepath="$PROJECT_DIR$/Taminations/Taminations_iosTest.iml" group="Taminations" />
       <module fileurl="file://$PROJECT_DIR$/Taminations/Taminations_jsMain.iml" filepath="$PROJECT_DIR$/Taminations/Taminations_jsMain.iml" group="Taminations" />
       <module fileurl="file://$PROJECT_DIR$/Taminations/Taminations_jsTest.iml" filepath="$PROJECT_DIR$/Taminations/Taminations_jsTest.iml" group="Taminations" />
+      <module fileurl="file://$PROJECT_DIR$/pocketsphinx-android-5prealpha-release/pocketsphinx-android-5prealpha-release.iml" filepath="$PROJECT_DIR$/pocketsphinx-android-5prealpha-release/pocketsphinx-android-5prealpha-release.iml" />
     </modules>
   </component>
 </project>
