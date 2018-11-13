@@ -23,6 +23,7 @@ import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.CallError
 import com.bradchristie.taminations.common.LevelObject
 import com.bradchristie.taminations.common.r
+import com.bradchristie.taminations.platform.System
 
 class Cloverleaf : Action("Cloverleaf") {
 
@@ -32,7 +33,12 @@ class Cloverleaf : Action("Cloverleaf") {
   //  We get here only if standard Cloverleaf with all 8 dancers active fails.
   //  So do a 4-dancer cloverleaf
   override fun perform(ctx: CallContext, i:Int) {
-    ctx.applyCalls("Clover and Nothing")
+    if (ctx.outer(4).all { it.data.active })
+      ctx.applyCalls("Clover and Nothing")
+    else {
+      System.log("Inner 4 active")
+      ctx.applyCalls("Clover and Step")
+    }
   }
 
 }
@@ -61,6 +67,8 @@ class CloverAnd(name:String) : Action(name) {
     ctx1.appendToSource()
     //  And the other 4 do the next call at the same time
     val ctx2 = CallContext(ctx,ctx.dancers.filterNot { d -> d in clovers })
+    ctx2.dancers.forEach { d -> d.data.active = true }
+    System.log("Applying $andcall to ${ctx2.dancers.count()} dancers")
     ctx2.applyCalls(andcall)
     ctx2.appendToSource()
   }

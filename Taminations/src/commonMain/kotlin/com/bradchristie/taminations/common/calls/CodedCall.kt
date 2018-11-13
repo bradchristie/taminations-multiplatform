@@ -75,6 +75,7 @@ abstract class CodedCall(name:String) : Call(name.capWords()) {
         in "slide thru".r -> SlideThru()
         in "slip".r -> Slip()
         in "star thru".r -> StarThru()
+        in "step".r -> Step()
         in "(3.4|three quarters?) tag( the line)?".r -> ThreeQuartersTag()
         in "trailers?".r -> Trailers(c)
         in "(left )?touch (a )?(quarter|1/4)".r -> TouchAQuarter(c)
