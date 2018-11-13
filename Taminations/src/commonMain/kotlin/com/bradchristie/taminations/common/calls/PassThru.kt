@@ -34,7 +34,7 @@ class PassThru : Action("Pass Thru") {
     val d2 = ctx.dancerFacing(d) ?: throw CallError("Dancer ${d.number} has nobody to Pass Thru with")
     if (!d2.data.active)
       throw CallError("Dancers must Pass Thru with each other")
-    val dist = CallContext.distance(d,d2)
+    val dist = d.distanceTo(d2)
     return getMove("Extend Left").scale(dist/2,0.5) +
            getMove("Extend Right").scale(dist/2,0.5)
   }

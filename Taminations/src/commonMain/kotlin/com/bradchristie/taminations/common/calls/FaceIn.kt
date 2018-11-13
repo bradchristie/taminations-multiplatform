@@ -20,15 +20,13 @@ package com.bradchristie.taminations.common.calls
 */
 
 import com.bradchristie.taminations.common.CallContext
-import com.bradchristie.taminations.common.CallContext.Companion.angle
 import com.bradchristie.taminations.common.Dancer
-import com.bradchristie.taminations.common.capWords
 
 class FaceIn(calltext:String) : QuarterTurns(calltext) {
 
   override fun select(ctx: CallContext, d: Dancer): String = when (name) {
-    "Face In" -> if (angle(d) < 0) "Quarter Right" else "Quarter Left"
-    "Face Out" -> if (angle(d) > 0) "Quarter Right" else "Quarter Left"
+    "Face In" -> if (d.angleToOrigin < 0) "Quarter Right" else "Quarter Left"
+    "Face Out" -> if (d.angleToOrigin > 0) "Quarter Right" else "Quarter Left"
     "Face Left" -> "Quarter Left"
     else -> "Quarter Right"
   }

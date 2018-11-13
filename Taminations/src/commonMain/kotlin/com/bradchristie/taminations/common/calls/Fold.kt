@@ -39,8 +39,8 @@ class Fold : Action("Fold") {
         val d2 = d.data.partner ?: throw CallError("Dancer ${d.number} has nobody to Fold in front")
         if (d2.data.active || d2.data.partner != d)
               throw CallError("Dancer ${d.number} has nobody to Fold in front")
-        val m = if (CallContext.isRight(d,d2)) "Fold Right" else "Fold Left"
-        val dist = CallContext.distance(d,d2)
+        val m = if (d2 isRightOf d) "Fold Right" else "Fold Left"
+        val dist = d.distanceTo(d2)
         val dxscale = when {
           ctx.isInWave(d,d2) -> 1.0
           else -> 0.5
@@ -49,12 +49,12 @@ class Fold : Action("Fold") {
           d.data.end -> 0.0
           d.data.center -> 2.0
           else ->  1.0
-        } * if (CallContext.isRight(d,d2)) 1 else -1
+        } * if (d2 isRightOf d) 1 else -1
         d.path += TamUtils.getMove(m).scale(dxscale,1.0).skew(0.0,dyoffset)
         //  Also set path for partner
         val m2 = when {
-          CallContext.isRight(d2,d) -> "Dodge Right"
-          CallContext.isLeft(d2,d) -> "Dodge Left"
+          d isRightOf d2 -> "Dodge Right"
+          d isLeftOf d2 -> "Dodge Left"
           else -> "Stand"  // should never happen
         }
         val mycale = when {

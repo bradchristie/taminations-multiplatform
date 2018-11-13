@@ -20,7 +20,6 @@ package com.bradchristie.taminations.common.calls
 */
 
 import com.bradchristie.taminations.common.*
-import com.bradchristie.taminations.common.CallContext.Companion.isRight
 
 class WheelAround : Action("Wheel Around") {
 
@@ -32,7 +31,7 @@ class WheelAround : Action("Wheel Around") {
       ?: throw CallError("Dancer $d is not part of a Facing Couple")
     if (!d2.data.active)
       throw CallError("Dancer $d must Wheel Around with partner")
-    return TamUtils.getMove(if (isRight(d,d2)) "Beau Wheel" else "Belle Wheel")
+    return TamUtils.getMove(if (d2 isRightOf d) "Beau Wheel" else "Belle Wheel")
   }
 
 }

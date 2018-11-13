@@ -29,7 +29,7 @@ class SlideThru : Action("Slide Thru") {
   override fun performOne(d: Dancer, ctx: CallContext): Path {
     //  Check if in wave, slide thru with adj dancer
     if (ctx.isInWave(d) && d.data.beau && ctx.dancerToRight(d)!!.data.active) {
-      val dist = CallContext.distance(d,ctx.dancerToRight(d)!!)
+      val dist = d.distanceTo(ctx.dancerToRight(d)!!)
       return if (d.gender == Gender.BOY)
             getMove("Lead Right").scale(1.0,dist/2.0)
           else
@@ -38,7 +38,7 @@ class SlideThru : Action("Slide Thru") {
       //  Not in wave
       //  Must be facing dancers
       val d2 = ctx.dancerFacing(d) ?: throw CallError("Dancer $d has nobody to Slide Thru with")
-      val dist = CallContext.distance(d, d2)
+      val dist = d.distanceTo(d2)
       return getMove("Extend Left").scale(dist / 2, 0.5) +
           (if (d.gender == Gender.BOY)
             getMove("Lead Right").scale(1.0, 0.5)

@@ -36,8 +36,8 @@ class ThreeQuartersTag : Action("3/4 Tag the Line") {
   }
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
-    val dist = CallContext.distance(ctx.dancerInBack(d) ?: ctx.dancerInFront(d)!!,d)/2.0
-    return when (ctx.dancersToRight(d).count() + (if (CallContext.isFacingOut(d)) 4 else 0)) {
+    val dist = d.distanceTo(ctx.dancerInBack(d) ?: ctx.dancerInFront(d)!!)/2.0
+    return when (ctx.dancersToRight(d).count() + (if (d.isFacingOut) 4 else 0)) {
       0 -> TamUtils.getMove("Quarter Left").skew(dist-3, 1.0) +
            TamUtils.getMove("Forward 2")
       1 -> TamUtils.getMove("Quarter Left").skew(dist-2,1.0) +

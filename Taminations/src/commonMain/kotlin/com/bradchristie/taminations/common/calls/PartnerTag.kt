@@ -30,8 +30,8 @@ class PartnerTag : Action("Partner Tag") {
     val d2 = listOf(d.data.partner, ctx.dancerToRight(d), ctx.dancerToLeft(d)).firstOrNull {
       it != null && it.data.active
     } ?: throw CallError("Dancer $d cannnot Partner Tag")
-    val dist = CallContext.distance(d,d2)
-    return if (CallContext.isRight(d,d2))
+    val dist = d.distanceTo(d2)
+    return if (d2 isRightOf d)
       TamUtils.getMove("Lead Right").scale(0.5,dist/2) +
       TamUtils.getMove("Extend Right").scale(dist/2,0.5)
     else

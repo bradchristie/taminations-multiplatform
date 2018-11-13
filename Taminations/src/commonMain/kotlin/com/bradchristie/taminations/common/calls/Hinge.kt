@@ -20,8 +20,6 @@ package com.bradchristie.taminations.common.calls
 */
 
 import com.bradchristie.taminations.common.*
-import com.bradchristie.taminations.common.CallContext.Companion.isLeft
-import com.bradchristie.taminations.common.CallContext.Companion.isRight
 
 class Hinge(name:String) : Action(name) {
 
@@ -32,20 +30,20 @@ class Hinge(name:String) : Action(name) {
     val d2 = listOf(d.data.partner, ctx.dancerToRight(d), ctx.dancerToLeft(d)).firstOrNull {
       it != null && it.data.active
     } ?: throw CallError("Dancer $d has no one to hinge with.")
-    val dist = CallContext.distance(d,d2)
+    val dist = d.distanceTo(d2)
     return when {
       //  Hinge from mini-wave, left or right handed
       ctx.isInWave(d,d2) ->
-        TamUtils.getMove(if (isRight(d,d2)) "Hinge Right" else "Hinge Left").scale(1.0,dist/2)
+        TamUtils.getMove(if (d2 isRightOf d) "Hinge Right" else "Hinge Left").scale(1.0,dist/2)
       //  Left Partner Hinge
-      ctx.isInCouple(d,d2) && isRight(d,d2) && name.contains("Left") ->
+      ctx.isInCouple(d,d2) && d2 isRightOf d && name.contains("Left") ->
         TamUtils.getMove("Quarter Right").skew(-1.0,-1.0*(dist/2))
-      ctx.isInCouple(d,d2) && isLeft(d,d2) && name.contains("Left") ->
+      ctx.isInCouple(d,d2) && d2 isLeftOf d && name.contains("Left") ->
         TamUtils.getMove("Lead Left").scale(1.0,dist/2)
       //  Partner Hinge
-      ctx.isInCouple(d,d2) && isRight(d,d2) ->
+      ctx.isInCouple(d,d2) && d2 isRightOf d ->
         TamUtils.getMove("Lead Right").scale(1.0,dist/2)
-      ctx.isInCouple(d,d2) && isLeft(d,d2) ->
+      ctx.isInCouple(d,d2) && d2 isLeftOf d ->
         TamUtils.getMove("Quarter Left").skew(-1.0,1.0*(dist/2))
       else ->
         throw CallError("Dancer $d has no one to hinge with.")

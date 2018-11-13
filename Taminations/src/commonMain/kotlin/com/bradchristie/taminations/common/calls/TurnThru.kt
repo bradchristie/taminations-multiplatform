@@ -36,7 +36,7 @@ class TurnThru(name:String) : Action(name) {
       //  If in waves, Turn Thru has to be right-handed,
       //  Left Turn Thru left-handed
       val d2 = (if (name.contains("Left")) ctx.dancerToLeft(d) else ctx.dancerToRight(d)) ?: throw CallError("Dancer $d has no one to $name with")
-      val dist = CallContext.distance(d, d2)
+      val dist = d.distanceTo(d2)
       return getMove("Swing $dir2").scale(dist/2, 0.5) +
              getMove("Extend $dir2").scale(1.0, 0.5)
     }
@@ -45,7 +45,7 @@ class TurnThru(name:String) : Action(name) {
       val d2 = ctx.dancerFacing(d)
       if (d2 == null || !d2.data.active || ctx.dancerInFront(d2) != d)
         throw CallError("Cannot find dancer to Turn Thru with $d")
-      val dist = CallContext.distance(d, d2)
+      val dist = d.distanceTo(d2)
       return getMove("Extend $dir1").scale(dist / 2, 0.5) +
           getMove("Swing $dir2").scale(0.5, 0.5) +
           getMove("Extend $dir2").scale(dist/2, 0.5)

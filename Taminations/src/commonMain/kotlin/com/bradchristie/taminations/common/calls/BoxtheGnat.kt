@@ -36,7 +36,7 @@ class BoxtheGnat : Action("Box the Gnat") {
   override fun performOne(d: Dancer, ctx: CallContext): Path {
     if (ctx.isInWave(d)) {
       val d2 = checkOtherDancer(d,ctx.dancerToRight(d))
-      val dist = CallContext.distance(d,d2)
+      val dist = d.distanceTo(d2)
       val offset = when {
         dist > 1.5 && d.data.end -> -dist
         dist > 1.5 && d.data.center -> 0.0
@@ -45,7 +45,7 @@ class BoxtheGnat : Action("Box the Gnat") {
       return TamUtils.getMove(if (d.gender==Gender.BOY) "U-Turn Right" else "U-Turn Left").skew(1.0,offset).changehands(Hands.GRIPRIGHT)
     } else {
       val d2 = checkOtherDancer(d,ctx.dancerFacing(d))
-      val dist = CallContext.distance(d, d2)
+      val dist = d.distanceTo(d2)
       val cy1 = if (d.gender == Gender.BOY) 1.0 else 0.1
       val y4 = if (d.gender == Gender.BOY) -2.0 else 2.0
       val hands = if (d.gender == Gender.BOY) Hands.GRIPLEFT else Hands.GRIPRIGHT

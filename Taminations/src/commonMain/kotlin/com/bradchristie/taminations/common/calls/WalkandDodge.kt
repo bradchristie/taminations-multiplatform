@@ -20,7 +20,6 @@ package com.bradchristie.taminations.common.calls
 */
 
 import com.bradchristie.taminations.common.*
-import com.bradchristie.taminations.common.CallContext.Companion.distance
 import com.bradchristie.taminations.common.TamUtils.getMove
 
 //  This handles both generic Walk and Dodge
@@ -73,7 +72,7 @@ class WalkandDodge(name:String) : Action(name) {
         }
         if (ctx.isInCouple(d) && d.data.partner!!.isDodger)
           throw CallError("Dodgers would cross each other")
-        val dist = distance(d,d.data.partner!!)
+        val dist = d.distanceTo(d.data.partner!!)
         return getMove("Dodge $dir").scale(1.0,dist/2.0)
       }
       d.isWalker -> {
@@ -82,7 +81,7 @@ class WalkandDodge(name:String) : Action(name) {
         if (d2 == null || ctx.dancerFacing(d) == d2 && d2.isWalker)
           throw CallError("Walkers cannot face each other")
         else {
-          val dist = distance(d,d2)
+          val dist = d.distanceTo(d2)
           return getMove("Forward").scale(dist,1.0).changebeats(3.0)
         }
       }

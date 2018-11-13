@@ -125,8 +125,47 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
 
   val location: Vector get() = tx.location
 
+  //  distance to another dancer
+  fun distanceTo(d2:Dancer):Double = (location - d2.location).length
+
   //  angle the dancer is facing relative to the positive x-axis
-  val angle:Double get() = tx.angle
+  val angleFacing:Double get() = tx.angle
+
+  //  angle of the dancer's position relative to the positive x-axis
+  val anglePosition:Double get() = tx.location.angle
+
+  //  angle the dancer turns to look at the origin
+  val angleToOrigin:Double get() = Vector().preConcatenate(tx.inverse()).angle
+
+  //  Angle of d2 as viewed from this dancer
+  //  If angle is 0 then d2 is in front
+  //  Angle returned is in the range -pi to pi
+  fun angleToDancer(d2: Dancer):Double =
+    d2.location.concatenate(tx.inverse()).angle
+
+  //  Other geometric interrogatives
+  val isFacingIn : Boolean get() {
+    val a: Double = angleToOrigin.abs
+    return !a.isApprox(PI / 2) && a < PI / 2
+  }
+
+  val isFacingOut: Boolean get() {
+    val a: Double = angleToOrigin.abs
+    return !a.isApprox(PI / 2) && a > PI / 2
+  }
+
+  infix fun isInFrontOf(d2:Dancer) : Boolean =
+    this != d2 && d2.angleToDancer(this).angleEquals(0.0)
+
+  infix fun isInBackOf(d2:Dancer) : Boolean =
+    this != d2 && d2.angleToDancer(this).angleEquals(PI)
+
+  infix fun isRightOf(d2:Dancer) : Boolean =
+    this != d2 && d2.angleToDancer(this).angleEquals(PI*3/2)
+
+  infix fun isLeftOf(d2:Dancer) : Boolean =
+    this != d2 && d2.angleToDancer(this).angleEquals(PI/2)
+
 
   /**
    *   Used for hexagon handholds

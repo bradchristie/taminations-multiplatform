@@ -20,7 +20,6 @@ package com.bradchristie.taminations.common.calls
 */
 
 import com.bradchristie.taminations.common.CallContext
-import com.bradchristie.taminations.common.CallContext.Companion.distance
 import com.bradchristie.taminations.common.Dancer
 import com.bradchristie.taminations.common.Path
 import com.bradchristie.taminations.common.TamUtils

@@ -56,11 +56,11 @@ class Circulate : Action("Circulate") {
   override fun performOne(d: Dancer, ctx: CallContext): Path {
     if (d.data.leader) {
       //  Find another active dancer in the same line and move to that spot
-      val d2 = ctx.dancerClosest(d, { dx ->
-        dx.data.active && (CallContext.isRightF(d)(dx) || CallContext.isLeftF(d)(dx)) } )
+      val d2 = ctx.dancerClosest(d) { dx ->
+        dx.data.active && (dx isRightOf d || dx isLeftOf d) }
       if (d2 != null) {
-        val dist = CallContext.distance(d,d2)
-        return TamUtils.getMove(if (CallContext.isRightF(d)(d2)) "Run Right" else "Run Left")
+        val dist = d.distanceTo(d2)
+        return TamUtils.getMove(if (d2 isRightOf d) "Run Right" else "Run Left")
         .scale(dist/3,dist/2).changebeats(4.0)
       }
     } else if (d.data.trailer) {
@@ -68,7 +68,7 @@ class Circulate : Action("Circulate") {
       //  TODO maybe allow diagonal circulate?
       val d2 = ctx.dancerInFront(d)
       if (d2 != null && d2.data.active) {
-        val dist = CallContext.distance(d,d2)
+        val dist = d.distanceTo(d2)
         return TamUtils.getMove("Forward").scale(dist,1.0).changebeats(4.0)
       }
     }

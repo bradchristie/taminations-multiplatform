@@ -33,52 +33,6 @@ class CallContext {
     //  XML files that have been loaded
     val loadedXML = mutableMapOf<String,TamDocument>()
 
-    //  Angle of d2 as viewed from d1
-    //  If angle is 0 then d2 is in front of d1
-    //  Angle returned is in the range -pi to pi
-    fun angle(d1: Dancer, d2: Dancer):Double =
-        d2.location.concatenate(d1.tx.inverse()).angle
-
-    //  Difference between the angles two dancers are facing
-    //  If the angle is 0 the dancers are facing the same direction
-    //  Angle returned is in the range -pi to pi
-    fun angleDiff(d1:Dancer, d2:Dancer):Double = d1.angle.angleDiff(d2.angle)
-
-    //  Distance between two dancers
-    fun distance(d1: Dancer, d2: Dancer) =
-        (d1.location - d2.location).length
-
-    //  Angle of dancer to the origin
-    fun angle(d: Dancer): Double =
-        Vector().preConcatenate(d.tx.inverse()).angle
-
-    //  Distance of one dancer to the origin
-    fun distance(d1: Dancer) = d1.location.length
-
-    //  Other geometric interrogatives
-    fun isFacingIn(d: Dancer): Boolean {
-      val a: Double = angle(d).abs
-      return !a.isApprox(PI / 2) && a < PI / 2
-    }
-
-    fun isFacingOut(d: Dancer): Boolean {
-      val a: Double = angle(d).abs
-      return !a.isApprox(PI / 2) && a > PI / 2
-    }
-
-    //  Curried functions, test if dancer d2 is directly in front, back. left, right of dancer d1
-    fun isInFrontF(d1: Dancer) = { d2: Dancer -> d1 != d2 && angle(d1, d2).angleEquals(0.0) }
-    fun isInFront(d1:Dancer,d2:Dancer) = isInFrontF(d1)(d2)
-
-    fun isInBackF(d1: Dancer) = { d2: Dancer -> d1 != d2 && angle(d1, d2).angleEquals(PI) }
-    fun isInBack(d1:Dancer,d2:Dancer) = isInBackF(d1)(d2)
-
-    fun isLeftF(d1: Dancer) = { d2: Dancer -> d1 != d2 && angle(d1, d2).angleEquals(PI / 2) }
-    fun isLeft(d1: Dancer, d2: Dancer) = isLeftF(d1)(d2)
-
-    fun isRightF(d1: Dancer) = { d2: Dancer -> d1 != d2 && angle(d1, d2).angleEquals(3 * PI / 2) }
-    fun isRight(d1: Dancer, d2: Dancer) = isRightF(d1)(d2)
-
     //  Load all XML files that might be used to interpret a call
     fun loadCalls(calltext:List<String>, allFilesLoaded:()->Unit) {
       var numfiles = 100  // make sure all possibilities are checked
@@ -180,8 +134,7 @@ class CallContext {
   val actives:List<Dancer> get() = dancers.filter { it.data.active }
 
   //  For convenience, methods forwarded to the companion object
-  fun angle(d1: Dancer, d2: Dancer):Double = Companion.angle(d1, d2)
-  fun angle(d1: Dancer):Double = Companion.angle(d1)
+  fun angle(d1: Dancer):Double = d1.angleToOrigin
 
   /**
    * Append the result of processing this CallContext to it source.
@@ -420,7 +373,7 @@ class CallContext {
     //     angleBin(angle(d1,d2))
     //  else
     //    make this one fuzzy
-    angleBin(angle(d1, d2))
+    angleBin(d1.angleToDancer(d2))
 
   private fun matchFormations(ctx1: CallContext, ctx2: CallContext,
                               sexy:Boolean=false,
@@ -504,8 +457,8 @@ class CallContext {
         //  If dancers are side-by-side, make sure handholding matches by checking distance
         when {
           handholds && (relq1 == 2 || relq1 == 6) && (relq2 == 2 || relq2 == 6) -> {
-            val d1 = distance(ctx1.dancers[i], ctx1.dancers[j])
-            val d2 = distance(ctx2.dancers[mapping[i]], ctx2.dancers[mapping[j]])
+            val d1 = ctx1.dancers[i].distanceTo(ctx1.dancers[j])
+            val d2 = ctx2.dancers[mapping[i]].distanceTo(ctx2.dancers[mapping[j]])
             relq1 == relt1 && relq2 == relt2 && (d1 < 2.1) == (d2 < 2.1)
           }
           fuzzy -> {
@@ -633,20 +586,25 @@ class CallContext {
 
   //  Return all dancers, ordered by distance, that satisfies a conditional
   private fun dancersInOrder(d: Dancer, f:(Dancer)->Boolean): List<Dancer> =
-      (dancers-d).asSequence().filter(f).sortedBy { distance(d, it) }.toList()
+      (dancers-d).asSequence().filter(f).sortedBy { d.distanceTo(it) }.toList()
 
   //  Return closest dancer that satisfies a given conditional
   fun dancerClosest(d: Dancer, f:(Dancer)->Boolean): Dancer? =
       dancersInOrder(d,f).firstOrNull()
 
   //  Return dancer directly in front of given dancer
-  fun dancerInFront(d: Dancer): Dancer? = dancerClosest(d, isInFrontF(d))
+  fun dancerInFront(d: Dancer): Dancer? =
+      dancerClosest(d) { d2 -> d2 isInFrontOf  d }
+
   //  Return dancer directly in back of given dancer
-  fun dancerInBack(d: Dancer): Dancer? = dancerClosest(d, isInBackF(d))
+  fun dancerInBack(d: Dancer): Dancer? =
+      dancerClosest(d) { d2 -> d2 isInBackOf d }
   //  Return dancer directly to the right of given dancer
-  fun dancerToRight(d: Dancer): Dancer? = dancerClosest(d, isRightF(d))
+  fun dancerToRight(d: Dancer): Dancer? =
+      dancerClosest(d) { d2 -> d2 isRightOf d }
   //  Return dancer directly to the left of given dancer
-  fun dancerToLeft(d: Dancer): Dancer? = dancerClosest(d, isLeftF(d))
+  fun dancerToLeft(d: Dancer): Dancer? =
+      dancerClosest(d) { d2 -> d2 isLeftOf d }
 
   //  Return dancer that is facing the front of this dancer
   fun dancerFacing(d: Dancer): Dancer? {
@@ -657,19 +615,23 @@ class CallContext {
   //  Return dancers that are in between two other dancers
   fun inBetween(d1: Dancer, d2: Dancer):List<Dancer> =
       dancers.filter { it != d1 && it != d2 &&
-          (distance(it, d1) + distance(it, d2)) isAbout distance(d1, d2) }
+          (it.distanceTo(d1) + it.distanceTo(d2)) isAbout d1.distanceTo(d2) }
 
   //  Return all the dancers to the right, in order
-  fun dancersToRight(d: Dancer):List<Dancer> = dancersInOrder(d, isRightF(d))
+  fun dancersToRight(d: Dancer):List<Dancer> =
+      dancersInOrder(d) { d2 -> d2 isRightOf d }
 
   //  Return all the dancers to the left, in order
-  fun dancersToLeft(d: Dancer):List<Dancer> = dancersInOrder(d, isLeftF(d))
+  fun dancersToLeft(d: Dancer):List<Dancer> =
+      dancersInOrder(d) { d2 -> d2 isLeftOf d }
 
   //  Return all the dancers in front, in order
-  private fun dancersInFront(d: Dancer):List<Dancer> = dancersInOrder(d, isInFrontF(d))
+  private fun dancersInFront(d: Dancer):List<Dancer> =
+      dancersInOrder(d) { d2 -> d2 isInFrontOf d }
 
   //  Return all the dancers in back, in order
-  fun dancersInBack(d: Dancer):List<Dancer> = dancersInOrder(d, isInBackF(d))
+  fun dancersInBack(d: Dancer):List<Dancer> =
+      dancersInOrder(d) { d2 -> d2 isInBackOf d }
 
   //  Return outer 2, 4 , 6 dancers
   fun outer(num:Int):List<Dancer> =
@@ -677,12 +639,12 @@ class CallContext {
 
     //  Return true if this dancer is in a wave or mini-wave
   fun isInWave(d:Dancer,d2:Dancer?=d.data.partner):Boolean {
-    return d2 != null && angle(d, d2) isAround angle(d2, d)
+    return d2 != null && d.angleToDancer(d2) isAround d2.angleToDancer(d)
   }
 
   //  Return true if this dancer is part of a couple facing same direction
   fun isInCouple(d: Dancer, d2:Dancer?=d.data.partner):Boolean {
-    return d2 != null && angleDiff(d,d2) isAbout 0.0
+    return d2 != null && d.angleFacing isAround d2.angleFacing
   }
 
   //  Return true if this dancer is in tandem with another dancer
@@ -798,31 +760,31 @@ class CallContext {
       dancers.filter { it != d1 }.forEach { d2 ->
         //  Count dancers to the left and right,
         //  and find the closest on each side
-        if (isRightF(d1)(d2)) {
+        if (d2 isRightOf d1) {
           rightcount += + 1
-          if (bestright == null || distance(d1, d2) < distance(d1, bestright!!))
+          if (bestright == null || d1.distanceTo(d2) < d1.distanceTo(bestright!!))
             bestright = d2
         }
-        else if (isLeftF(d1)(d2)) {
+        else if (d2 isLeftOf d1) {
           leftcount += 1
-          if (bestleft == null || distance(d1, d2) < distance(d1, bestleft!!))
+          if (bestleft == null || d1.distanceTo(d2) < d1.distanceTo(bestleft!!))
             bestleft = d2
         }
         //  Also count dancers in front and in back
-        else if (isInFrontF(d1)(d2))
+        else if (d2 isInFrontOf d1)
           frontcount += 1
-        else if (isInBackF(d1)(d2))
+        else if (d2 isInBackOf d1)
           backcount += 1
       }
       //  Use the results of the counts to assign belle/beau/leader/trailer
       //  and partner
       if (leftcount % 2 == 1 && rightcount % 2 == 0 &&
-          distance(d1, bestleft!!) < 3) {
+          d1.distanceTo(bestleft!!) < 3) {
         d1.data.partner = bestleft
         d1.data.belle = true
       }
       else if (rightcount % 2 == 1 && leftcount % 2 == 0 &&
-          distance(d1, bestright!!) < 3) {
+          d1.distanceTo(bestright!!) < 3) {
         d1.data.partner = bestright
         d1.data.beau = true
       }
@@ -867,7 +829,7 @@ class CallContext {
     //  Otherwise, if there are 4 dancers closer to the center than the other 4,
     //  they are the centers
     else if (dancers.count() > 4 &&
-        !distance(dorder[3]).isApprox(distance(dorder[4])))
+        !(dorder[3].location.length isAbout dorder[4].location.length))
       listOf(0, 1, 2, 3).forEach { i -> dorder[i].data.center = true }
   }
 

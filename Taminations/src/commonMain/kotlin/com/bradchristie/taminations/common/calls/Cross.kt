@@ -20,8 +20,6 @@ package com.bradchristie.taminations.common.calls
 */
 
 import com.bradchristie.taminations.common.*
-import com.bradchristie.taminations.common.CallContext.Companion.angle
-import com.bradchristie.taminations.common.CallContext.Companion.distance
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
@@ -47,10 +45,10 @@ class Cross : Action("Cross") {
       if (d.tx.angle.angleDiff(it.tx.angle).abs.isApprox(PI)) {
         when {
           d2 == null -> d2 = it
-          distance(d,d2!!).isApprox(distance(d,it)) ->
-            if (distance(it) > distance(d2!!))
+          d.distanceTo(d2!!).isApprox(d.distanceTo(it)) ->
+            if (it.location.length > d2!!.location.length)
               d2 = it
-          distance(d,it) < distance(d,d2!!) -> d2 = it
+          d.distanceTo(it) < d.distanceTo(d2!!) -> d2 = it
         }
       }
     }
@@ -58,8 +56,8 @@ class Cross : Action("Cross") {
       throw CallError("Cannot find dancer to Cross with $d")
     //  Now compute the X and Y values to travel
     //  The standard has x distance = 2 and y distance = 2
-    val a = angle(d,d2!!)
-    val dist = distance(d,d2!!)
+    val a = d.angleToDancer(d2!!)
+    val dist = d.distanceTo(d2!!)
     val x = dist * cos(a)
     val y = dist * sin(a.abs)
     return TamUtils.getMove(if (a > 0) "Cross Left" else "Cross Right").scale(x/2.0,y/2.0)

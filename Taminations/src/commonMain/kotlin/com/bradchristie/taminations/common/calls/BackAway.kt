@@ -25,7 +25,7 @@ import com.bradchristie.taminations.common.*
 class BackAway : Action("Back Away") {
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
-    if (CallContext.isFacingIn(d) && ctx.dancersInBack(d).count()==0)
+    if (d.isFacingIn && ctx.dancersInBack(d).count()==0)
       //  TODO hold hands with partner?
       return TamUtils.getMove("Back 2")
     else

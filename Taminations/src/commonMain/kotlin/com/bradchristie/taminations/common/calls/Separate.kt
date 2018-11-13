@@ -37,17 +37,17 @@ class Separate : Action("Separate") {
       ctx.outer(4).all { it.data.active } -> ctx.actives.forEach { d ->
         val d2 = ctx.dancerClosest(d) { it.data.active }!!
         when {
-          CallContext.isRight(d,d2) && CallContext.isFacingIn(d) ->
+          d2 isRightOf d && d.isFacingIn ->
             d.path += TamUtils.getMove("Quarter Left") +
               TamUtils.getMove("Lead Right").changebeats(2.0).scale(2.0,2.0)
-          CallContext.isRight(d,d2) && CallContext.isFacingOut(d) ->
+          d2 isRightOf d && d.isFacingOut ->
             d.path += TamUtils.getMove("Quarter Left") +
               TamUtils.getMove("Lead Left").changebeats(2.0).scale(2.0,2.0)
 
-          CallContext.isLeft(d,d2) && CallContext.isFacingIn(d) ->
+          d2 isLeftOf d && d.isFacingIn ->
             d.path += TamUtils.getMove("Quarter Right") +
               TamUtils.getMove("Lead Left").changebeats(2.0).scale(2.0,2.0)
-          CallContext.isLeft(d,d2) && CallContext.isFacingOut(d) ->
+          d2 isLeftOf d && d.isFacingOut ->
             d.path += TamUtils.getMove("Quarter Right") +
               TamUtils.getMove("Lead Right").changebeats(2.0).scale(2.0,2.0)
           else -> throw CallError("Unable to figure out how to Separate")
@@ -55,23 +55,26 @@ class Separate : Action("Separate") {
       }
 
       //  Case 2 - Centers facing out Separate
-      ctx.actives.all { CallContext.isFacingOut(it) } -> {
+      ctx.actives.all { it.isFacingOut } -> {
         ctx.actives.forEach { d ->
           val d2 = ctx.dancerClosest(d) { it.data.active &&
-              (CallContext.isRight(d,it) || CallContext.isLeft(d,it)) }
+              (it isRightOf d || it isLeftOf d) }
           when {
-            d2 != null && CallContext.isRight(d, d2) -> d.path +=
+            d2 != null && d2 isRightOf d -> d.path +=
                 TamUtils.getMove("Run Left")
-            d2 != null && CallContext.isLeft(d, d2) -> d.path +=
+            d2 != null && d2 isLeftOf d -> d.path +=
                 TamUtils.getMove("Run Right")
             else -> throw CallError("Unable to figure out how to Separate")
           }
         }
         //  Other dancers need to move in
-        ctx.dancers.filter { !it.data.active }.forEach { d ->
-          val d2 = ctx.dancerClosest(d) { !it.data.active && CallContext.isInFront(d,it) }
-          if (d2 != null) {
-            val dist = CallContext.distance(d,d2)/2-1
+        ctx.dancers.filter { d -> !d.data.active }.forEach { d ->
+          //  Find the other inactive dancer that this dancer will face
+          ctx.dancerClosest(d) {
+            !it.data.active && it isInFrontOf d
+          }?.let { d2 ->
+            //  Space the dancers 2 units apart
+            val dist = d.distanceTo(d2)/2-1
             d.path += TamUtils.getMove("Forward").scale(dist,1.0).changebeats(3.0)
           }
         }

@@ -40,21 +40,21 @@ class Run : Action("Run") {
         //  check if another dancer is running around this dancer's "partner"
         val d3 = d2.data.partner
         if (d != d3 && d3!=null && d3.data.active) {
-          d2 = (if (CallContext.isRight(d,d3))
+          d2 = (if (d3 isRightOf d)
             ctx.dancerToRight(d) else ctx.dancerToLeft(d))
               ?: throw CallError("Dancer ${d.number} has nobody to Run around")
         }
         if (d2.data.active)
           throw CallError("Dancers cannot Run around each other.")
-        val m = if (CallContext.isRight(d,d2)) "Run Right" else "Run Left"
-        val dist = CallContext.distance(d,d2)
+        val m = if (d2 isRightOf d) "Run Right" else "Run Left"
+        val dist = d.distanceTo(d2)
         d.path.add(TamUtils.getMove(m).scale(1.0,dist/2))
         //  Also set path for partner
         val m2 = when {
-          CallContext.isRight(d2,d) -> "Dodge Right"
-          CallContext.isLeft(d2,d) -> "Dodge Left"
-          CallContext.isInFront(d2,d) -> "Forward 2"
-          CallContext.isInBack(d2,d) -> "Back 2"   //  really ???
+          d isRightOf d2 -> "Dodge Right"
+          d isLeftOf d2 -> "Dodge Left"
+          d isInFrontOf d2 -> "Forward 2"
+          d isInBackOf d2 -> "Back 2"   //  really ???
           else -> "Stand"  // should never happen
         }
         d2.path.add(TamUtils.getMove(m2).scale(1.0,dist/2))

@@ -20,7 +20,6 @@ package com.bradchristie.taminations.common.calls
 */
 
 import com.bradchristie.taminations.common.*
-import com.bradchristie.taminations.common.CallContext.Companion.distance
 import com.bradchristie.taminations.common.TamUtils.getMove
 
 class TouchAQuarter(name:String) : Action(name) {
@@ -29,7 +28,7 @@ class TouchAQuarter(name:String) : Action(name) {
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
     val d2 = ctx.dancerFacing(d) ?: throw CallError("Dancer ${d.number} cannot Touch a Quarter")
-    return getMove("Extend Left").scale(distance(d,d2)/2.0,1.0).add(getMove("Hinge Right"))
+    return getMove("Extend Left").scale(d.distanceTo(d2)/2.0,1.0).add(getMove("Hinge Right"))
                                  .ifdo(name.matches(Regex("Left.*")), { p -> p.reflect() })
   }
 

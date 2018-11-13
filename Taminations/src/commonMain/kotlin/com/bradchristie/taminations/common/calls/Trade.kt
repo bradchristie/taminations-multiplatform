@@ -20,9 +20,6 @@ package com.bradchristie.taminations.common.calls
 */
 
 import com.bradchristie.taminations.common.*
-import com.bradchristie.taminations.common.CallContext.Companion.distance
-import com.bradchristie.taminations.common.CallContext.Companion.isLeftF
-import com.bradchristie.taminations.common.CallContext.Companion.isRightF
 
 class Trade : Action("Trade") {
 
@@ -36,21 +33,23 @@ class Trade : Action("Trade") {
     var bestright: Dancer? = null
     ctx.actives.forEach { d2 ->
       if (d2 != d) {
-        if (isLeftF(d)(d2)) {
-          if (leftcount==0 || distance(d,d2) < distance(d,bestleft!!))
+        if (d2 isLeftOf d) {
+          if (leftcount==0 || d.distanceTo(d2) < d.distanceTo(bestleft!!))
             bestleft = d2
           leftcount += 1
-        } else if (isRightF(d)(d2)) {
-          if (rightcount==0 || distance(d,d2) < distance(d,bestright!!))
+        } else if (d2 isRightOf d) {
+          if (rightcount==0 || d.distanceTo(d2) < d.distanceTo(bestright!!))
             bestright = d2
           rightcount += 1
         }
       }
     }
     //  Check that the trading dancer is facing same or opposite direction
-    if (bestright!=null && !CallContext.isRight(bestright!!,d) && !CallContext.isLeft(bestright!!,d))
+    if (bestright!=null && !(d isRightOf bestright!!) &&
+      !(d isLeftOf bestright!!))
       bestright = null
-    if (bestleft!=null && !CallContext.isRight(bestleft!!,d) && !CallContext.isLeft(bestleft!!,d))
+    if (bestleft!=null && !( d isRightOf bestleft!!) &&
+      !(d isLeftOf bestleft!!))
       bestleft = null
 
     val dtrade: Dancer
@@ -61,11 +60,11 @@ class Trade : Action("Trade") {
     if (bestright!=null && ((rightcount % 2 == 1 && leftcount % 2 == 0) || bestleft==null)) {
       dtrade = bestright!!
       call = "Run Right"
-      samedir = isLeftF(dtrade)(d)
+      samedir = d isLeftOf dtrade
     } else if (bestleft!=null && ((rightcount % 2 == 0 && leftcount % 2 == 1) || bestright==null)) {
       dtrade = bestleft!!
       call = "Run Left"
-      samedir = isRightF(dtrade)(d)
+      samedir = d isRightOf dtrade
     }
     //  else throw error
     else
@@ -74,7 +73,7 @@ class Trade : Action("Trade") {
     //  Found the dancer to trade with.
     //  Now make room for any dancers in between
     var hands = Hands.NOHANDS
-    val dist = distance(d, dtrade)
+    val dist = d.distanceTo(dtrade)
     var scaleX = 1.0
     if (ctx.inBetween(d,dtrade).isNotEmpty()) {
       //  Intervening dancers

@@ -46,7 +46,7 @@ class CloverAnd(name:String) : Action(name) {
     //  First check the outer 4
     val outer4 = ctx.dancers.asSequence().sortedBy{ d -> d.location.length}.drop(4).toList()
     //  If that fails try for 4 dancers facing out
-    val facingOut = ctx.dancers.filter { d -> CallContext.isFacingOut(d) }
+    val facingOut = ctx.dancers.filter { d -> d.isFacingOut }
     val clovers = when {
       //  Don't use outer4 directly, instead filter facingOut
       //  This preserves the original order, required for mapping

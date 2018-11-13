@@ -79,7 +79,7 @@ open class Case1 : Action("and Spread") {
         //  Inactive dancers move forward
         val d2 = ctx.dancerInFront(d)
         if (d2 != null) {
-          val dist = CallContext.distance(d,d2)
+          val dist = d.distanceTo(d2)
           d.path.add(TamUtils.getMove("Forward").scale(dist,1.0).changebeats(2.0))
         }
       }
