@@ -21,7 +21,7 @@ package com.bradchristie.taminations.common.calls
 
 import com.bradchristie.taminations.common.*
 
-class WheelAround : Action("Wheel Around") {
+class WheelAround(name:String) : Action(name) {
 
   override val level = LevelObject("b2")
 
@@ -31,7 +31,20 @@ class WheelAround : Action("Wheel Around") {
       ?: throw CallError("Dancer $d is not part of a Facing Couple")
     if (!d2.data.active)
       throw CallError("Dancer $d must Wheel Around with partner")
-    return TamUtils.getMove(if (d2 isRightOf d) "Beau Wheel" else "Belle Wheel")
+    val move =
+        if (name.toLowerCase().startsWith("reverse")) {
+          if (d2 isRightOf d)
+            "Beau Reverse Wheel"
+          else
+            "Belle Reverse Wheel"
+        } else {
+          if (d2 isRightOf d)
+            "Beau Wheel"
+          else
+            "Belle Wheel"
+        }
+
+    return TamUtils.getMove(move)
   }
 
 }

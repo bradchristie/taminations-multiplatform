@@ -29,26 +29,7 @@ abstract class QuarterTurns(name:String) : Action(name) {
   abstract fun select(ctx: CallContext, d: Dancer):String
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
-    var offsetX = 0.0
-    val move = select(ctx,d)
-    //  If leader or trailer, make sure to adjust quarter turn
-    //  so handhold is possible
-    /*
-    if (move != "Stand") {
-      if (d.data.leader) {
-        val d2 = ctx.dancerInBack(d)!!
-        val dist = distance(d,d2)
-        if (dist > 2 && dist < 5)
-          offsetX = -(dist-2)/2
-      }
-      if (d.data.trailer) {
-        val d2 = ctx.dancerInFront(d)!!
-        val dist = distance(d,d2)
-        if (dist > 2 && dist < 5)
-          offsetX = (dist-2)/2
-      }
-    } */
-    return TamUtils.getMove(move).skew(offsetX,0.0)
+    return TamUtils.getMove(select(ctx,d))
   }
 
 }

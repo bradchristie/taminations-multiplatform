@@ -28,8 +28,10 @@ class TouchAQuarter(name:String) : Action(name) {
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
     val d2 = ctx.dancerFacing(d) ?: throw CallError("Dancer ${d.number} cannot Touch a Quarter")
-    return getMove("Extend Left").scale(d.distanceTo(d2)/2.0,1.0).add(getMove("Hinge Right"))
-                                 .ifdo(name.matches(Regex("Left.*")), { p -> p.reflect() })
+    return getMove("Extend Left")
+        .scale(d.distanceTo(d2)/2.0,1.0)
+        .add(getMove("Hinge Right"))
+        .ifAlso(name.matches(Regex("Left.*"))) { p -> p.reflect() }
   }
 
 }

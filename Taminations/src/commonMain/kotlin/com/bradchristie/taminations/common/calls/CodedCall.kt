@@ -93,7 +93,7 @@ abstract class CodedCall(name:String) : Call(name.capWords()) {
         in "$specifier walk (and )?$specifier dodge".r -> WalkandDodge(c)
         //  Head Boy Walk Head Girl Dodge etc
         in "$specifier $specifier walk (and )?$specifier $specifier dodge".r -> WalkandDodge(c)
-        in "wheel around".r -> WheelAround()
+        in "(reverse )?wheel around".r -> WheelAround(c)
         in "z[ai]g".r -> Zig(c)
         in "z[ai]g z[ai]g".r -> ZigZag(c)
         in "zoom".r -> Zoom()

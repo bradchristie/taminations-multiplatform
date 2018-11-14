@@ -54,7 +54,7 @@ fun <T> Iterable <T>.shuffle():Iterable<T> {
 }
 
 //  Apply code if a condition is true
-fun <T> T.ifdo(e:Boolean, block: (T) -> T): T = if (e) block(this) else this
+fun <T> T.ifAlso(e:Boolean, block: (T) -> T): T = if (e) block(this) else this
 
 //  Returns an array of strings, starting with the entire string,
 //  and each subsequent string chopping one word off the end
