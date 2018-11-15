@@ -8,8 +8,8 @@ To set up this project on your computer
     
 2.  Install JetBrains IntelliJ IDEA and use it to open this project.  Ignore any notifications about Gradle or Python that pop up.
 
-3.  Now add this specific Gradle task:  Select Run -> Edit Configurations.  Click '+' on the upper left of the dialog, Add New Configuration, and choose Gradle.  Now enter ```syncAll``` for the name, ```taminations-multiplatform:Taminations``` for the Gradle project, and ```syncAll``` for the target.
+3.  Now build the Gradle target `Taminations-multiplatform`.  This builds both the web site and Android app.
 
-4.  Now build the Gradle target ```syncAll```.  Then build Taminations.  This builds both the web site and Android app.
+4.  To view the web site, open ```Taminations/build/classes/kotlin/js/main/index.html```.
 
-5.  To view the web site, open ```Taminations/build/classes/kotlin/js/main/index.html```.
+5.  To run the Android app, select the `Taminations` target and run it.

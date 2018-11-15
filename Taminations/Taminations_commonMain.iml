@@ -15,6 +15,9 @@
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
+    <content url="file://$MODULE_DIR$/src/assets">
+      <sourceFolder url="file://$MODULE_DIR$/src/assets" type="kotlin-resource" />
+    </content>
     <content url="file://$MODULE_DIR$/src/commonMain/kotlin">
       <sourceFolder url="file://$MODULE_DIR$/src/commonMain/kotlin" type="kotlin-source" />
     </content>
