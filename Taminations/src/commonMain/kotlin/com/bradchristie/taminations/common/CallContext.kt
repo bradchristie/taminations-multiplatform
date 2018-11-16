@@ -326,7 +326,7 @@ class CallContext {
     }
     val (u,_,v) = Matrix(bxa[0][0], bxa[1][0], 0.0, bxa[0][1], bxa[1][1], 0.0).svd22()
     val ut = u.transpose()
-    val rotmat = v.preConcatenate(ut)
+    val rotmat = v.preConcatenate(ut).snapTo90()
     //  Now rotate the formation and compute any remaining
     //  differences in position
     actives.forEachIndexed { j,d2 ->
