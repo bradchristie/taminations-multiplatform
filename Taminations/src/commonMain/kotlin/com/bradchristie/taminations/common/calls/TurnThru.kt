@@ -47,8 +47,8 @@ class TurnThru(name:String) : Action(name) {
         throw CallError("Cannot find dancer to Turn Thru with $d")
       val dist = d.distanceTo(d2)
       return getMove("Extend $dir1").scale(dist / 2, 0.5) +
-          getMove("Swing $dir2").scale(0.5, 0.5) +
-          getMove("Extend $dir2").scale(dist/2, 0.5)
+             getMove("Swing $dir2").scale(0.5, 0.5) +
+             getMove("Extend $dir2").scale(dist/2, 0.5)
     }
   }
 

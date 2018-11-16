@@ -28,9 +28,9 @@
 # When using Gradle or Maven with auto-import, you should exclude module files,
 # since they will be recreated, and may cause churn.  Uncomment if using
 # auto-import.
-# .idea/modules.xml
-# .idea/*.iml
-# .idea/modules
+.idea/modules.xml
+.idea/*.iml
+.idea/modules
 
 # CMake
 cmake-build-*/
@@ -72,5 +72,5 @@ build/
 release/
 local.properties
 callindex.xml
-src/main/assets/
-src/iosMain/assets/
+**/src/main/assets/
+**/src/iosMain/assets/

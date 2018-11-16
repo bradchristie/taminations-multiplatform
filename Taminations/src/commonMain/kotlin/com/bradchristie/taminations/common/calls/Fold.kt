@@ -28,46 +28,42 @@ class Fold : Action("Fold") {
 
   override val level = LevelObject("ms")
 
+  //  We need to work with all the dancers, not just actives
+  //  because partners of the folders need to adjust
+  //  so we get a standard formation that can be used for more calls
   override fun perform(ctx: CallContext, i: Int) {
-    //  We need to look at all the dancers, not just actives
-    //  because partners of the folders need to adjust
-    //  so we get a standard formation that can be used for more calls
-    ctx.dancers.forEach { d ->
-      if (d.data.active) {
-        //  Find dancer to fold in front of
-        //  Usually it's the partner
-        val d2 = d.data.partner ?: throw CallError("Dancer ${d.number} has nobody to Fold in front")
-        if (d2.data.active || d2.data.partner != d)
-              throw CallError("Dancer ${d.number} has nobody to Fold in front")
-        val m = if (d2 isRightOf d) "Fold Right" else "Fold Left"
-        val dist = d.distanceTo(d2)
-        val dxscale = when {
-          ctx.isInWave(d,d2) -> 1.0
-          else -> 0.5
-        }
-        val dyoffset = when {
-          d.data.end -> 0.0
-          d.data.center -> 2.0
-          else ->  1.0
-        } * if (d2 isRightOf d) 1 else -1
-        d.path += TamUtils.getMove(m).scale(dxscale,1.0).skew(0.0,dyoffset)
-        //  Also set path for partner
-        val m2 = when {
-          d isRightOf d2 -> "Dodge Right"
-          d isLeftOf d2 -> "Dodge Left"
-          else -> "Stand"  // should never happen
-        }
-        val mycale = when {
-          d2.data.end -> 0.5
-          d2.data.center -> 0.0
-          else -> 0.25
-        }
-        val mxskew = when {
-          ctx.isInWave(d,d2) -> 0.0
-          else -> -1.0
-        }
-        d2.path += TamUtils.getMove(m2).scale(1.0,dist*mycale).skew(mxskew,0.0)
+    ctx.actives.forEach { d ->
+      //  Find dancer to fold in front of
+      //  Usually it's the partner
+      val d2 = d.data.partner ?: throw CallError("Dancer ${d.number} has nobody to Fold in front")
+      if (d2.data.active || d2.data.partner != d)
+        throw CallError("Dancer ${d.number} has nobody to Fold in front")
+      val m = if (d2 isRightOf d) "Fold Right" else "Fold Left"
+      val dist = d.distanceTo(d2)
+      val dxscale = when {
+        ctx.isInWave(d, d2) -> .75
+        else -> .75
       }
+      val dyoffset = when {
+        ctx.isTidal() -> 1.5
+        d.data.end -> 2.0 - dist
+        d.data.center -> 2.0
+        else -> 1.0
+      } * if (d2 isRightOf d) 1 else -1
+      d.path += TamUtils.getMove(m).scale(dxscale, 1.0).skew(0.0, dyoffset)
+      //  Also set path for partner
+      val m2 = when {
+        d isRightOf d2 -> "Dodge Right"
+        d isLeftOf d2 -> "Dodge Left"
+        else -> "Stand"  // should never happen
+      }
+      val myscale = when {
+        ctx.isTidal() -> 0.25
+        d2.data.end -> 0.5
+        d2.data.center -> 0.0
+        else -> 0.25
+      }
+      d2.path += TamUtils.getMove(m2).scale(1.0, dist * myscale)
     }
 
   }

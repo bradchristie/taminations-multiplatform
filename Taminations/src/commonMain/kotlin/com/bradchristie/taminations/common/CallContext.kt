@@ -261,7 +261,8 @@ class CallContext {
         val headsmatchsides = !tam.attr("title").contains("Heads?|Sides?".r)
         //  Try to match the formation to the current dancer positions
         val ctx2 = CallContext(tam)
-        val mm = matchFormations(ctx1, ctx2, sexy=sexy, fuzzy=fuzzy,headsmatchsides=headsmatchsides)
+        val mm = matchFormations(ctx1, ctx2, sexy=sexy, fuzzy=fuzzy,
+            headsmatchsides=headsmatchsides)
         if (mm != null) {
           val xmlCall = XMLCall(tam,mm,ctx2)
           if (xmlCall.name in listOf(
@@ -701,6 +702,10 @@ class CallContext {
       (it.x.abs.isApprox(1.0) && it.y.abs.isApprox(3.0))
     }
   }
+
+  //  Return true if dancers are tidal line or wave
+  fun isTidal():Boolean =
+      dancersToRight(dancers.first()).count() + dancersToLeft(dancers.first()).count() == 7
 
   //  Get direction dancer would roll
   data class Rolling(val direction:Double) {
