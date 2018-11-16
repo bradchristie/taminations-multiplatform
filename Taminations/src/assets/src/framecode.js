@@ -37,7 +37,7 @@ function setAbbrev(isAbbrev) {
 
 //  Show platform-specific text
 function showPlatformElements(platform) {
-  console.log("Showing platform "+platform)
+  //console.log("Showing platform "+platform)
   var nodes = document.getElementsByClassName(platform)
   for (var i=0; i<nodes.length; i++) {
     var elem = nodes.item(i);

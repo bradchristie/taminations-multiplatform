@@ -101,6 +101,7 @@ class Matrix(val m11:Double=1.0, val m21:Double=0.0, val m31:Double=0.0,
   private val Double.snapDouble: Double get() = when {
     this.isApprox(0.0) -> 0.0
     this.isApprox(1.0) -> 1.0
+    this.isApprox(-1.0) -> -1.0
     else -> this
   }
   fun snapTo90(): Matrix = Matrix(m11.snapDouble,m21.snapDouble,m31,
