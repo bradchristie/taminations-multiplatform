@@ -30,7 +30,15 @@ actual class RadioButton actual constructor(t:String) : View() {
   private val radioButton = layout.appendHTMLElement("input") {
     setAttribute("type","radio")
     setAttribute("value",t)
-    onclick = { clickCode() }
+    onclick = { event ->
+      clickCode()
+      event.stopPropagation()
+      System.later {
+        //  doesn't seem to work unless done later
+        isChecked = true
+      }
+      false
+    }
   } as HTMLInputElement
 
   init {
