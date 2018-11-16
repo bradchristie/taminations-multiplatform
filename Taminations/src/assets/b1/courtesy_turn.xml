@@ -50,7 +50,7 @@
     </path>
   </tam>
 
-  <tam title="Courtesy Turn" from="Girls facing Boys">
+  <tam title="Courtesy Turn" from="Girls facing Boys" sequencer="gender-specific">
     <formation>
       <dancer gender="boy" x="1" y="3" angle="270"/>
       <dancer gender="boy" x="-1" y="3" angle="270"/>
