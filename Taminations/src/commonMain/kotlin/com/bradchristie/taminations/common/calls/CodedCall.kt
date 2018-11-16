@@ -49,6 +49,7 @@ abstract class CodedCall(name:String) : Call(name.capWords()) {
         in "(cross )?clover and (\\w.*)".r -> CloverAnd(c)
         in "cloverleaf".r -> Cloverleaf()
         in "courtesy turn".r -> CourtesyTurn()
+        in "cross fold".r -> CrossFold()
         in "cross run".r -> CrossRun()
         in "cross".r -> Cross()
         in "ends?".r -> Ends()
