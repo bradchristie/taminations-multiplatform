@@ -88,6 +88,23 @@
     </taminator>
   </tam>
 
+  <tam title="Double Pass Thru" formation="Quarter Z RH"
+       from="Right-Hand Z Tag" display="none">
+    <path>
+      <move select="Forward"/>
+      <move select="Extend Right" beats="3" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Forward 3" beats="4"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="4" scaleX="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Forward 3" beats="4"/>
+    </path>
+  </tam>
+
   <tam title="Left Double Pass Thru" from="Double Pass Thru"
        formation="Double Pass Thru" difficulty="2">
     <path>
