@@ -19,8 +19,8 @@ android {
     applicationId 'com.bradchristie.taminationsapp'
     minSdkVersion 16
     targetSdkVersion 28
-    versionCode 83
-    versionName '1.5.14'
+    versionCode 84
+    versionName '1.5.15'
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
   buildTypes {

@@ -259,14 +259,17 @@ object TamUtils {
           .replace("\\b(9|nine)\\b".r,"9")
           //  Use singular form
           .replace("\\b(\\w+)s\\b".r,"$1")
-          //  Accept optional "dancers" e.g. "head dancers" == "heads"
-          .replace("\\bdancers?\\b".r,"")
           //  Misc other variations
           .replace("\\bswap(\\s+around)?\\b".r,"swap")
           .replace("\\bmen\\b".r,"boy")
           .replace("\\bwomen\\b".r,"girl")
           .replace("\\blead(er)?(ing)?\\b","lead")
           .replace("\\btrail(er)?(ing)?\\b".r,"trail")
+          //  Accept optional "dancers" e.g. "head dancers" == "heads"
+          .replace("\\bdancer\\b".r,"")
+          //  Also handle "Lead Couples" as "Leads"
+          //  but make sure not to clobber "As Couples" or "Couples Hinge"
+          .replace("((head|side|lead|trail|center|end).)couple".r,"$1")
           //  Finally remove non-alphanums and strip spaces
           .replace("\\W".r,"")
           .replace("\\s".r,"")
