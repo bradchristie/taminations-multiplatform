@@ -203,7 +203,8 @@
       <move select="Belle Wheel" />
     </path>
   </tam>
-    <tam title="Chain Down the Line"
+
+  <tam title="Chain Down the Line"
        from="Two-Faced Lines"
        formation="Two-Faced Lines RH"
        fractions="3" >
@@ -254,4 +255,55 @@
       <move select="Beau Wheel" />
     </path>
   </tam>
+
+  <tam title="Chain Down the Line" from="Tidal Two-Faced Line"
+       formation="Two-Faced Tidal Line RH" fractions="3">
+    <path>
+      <move select="Stand" beats="3" />
+      <move select="BackHinge Right" scaleX=".5" scaleY=".5"/>
+      <move select="Beau Wheel" scaleX=".5" scaleY=".75" />
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Left" scaleX=".5" scaleY=".5"/>
+      <move select="Belle Wheel" scaleX=".5" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Left" scaleX=".5" scaleY=".5"/>
+      <move select="Belle Wheel" scaleX=".5" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Stand" beats="3" />
+      <move select="BackHinge Right" scaleX=".5" scaleY=".5"/>
+      <move select="Beau Wheel" scaleX=".5" scaleY=".75"/>
+    </path>
+  </tam>
+
+  <tam title="Chain Down the Line"
+       from="Tidal Left-Hand Wave"
+       formation="Tidal Wave LH BGGB"
+       fractions="3" >
+    <path>
+      <move select="U-Turn Left" />
+      <move select="BackHinge Right" scaleX=".5" scaleY=".5"/>
+      <move select="Beau Wheel" scaleX=".5" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Left" scaleX=".5" scaleY=".5"/>
+      <move select="Belle Wheel" scaleX=".5" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Left" scaleX=".5" scaleY=".5"/>
+      <move select="Belle Wheel" scaleX=".5" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="U-Turn Left" />
+      <move select="BackHinge Right" scaleX=".5" scaleY=".5"/>
+      <move select="Beau Wheel" scaleX=".5" scaleY=".75"/>
+    </path>
+  </tam>
+
 </tamination>
