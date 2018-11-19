@@ -52,7 +52,7 @@ function allFilesLoaded(version) {
 }
 
 //  Called when About page is loaded
-function loadFilesInBackground(version) {
+function loadFilesInBackground() {
   document.getElementById("before-load").style.display = "initial";
   document.getElementById("after-load").style.display = "none";
   //  Version is version number when files were last loaded

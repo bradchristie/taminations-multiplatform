@@ -80,6 +80,40 @@
     </path>
   </tam>
 
+  <tam title="Peel and Trail" from="Right-Hand Zs" formation="Right-Hand Zs">
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Swing Right"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="6"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="6"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Swing Right"/>
+    </path>
+  </tam>
+
+  <tam title="Peel and Trail" from="Left-Hand Zs" formation="Left-Hand Zs">
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Swing Left"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="6"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="6"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Swing Left"/>
+    </path>
+  </tam>
+
   <tam title="Peel and Trail"
        from="Double Pass Thru"
        formation="Double Pass Thru">
