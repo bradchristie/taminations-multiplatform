@@ -1,3 +1,4 @@
+@file:Suppress("DEPRECATION")
 package com.bradchristie.taminations.platform
 /*
 
@@ -121,7 +122,7 @@ actual class CallListener actual constructor(private val callHandler:(String)->U
   }
 
   actual fun pause() { sr?.cancel() }
-  fun destroy() = sr?.shutdown()
+  //  not used  fun destroy() = sr?.shutdown()
 
   override fun onEndOfSpeech() {
     sr?.stop()

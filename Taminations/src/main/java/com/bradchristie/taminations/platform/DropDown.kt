@@ -28,7 +28,7 @@ actual class DropDown actual constructor(title:String) : TextView(title) {
       true
     }
   }
-  private var selectCode:(item:String)->Unit = { s: String -> }
+  private var selectCode:(item:String)->Unit = { }
 
   init {
     clickAction {

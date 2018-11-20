@@ -77,7 +77,7 @@ actual object System {
   actual fun pasteTextFromClipboard(code:(String)->Unit) {
     val clipboard = Taminations.context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
     if (clipboard.hasPrimaryClip()) {
-      val pasteText = clipboard.primaryClip.getItemAt(0).text
+      @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS") val pasteText = clipboard.primaryClip.getItemAt(0).text
       code(pasteText.toString())
     }
   }

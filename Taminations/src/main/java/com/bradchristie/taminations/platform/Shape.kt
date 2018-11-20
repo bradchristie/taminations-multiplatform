@@ -27,10 +27,10 @@ actual open class Shape : Canvas() {
   }
   override var width
     get() = drawable.bounds.width()
-    set(value) { }
+    set(_) { }
   override var height
     get() = drawable.bounds.height()
-    set(value) { }
+    set(_) { }
 
   actual open fun draw(ctx:DrawingContext) { }
 }

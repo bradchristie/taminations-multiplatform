@@ -52,6 +52,7 @@ actual open class TextView actual constructor(private var t:String) : View() {
         val w = width.px2dip
         textSize = (30 downTo 6).find { textSize ->
           textPaint.textSize = textSize.f
+          @Suppress("DEPRECATION")
           val staticLayout = StaticLayout(text, textPaint, w,
               Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, true)
           staticLayout.lineCount <= 3 && staticLayout.height < 60

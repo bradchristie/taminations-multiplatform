@@ -77,7 +77,9 @@ class Taminations : Activity(), ActivityCompat.OnRequestPermissionsResultCallbac
 
   override fun onResume() {
     super.onResume()
+    @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
     if (intent.action.contains("VIEW")) {
+      @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
       doRequest(Request(intent.data.fragment))
     }
   }
