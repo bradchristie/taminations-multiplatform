@@ -2,7 +2,7 @@
 //  This version number is reported to the client.  If it does not match
 //  the version number saved when files were downloaded, the client
 //  will request a new download to fill the new cache.
-self.version = "1.5.15-1";
+self.version = "1.5.15-2";
 //  This is run just once, when the user loads Taminations
 self.addEventListener('install', function(event) {
   event.waitUntil(
@@ -12,7 +12,7 @@ self.addEventListener('install', function(event) {
          //  or are otherwise not loaded in the cache by the code below
         "index.html",
         "lib/kotlin.js",
-        "Taminations.js",
+        "main/Taminations.js",
         "favicon.ico",
         "tam120.png",
         "notsupported.html",
