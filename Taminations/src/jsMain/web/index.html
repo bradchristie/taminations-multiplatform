@@ -35,12 +35,16 @@
       }
     }
     var head = document.getElementsByTagName('head').item(0)
-    var kot = document.createElement("script")
-    kot.src = "lib/kotlin.js"
-    kot.onload = function() {
-      var tam = document.createElement("script")
-      tam.src = "main/Taminations.js"
-      head.appendChild(tam)
+    var kot1 = document.createElement("script")
+    kot1.src = "lib/kotlin.js"
+    kot1.onload = function() {
+      var kot2 = document.createElement("script")
+      kot2.src = "lib/kotlinx-coroutines-core.js"
+      kot2.onload = function() {
+        var tam = document.createElement("script")
+        tam.src = "main/Taminations.js"
+        head.appendChild(tam)
+      }
     }
     head.appendChild(kot)
 
