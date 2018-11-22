@@ -50,6 +50,7 @@ actual object Application : Page() {
   actual val screenHeight = window.innerHeight
   actual val isTouch = true
   private var contentPage: Page? = null
+  private var testMessager:((Request)->Unit)? = null
   private val landscapePage = object : NavigationPage() {
     override val pages =
         listOf(FirstLandscapePage(),
@@ -93,6 +94,7 @@ actual object Application : Page() {
   init {
     //checkForMobile()
     buildDisplay()
+    System.log("buildDisplay complete")
     var winh = window.innerHeight
     var winw = window.innerWidth
     view.div.onresize = {
@@ -104,7 +106,7 @@ actual object Application : Page() {
         winw = window.innerWidth
       }
     }
-    if (Setting("Tips").b != false && Request(window.location.hash)["embed"].isBlank()) {
+    if (Setting("Tips").b != false && Request(window.location.hash)["embed"].isBlank() && !TamUtils.testing) {
       Alert("Tip of the Day").apply {
         val day = System.currentTime() / 86400000  // 8640000 milliseconds in a day
         val tip = tips[day.i % tips.size]
@@ -117,6 +119,7 @@ actual object Application : Page() {
         }
       }
     }
+    System.log("Application init complete")
   }
 
   private fun checkForMobile() {
@@ -224,7 +227,11 @@ actual object Application : Page() {
   //  Message is like a Request except it does not get saved
   //  in the location history and is not expected to trigger
   //  a page change
+  fun setTestMesseger(m:(Request)->Unit) {
+    testMessager = m
+  }
   override fun sendMessage(message: Request) {
+    testMessager?.invoke(message)
     contentPage?.sendMessage(message)
   }
 

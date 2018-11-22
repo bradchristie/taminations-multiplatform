@@ -24,6 +24,8 @@ import org.w3c.dom.XMLDocument
 import org.w3c.xhr.XMLHttpRequest
 import kotlin.browser.document
 import kotlin.browser.window
+import kotlin.coroutines.resume
+import kotlin.coroutines.suspendCoroutine
 import kotlin.js.Date
 
 actual object System {
@@ -52,10 +54,17 @@ actual object System {
       ontimeout = {
         window.alert("Timeout loading $name.xml")
       }
-      open("GET", "assets/"+name+".xml")
+      open("GET", "assets/$name.xml")
       send()
     }
   }
+
+  suspend fun getXMLAsset(name:String) =
+      suspendCoroutine<TamDocument> { cont ->
+        getXMLAsset(name) {
+          cont.resume(it)
+        }
+      }
 
   //  readProp not used, writeProp only used for non-standard styles to
   //  turn off text select in View.kt

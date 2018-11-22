@@ -47,6 +47,8 @@ object TamUtils {
   //  And map of moves
   private var moves:MutableMap<String,TamElement> = mutableMapOf()
   private var initCallback:() -> Unit = { }
+  private var testCallback:() -> Unit = { }
+  var testing = false
   init {
     System.getXMLAsset("src/calls") {
       calldoc = it
@@ -97,10 +99,16 @@ object TamUtils {
   fun waitForInit(callback:()->Unit) {
     initCallback = callback
   }
+  fun testAction(callback:()->Unit) {
+    testCallback = callback
+    testing = true
+  }
   private fun checkForInit() {
     doccount -= 1
-    if (doccount == 0)
+    if (doccount == 0) {
       initCallback()
+      testCallback()
+    }
   }
 
   //  Returns animation element, looking up cross-reference if needed.

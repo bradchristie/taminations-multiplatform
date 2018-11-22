@@ -53,6 +53,8 @@ class Request(val action:Action, vararg pairs:Pair<String,String>) {
     ANIMATION_DONE,
     SEQUENCER_CALLLIST,
     SEQUENCER_LISTEN,
+    SEQUENCER_READY,
+    SEQUENCER_ERROR,
     BUTTON_PRESS,
     SLIDER_CHANGE,
     TRANSITION_COMPLETE,

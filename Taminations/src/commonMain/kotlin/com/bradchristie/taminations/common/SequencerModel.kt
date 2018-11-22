@@ -217,6 +217,8 @@ class SequencerModel(private val seqView: SequencerLayout,
   private fun showError(error:String) {
     callsView.errorText.text = error
     callsView.errorText.show()
+    Application.sendMessage(Request.Action.SEQUENCER_ERROR,
+        "error" to error)
   }
 
   fun checkStartingFormation(f:String? = Setting("Starting Formation").s) {
@@ -354,6 +356,7 @@ class SequencerModel(private val seqView: SequencerLayout,
       }
       updateParts()
       seqView.animationView.goToPart(-1)
+      Application.sendMessage(Request.Action.SEQUENCER_READY)
     }
   }
 
