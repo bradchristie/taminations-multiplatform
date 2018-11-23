@@ -94,7 +94,6 @@ actual object Application : Page() {
   init {
     //checkForMobile()
     buildDisplay()
-    System.log("buildDisplay complete")
     var winh = window.innerHeight
     var winw = window.innerWidth
     view.div.onresize = {
@@ -119,7 +118,6 @@ actual object Application : Page() {
         }
       }
     }
-    System.log("Application init complete")
   }
 
   private fun checkForMobile() {

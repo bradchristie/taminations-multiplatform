@@ -46,6 +46,9 @@ class SequenceTestRunner {
   //  Since loading a script would involve callbacks needed
   //  to read XML files, we use coroutines to wrap the callbacks
   //  and make sure each test is run sequentially.
+  //
+  //  Eventually there may be tests to check for specific errors,
+  //  but for now these test only that good sequences work.
   private fun runSequencerTests() {
     GlobalScope.launch {
       var okcount = 0
@@ -158,11 +161,190 @@ Slide Thru
 Right and Left Thru
 Pass Thru
 Trade By
-Allemande Left"""
+Allemande Left""",
 
+      "California Twirl" to
+"""Sides Star Thru
+Centers California Twirl
+Star Thru
+Right and Left Thru """,
+
+      "Clover And" to
+"""Heads Pass Thru
+Clover and Touch 1/4
+Centers Run
+Centers Touch a Quarter
+Out-Roll Circulate
+Girls Run
+Ferris Wheel
+Centers Square Thru 3
+Allemande Left""",
+
+      "Courtesy Turn" to
+"""Heads Pass Thru and Courtesy Turn
+Sides Star Thru
+Double Pass Thru
+Ends Courtesy Turn
+Pass Thru
+Trade By
+Allemande Left""",
+
+      "Cross" to
+"""Heads Lead Right
+Boys Cross
+Cross
+Trade By
+Girls Cross
+Circulate
+Boys Run
+Veer Left
+Bend the Line
+Centers Girls Cross""",
+
+      "Cross Fold" to
+"""Heads Pass the Ocean
+Extend
+Girls Cross Fold
+Boys Trade and Roll and Roll
+Peel Off
+Boys Cross Fold
+Peel and Trail
+Spin the Top
+Boys Cross Fold
+Girls Mix
+Peel Off
+Boys Cross Fold
+Trail Off
+Crossfire
+In-Roll Circulate
+Quarter In
+Right and Left Grand""",
+
+  "Cross Run" to
+"""Sides Pair Off
+Pass the Ocean
+Girls Cross Run
+Boys Trade
+Recycle""",
+
+      "Face In" to
+"""Sides Pair Off
+Pass Thru
+Face In
+Right and Left Thru
+Face In
+Double Pass Thru""",
+
+      "Facing Dancers" to
+"""Heads Touch a Quarter
+Facing Dancers Pass Thru
+Facing Dancers Pass Thru
+Facing Dancers Pass Thru
+Centers Peel and Trail
+Girls Trade
+Chain Reaction
+Centers Trade
+Split Counter Rotate
+Circulate
+Girls Run
+Trade By
+Touch a Quarter
+Boys Run
+Wheel and Deal
+Centers Square Thru 3
+Allemande Left""",
+
+      "Fold" to
+"""Heads Pass the Ocean
+Extend
+Ends Fold
+Peel Off
+Boys Fold
+Girls Turn Back
+Peel and Trail
+Spin the Top
+Boys Fold
+Trail Off
+Boys Run
+Girls Fold
+Peel Off
+Crossfire
+In-Roll Circulate
+Girls Run
+Wheel and Deal
+Centers Swap Around
+Allemande Left""",
+
+      "Half" to
+"""Heads Pass the Ocean
+Extend
+Half Split Circulate
+Diamond Circulate
+Flip the Diamond
+Half Circulate
+Boys Hinge
+Chain Reaction
+Wheel and Deal
+Slide Thru
+Acey Deucey
+Wheel and Deal
+Touch a Quarter
+Boys Run
+Bend the Line
+Touch a Quarter
+Circulate
+Boys Run
+Allemande Left""",
+
+  "Half Sashay" to
+"""Sides Half Sashay
+Heads Lead Right
+Touch a Quarter
+Centers Trade
+Girls Run
+Pass Thru
+Centers Half Sashay
+Wheel and Deal
+Boys Pass Thru
+Slide Thru
+Bend the Line
+Touch a Quarter
+Circulate
+Boys Run
+Right and Left Thru
+Pass Thru
+Trade By
+Allemande Left""",
+
+      "Sides" to
+"""Four Ladies Chain 3/4
+Sides Pass the Ocean
+Extend
+Sides Trade
+Circulate
+Boys Run
+Touch a Quarter
+Circulate
+Boys Run
+Veer Left
+Ferris Wheel
+Centers Square Thru 3
+Allemande Left""",
+
+      "Hinge" to
+"""Heads Touch a Quarter
+Sides Separate and Touch 1/4
+Centers Hinge
+Boys Pass Thru
+Centers Hinge
+Centers Hinge
+Acey Deucey
+Extend
+Boys Run
+Ferris Wheel
+Centers Pass Thru
+Allemande Left """
 
   )
-
-
 
 }
