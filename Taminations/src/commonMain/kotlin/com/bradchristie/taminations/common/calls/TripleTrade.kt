@@ -20,10 +20,14 @@ package com.bradchristie.taminations.common.calls
 */
 
 import com.bradchristie.taminations.common.CallContext
+import com.bradchristie.taminations.common.LevelObject
 
-class TripleTrade : CodedCall("Triple Trade") {
+class TripleTrade : Action("Triple Trade") {
 
-  override fun performCall(ctx: CallContext, i:Int) {
+  override val level = LevelObject("a1")
+  override val requires = listOf("b2/trade")
+
+  override fun perform(ctx: CallContext, i:Int) {
     ctx.applyCalls("Center 6 Trade")
   }
 
