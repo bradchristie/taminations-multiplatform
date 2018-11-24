@@ -49,13 +49,22 @@ class CrossRun : Action("Cross Run") {
         //  TODO check for runners crossing paths
         //    dancers would need to pass right shoulders
         val m = if (isright) "Run Right" else "Run Left"
-        d.path.add(TamUtils.getMove(m).scale(1.0, 2.0))
+        val d3 = if (isright)
+          ctx.dancersToRight(d).elementAtOrNull(1)
+        else
+          ctx.dancersToLeft(d).elementAtOrNull(1)
+        when {
+          d3 == null -> throw CallError("Unable to calcluate Cross Run")
+          d3.data.active -> throw CallError("Dancers cannot Cross Run each other")
+          else ->
+            d.path.add(TamUtils.getMove(m).scale(1.0, d.distanceTo(d3)/2.0))
+        }
       } else {
         //  Not an active dancer
         //  If partner is active then this dancer needs to dodge
         val d2 = d.data.partner
         if (d2 != null && d2.data.active)
-          d.path.add(TamUtils.getMove(if (d.data.beau) "Dodge Right" else "Dodge Left"))
+          d.path.add(TamUtils.getMove(if (d.data.beau) "Dodge Right" else "Dodge Left")).scale(1.0,d.distanceTo(d2)/2.0)
       }
     }
   }
