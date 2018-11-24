@@ -343,7 +343,334 @@ Extend
 Boys Run
 Ferris Wheel
 Centers Pass Thru
-Allemande Left """
+Allemande Left""",
+
+      "Leaders" to
+"""Heads Touch a Quarter
+Leads Turn Back
+Veer Right
+Leaders Wheel Around
+Girls Pass Thru
+Leads Trade
+Load the Boat
+Star Thru
+Ferris Wheel
+Centers Square Thru 3
+Allemande Left""",
+
+"Outer" to """Heads Pass the Ocean
+Extend
+Spin the Top
+Outer 4 Turn Back
+Hinge
+Outer 4 Turn Back
+Transfer the Column
+Extend
+Outer 6 Turn Back
+Girls Wheel and Deal
+Double Pass Thru
+Track Two
+Acey Deucey
+Acey Deucey
+Boys Run
+Bend the Line
+Touch a Quarter
+Circulate
+Boys Run
+Allemande Left""",
+
+      "Partner Tag" to
+"""Heads Touch a Quarter and Roll
+Sides Partner Tag
+Any Hand Swing Thru
+Partner Tag
+Trade By
+Partner Tag
+Wheel and Deal
+Girls Pass Thru
+Slide Thru
+Circulate
+Wheel and Deal
+Allemande Left
+Right and Left Grand""",
+
+      "Quarter In" to
+"""Heads Lead Right
+Quarter In
+Pass Thru
+Quarter In
+Pass Thru
+Trade By
+Veer Left
+1/4 In
+Pass Thru
+Girls Flutterwheel
+Boys Trade
+Double Pass Thru
+Cloverleaf
+Girls Pass Thru
+Touch a Quarter
+Boys Run
+Wheel and Deal
+Allemande Left""",
+
+      "Roll" to
+"""Heads Lead Right and Roll
+Sides Separate and Touch 1/4
+Split Circulate and Roll
+Scoot Back
+Follow Your Neighbor
+Flip the Diamond
+Centers Circulate
+Boys Run
+Pass Thru
+Wheel and Deal
+Centers Square Thru 3
+Allemande Left""",
+
+      "Run" to
+"""Sides Pass the Ocean
+Boys Run
+Girls Run
+Acey Deucey
+Extend
+Leaders Run
+Pass Thru
+Centers Boys Run
+In-Roll Circulate
+Belles Run
+Any Hand Swing Thru
+Wheel and Deal
+Boys Pass Thru
+Touch a Quarter
+Boys Circulate
+Boys Run
+Circulate
+Ferris Wheel
+Centers Square Thru 3
+Allemande Left""",
+
+      "Separate" to
+"""Heads Lead Right
+Pass Thru
+Ends Separate
+Pass the Ocean
+Hinge
+Centers Trade
+Centers Run
+Ferris Wheel
+Double Pass Thru
+Girls Separate
+Boys Chase Right
+Hinge
+Partner Tag
+Trade By
+Touch a Quarter
+Circulate
+Boys Run
+Ferris Wheel
+Centers Reverse Swap Around
+Allemande Left""",
+
+      "Single Wheel" to
+"""Heads Lead Right
+Veer Left
+Girls Single Wheel
+Girls Touch 1/4
+Cut the Diamond
+Wheel Around
+Single Wheel
+Split Counter Rotate
+Extend
+Boys Single Wheel
+Boys Face Right
+Boys Hinge
+Boys Single Wheel
+Boys Left Touch 1/4
+Boys Hinge
+Girls Mix
+Chain Reaction
+Girls Single Wheel and Roll
+Boys Hinge
+Ends Pass Thru
+Bend the Line
+Pass the Ocean
+Circulate
+Boys Run
+Ferris Wheel
+Centers Reverse Swap Around
+Allemande Left""",
+
+      "Slide Thru" to
+"""Heads Pass Out
+Slide Thru
+Hinge
+Step and Slide
+Face In
+Slide Thru
+Horseshoe Turn
+Touch a Quarter
+Slip
+Centers Run
+Ferris Wheel
+Centers Slide Thru
+Centers Walk and Dodge
+Clover and Slide Thru
+Girls Run
+Boys Slide Thru
+Turn and Deal
+Centers Chase Right
+Centers Girls Cross
+Allemande Left""",
+
+      "Spread" to
+"""Heads Touch a Quarter and Spread
+Centers Pass the Ocean
+Flip the Diamond
+In-Roll Circulate and Spread
+Split Circulate
+Recycle
+Pass to the Center
+Double Pass Thru and Spread
+Hinge
+Boys Run
+Pass Thru
+Wheel and Deal
+Centers Reverse Swap Around
+Allemande Left""",
+
+      "Square the Set" to
+"""Heads Lead Right
+Veer Left
+Bend the Line
+Pass Thru
+Wheel and Deal
+Centers Veer Left
+Centers Bend the Line
+Square the Set
+Heads Pass the Ocean
+Extend
+Recycle
+Touch a Quarter
+Boys Run
+Wheel and Deal
+Zoom
+Centers Square Thru 3
+Allemande Left""",
+
+      "Sweep 1/4" to
+"""Sides Pass the Ocean
+Extend
+Recycle and Sweep a Quarter
+Pass Thru
+Wheel and Deal, Centers Sweep a Quarter
+Ends Separate and Star Thru
+Double Pass Thru
+Horseshoe Turn
+Touch a Quarter
+Boys Run
+Wheel and Deal
+Zoom
+Centers Reverse Swap Around
+Allemande Left""",
+
+      "3/4 Tag" to
+"""Heads Pass the Sea
+Extend
+3/4 Tag the Line
+Centers 3/4 Tag the Line
+Outer 6 Face Right
+Cut the Hourglass
+Turn and Deal
+Slide Thru
+Pass Thru
+Wheel and Deal
+Zoom
+Centers Pass Thru
+Allemande Left""",
+
+      "Trailers" to
+"""Sides Pass the Ocean
+Extend
+Trailers Turn Back
+Bend the Line
+Touch a Quarter
+Trailers Turn Back
+Trade By
+Touch a Quarter
+Boys Trade
+Boys Run
+Circulate
+Ferris Wheel
+Centers Square Thru 3
+Allemande Left""",
+
+      "Triple Trade" to
+"""Sides Pass the Ocean
+Triple Trade
+Acey Deucey
+Extend
+Spin the Top
+Mix
+Triple Trade""",
+
+      "Turn Thru" to
+"""Heads Lead Right
+Veer Left
+Bend the Line
+Ends Turn Thru
+Hinge
+Centers Trade
+Centers Touch a Quarter
+Ends Slide Thru
+Ends Turn Back
+Boys Turn Thru
+Boys Run
+Centers Walk and Dodge
+Flutterwheel
+Right and Left Thru
+Allemande Left""",
+
+      "ZigZag" to
+"""Sides Star Thru and Spread
+Touch a Quarter
+Zig Zig
+Left Touch a Quarter
+Zag Zag
+Pass Thru
+Wheel and Deal
+Zig
+Girls Run
+Boys Touch a Quarter
+Zag
+Zag Zig
+Zig
+Zig Zag
+Boys 1/4 In
+Heads Slide Thru
+Bend the Line
+Brace Thru
+Pass Thru
+Wheel and Deal
+Centers Pass Thru
+Allemande Left""",
+
+      "Zoom" to
+"""Sides Touch a Quarter
+Boys Zoom
+Centers Zoom
+Ends Separate
+Circulate
+Centers Run
+Ends Zoom
+Circulate
+Centers Pass the Ocean
+Cut the Diamond
+Boys Run
+Wheel and Deal
+Zoom
+Centers Square Thru 3
+Allemande Left"""
 
   )
 
