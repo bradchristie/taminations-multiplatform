@@ -3,4 +3,7 @@
   <component name="Kotlin2JsCompilerArguments">
     <option name="sourceMapEmbedSources" />
   </component>
+  <component name="KotlinCompilerSettings">
+    <option name="additionalArguments" value="-version -Xmulti-platform" />
+  </component>
 </project>

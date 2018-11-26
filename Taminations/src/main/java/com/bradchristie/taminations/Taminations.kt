@@ -92,7 +92,7 @@ actual object Application : Page() {
   private val config: Configuration get() = context.resources.configuration
   //  And these could change if the user rotates the device
   val density:Float get() = metrics.density
-  val fontdensity:Float get() = metrics.scaledDensity
+  //  not used val fontdensity:Float get() = metrics.scaledDensity
   private val tablet:Boolean get() = config.screenLayout and SCREENLAYOUT_SIZE_MASK >= SCREENLAYOUT_SIZE_LARGE
   actual val screenHeight:Int get() =
     if (tablet)
