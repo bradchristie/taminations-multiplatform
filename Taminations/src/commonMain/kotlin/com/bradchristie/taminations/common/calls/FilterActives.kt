@@ -27,7 +27,7 @@ import com.bradchristie.taminations.common.Dancer
  *   Parent class of all classes that select a group of dancers
  *   such as boys, leaders, centers, belles
  */
-abstract class FilterActives(name:String) : CodedCall(name) {
+abstract class FilterActives(norm:String,name:String=norm) : CodedCall(norm,name) {
 
   /**
    *  Child classes need to define one of these isActive methods

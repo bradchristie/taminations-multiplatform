@@ -21,84 +21,124 @@ package com.bradchristie.taminations.common.calls
 
 import com.bradchristie.taminations.common.capWords
 import com.bradchristie.taminations.common.r
+import com.bradchristie.taminations.common.TamUtils
 
-abstract class CodedCall(name:String) : Call(name.capWords()) {
+abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords()) {
 
   companion object {
+
+    //  "simple" calls are ones where we don't need the original text
+    private val simpleCallMaker = mapOf(
+        "and" to { And() },
+        "roll" to { Roll() },
+        "andspread" to { Spread() },
+        "backaway" to { BackAway() },
+        "beau" to { Beaus() },
+        "belle" to { Belles() },
+        "boxcounterrotate" to { BoxCounterRotate() },
+        "boxthegnat" to { BoxtheGnat() },
+        "bracethru" to { BraceThru() },
+        "boy" to { Boys() },
+        "californiatwirl" to { CaliforniaTwirl() },
+        "center" to { Centers() },
+        "center6" to { CenterSix() },
+        "cloverleaf" to { Cloverleaf() },
+        "courtesyturn" to { CourtesyTurn() },
+        "crossfold" to { CrossFold() },
+        "crossrun" to { CrossRun() },
+        "cross" to { Cross() },
+        "doublestarthru" to { DoubleStarThru() },
+        "end" to { Ends() },
+        "facein" to { FaceIn("facein","Face In") },
+        "faceout" to { FaceIn("faceout","Face Out") },
+        "faceleft" to { FaceIn("faceleft","Face Left") },
+        "faceright" to { FaceIn("faceright","Face Right") },
+        "facing" to { FacingDancers() },
+        "fold" to { Fold() },
+        "girl" to { Girls() },
+        "hinge" to { Hinge("hinge","Hinge") },
+        "singlehinge" to { Hinge("hinge","Single Hinge") },
+        "partnerhinge" to { Hinge("hinge","Partner Hinge") },
+        "lefthinge" to { Hinge("lefthinge","Left Hinge") },
+        "leftpartnerhinge" to { Hinge("lefthinge","Left Partner Hinge") },
+        "ladies" to { Girls() },
+        "12" to { Half() },
+        "12sashay" to { HalfSashay() },
+        "circulate" to { Circulate() },
+        "all8circulate" to { Circulate() },
+        "nothing" to { Nothing() },
+        "partnertag" to { PartnerTag() },
+        "passthru" to { PassThru() },
+        "point" to { Outsides("point","Points") },
+        "14in" to { QuarterIn("14in","Quarter In") },
+        "14out" to { QuarterIn("14out","Quarter Out") },
+        "run" to { Run() },
+        "separate" to { Separate() },
+        "slidethru" to { SlideThru() },
+        "slip" to { Slip() },
+        "starthru" to { StarThru("starthru","Star Thru") },
+        "leftstarthru" to { StarThru("leftstarthru","Left Star Thru") },
+        "step" to { Step() },
+        "34tag" to { ThreeQuartersTag() },
+        "34tagtheline" to { ThreeQuartersTag() },
+        "trade" to { Trade() },
+        "partnertrade" to { Trade() },
+        "touch14" to { TouchAQuarter("touch14","Touch a Quarter") },
+        "lefttouch14" to { TouchAQuarter("lefttouch14","Left Touch a Quarter") },
+        "triplestarthru" to { TripleStarThru() },
+        "tripletrade" to { TripleTrade() },
+        "turnback" to { TurnBack() },
+        "zoom" to { Zoom() },
+        "singlewheel" to { SingleWheel("singlewheel","Single Wheel") },
+        "leftsinglewheel" to { SingleWheel("leftsinglewheel","Left Single Wheel") },
+        "squaretheset" to { SquareTheSet() },
+        "sweep14" to { SweepAQuarter() },
+        "turnthru" to { TurnThru("turnthru","Turn Thru") },
+        "leftturnthru" to { TurnThru("leftturnthru","Left Turn Thru") },
+        "twice" to { Twice("twice","Twice") },
+        "gotwice" to { Twice("twice","Go Twice") },
+        "verycenter" to { VeryCenters() },
+        //  standard Walk and Dodge from waves, columns, etc
+        //  also Centers Walk and Dodge goes through here
+        "walkanddodge" to { WalkandDodge("walkanddodge","Walk and Dodge") },
+        "wheelaround" to { WheelAround("wheelaround","Wheel Around") },
+        "reversewheelaround" to { WheelAround("reversewheelaround","Reverse Wheel Around") },
+        "zig" to { Zig("zig","Zig") },
+        "zag" to { Zig("zag","Zag") },
+        "zigzig" to { ZigZag("zigzig","Zig Zig") },
+        "zigzag" to { ZigZag("zigzag","Zig Zag") },
+        "zagzig" to { ZigZag("zagzig","Zag Zig") },
+        "zagzag" to { ZigZag("zagzag","Zag Zag") }
+    )
+
+    //  More complex calls where the text is needed either to select
+    //  the correct variation or to echo the expected name
+    private val complexCallMaker = mapOf(
+        "head" to { norm:String,call:String -> HeadsSides(norm,call) },
+        "lead" to { norm:String,call:String -> Leaders(norm,call) },
+        "side" to { norm:String,call:String -> HeadsSides(norm,call) },
+        "trail" to { norm:String,call:String -> Trailers(norm,call) },
+        "112" to { norm:String,call:String -> OneAndaHalf(norm,call) }
+    )
+
     //  Note that String.matches(Regex) requires that the Regex match the entire String
+    //  Here we hack the "in" operator to use in the match below
     operator fun Regex.contains(s:String):Boolean = s.matches(this)
     private const val specifier = "\\s*(boys?|girls?|beaus?|belles?|centers?|ends?|leaders?|trailers?|heads?|sides?|very centers?)\\s*"
     fun getCodedCall(callname:String):CodedCall? {
-      val c = callname.toLowerCase()
-      return when (c) {
-        in "and".r -> And()
-        in "roll".r -> Roll()
-        in "and spread".r -> Spread()
-        in "sweep (a quarter|1/4)".r -> SweepAQuarter()
-        in "back away".r -> BackAway()
-        in "beaus?".r -> Beaus()
-        in "belles?".r -> Belles()
-        in "box counter rotate".r -> BoxCounterRotate()
-        in "box the gnat".r -> BoxtheGnat()
-        in "brace thru".r -> BraceThru()
-        in "men|boys?".r -> Boys()
-        in "california twirl".r -> CaliforniaTwirl()
-        in "centers?\\s*(six|6)?".r ->
-          if (c.contains("six|6".r)) CenterSix() else Centers()
-        in "(all (eight|8) )?circulate".r -> Circulate()
-        in "(cross )?clover and (\\w.*)".r -> CloverAnd(c)
-        in "cloverleaf".r -> Cloverleaf()
-        in "courtesy turn".r -> CourtesyTurn()
-        in "cross fold".r -> CrossFold()
-        in "cross run".r -> CrossRun()
-        in "cross".r -> Cross()
-        in "ends?".r -> Ends()
-        in "face (in|out|left|right)".r -> FaceIn(c)
-        in "facing (dancers?)?".r -> FacingDancers()
-        in "fold".r -> Fold()
-        in "ladies|girls?".r -> Girls()
-        in "(half)|(1/2)".r -> Half()
-        in "half sashay".r -> HalfSashay()
-        in "heads?".r -> HeadsSides(c)
-        in "(left )?(single|partner)?\\s*hinge".r -> Hinge(c)
-        in "lead(er)?s?".r -> Leaders(c)
-        in "nothing".r -> Nothing()
-        in "(onc?e and a half)|(1 1/2)".r -> OneAndaHalf()
-        in "out(er|sides?)( (2|two|4|four|6|six))?".r -> Outsides(c)
-        in "partner tag".r -> PartnerTag()
-        in "pass thru".r -> PassThru()
-        in "points".r -> Outsides(c)
-        in "(quarter|1/4) (in|out)".r -> QuarterIn(c)
-        in "run".r -> Run()
-        in "separate".r -> Separate()
-        in "sides?".r -> HeadsSides(c)
-        in "(left )?single wheel".r -> SingleWheel(c)
-        in "slide thru".r -> SlideThru()
-        in "slip".r -> Slip()
-        in "star thru".r -> StarThru()
-        in "step".r -> Step()
-        in "(3.4|three quarters?) tag( the line)?".r -> ThreeQuartersTag()
-        in "trailers?".r -> Trailers(c)
-        in "(left )?touch (a )?(quarter|1/4)".r -> TouchAQuarter(c)
-        in "(partner )?trade".r -> Trade()
-        in "triple trade".r -> TripleTrade()
-        in "turn back".r -> TurnBack()
-        in "(left )?turn thru".r -> TurnThru(c)
-        in "(go )?twice".r -> Twice()
-        in "very centers?".r -> VeryCenters()
-        //  standard Walk and Dodge from waves, columns, etc
-        //  also Centers Walk and Dodge goes through here
-        in "walk and dodge".r -> WalkandDodge(c)
+      val callnorm = TamUtils.normalizeCall(callname)
+      //  Most calls can be found by a lookup in one of the maps
+      return simpleCallMaker[callnorm]?.invoke() ?:
+             complexCallMaker[callnorm]?.invoke(callnorm,callname) ?:
+        //  More complex cases need to be parsed by a regex
+             when (callnorm) {
+        in "(cross)?cloverand(\\w.*)".r -> CloverAnd(callnorm,callname)
+        in "out(er|sides?)(2|4|6)?".r -> Outsides(callnorm,callname)
         //  Boys Walk Girls Dodge etc
         //  Also handles Heads Boy Walk Girl Dodge
-        in "$specifier walk (and )?$specifier dodge".r -> WalkandDodge(c)
+        in "$specifier walk (and )?$specifier dodge".r -> WalkandDodge(callnorm,callname)
         //  Head Boy Walk Head Girl Dodge etc
-        in "$specifier $specifier walk (and )?$specifier $specifier dodge".r -> WalkandDodge(c)
-        in "(reverse )?wheel around".r -> WheelAround(c)
-        in "z[ai]g".r -> Zig(c)
-        in "z[ai]g z[ai]g".r -> ZigZag(c)
-        in "zoom".r -> Zoom()
-        in "square the set" -> SquareTheSet()
+        in "$specifier $specifier walk (and )?$specifier $specifier dodge".r -> WalkandDodge(callnorm,callname)
         else -> null
       }
     }

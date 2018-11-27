@@ -21,7 +21,7 @@ package com.bradchristie.taminations.common.calls
 
 import com.bradchristie.taminations.common.*
 
-class Hinge(name:String) : Action(name) {
+class Hinge(norm:String, name:String) : Action(norm,name) {
 
   override val level = LevelObject("ms")
 

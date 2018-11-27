@@ -22,13 +22,13 @@ package com.bradchristie.taminations.common.calls
 import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.r
 
-class Outsides(name:String) : CodedCall(name) {
+class Outsides(norm:String, name:String) : CodedCall(norm,name) {
 
   override fun performCall(ctx: CallContext, i: Int) {
-    val num = when (name) {
-      in ".* 2|two".r -> 2
-      in ".* 4|four".r -> 4
-      in ".* 6|six".r -> 6
+    val num = when (norm) {
+      in ".*2".r -> 2
+      in ".*4".r -> 4
+      in ".*6".r -> 6
       in "points".r -> 4
       else -> 4
     }

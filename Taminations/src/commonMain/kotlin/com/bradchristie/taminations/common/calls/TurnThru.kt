@@ -22,12 +22,12 @@ package com.bradchristie.taminations.common.calls
 import com.bradchristie.taminations.common.*
 import com.bradchristie.taminations.common.TamUtils.getMove
 
-class TurnThru(name:String) : Action(name) {
+class TurnThru(norm:String,name:String) : Action(norm,name) {
 
   override val level = LevelObject("ms")
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
-    val (dir1,dir2) = if (name.contains("Left"))
+    val (dir1,dir2) = if (norm.contains("left"))
       listOf("Right","Left")
     else
       listOf("Left","Right")
@@ -35,7 +35,7 @@ class TurnThru(name:String) : Action(name) {
     if (ctx.isInWave(d)) {
       //  If in waves, Turn Thru has to be right-handed,
       //  Left Turn Thru left-handed
-      val d2 = (if (name.contains("Left")) ctx.dancerToLeft(d) else ctx.dancerToRight(d)) ?: throw CallError("Dancer $d has no one to $name with")
+      val d2 = (if (norm.contains("left")) ctx.dancerToLeft(d) else ctx.dancerToRight(d)) ?: throw CallError("Dancer $d has no one to $name with")
       val dist = d.distanceTo(d2)
       return getMove("Swing $dir2").scale(dist/2, 0.5) +
              getMove("Extend $dir2").scale(1.0, 0.5)

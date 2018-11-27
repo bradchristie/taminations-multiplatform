@@ -22,7 +22,7 @@ package com.bradchristie.taminations.common.calls
 import com.bradchristie.taminations.common.*
 import com.bradchristie.taminations.common.TamUtils.getMove
 
-class TouchAQuarter(name:String) : Action(name) {
+class TouchAQuarter(norm:String,name:String) : Action(norm,name) {
 
   override val level = LevelObject("b2")
 

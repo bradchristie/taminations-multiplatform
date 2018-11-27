@@ -25,7 +25,7 @@ import com.bradchristie.taminations.common.TamUtils.getMove
 //  This handles both generic Walk and Dodge
 //  and directed (somebody) Walk (somebody else) Dodge
 
-class WalkandDodge(name:String) : Action(name) {
+class WalkandDodge(norm:String,name:String) : Action(norm,name) {
 
   override val level = LevelObject("ms")
   private lateinit var walkctx: CallContext
@@ -40,7 +40,7 @@ class WalkandDodge(name:String) : Action(name) {
     walkctx.analyze()
     dodgectx = CallContext(ctx)
     dodgectx.analyze()
-    val (walkers, dodgers) = if (name.toLowerCase() == "walk and dodge")
+    val (walkers, dodgers) = if (norm == "walkanddodge")
       listOf("trailers", "leaders")
     else
       Regex("(.+) walk(?: and)? (.+) dodge").find(name.toLowerCase())?.groupValues!!.drop(1)

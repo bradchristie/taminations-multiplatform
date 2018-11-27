@@ -22,7 +22,7 @@ package com.bradchristie.taminations.common.calls
 import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.CallError
 
-class OneAndaHalf : CodedCall("Once and a Half") {
+class OneAndaHalf(norm:String,call:String) : CodedCall(norm,call) {
 
   override fun performCall(ctx: CallContext, i: Int) {
     if (ctx.callstack.count() < 2)

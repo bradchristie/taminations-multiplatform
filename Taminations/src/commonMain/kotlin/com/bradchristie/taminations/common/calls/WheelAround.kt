@@ -21,7 +21,7 @@ package com.bradchristie.taminations.common.calls
 
 import com.bradchristie.taminations.common.*
 
-class WheelAround(name:String) : Action(name) {
+class WheelAround(norm:String,name:String) : Action(norm,name) {
 
   override val level = LevelObject("b2")
 
@@ -32,7 +32,7 @@ class WheelAround(name:String) : Action(name) {
     if (!d2.data.active)
       throw CallError("Dancer $d must Wheel Around with partner")
     val move =
-        if (name.toLowerCase().startsWith("reverse")) {
+        if (norm.startsWith("reverse")) {
           if (d2 isRightOf d)
             "Beau Reverse Wheel"
           else

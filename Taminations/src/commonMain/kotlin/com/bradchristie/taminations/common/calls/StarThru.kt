@@ -19,24 +19,24 @@ package com.bradchristie.taminations.common.calls
 
 */
 
-import com.bradchristie.taminations.common.CallContext
-import com.bradchristie.taminations.common.CallError
+import com.bradchristie.taminations.common.*
+import com.bradchristie.taminations.common.TamUtils.getMove
 
-class StarThru : Action("Star Thru") {
+class StarThru(norm:String,name:String) : Action(norm,name) {
 
-  override val requires = listOf("ms/slide_thru")
-
-  override fun perform(ctx: CallContext, i:Int) {
-    //  Check that facing dancers are opposite genders
-    ctx.actives.forEach { d ->
-      val d2 = ctx.dancerInFront(d)
-      if (d2 == null || !d2.data.active || ctx.dancerInFront(d2) != d)
-        throw CallError("Dancer ${d.number} has nobody to Star Thru with")
-      if (d2.gender == d.gender)
-        throw CallError("Dancer ${d.number} cannot Star Thru with another dancer of the same gender")
-    }
-    //  All ok
-    ctx.applyCalls("Slide Thru")
+  override fun performOne(d: Dancer, ctx: CallContext): Path {
+    //  Must be facing dancers, opposite gender
+    val d2 = ctx.dancerFacing(d) ?: throw CallError("Dancer $d has nobody to Star Thru with")
+    if (d2.gender == d.gender)
+      throw CallError("Cannot Star Thru with same gender.")
+    val dist = d.distanceTo(d2)
+    return (getMove("Extend Left").scale(dist / 2, 0.5) +
+        (if (d.gender == Gender.BOY)
+          getMove("Lead Right").scale(1.0, 0.5)
+        else
+          getMove("Quarter Left").skew(1.0, -0.5)))
+            //  "left" star thru is used by double/triple star thru
+            .ifAlso(norm.startsWith("left")) { it.reflect() }
   }
 
 }

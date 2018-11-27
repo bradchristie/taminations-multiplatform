@@ -23,7 +23,7 @@ import com.bradchristie.taminations.common.CallError
 
 */
 
-class Twice : CodedCall("Twice") {
+class Twice(norm:String,name:String) : CodedCall(norm,name) {
 
   override fun performCall(ctx: CallContext, i: Int) {
     if (ctx.callstack.count() < 2)

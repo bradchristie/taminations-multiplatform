@@ -21,7 +21,7 @@ package com.bradchristie.taminations.common.calls
 
 import com.bradchristie.taminations.common.Dancer
 
-class Trailers(name:String) : FilterActives(name) {
+class Trailers(norm:String,name:String=norm) : FilterActives(norm,name) {
 
   override fun isActive(d: Dancer) = d.data.trailer
 

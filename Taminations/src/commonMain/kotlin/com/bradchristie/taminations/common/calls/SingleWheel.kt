@@ -23,7 +23,7 @@ import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.LevelObject
 import com.bradchristie.taminations.common.capWords
 
-class SingleWheel(name:String) : Action(name) {
+class SingleWheel(norm:String, name:String) : Action(norm,name) {
 
   override val level = LevelObject("a2")
   override val requires = listOf("ms/hinge","plus/anything_and_roll")

@@ -23,15 +23,15 @@ import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.Dancer
 import com.bradchristie.taminations.common.LevelObject
 
-class ZigZag(name:String) : QuarterTurns(name) {
+class ZigZag(norm:String, name:String) : QuarterTurns(norm,name) {
 
   override val level = LevelObject("a2")
 
   override fun select(ctx: CallContext, d: Dancer): String = when {
-    d.data.leader && name.matches(Regex("Zig Z[ai]g")) -> "Quarter Right"
-    d.data.leader && name.matches(Regex("Zag Z[ai]g")) -> "Quarter Left"
-    d.data.trailer && name.matches(Regex("Z[ai]g Zig")) -> "Quarter Right"
-    d.data.trailer && name.matches(Regex("Z[ai]g Zag")) -> "Quarter Left"
+    d.data.leader && norm.matches(Regex("zigz[ai]g")) -> "Quarter Right"
+    d.data.leader && norm.matches(Regex("zagz[ai]g")) -> "Quarter Left"
+    d.data.trailer && norm.matches(Regex("z[ai]gzig")) -> "Quarter Right"
+    d.data.trailer && norm.matches(Regex("z[ai]gzag")) -> "Quarter Left"
     else -> "Stand"
   }
 

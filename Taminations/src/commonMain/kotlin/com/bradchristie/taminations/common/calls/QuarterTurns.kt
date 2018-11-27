@@ -24,7 +24,7 @@ import com.bradchristie.taminations.common.Dancer
 import com.bradchristie.taminations.common.Path
 import com.bradchristie.taminations.common.TamUtils
 
-abstract class QuarterTurns(name:String) : Action(name) {
+abstract class QuarterTurns(norm:String, name:String=norm) : Action(norm,name) {
 
   abstract fun select(ctx: CallContext, d: Dancer):String
 

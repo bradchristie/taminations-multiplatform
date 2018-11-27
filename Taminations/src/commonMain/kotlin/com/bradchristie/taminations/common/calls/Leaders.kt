@@ -21,7 +21,7 @@ package com.bradchristie.taminations.common.calls
 
 import com.bradchristie.taminations.common.Dancer
 
-class Leaders(name:String) : FilterActives(name) {
+class Leaders(norm:String,name:String) : FilterActives(norm,name) {
 
   override fun isActive(d: Dancer) = d.data.leader
 

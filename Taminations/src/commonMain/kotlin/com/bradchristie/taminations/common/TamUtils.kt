@@ -245,6 +245,8 @@ object TamUtils {
           .replace("[^a-zA-Z0-9 ]".r,"")
           //  Through => Thru
           .replace("\\bthrou?g?h?\\b".r,"thru")
+          //  One and a half
+          .replace("(onc?e and a half)|(1 12)|(15)".r,"112")
           //  Process fractions 1/2 3/4 1/4 2/3
           //  Non-alphanums are not used in matching
           //  so these fractions become 12 34 14 23
@@ -253,8 +255,6 @@ object TamUtils {
           .replace("\\b(three.quarters?|34)\\b".r,"34")
           .replace("\\b(((a|one).)?quarter|14)\\b".r,"14")
           .replace("\\b23|two.thirds?\\b".r,"23")
-          //  One and a half
-          .replace("\\b1.5\\b".r,"112")
           //  Process any other numbers
           .replace("\\b(1|onc?e)\\b".r,"1")
           .replace("\\b(2|two)\\b".r,"2")
@@ -266,15 +266,15 @@ object TamUtils {
           .replace("\\b(8|eight)\\b".r,"8")
           .replace("\\b(9|nine)\\b".r,"9")
           //  Use singular form
-          .replace("\\b(\\w+)s\\b".r,"$1")
+          .replace("\\b(boy|girl|beau|belle|center|end|point|head|side)s\\b".r,"$1")
           //  Misc other variations
           .replace("\\bswap(\\s+around)?\\b".r,"swap")
           .replace("\\bmen\\b".r,"boy")
           .replace("\\bwomen\\b".r,"girl")
-          .replace("\\blead(er)?(ing)?\\b","lead")
-          .replace("\\btrail(er)?(ing)?\\b".r,"trail")
+          .replace("\\blead(er)?(ing)?s?\\b".r,"lead")
+          .replace("\\btrail(er)?(ing)?s?\\b".r,"trail")
           //  Accept optional "dancers" e.g. "head dancers" == "heads"
-          .replace("\\bdancer\\b".r,"")
+          .replace("\\bdancers?\\b".r,"")
           //  Also handle "Lead Couples" as "Leads"
           //  but make sure not to clobber "As Couples" or "Couples Hinge"
           .replace("((head|side|lead|trail|center|end).)couple".r,"$1")

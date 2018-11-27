@@ -23,7 +23,7 @@ import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.Dancer
 import com.bradchristie.taminations.common.LevelObject
 
-class Zig(name:String) : QuarterTurns(name) {
+class Zig(norm:String,name:String) : QuarterTurns(norm,name) {
 
   override val level = LevelObject("a2")
 

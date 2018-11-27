@@ -23,7 +23,7 @@ import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.Dancer
 import com.bradchristie.taminations.common.LevelObject
 
-class QuarterIn(name:String) : QuarterTurns(name) {
+class QuarterIn(norm:String, name:String) : QuarterTurns(norm,name) {
 
   override val level = LevelObject("a1")
 
@@ -31,6 +31,6 @@ class QuarterIn(name:String) : QuarterTurns(name) {
     if (!d.data.beau && !d.data.belle) {
       //  No partner - Face In
       if (d.angleToOrigin < 0) "Quarter Right" else "Quarter Left"
-    } else if (d.data.beau xor name.matches(Regex(".*Out"))) "Quarter Right" else "Quarter Left"
+    } else if (d.data.beau xor norm.matches(Regex(".*out"))) "Quarter Right" else "Quarter Left"
 
 }

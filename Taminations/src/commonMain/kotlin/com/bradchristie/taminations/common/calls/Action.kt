@@ -23,7 +23,7 @@ import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.Dancer
 import com.bradchristie.taminations.common.Path
 
-abstract class Action(name:String) : CodedCall(name) {
+abstract class Action(norm:String,name:String=norm) : CodedCall(norm,name) {
 
   override fun performCall(ctx: CallContext, i: Int) {
     perform(ctx,i)

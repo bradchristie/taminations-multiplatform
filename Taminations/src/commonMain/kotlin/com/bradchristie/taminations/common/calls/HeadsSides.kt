@@ -24,7 +24,7 @@ import com.bradchristie.taminations.common.Dancer
 import com.bradchristie.taminations.common.abs
 import com.bradchristie.taminations.common.isApprox
 
-class HeadsSides(name:String) : FilterActives(name) {
+class HeadsSides(norm:String,name:String) : FilterActives(norm,name) {
 
   private var square = false
   override fun performCall(ctx: CallContext, i: Int) {
@@ -34,10 +34,10 @@ class HeadsSides(name:String) : FilterActives(name) {
 
   override fun isActive(d: Dancer) =
     when {
-      square && name == "Heads" -> d.location.x.abs.isApprox(3.0)
-      square && name == "Sides" -> d.location.y.abs.isApprox(3.0)
-      name == "Heads" -> d.number_couple == "1" || d.number_couple == "3"
-      name == "Sides" -> d.number_couple == "2" || d.number_couple == "4"
+      square && norm == "head" -> d.location.x.abs.isApprox(3.0)
+      square && norm == "side" -> d.location.y.abs.isApprox(3.0)
+      norm == "head" -> d.number_couple == "1" || d.number_couple == "3"
+      norm == "side" -> d.number_couple == "2" || d.number_couple == "4"
       else -> false
     }
 

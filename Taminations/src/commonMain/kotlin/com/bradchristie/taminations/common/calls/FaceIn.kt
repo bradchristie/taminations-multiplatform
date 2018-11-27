@@ -22,12 +22,12 @@ package com.bradchristie.taminations.common.calls
 import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.Dancer
 
-class FaceIn(calltext:String) : QuarterTurns(calltext) {
+class FaceIn(norm:String,calltext:String) : QuarterTurns(norm,calltext) {
 
-  override fun select(ctx: CallContext, d: Dancer): String = when (name) {
-    "Face In" -> if (d.angleToOrigin < 0) "Quarter Right" else "Quarter Left"
-    "Face Out" -> if (d.angleToOrigin > 0) "Quarter Right" else "Quarter Left"
-    "Face Left" -> "Quarter Left"
+  override fun select(ctx: CallContext, d: Dancer): String = when (norm) {
+    "facein" -> if (d.angleToOrigin < 0) "Quarter Right" else "Quarter Left"
+    "faceout" -> if (d.angleToOrigin > 0) "Quarter Right" else "Quarter Left"
+    "faceleft" -> "Quarter Left"
     else -> "Quarter Right"
   }
 
