@@ -169,6 +169,11 @@ Centers California Twirl
 Star Thru
 Right and Left Thru """,
 
+      "Center 6" to
+"""Heads Pass the Ocean
+Center 6 Turn Back
+Acey Deucey """,
+
       "Clover And" to
 """Heads Pass Thru
 Clover and Touch 1/4
@@ -220,12 +225,28 @@ In-Roll Circulate
 Quarter In
 Right and Left Grand""",
 
-  "Cross Run" to
+      "Cross Run" to
 """Sides Pair Off
 Pass the Ocean
 Girls Cross Run
 Boys Trade
 Recycle""",
+
+      "Double Star Thru" to
+"""Heads Pass Thru
+Sides Separate
+Double Star Thru
+Bend the Line
+Centers Double Star Thru
+Quarter In
+Centers Trade and Roll
+Double Star Thru
+Cast Off Three Quarters
+Pass the Ocean
+Swing Thru
+Boys Run
+Wheel and Deal
+Allemande Left""",
 
       "Face In" to
 """Sides Pair Off
@@ -558,20 +579,35 @@ Zoom
 Centers Square Thru 3
 Allemande Left""",
 
-      "Sweep 1/4" to
-"""Sides Pass the Ocean
+      "Star Thru" to
+"""Heads Pass the Ocean
 Extend
-Recycle and Sweep a Quarter
-Pass Thru
-Wheel and Deal, Centers Sweep a Quarter
-Ends Separate and Star Thru
-Double Pass Thru
+Quarter Thru
+Centers Run
+Bend the Line
+Star Thru
 Horseshoe Turn
-Touch a Quarter
-Boys Run
+Star Thru
+Pass Thru
 Wheel and Deal
 Zoom
-Centers Reverse Swap Around
+Centers Pass Thru
+Allemande Left""",
+
+      "Sweep 1/4" to
+"""Heads Lead Right
+Veer Left
+Wheel and Deal and and Sweep a Quarter
+Pass the Ocean
+Boys Run
+Wheel and Deal and and Sweep a Quarter
+Pass the Ocean
+Recycle and Sweep a Quarter
+Pass the Sea
+Recycle and and Sweep a Quarter
+Touch a Quarter
+Circulate
+Boys Run
 Allemande Left""",
 
       "3/4 Tag" to
@@ -603,6 +639,19 @@ Boys Run
 Circulate
 Ferris Wheel
 Centers Square Thru 3
+Allemande Left""",
+
+      "Triple Star Thru" to
+"""Sides Lead Left
+Veer Right
+Leads Quarter In
+Triple Star Thru
+Clover and Right Roll to a Wave
+Chain Reaction
+Swing Thru
+Boys Run
+Ferris Wheel
+Centers Reverse Swap Around
 Allemande Left""",
 
       "Triple Trade" to
