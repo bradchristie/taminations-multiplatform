@@ -22,6 +22,47 @@
 -->
 <tamination title="Step and Slide">
 
+  <tam title="Step and Slide" from="Right-Hand Two-Faced Line">
+    <formation>
+      <dancer gender="boy" x="-3" y="0" angle="90"/>
+      <dancer gender="girl" x="-1" y="0" angle="90"/>
+    </formation>
+    <path numbers="1 4">
+      <move select="Dodge Right" beats="4" />
+    </path>
+    <path numbers="2 3">
+      <move select="Forward 2" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Step and Slide" from="Left-Hand Two-Faced Line"
+       formation="Two-Faced Line LH">
+    <path>
+      <move select="Forward 2" beats="4"/>
+    </path>
+    <path>
+      <move select="Dodge Left" beats="4" />
+    </path>
+  </tam>
+
+  <tam title="Step and Slide" from="Right-Hand Wave" formation="Wave RH">
+    <path>
+      <move select="Dodge Right" beats="4" />
+    </path>
+    <path>
+      <move select="Forward 2" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Step and Slide" from="Left-Hand Wave" formation="Wave LH">
+    <path>
+      <move select="Dodge Left" beats="4" />
+    </path>
+    <path>
+      <move select="Forward 2" beats="4"/>
+    </path>
+  </tam>
+
   <tam title="Step and Slide" from="Lines Facing Out">
     <formation>
       <dancer gender="girl" x="3" y="2" angle="90"/>
@@ -58,21 +99,8 @@
     </path>
   </tam>
 
-  <tam title="Step and Slide" from="Right-Hand Two-Faced Line">
-    <formation>
-      <dancer gender="boy" x="-3" y="0" angle="90"/>
-      <dancer gender="girl" x="-1" y="0" angle="90"/>
-    </formation>
-    <path numbers="1 4">
-      <move select="Dodge Right" beats="4" />
-    </path>
-    <path numbers="2 3">
-      <move select="Forward 2"  />
-    </path>
-  </tam>
-
   <tam title="Step and Slide"
-       from="Inverted Lines"
+       from="Inverted Lines, Ends Facing In"
        formation="Inverted Lines Ends Facing In">
     <path>
       <move select="Extend Right" beats="4" scaleY="2" />
@@ -85,6 +113,215 @@
     </path>
     <path>
       <move select="Extend Left" beats="4" scaleY="2" />
+    </path>
+  </tam>
+
+  <tam title="Step and Slide"
+       from="Inverted Lines, Ends Facing Out"
+       formation="Inverted Lines Ends Facing Out">
+    <path>
+      <move select="Extend Left" beats="4" scaleY="2" />
+    </path>
+    <path>
+      <move select="Forward" hands="left" beats="2" />
+    </path>
+    <path>
+      <move select="Forward" hands="right" beats="2" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="4" scaleY="2" />
+    </path>
+  </tam>
+
+  <tam title="Step and Slide" from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB">
+    <path>
+      <move select="Dodge Right" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" />
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Right" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Step and Slide" from="Left-Hand Waves"
+       formation="Ocean Waves LH BGGB">
+    <path>
+      <move select="Dodge Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" />
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Left" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Step and Slide" from="Right-Hand Two-Faced Lines"
+       formation="Two-Faced Lines RH">
+    <path>
+      <move select="Dodge Right" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" />
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Right" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Step and Slide" from="Left-Hand Two-Faced Lines"
+       formation="Two-Faced Lines LH">
+    <path>
+      <move select="Dodge Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" />
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Left" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Step and Slide" from="3 and 1 Lines #1" display="none"
+       formation="3 and 1 lines #1">
+    <path>
+      <move select="Dodge Left" beats="4" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Forward" hands="right" beats="4" />
+    </path>
+    <path>
+      <move select="Forward" hands="left" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Left" beats="4" offsetX="-1"/>
+    </path>
+  </tam>
+
+  <tam title="Step and Slide" from="3 and 1 Lines #2" display="none"
+       formation="3 and 1 lines #2">
+    <path>
+      <move select="Dodge Right" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" />
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Left" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Step and Slide" from="3 and 1 Lines #3" display="none"
+       formation="3 and 1 lines #3">
+    <path>
+      <move select="Dodge Right" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" />
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Left" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Step and Slide" from="3 and 1 Lines #4" display="none"
+       formation="3 and 1 lines #4">
+    <path>
+      <move select="Dodge Right" beats="4" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Forward" hands="right" beats="4" />
+    </path>
+    <path>
+      <move select="Forward" hands="left" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Right" beats="4" offsetX="1"/>
+    </path>
+  </tam>
+
+  <tam title="Step and Slide" from="3 and 1 Lines #5" display="none"
+       formation="3 and 1 lines #5">
+    <path>
+      <move select="Dodge Right" beats="4" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Forward" hands="left" beats="4" />
+    </path>
+    <path>
+      <move select="Forward" hands="right" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Right" beats="4" offsetX="-1"/>
+    </path>
+  </tam>
+
+  <tam title="Step and Slide" from="3 and 1 Lines #6" display="none"
+       formation="3 and 1 lines #6">
+    <path>
+      <move select="Dodge Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" />
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Right" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Step and Slide" from="3 and 1 Lines #7" display="none"
+       formation="3 and 1 lines #7">
+    <path>
+      <move select="Dodge Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" />
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Right" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Step and Slide" from="3 and 1 Lines #8" display="none"
+       formation="3 and 1 lines #8">
+    <path>
+      <move select="Dodge Left" beats="4" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Forward" hands="left" beats="4" />
+    </path>
+    <path>
+      <move select="Forward" hands="right" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Left" beats="4" offsetX="1"/>
     </path>
   </tam>
 
