@@ -108,6 +108,80 @@
     </path>
   </tam>
 
+  <tam title="Split Square Chain Thru"
+       from="T-Bones 3" parts="1;2;6"
+       formation="T-Bone RLUU">
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" beats="2" scaleX="1.5" scaleY=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Extend Left" beats="2" scaleX="1.5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" beats="2" scaleX=".5" scaleY="1.5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Stand" beats="3" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Extend Left" beats="2" scaleX="1.5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Stand" />
+      <move select="Extend Right" beats="2" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Stand" beats="3" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Extend Left" beats="2" scaleX="1.5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Stand" />
+      <move select="Extend Right" beats="2" scaleY=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Extend Left" beats="2" scaleX="1.5" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Split Square Chain Thru"
+       from="T-Bones 4" parts="1;2;6"
+       formation="T-Bone UURL">
+    <path>
+      <move select="Stand" />
+      <move select="Extend Right" beats="2" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Stand" beats="3" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Extend Left" beats="2" scaleX="1.5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Stand" />
+      <move select="Extend Right" beats="2" scaleY=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Extend Left" beats="2" scaleX="1.5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" beats="2" scaleX="1.5" scaleY=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Extend Left" beats="2" scaleX="1.5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" beats="2" scaleX=".5" scaleY="1.5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Stand" beats="3" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Extend Left" beats="2" scaleX="1.5" scaleY=".5" />
+    </path>
+  </tam>
+
   <tam title="Heads Split Square Chain Thru" from="Static Square" formation="Static Square" group=" " parts="3;2;6">
     <path>
       <move select="Pull Left" beats="3" scaleX="3" scaleY=".5"/>
