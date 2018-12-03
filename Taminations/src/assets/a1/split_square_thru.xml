@@ -182,4 +182,31 @@
     </path>
   </tam>
 
+  <!--  for sequencer, so it can do all variations -->
+  <tam title="Heads Start" formation="Static Square">
+    <path>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+    </path>
+    <path>
+    </path>
+  </tam>
+
+  <tam title="Sides Start" formation="Static Square">
+    <path>
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+    </path>
+  </tam>
+
 </tamination>
