@@ -64,7 +64,7 @@
     </path>
   </tam>
 
-  <tam title="Head Ladies Chain"
+  <tam title="Head Ladies Chain" group=" "
        from="Static Square"
        formation="Static Square" sequencer="gender-specific">
     <path>
@@ -82,7 +82,7 @@
     </path>
   </tam>
 
-  <tam title="Side Ladies Chain"
+  <tam title="Side Ladies Chain" group=" "
        from="Static Square"
        formation="Static Square" sequencer="gender-specific">
     <path>
@@ -97,6 +97,54 @@
       <move select="Pull Left" beats="2.5" scaleX="3" scaleY="1.75" />
       <move select="Extend Right" beats="2.5" scaleX="3" scaleY="1.75" />
       <move select="Belle Wheel" />
+    </path>
+  </tam>
+
+  <tam title="Head Ladies Chain to the Right" group=" "
+       formation="Static Square" sequencer="gender-specific">
+    <path>
+      <move select="Stand" />
+      <move select="Flip Left" beats="4" offsetY="-4" />
+      <move select="Beau Wheel" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="1.5"/>
+      <move select="Lead Right" beats="3" scaleX="1.5" scaleY="3"/>
+      <move select="Belle Wheel" scaleX="0.75" scaleY="0.5"/>
+    </path>
+    <path>
+      <move select="Stand" />
+      <move select="Flip Left" beats="4" offsetY="-4" />
+      <move select="Beau Wheel" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="1.5" scaleY="2"/>
+      <move select="Lead Left" beats="3" scaleX="1.5" scaleY="2"/>
+      <move select="Belle Wheel" scaleX="0.75" scaleY="0.5"/>
+    </path>
+  </tam>
+
+  <tam title="Side Ladies Chain to the Right" group=" "
+       formation="Static Square" sequencer="gender-specific">
+    <path>
+      <move select="Stand" />
+      <move select="Flip Left" beats="4" offsetY="-4" />
+      <move select="Beau Wheel" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="1.5" scaleY="2"/>
+      <move select="Lead Left" beats="3" scaleX="1.5" scaleY="2"/>
+      <move select="Belle Wheel" scaleX="0.75" scaleY="0.5"/>
+    </path>
+    <path>
+      <move select="Stand" />
+      <move select="Flip Left" beats="4" offsetY="-4" />
+      <move select="Beau Wheel" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="1.5"/>
+      <move select="Lead Right" beats="3" scaleX="1.5" scaleY="3"/>
+      <move select="Belle Wheel" scaleX="0.75" scaleY="0.5"/>
     </path>
   </tam>
 
