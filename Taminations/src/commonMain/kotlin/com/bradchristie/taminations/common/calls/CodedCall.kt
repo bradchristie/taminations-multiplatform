@@ -22,6 +22,7 @@ package com.bradchristie.taminations.common.calls
 import com.bradchristie.taminations.common.capWords
 import com.bradchristie.taminations.common.r
 import com.bradchristie.taminations.common.TamUtils
+import com.bradchristie.taminations.platform.System
 
 abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords()) {
 
@@ -68,7 +69,10 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "all8circulate" to { Circulate() },
         "nothing" to { Nothing() },
         "partnertag" to { PartnerTag() },
-        "passthru" to { PassThru() },
+        "passin" to { PassIn() },
+        "passout" to { PassOut() },
+        "passthru" to { PassThru("passthru","Pass Thru") },
+        "leftpassthru" to { PassThru("leftpassthru","Left Pass Thru") },
         "point" to { Outsides("point","Points") },
         "14in" to { QuarterIn("14in","Quarter In") },
         "14out" to { QuarterIn("14out","Quarter Out") },
@@ -77,6 +81,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "slidethru" to { SlideThru() },
         "slip" to { Slip() },
         "starthru" to { StarThru("starthru","Star Thru") },
+        "steptoacompactwave" to { StepToACompactWave("","") },
+        "steptoacompactlefthandwave" to { StepToACompactWave("left","") },
         "leftstarthru" to { StarThru("leftstarthru","Left Star Thru") },
         "step" to { Step() },
         "34tag" to { ThreeQuartersTag() },
@@ -127,6 +133,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
     private const val specifier = "\\s*(boys?|girls?|beaus?|belles?|centers?|ends?|leaders?|trailers?|heads?|sides?|very centers?)\\s*"
     fun getCodedCall(callname:String):CodedCall? {
       val callnorm = TamUtils.normalizeCall(callname)
+      System.log("$callname $callnorm")
       //  Most calls can be found by a lookup in one of the maps
       return simpleCallMaker[callnorm]?.invoke() ?:
              complexCallMaker[callnorm]?.invoke(callnorm,callname) ?:
@@ -139,6 +146,13 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "$specifier walk (and )?$specifier dodge".r -> WalkandDodge(callnorm,callname)
         //  Head Boy Walk Head Girl Dodge etc
         in "$specifier $specifier walk (and )?$specifier $specifier dodge".r -> WalkandDodge(callnorm,callname)
+// not yet        in "(left)?spinthewindmill(left|right|in|out|forward|back)".r -> SpinTheWindmill(callnorm,callname)
+        in "(left)?squarethru(1|2|3|4|5|6|7)?".r -> SquareThru(callnorm,callname)
+        in "(left)?splitsquarethru(2|3|4|5|6|7)?".r -> SplitSquareThru(callnorm,callname)
+        in "(head|side)start.+".r ->
+          //  Don't want to match Sides Star Thru e.g.
+          if (callname.toLowerCase() in ".*\\bstart\\b.*".r)
+            HeadsStart(callnorm,callname)  else null
         else -> null
       }
     }

@@ -128,7 +128,8 @@ object TamUtils {
       callback(tam)
   }
 
-  fun getFormation(fname:String):TamElement = formations[fname]!!
+  fun getFormation(fname:String):TamElement = formations[fname] ?:
+    throw CallError("Internal error: formation $fname not found.")
 
   private fun translate(elem:TamElement):List<Movement> = when (elem.tag) {
     "path" -> translatePath(elem)
