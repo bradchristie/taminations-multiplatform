@@ -66,6 +66,8 @@ class Half : Action("Half") {
         d.path.add(mo!!.clip(prevbeats+halfbeats-d.path.beats))
     }
 
+    super.postProcess(ctx, i)
+
   }
 
 }

@@ -250,6 +250,8 @@ class CallContext {
     //  Found xml file with call, now look through each animation
     found = callfiles.isNotEmpty()
     matches = callfiles.any {
+      if (loadedXML[it.link] == null)
+        throw CallError("Internal Error: ${it.link} not loaded.")
       loadedXML[it.link]!!.evalXPath("/tamination/tam").asSequence().filter { tam -> tam.attr("sequencer")!="no" &&
           TamUtils.normalizeCall(tam.attr("title")) == callnorm
       }.any { tam ->
@@ -500,15 +502,6 @@ class CallContext {
     callstack.forEachIndexed{ i,c -> c.postProcess(this,i) }
   }
 
-  //  Re-center dancers
-  fun center() {
-    val xave = dancers.asSequence().map{it.location.x}.sum() / dancers.count()
-    val yave = dancers.asSequence().map{it.location.y}.sum() / dancers.count()
-    dancers.forEach {
-      it.starttx = it.starttx.postTranslate(xave, yave)
-    }
-  }
-
   //  See if the current dancer positions resemble a standard formation
   //  and, if so, snap to the standard
   private val standardFormations = listOf(
@@ -637,6 +630,10 @@ class CallContext {
   //  Return outer 2, 4 , 6 dancers
   fun outer(num:Int):List<Dancer> =
     dancers.sortedBy{d -> d.location.length}.drop(dancers.count() - num)
+
+  //  Return center 2, 4 , 6 dancers
+  fun center(num:Int):List<Dancer> =
+      dancers.sortedBy{d -> d.location.length}.take(num)
 
     //  Return true if this dancer is in a wave or mini-wave
   fun isInWave(d:Dancer,d2:Dancer?=d.data.partner):Boolean {

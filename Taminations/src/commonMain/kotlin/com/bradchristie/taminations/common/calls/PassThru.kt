@@ -25,7 +25,7 @@ import com.bradchristie.taminations.common.Dancer
 import com.bradchristie.taminations.common.Path
 import com.bradchristie.taminations.common.TamUtils.getMove
 
-class PassThru : Action("Pass Thru") {
+class PassThru(norm: String, name: String) : Action(norm, name) {
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
     //  Can only pass thru with another dancer
@@ -35,7 +35,11 @@ class PassThru : Action("Pass Thru") {
     if (!d2.data.active)
       throw CallError("Dancers must Pass Thru with each other")
     val dist = d.distanceTo(d2)
-    return getMove("Extend Left").scale(dist/2,0.5) +
-           getMove("Extend Right").scale(dist/2,0.5)
+    return if (norm.startsWith("left"))
+          getMove("Extend Right").scale(dist/2,0.5) +
+          getMove("Extend Left").scale(dist/2,0.5)
+      else
+          getMove("Extend Left").scale(dist/2,0.5) +
+          getMove("Extend Right").scale(dist/2,0.5)
   }
 }

@@ -719,6 +719,55 @@ Boys Run
 Wheel and Deal
 Zoom
 Centers Square Thru 3
+Allemande Left""",
+
+      "Split Square Thru" to
+"""Heads Start Split Square Thru 3
+Partner Trade Boys Roll
+Split Square Thru 3
+Trade By and Roll
+Split Square Thru 4
+Trade By
+Right and Left Thru
+Star Thru
+Pass Thru
+Wheel and Deal
+Centers Pass Thru
+Allemande Left""",
+
+      "Left Split Square Thru" to
+"""Sides Start Left Split Square Thru
+Right Roll to a Wave
+Recycle
+Girls Face In
+Left Split Square Thru 3
+Step and Slide
+Boys Face In
+Left Split Square Thru 5
+Wheel and Deal
+Double Pass Thru
+Right Roll to a Wave
+Swing Thru
+Boys Run
+Ferris Wheel
+Centers Square Thru 3
+Allemande Left""",
+
+      "Square Thru" to
+"""Sides Square Thru 2
+Left Square Thru 3
+Right Roll to a Wave
+Square Thru 3
+Trade By
+Pass and Roll
+Mix
+Left Square Thru 2
+Half Tag
+Swing Thru
+Boys Run
+Circulate
+Ferris Wheel
+Centers Square Thru 3
 Allemande Left"""
 
   )
