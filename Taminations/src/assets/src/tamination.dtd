@@ -38,7 +38,6 @@
               parts CDATA #IMPLIED
               fractions CDATA #IMPLIED
               difficulty CDATA #IMPLIED
-              gender-specific CDATA #IMPLIED
               display CDATA #IMPLIED
               sequencer CDATA #IMPLIED >
 
