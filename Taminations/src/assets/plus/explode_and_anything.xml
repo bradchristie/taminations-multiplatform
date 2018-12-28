@@ -127,7 +127,7 @@
   </tam>
 
   <tam title="Explode and Slide Thru" group="Explode and"
-       formation="Ocean Waves RH BGGB"
+       formation="Ocean Waves RH BGGB" sequencer="gender-specific"
        difficulty="2">
     <path>
       <move select="Forward" />
