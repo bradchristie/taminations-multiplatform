@@ -6,7 +6,7 @@ import com.bradchristie.taminations.common.LevelObject
 /*
 
   Taminations Square Dance Animations
-  Copyright (C) 2018 Brad Christie
+  Copyright (C) 2019 Brad Christie
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by

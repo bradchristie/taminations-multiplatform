@@ -2,7 +2,7 @@
 <!DOCTYPE calls SYSTEM "calls.dtd">
 <!--
 
-    Copyright 2018 Brad Christie
+    Copyright 2019 Brad Christie
 
     This file is part of Taminations.
 
@@ -256,7 +256,7 @@
     <call title="Grand Swing Thru" level="Plus" sublevel="Plus" link="plus/grand_swing_thru"/>
     <call title="Grand Three-Quarter Thru" sublevel="A-1" level="Advanced" link="a1/grand_three_quarter_thru"/>
     <call title="Half Sashay" level="Basic and Mainstream" sublevel="Basic 1" link="b1/sashay"/>
-    <call title="Half Tag" level="Basic and Mainstream" sublevel="Mainstream" link="ms/half_tag"/>
+    <call title="Half Tag" level="Basic and Mainstream" sublevel="Mainstream" link="ms/fraction_tag"/>
     <call title="Here Comes the Judge" level="Challenge" sublevel="C-2" link="c2/here_comes_the_judge"/>
     <call title="Hinge the Lock" level="Challenge" sublevel="C-3A" link="c3a/lock_the_hinge"/>
     <call title="Hinge" level="Basic and Mainstream" sublevel="Mainstream" link="ms/hinge"/>
@@ -374,6 +374,7 @@
     <call title="Quadruple Formation" level="Challenge" sublevel="C-3B" link="c3b/quadruple_formation"/>
     <call title="Quarter In" level="Advanced" sublevel="A-1" link="a1/quarter_in"/>
     <call title="Quarter Out" level="Advanced" sublevel="A-1" link="a1/quarter_out"/>
+    <call title="Quarter Tag" level="Basic and Mainstream" sublevel="Mainstream" link="ms/fraction_tag"/>
     <call title="Quarter Thru" level="Advanced" sublevel="A-1" link="a1/quarter_thru"/>
     <call title="Quick" level="Challenge" sublevel="C-3A" link="c3a/quick"/>
     <call title="Rally" level="Challenge" sublevel="C-3A" link="c3a/rally"/>
@@ -570,7 +571,7 @@
     <call title="Thirdly" level="Challenge" sublevel="C-3B" link="c3b/secondly_thirdly_fourthly"/>
     <call title="Three by Two Acey Deucey" level="Challenge" sublevel="C-1" link="c1/three_by_two_acey_deucey"/>
     <call title="Three Quarter Thru" level="Advanced" sublevel="A-1" link="a1/three_quarter_thru"/>
-    <call title="Three Quarters Tag the Line" level="Basic and Mainstream" sublevel="Mainstream" link="ms/three_quarters_tag_the_line"/>
+    <call title="Three Quarters Tag the Line" level="Basic and Mainstream" sublevel="Mainstream" link="ms/fraction_tag"/>
     <call title="Touch a Quarter" level="Basic and Mainstream" sublevel="Basic 2" link="b2/touch_a_quarter"/>
     <call title="Touch By" level="Challenge" sublevel="C-3A" link="c3a/touch_by"/>
     <call title="Track n" level="Challenge" sublevel="C-3B" link="c3b/track_n"/>
