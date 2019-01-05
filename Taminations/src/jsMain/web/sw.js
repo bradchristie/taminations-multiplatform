@@ -2,7 +2,7 @@
 //  This version number is reported to the client.  If it does not match
 //  the version number saved when files were downloaded, the client
 //  will request a new download to fill the new cache.
-self.version = "1.5.16";
+self.version = "1.5.17-34";
 //  This is run just once, when the user loads Taminations
 self.addEventListener('install', function(event) {
   event.waitUntil(
@@ -12,7 +12,7 @@ self.addEventListener('install', function(event) {
          //  or are otherwise not loaded in the cache by the code below
         "index.html",
         "lib/kotlin.js",
-        "lib/kotlin-coroutines-core.js",
+        "lib/kotlinx-coroutines-core.js",
         "main/Taminations.js",
         "favicon.ico",
         "tam120.png",
@@ -72,6 +72,53 @@ self.addEventListener('fetch', function(event) {
   }));
 });
 
+//  Parse the links out of calls.xml and return a Promise array
+function getCallLinks(cache,str) {
+  var re = /link="([^"]+)"/g;
+  var match = re.exec(str);
+  var thesePromises = [];
+  while (match != null) {
+    let xml = "assets/"+match[1]+".xml";
+    let htmllink = "assets/"+match[1]+".html";
+    thesePromises.push(fetch(htmllink)
+                    .then(response => {
+                       cache.put(htmllink,response.clone())
+                       return response;
+                     })
+                    .then( response => response.text())
+                    .then( html => getHTMLLinks(cache,htmllink,html))
+                    .then(cache.add(xml))
+                    .catch( err => {
+                        console.log("Error loading "+link+"  "+err);
+                        return Promise.reject(err);
+                     }))
+    match = re.exec(str);
+  }
+  return Promise.all(thesePromises);
+}
+
+//  Parse links from calls.xml, create a Promise array
+//  to fetch the HTML and scan for links to images
+//  Unfortunately XML parsing is not available to service workers
+//  so we have to do this the hard way
+function getHTMLLinks(cache,link,html) {
+  var base = link.replace(/[^\/]+\.html/,"");
+  var thosePromises = [];
+  var re2 = /src="([^"]+)"/g;
+  var match2 = re2.exec(html);
+  while (match2 != null) {
+    let link2 = match2[1];
+    //  Every html file loads framecode.js
+    //  Avoid repeated requests to cache that file
+    if (link2 != "../src/framecode.js") {
+          thosePromises.push(cache.add(base+link2).catch(
+              err => console.log("Error loading "+base+link2+" "+err)
+      ));
+    }
+    match2 = re2.exec(html);
+  }
+  return Promise.all(thosePromises);
+}
 
 //  After the client loads the About page, it sends a message
 //  requesting the rest of Taminations to be loaded into the cache
@@ -88,49 +135,19 @@ self.addEventListener('message', event => {
   }
   if (data.command == "Load All Files") {
     console.log("Loading all files");
-    caches.open(self.version).then( cache =>
-      cache.add("assets/src/calls.xml").then( () =>
-        fetch("assets/src/calls.xml").then( response =>
-          response.text().then( str => {
-            //  Unfortunately XML parsing is not available to service workers
-            //  so we have to do this the hard way
-            var re = /link="([^"]+)"/g;
-            var match = re.exec(str);
-            var thesePromises = [];
-            while (match != null) {
-              let link = match[1];
-              thesePromises.push(cache.add("assets/"+link+".xml").then( ()=>{ },()=>{
-                console.log("Error loading "+link+".xml")
-              }));
-              let html = "assets/" + link + ".html";
-              thesePromises.push(cache.add(html).then( () => {
-                //  Also look for images linked by html pages
-                let base = html.replace(/[^\/]+\.html/,"");
-                return fetch(html).then( response2 =>
-                  response2.text().then( str2 => {
-                    var thosePromises = [];
-                    var re2 = /src="([^"]+)"/g;
-                    var match2 = re2.exec(str2);
-                    while (match2 != null) {
-                      let link2 = match2[1];
-                      thosePromises.push(cache.add(base+link2).then( ()=>{ },
-                        () => console.log("Error loading "+base+link2)
-                      ));
-                      match2 = re2.exec(str2);
-                    }
-                    return Promise.all(thosePromises);
-                  })
-                );
-              }), () => console.log("Error loading "+link+".xml") );
-              match = re.exec(str);
-            }  // end while
-            return Promise.all(thesePromises);
-          })
-        )
-      )
-    ).then( () => {
+    caches.open(self.version).then( cache => {
+      console.log("Opened cache "+self.version);
+      cache.add("assets/src/calls.xml")
+           .then( _ => fetch("assets/src/calls.xml"))
+           .then( response => response.text())
+           .then( str => getCallLinks(cache,str) )
+           .then( function() {
         console.log("All files loaded!");
         self.port.postMessage({"message":"All files loaded", "version":self.version});
+      }, function(err) {
+        console.log("Something failed, files not loaded: "+err);
+        self.port.postMessage({"message":"Something failed, files not loaded", "version":self.version});
+      });
     })
   }
 });
