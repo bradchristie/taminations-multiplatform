@@ -94,6 +94,12 @@ def main():
         #  But for some they will be different
         for tam in root.findall('tam'):
             title = re.sub(r5,'',tam.attrib['title']).replace('"','').strip()
+            lang2 = []
+            for translation2 in glob.glob('../'+link+'*.html'):
+                m62 = r6.search(translation2)
+                if (m62):
+                    lang2 += [m62.group(1)]
+            lang2 = ' '.join(lang)
             if title+'  '+order+'  '+link not in calldict:
                 calldict[title+'  '+order+'  '+link] = {
                     'title':title,
@@ -105,6 +111,8 @@ def main():
                 audiofile = sublevel + "/" + re.sub(r4,'',title.lower()).replace(' ','_') + ".mp3"
                 if os.path.exists('../'+audiofile):
                     calldict[title+'  '+order+'  '+link]['audio'] = audiofile
+                if lang:
+                    calldict[title+'  '+order+'  '+link]['languages'] = lang
     #  Sort the results
     calllist = list(calldict.keys())
     calllist.sort(key=str.lower)
