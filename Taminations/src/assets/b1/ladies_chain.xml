@@ -64,6 +64,30 @@
     </path>
   </tam>
 
+  <tam title="Ladies Chain" from="Eight Chain Thru" sequencer="gender-specific"
+       formation="Eight Chain Thru" fractions="5">
+    <path>
+      <move select="Stand" />
+      <move select="Flip Left" beats="4" offsetY="-4" />
+      <move select="Beau Wheel" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Pull Left" beats="2.5" scaleY="1.75" />
+      <move select="Extend Right" beats="2.5" scaleY="1.75" />
+      <move select="Belle Wheel" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Stand" />
+      <move select="Flip Left" beats="4" offsetY="-4" />
+      <move select="Beau Wheel" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Pull Left" beats="2.5" scaleY="1.75" />
+      <move select="Extend Right" beats="2.5" scaleY="1.75" />
+      <move select="Belle Wheel" scaleX=".5" />
+    </path>
+  </tam>
+
   <tam title="Head Ladies Chain" group=" "
        from="Static Square"
        formation="Static Square" sequencer="gender-specific">
