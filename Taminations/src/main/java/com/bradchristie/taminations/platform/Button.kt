@@ -40,35 +40,24 @@ actual class ImageButton actual constructor(name:String, c: Shape) : Button(name
 
 actual open class Button actual constructor(t:String) : View() {
 
-  override val div = android.widget.Button(Taminations.context).apply {
-    background = stateList
-    typeface = Typeface.DEFAULT_BOLD
-    textSize = 30.pp.f  //20.0f // ((20.max(screenHeight/40)).dip).f
-    maxLines = 1
-    text = t
-    setOnClickListener {
-      clickCode()
-      Application.sendMessage(Request.Action.BUTTON_PRESS,
-          "button" to text.toString())
-    }
-  }
   actual var gradientColor = Color.LIGHTGRAY
   private val rectBorder = RoundRectShape(FloatArray(8) {8.dip.f},
       RectF(2.dip.f,2.dip.f,2.dip.f,2.dip.f), FloatArray(8) {6.dip.f})
-  private val rectShape = RoundRectShape(FloatArray(8) {8.dip.f},null,null)
-  private val borderShape = ShapeDrawable(rectBorder)
-  private val normalShape = ShapeDrawable(rectShape)
-  private val pressedShape = ShapeDrawable(rectShape)
   private val stateList = StateListDrawable()
   actual var text:String
     get() = div.text.toString()
     set(value) { div.text = value }
 
-  constructor(text:String,image:Shape) : this(text) {
-    setImage(image.drawable)
-  }
-
-  init {
+  override val div = android.widget.Button(Taminations.context).apply {
+    typeface = Typeface.DEFAULT_BOLD
+    textSize = 30.pp.f
+    maxLines = 1
+    text = t
+    setPadding(16,8,16,8)
+    val rectShape = RoundRectShape(FloatArray(8) {8.dip.f},null,null)
+    val borderShape = ShapeDrawable(rectBorder)
+    val normalShape = ShapeDrawable(rectShape)
+    val pressedShape = ShapeDrawable(rectShape)
     borderShape.shaderFactory = object : ShapeDrawable.ShaderFactory() {
       override fun resize(width: Int, height: Int): Shader =
           LinearGradient(0f,0f,0f,height.toFloat(),Color.WHITE.a,Color.GRAY.a,Shader.TileMode.CLAMP)
@@ -83,11 +72,16 @@ actual open class Button actual constructor(t:String) : View() {
     }
     stateList.addState(IntArray(1) {android.R.attr.state_pressed}, LayerDrawable(arrayOf(pressedShape,borderShape)))
     stateList.addState(IntArray(1) {0},LayerDrawable(arrayOf(normalShape,borderShape)))
-    div.background = stateList
-    padding.top = 8
-    padding.bottom = 8
-    padding.right = 16
-    padding.left = 16
+    background = stateList
+    setOnClickListener {
+      clickCode()
+      Application.sendMessage(Request.Action.BUTTON_PRESS,
+          "button" to text.toString())
+    }
+  }
+
+  constructor(text:String,image:Shape) : this(text) {
+    setImage(image.drawable)
   }
 
   fun setImage(image: Drawable) {
