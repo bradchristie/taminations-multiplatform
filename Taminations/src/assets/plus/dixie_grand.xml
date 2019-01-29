@@ -24,7 +24,7 @@
 
   <tam title="Dixie Grand"
        from="Facing Couples"
-       formation="Facing Couples">
+       formation="Facing Couples" display="none">
     <path couples="1 3">
       <move select="Forward" />
       <move select="Pull Left" scaleY=".5" />
@@ -127,13 +127,13 @@
       <move select="Pull Left" scaleY=".5" />
       <move select="Extend Right" scaleY=".5" />
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Stand" beats="3" />
       <move select="Pull Right" scaleY=".5" />
       <move select="Extend Left" scaleY=".5" />
       <move select="Flip Left" hands="right" />
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Stand" beats="3" />
       <move select="Pull Right" scaleY=".5" />
       <move select="Extend Left" scaleY=".5" />
