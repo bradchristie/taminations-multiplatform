@@ -127,8 +127,11 @@ class AnimListModel(private val alview: AnimListView, val request: Request ) {
   }
 
   private fun addSeparator(item: AnimListItem) {
-    val v = TextView(item.name).apply {
-      textSize = 20
+    val v = LinearLayout(LinearLayout.Direction.HORIZONTAL).apply {
+      textView(item.name).apply {
+        textSize = 20
+        margin.left = 12
+      }
     }
     alview.addItem(item,v)
   }
@@ -189,6 +192,9 @@ class AnimListModel(private val alview: AnimListView, val request: Request ) {
       }
       v.textView(if (item.name == "from") tamref.attr("from") else item.name) {
         textSize = 20
+        margin.left = if (item.celltype == CellType.Indented) 30 else 12
+        margin.top = 4
+        margin.bottom = 4
       }
       item.fullname = when {
         item.name == "from" -> item.title + " from " + tamref.attr("from")

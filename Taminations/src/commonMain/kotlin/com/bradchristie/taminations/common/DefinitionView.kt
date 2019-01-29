@@ -34,8 +34,8 @@ class DefinitionView : LinearLayout(Direction.VERTICAL) {
     }
     buttonView = radioGroup {
       weight = 0
-      abbrevRB = radioButton("Abbreviated") { weight = 1; paddings = 10 }
-      fullRB = radioButton("Full") { weight = 1; paddings = 10 }
+      abbrevRB = radioButton("Abbreviated") { weight = 1; margins = 10 }
+      fullRB = radioButton("Full") { weight = 1; margins = 10 }
     }
   }
 

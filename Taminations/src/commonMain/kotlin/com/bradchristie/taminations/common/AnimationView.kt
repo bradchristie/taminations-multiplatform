@@ -265,6 +265,8 @@ class AnimationView : Canvas() {
       val usercolor = Setting("Couple ${d.number_couple}").s
       if (usercolor != null)
         d.fillcolor = Color(usercolor)
+      else
+        d.fillcolor = dancerColor[d.number_couple.i-1]
     }
     invalidate()
   }

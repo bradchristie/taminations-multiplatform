@@ -24,9 +24,10 @@ import com.bradchristie.taminations.common.*
 class ThreeQuartersTag : Action("3/4 Tag the Line") {
 
   override val level = LevelObject("ms")
-  override val requires = listOf("ms/three_quarters_tag_the_line")
+  override val requires = listOf("ms/fraction_tag")
 
   override fun perform(ctx: CallContext, i: Int) {
+    //  All the 4-dancer formations are in Taminations
     if (ctx.actives.count() < 8)
       ctx.applyCalls("3/4 Tag the Line")
     else if (!ctx.isLines())

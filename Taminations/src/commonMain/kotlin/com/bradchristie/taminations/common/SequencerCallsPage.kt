@@ -68,7 +68,7 @@ class SequencerCallsPage : Page() {
     appendView(errorText) {
       backgroundColor = Color.WHITE
       textColor = Color.RED
-      padding.left = 20
+      margin.left = 20
       weight = 0
     }
   }
@@ -81,14 +81,14 @@ class SequencerCallsPage : Page() {
             "item" to "$item")
       }
       backgroundColor = level.color
-      padding.top = 4
-      padding.bottom = 4
-      padding.right = 12
-      padding.left = 4
       weight = 0
       textView(call) {
         textSize = 18
         weight = 1
+        margin.top = 4
+        margin.bottom = 4
+        margin.right = 12
+        margin.left = 4
       }
       textView(level.name) {
         textSize = 12

@@ -57,17 +57,18 @@ class CallListView : LinearLayout(LinearLayout.Direction.VERTICAL) {
       // not valid on Android weight = 0  // don't try to force list to fit screen
       backgroundColor = LevelObject.find(item.sublevel).color
       borders.width = 1
-      padding.top = 4
-      padding.bottom = 4
-      padding.right = 12
-      padding.left = 4
       textView(item.title) {
+        margin.top = 4
+        margin.bottom = 4
+        margin.left = 4
         weight = 1
         textSize = textsize
         nowrap()
       }
       textView(LevelObject.find(item.sublevel).name) {
         textSize = textsize * 2 / 3
+        margin.right = 12
+        margin.top = 4
         weight = 0
       }
     }

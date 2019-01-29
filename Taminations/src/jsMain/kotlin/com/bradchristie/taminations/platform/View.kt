@@ -133,26 +133,6 @@ actual open class View(internal val div:HTMLElement) {
     get() { throw UnsupportedOperationException() }
     set(r) { div.style.borderRadius = r.dips }
 
-  //  Padding
-  actual inner class AllPaddings {
-    actual var top: Int
-      get() { throw UnsupportedOperationException() }
-      set(value) { div.style.paddingTop = value.dips }
-    actual var right: Int
-      get() { throw UnsupportedOperationException() }
-      set(value) { div.style.paddingRight = value.dips }
-    actual var bottom: Int
-      get() { throw UnsupportedOperationException() }
-      set(value) { div.style.paddingBottom = value.dips }
-    actual var left: Int
-      get() { throw UnsupportedOperationException() }
-      set(value) { div.style.paddingLeft = value.dips }
-  }
-  actual var padding = AllPaddings()
-  actual var paddings: Int
-    get() { throw UnsupportedOperationException() }
-    set(value) { div.style.padding = value.dips }
-
   //  Margin
   actual inner class AllMargins {
     actual var top: Int

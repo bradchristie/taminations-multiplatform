@@ -45,19 +45,21 @@ class SettingsView : ScrollingLinearLayout() {
                                  default:Boolean = false) {
     verticalLayout {
       margin.bottom = 10
-      padding.left = 10
       backgroundColor = Color.FLOOR
       appendView(Checkbox(text)).apply {
         backgroundColor = Color.FLOOR
         textSize = 24
         textStyle = "bold"
+        margin.left = 10
         isChecked = Setting(text).b ?: default
         clickAction {
           Setting(text).b = isChecked
           Application.sendMessage(Request.Action.SETTINGS_CHANGED)
         }
       }
-      textView(hint)
+      textView(hint) {
+        margin.left = 10
+      }
     }
   }
 
@@ -66,15 +68,16 @@ class SettingsView : ScrollingLinearLayout() {
                                      clickCode:(String)->Unit={ }):LinearLayout =
     verticalLayout {
       margin.bottom = 10
-      padding.left = 10
       backgroundColor = Color.FLOOR
       val hintText = TextView("")
       textView(name) {
         textSize = 24
         textStyle = "bold"
+        margin.left = 10
       }
       var showHints = false
       radioGroup {
+        margin.left = 10
         buttons.forEach { (buttonText, hint) ->
           radioButton(buttonText) {
             isChecked = Setting(name).s == buttonText ||
@@ -93,13 +96,15 @@ class SettingsView : ScrollingLinearLayout() {
         }
       }
       if (showHints)
-        appendView(hintText)
+        appendView(hintText) {
+          margin.left = 10
+        }
     }
 
 
   private fun ViewGroup.dancerColors(withRadio:Boolean) {
     val colorBar = LinearLayout(LinearLayout.Direction.HORIZONTAL).apply {
-      padding.left = 10
+      margin.left = 10
       dancerColorDropBox("Couple 1")
       dancerColorDropBox("Couple 2")
       dancerColorDropBox("Couple 3")
@@ -119,10 +124,10 @@ class SettingsView : ScrollingLinearLayout() {
             colorBar.hide()
         }
       else {
-        padding.left = 10
         textView("Dancer Colors") {
           textSize = 24
           textStyle = "bold"
+          margin.left = 10
         }
       }
       appendView(colorBar)
@@ -143,7 +148,8 @@ class SettingsView : ScrollingLinearLayout() {
 
   private fun ViewGroup.dancerColorDropBox(name:String) {
     //  Not enough room for "Couple 1" ...
-    dropDown("    "+name.replace("Couple ","")+"    ") {
+    //  These strings with spaces contain unicode 160 so HTML doesn't collapse them
+    dropDown("    "+name.replace("Couple ","")+"    ") {
       selectAction { item ->
         Setting(name).s = item
         Application.sendMessage(Request.Action.SETTINGS_CHANGED)
@@ -153,8 +159,6 @@ class SettingsView : ScrollingLinearLayout() {
           else -> Color.BLACK
         }
       }
-      padding.right = 10
-      padding.left = 10
       margin.right = 20
       backgroundColor = colorForCouple(name)
       textColor = when (colorForCouple(name)) {

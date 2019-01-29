@@ -206,26 +206,6 @@ actual open class View actual constructor() {
     get() { throw UnsupportedOperationException() }
     set(_) { }
 
-  //  Padding
-  actual inner class AllPaddings {
-    actual var top: Int
-      get() { throw UnsupportedOperationException() }
-      set(value) { div.setPadding(div.paddingLeft,value,div.paddingRight,div.paddingBottom) }
-    actual var right: Int
-      get() { throw UnsupportedOperationException() }
-      set(value) { div.setPadding(div.paddingLeft,div.paddingTop,value,div.paddingBottom) }
-    actual var bottom: Int
-      get() { throw UnsupportedOperationException() }
-      set(value) { div.setPadding(div.paddingLeft,div.paddingTop,div.paddingRight,value) }
-    actual var left: Int
-      get() { throw UnsupportedOperationException() }
-      set(value) { div.setPadding(value,div.paddingTop,div.paddingRight,div.paddingBottom) }
-  }
-  actual var padding = AllPaddings()
-  actual var paddings: Int
-    get() { throw UnsupportedOperationException() }
-    set(value) { div.setPadding(value,value,value,value) }
-
   //  Margins
   private val marginLayout
     get() = div.layoutParams as android.view.ViewGroup.MarginLayoutParams

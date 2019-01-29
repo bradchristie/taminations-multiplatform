@@ -75,11 +75,6 @@ class AnimListView : LinearLayout(LinearLayout.Direction.VERTICAL) {
       weight = 0  // don't try to force list to fit screen
        if (item.celltype == CellType.Separator)
          height = 4
-      else {
-        padding.left = if (item.celltype == CellType.Indented) 30 else 12
-        padding.top = 4
-        padding.bottom = 4
-      }
       borders.width = 1
 
       textColor = when {

@@ -52,7 +52,7 @@ actual class DropDown actual constructor(title:String) : TextView(title) {
   actual fun addItem(name:String, code:View.()->Unit):View {
     val item = SelectablePanel().apply {
       textView(name) {
-        paddings = 4
+        margins = 4
       }
       clickAction {
         selectCode(name)

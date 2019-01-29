@@ -59,10 +59,10 @@ actual open class Button actual constructor(t:String) : View() {
     div.onmouseover = { linearGradient(gradientColor,gradientColor.veryBright()) }
     div.onmouseout = { linearGradient(gradientColor.veryBright(),gradientColor) }
     textView = layout.textView(t) {
-      padding.top = 8
-      padding.bottom = 8
-      padding.right = 16
-      padding.left = 16
+      margin.top = 8
+      margin.bottom = 8
+      margin.right = 16
+      margin.left = 16
       textSize = 18
       textStyle = "bold"
       weight = 1

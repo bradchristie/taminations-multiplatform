@@ -67,7 +67,7 @@ class StartPracticeLayout : LinearLayout(Direction.HORIZONTAL) {
     //  Left side - options
     verticalLayout {
       weight = 1
-      paddings = 8
+      margins = 8
       textView("Choose a Gender").textSize = 36.pp
       radioGroup {
         margins = 8

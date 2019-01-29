@@ -155,7 +155,6 @@ actual object Application : Page() {
       style.overflowX = "hidden"
       style.overflowY = "hidden"
       style.margin = "0"
-      paddings = 0
       //  Vertical layout for the title bar and the body
       verticalLayout {
         style.height = "100%"

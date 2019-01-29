@@ -43,12 +43,12 @@ class AnimationLayout : LinearLayout(Direction.VERTICAL) {
       }
       appendView(saysText) {
         backgroundColor = Color.WHITE
-        paddings = 6
+        margins = 6
         alignParentTop()
         alignParentRight()
       }
       appendView(itemText) {
-        paddings = 6
+        margins = 6
         alignParentBottom()
         alignParentRight()
       }

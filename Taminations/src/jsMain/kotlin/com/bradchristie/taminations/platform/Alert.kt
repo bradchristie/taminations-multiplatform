@@ -52,7 +52,7 @@ actual class Alert
         textStyle = "bold"
         backgroundColor = Color.BLUE.darker()
         textColor = Color.WHITE
-        paddings = 8
+        margins = 8
       }
     }
     //  Be careful not to call the override method below!

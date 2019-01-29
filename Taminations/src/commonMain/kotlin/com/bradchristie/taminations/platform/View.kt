@@ -67,16 +67,6 @@ expect open class View() {
   val borders : Borders
   var borderRadius: Int
 
-  //  Padding
-  inner class AllPaddings {
-    var top: Int
-    var right: Int
-    var bottom: Int
-    var left: Int
-  }
-  var padding : AllPaddings
-  var paddings: Int
-
   //  Margin
   inner class AllMargins {
     var top: Int
