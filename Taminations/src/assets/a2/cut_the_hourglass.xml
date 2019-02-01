@@ -63,7 +63,7 @@
   </tam>
 
   <tam title="Cut the Hourglass"
-       from="Facing Hourglass"
+       from="Facing Hourglass with Right-Hand Diamond"
        formation="Hourglass Facing LH Box">
     <path>
       <move select="Dodge Left" />
@@ -79,6 +79,26 @@
     </path>
     <path>
       <move select="Extend Left" beats="4" scaleX="2" scaleY="2" />
+    </path>
+  </tam>
+
+  <tam title="Cut the Hourglass"
+       from="Facing Hourglass with Left-Hand Diamond"
+       formation="Hourglass Facing RH Box">
+    <path>
+      <move select="Dodge Right" />
+      <move select="Swing Right" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Lead Left" />
+    </path>
+    <path>
+      <move select="Dodge Right" />
+      <move select="Swing Right" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="4" scaleX="2" scaleY="2" />
     </path>
   </tam>
 
@@ -103,6 +123,78 @@
     </path>
     <path>
       <move select="Extend Left" beats="4" scaleX="2" scaleY="2" />
+    </path>
+  </tam>
+
+  <tam title="Cut the Hourglass" from="Hourglass Box Facing In">
+    <formation>
+      <dancer gender="boy" x="-2" y="-3" angle="0"/>
+      <dancer gender="girl" x="-3" y="0" angle="90"/>
+      <dancer gender="boy" x="-2" y="3" angle="0"/>
+      <dancer gender="girl" x="0" y="1" angle="0"/>
+    </formation>
+    <path>
+      <move select="Dodge Left" />
+      <move select="Flip Left" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Dodge Right" />
+      <move select="Run Right" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="4" scaleX="2" scaleY="2" />
+    </path>
+  </tam>
+
+  <tam title="Cut the Hourglass" from="Hourglass Box 2 Facing Out" display="none">
+    <formation>
+      <dancer gender="boy" x="-2" y="-3" angle="180"/>
+      <dancer gender="girl" x="-3" y="0" angle="270"/>
+      <dancer gender="boy" x="-2" y="3" angle="180"/>
+      <dancer gender="girl" x="0" y="1" angle="180"/>
+    </formation>
+    <path>
+      <move select="Dodge Right" />
+      <move select="Run Right" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Lead Left" />
+    </path>
+    <path>
+      <move select="Dodge Left" />
+      <move select="Flip Left" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="4" scaleX="2" scaleY="2" />
+    </path>
+  </tam>
+
+  <tam title="Cut the Hourglass" from="Hourglass Box 2 Facing In" display="none">
+    <formation>
+      <dancer gender="boy" x="-2" y="-3" angle="0"/>
+      <dancer gender="girl" x="-3" y="0" angle="270"/>
+      <dancer gender="boy" x="-2" y="3" angle="0"/>
+      <dancer gender="girl" x="0" y="1" angle="180"/>
+    </formation>
+    <path>
+      <move select="Dodge Left" />
+      <move select="Flip Left" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Lead Left" />
+    </path>
+    <path>
+      <move select="Dodge Right" />
+      <move select="Run Right" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="4" scaleX="2" scaleY="2" />
     </path>
   </tam>
 
