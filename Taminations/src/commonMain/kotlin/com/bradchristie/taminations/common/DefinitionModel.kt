@@ -64,12 +64,11 @@ class DefinitionModel(private val dv: DefinitionView) {
       var langlink = link
       //  See if we have it in user's language
       val lang = System.userLanguage
-      if (lang != "en") {
-        TamUtils.calllistdata.filter { link == it.link }.forEach {
-          if (it.languages.contains(lang))
-            langlink += ".lang-$lang"
-        }
-      }
+      if (lang != "en" &&
+        TamUtils.calllistdata.any {
+          link == it.link && it.languages.contains(lang)
+        })
+        langlink += ".lang-$lang"
       dv.setSource("$langlink.html") {
         val isAbbrev = Setting("DefinitionAbbrev").b == true
         if (isAbbrev)
