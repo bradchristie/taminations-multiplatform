@@ -452,6 +452,13 @@
     <dancer gender="girl" x="0" y="-3" angle="0"/>
   </formation>
 
+  <formation name="Thar RH Girls">
+    <dancer gender="girl" x="-1" y="0" angle="90"/>
+    <dancer gender="boy" x="-3" y="0" angle="270"/>
+    <dancer gender="girl" x="0" y="-1" angle="180"/>
+    <dancer gender="boy" x="0" y="-3" angle="0"/>
+  </formation>
+
   <formation name="Diamonds RH Girl Points">
     <dancer gender="boy" x="0" y="-3" angle="180"/>
     <dancer gender="girl" x="-3" y="-2" angle="90"/>

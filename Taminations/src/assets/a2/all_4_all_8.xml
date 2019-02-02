@@ -388,6 +388,58 @@
     </path>
   </tam>
 
+  <tam title="All 8 Chain Down the Line" group="All 8" formation="Thar RH Girls">
+    <path>
+      <move select="Swing Right" />
+      <move select="Hinge Left" />
+      <move select="Belle Wheel" offsetX="1"/>
+    </path>
+    <path>
+      <move select="U-Turn Left" />
+      <move select="BackHinge Right" />
+      <move select="Beau Wheel" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Hinge Left" />
+      <move select="Belle Wheel" offsetX="1"/>
+    </path>
+    <path>
+      <move select="U-Turn Left" />
+      <move select="BackHinge Right" />
+      <move select="Beau Wheel" offsetX="1"/>
+    </path>
+  </tam>
+
+  <tam title="All 8 Chain Down the Line" group="All 8" display="none">
+    <formation>
+      <dancer gender="girl" x="-1" y="0" angle="90"/>
+      <dancer gender="boy" x="-3" y="0" angle="90"/>
+      <dancer gender="girl" x="0" y="-1" angle="180"/>
+      <dancer gender="boy" x="0" y="-3" angle="180"/>
+    </formation>
+    <path>
+      <move select="Swing Right" />
+      <move select="Hinge Left" />
+      <move select="Belle Wheel" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Stand" beats="3"/>
+      <move select="BackHinge Right" />
+      <move select="Beau Wheel" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Hinge Left" />
+      <move select="Belle Wheel" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Stand" beats="3"/>
+      <move select="BackHinge Right" />
+      <move select="Beau Wheel" offsetX="1"/>
+    </path>
+  </tam>
+
   <tam title="All 8 Crossfire" group="All 8">
     <formation>
       <dancer gender="girl" x="-1" y="0" angle="90"/>
