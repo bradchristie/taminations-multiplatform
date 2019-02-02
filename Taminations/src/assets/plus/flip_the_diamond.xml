@@ -107,7 +107,7 @@
   </tam>
 
   <tam title="Flip the Diamond"
-       from="Facing Diamonds"
+       from="Facing Diamonds, Right-Hand Wave"
        formation="Diamonds Facing Girl Points"
        difficulty="2">
     <path>
@@ -126,7 +126,7 @@
     </path>
   </tam>
 
-  <tam title="Flip the Diamond" from="Facing Diamonds, Left-Hand Centers"
+  <tam title="Flip the Diamond" from="Facing Diamonds, Left-Hand Wave"
        formation="Diamonds Facing LH Girl Points" difficulty="2">
     <path>
       <move select="Forward 2" />
