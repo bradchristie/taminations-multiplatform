@@ -446,9 +446,22 @@ class CallContext {
                           headsmatchsides:Boolean=true):Boolean {
     if (sexy && (ctx1.dancers[i].gender != ctx2.dancers[mapping[i]].gender))
       return false
-    if (!headsmatchsides && ctx1.dancers[i].number_couple.i % 2 !=
-                            ctx2.dancers[mapping[i]].number_couple.i % 2)
-      return false
+
+    //  Special check for calls with "Heads" or "Sides"
+    if (!headsmatchsides) {
+      //  If dancers are in squared set, check that the dancers are in the same
+      //  absolute location
+      if (ctx1.isSquare()) {
+        if (!ctx1.dancers[i].anglePosition.angleEquals(ctx2.dancers[mapping[i]].anglePosition))
+          return false
+      } else {
+        //  Dancers not in squared set, call refers to original heads or sides
+        if (ctx1.dancers[i].number_couple.i % 2 !=
+            ctx2.dancers[mapping[i]].number_couple.i % 2)
+          return false
+      }
+    }
+
     return ctx1.dancers.allIndexed { j, _ ->
       if (mapping[j] < 0 || i == j)
         true
