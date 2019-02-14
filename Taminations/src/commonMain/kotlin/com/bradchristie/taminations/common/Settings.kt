@@ -96,15 +96,12 @@ class SettingsView : ScrollingLinearLayout() {
         }
       }
       if (showHints)
-        appendView(hintText) {
-          margin.left = 10
-        }
+        appendView(hintText).margin.left = 10
     }
 
 
   private fun ViewGroup.dancerColors(withRadio:Boolean) {
     val colorBar = LinearLayout(LinearLayout.Direction.HORIZONTAL).apply {
-      margin.left = 10
       dancerColorDropBox("Couple 1")
       dancerColorDropBox("Couple 2")
       dancerColorDropBox("Couple 3")
@@ -130,7 +127,7 @@ class SettingsView : ScrollingLinearLayout() {
           margin.left = 10
         }
       }
-      appendView(colorBar)
+      appendView(colorBar).margin.left = 10
       if ((Setting("Dancer Colors").s ?: "By Couple") != "By Couple")
         colorBar.hide()
       else
