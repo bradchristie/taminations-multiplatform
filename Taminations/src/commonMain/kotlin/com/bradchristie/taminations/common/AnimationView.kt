@@ -266,7 +266,7 @@ class AnimationView : Canvas() {
       if (usercolor != null)
         d.fillcolor = Color(usercolor)
       else
-        d.fillcolor = dancerColor[d.number_couple.i-1]
+        d.fillcolor = dancerColor[d.number_couple.i]
     }
     invalidate()
   }
@@ -278,11 +278,11 @@ class AnimationView : Canvas() {
   //  Except for the phantoms, these are the standard colors
   //  used for teaching callers
   private val dancerColor get() = if (geometry == Geometry.HEXAGON)
-    arrayOf(Color.RED, Color.GREEN, Color.MAGENTA,
+    arrayOf(Color.LIGHTGRAY, Color.RED, Color.GREEN, Color.MAGENTA,
         Color.BLUE, Color.YELLOW, Color.CYAN,
         Color.LIGHTGRAY, Color.LIGHTGRAY, Color.LIGHTGRAY, Color.LIGHTGRAY)
   else
-    arrayOf(Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW,
+    arrayOf(Color.LIGHTGRAY, Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW,
         Color.LIGHTGRAY, Color.LIGHTGRAY, Color.LIGHTGRAY, Color.LIGHTGRAY)
 
 
