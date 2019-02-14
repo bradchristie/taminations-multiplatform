@@ -117,7 +117,7 @@ class CallContext {
               listOf()
           ),
           Dancer(numberArray[i * 2 + 1], coupleArray[i * 2 + 1],
-              genderMap[element.attr("gender")]!!,
+              genderMap.getValue(element.attr("gender")),
               Color.WHITE,
               Matrix()
                   .preTranslate(element.attr("x").d, element.attr("y").d)
@@ -150,12 +150,10 @@ class CallContext {
     return this
   }
 
-  private fun applyCall(calltext: String): CallContext {
+  private fun applyCall(calltext: String) {
     interpretCall(calltext)
-//    checkForAction(calltext)
     performCall()
     appendToSource()
-    return this
   }
 
   private fun checkForAction(calltext:String) {
@@ -185,30 +183,30 @@ class CallContext {
     while (calltext.isNotEmpty()) {
       //  Try chopping off each word from the end of the call until
       //  we find something we know
-      if (!calltext.chopped().any { callname ->
+      if (!calltext.chopped().any { onecall ->
         var success = false
         //  First try to find an exact match in Taminations
         try {
-          success = matchXMLcall(callname)
+          success = matchXMLcall(onecall)
         } catch (err2: CallError) {
           err = err2
         }
         //  Then look for a code match
         try {
-          success = success || matchCodedCall(callname)
-        } catch (err2: CallError) {
-          err = err2
+          success = success || matchCodedCall(onecall)
+        } catch (err3: CallError) {
+          err = err3
         }
         //  Finally try a fuzzier match in Taminations
         try {
-          success = success || matchXMLcall(callname,fuzzy=true)
-        } catch (err2: CallError) {
-          err = err2
+          success = success || matchXMLcall(onecall,fuzzy=true)
+        } catch (err4: CallError) {
+          err = err4
         }
         if (success) {
           //  Remove the words we matched, break out of and
           //  the chopped loop, and continue if any words left
-          calltext = calltext.replaceFirst(callname,"").trim()
+          calltext = calltext.replaceFirst(onecall,"").trim()
         }
         success
       })
@@ -313,7 +311,6 @@ class CallContext {
   )
   fun computeFormationOffsets(ctx2: CallContext, mapping:IntArray):FormationMatchResult {
     var dvbest = emptyArray<Vector>()
-    var dtotbest = 0.0
     //  We don't know how the XML formation needs to be turned to overlap
     //  the current formation.  So do an RMS fit to find the best match.
     val bxa = arrayOf(doubleArrayOf(0.0,0.0),
@@ -335,7 +332,6 @@ class CallContext {
       val v1 = d2.location
       val v2 = ctx2.dancers[mapping[j]].location.concatenate(rotmat)
       dvbest += v1 - v2
-      dtotbest += dvbest[j].length
     }
     return FormationMatchResult(rotmat,dvbest)
   }

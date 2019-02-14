@@ -128,7 +128,7 @@ class Path(moves:List<Movement> = listOf()) {
     }
     //  Apply movement in progress
     if (m != null) {
-      tx = tx.preConcatenate(m.translate(bv)).preConcatenate(m.rotate(bv))
+      tx *= m.translate(bv) * m.rotate(bv)
     }
     return tx
   }
@@ -141,9 +141,9 @@ class Path(moves:List<Movement> = listOf()) {
       return Hands.BOTHHANDS
     else {
       var bv = b
-      return movelist.fold(Hands.BOTHHANDS, {
+      return movelist.fold(Hands.BOTHHANDS) {
         h, m -> if (bv < 0) h else { bv -= m.beats; m.hands }
-      })
+      }
     }
   }
 

@@ -22,7 +22,6 @@ package com.bradchristie.taminations.common.calls
 import com.bradchristie.taminations.common.capWords
 import com.bradchristie.taminations.common.r
 import com.bradchristie.taminations.common.TamUtils
-import com.bradchristie.taminations.platform.System
 
 abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords()) {
 
@@ -133,7 +132,6 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
     private const val specifier = "\\s*(boys?|girls?|beaus?|belles?|centers?|ends?|leaders?|trailers?|heads?|sides?|very centers?)\\s*"
     fun getCodedCall(callname:String):CodedCall? {
       val callnorm = TamUtils.normalizeCall(callname)
-      System.log("$callname $callnorm")
       //  Most calls can be found by a lookup in one of the maps
       return simpleCallMaker[callnorm]?.invoke() ?:
              complexCallMaker[callnorm]?.invoke(callnorm,callname) ?:

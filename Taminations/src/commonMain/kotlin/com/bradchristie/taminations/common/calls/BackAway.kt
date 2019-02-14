@@ -28,8 +28,7 @@ class BackAway : Action("Back Away") {
     if (d.isFacingIn && ctx.dancersInBack(d).count()==0)
       //  TODO hold hands with partner?
       return TamUtils.getMove("Back 2")
-    else
-      throw CallError("Dancer $d cannot Back Away")
+    throw CallError("Dancer $d cannot Back Away")
   }
 
 }

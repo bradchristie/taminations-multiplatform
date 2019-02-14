@@ -65,7 +65,7 @@ class Matrix(val m11:Double=1.0, val m21:Double=0.0, val m31:Double=0.0,
       m12 * v.x + m22 * v.y + m32)
   operator fun times(v: Vector) = multiply(v)
 
-  //  Note that preConcatenate == "post" multipy
+  //  Note that preConcatenate == "post" multiply
   //  and postConcatenate == "pre" multiply
   //  That's the way the math and geometry works out
   fun preConcatenate(m: Matrix): Matrix = this * m

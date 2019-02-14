@@ -179,8 +179,8 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
    */
   private fun animateComputed(beat:Double) {
     hands = path.hands(beat)
-    tx = starttx.preConcatenate((path.animate(beat)))
-    tx = tx.postConcatenate(geom.pathMatrix(starttx,tx,beat))
+    tx = starttx * path.animate(beat)
+    tx = geom.pathMatrix(starttx,tx,beat) * tx
   }
   fun animateToEnd() = animate(beats)
 
