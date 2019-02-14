@@ -130,6 +130,7 @@ class AnimListModel(private val alview: AnimListView, val request: Request ) {
     val v = LinearLayout(LinearLayout.Direction.HORIZONTAL).apply {
       textView(item.name).apply {
         textSize = 20
+        textColor = Color.WHITE
         margin.left = 12
       }
     }
