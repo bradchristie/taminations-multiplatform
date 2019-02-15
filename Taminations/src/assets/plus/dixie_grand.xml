@@ -217,8 +217,8 @@
     </formation>
     <path>
       <move select="Stand" beats="2"/>
-      <move select="Extend Left" beats="1.5" scaleY=".5"/>
       <move select="Extend Right" beats="1.5" scaleY=".5"/>
+      <move select="Extend Left" beats="1.5" scaleY=".5"/>
       <move select="Extend Left" scaleY=".5"/>
       <move select="Lead Right" scaleY=".5"/>
     </path>
@@ -238,8 +238,8 @@
     <path>
       <move select="Extend Left" scaleY=".5"/>
       <move select="Extend Right" scaleY=".5"/>
-      <move select="Extend Left" beats="1.5" scaleY=".5"/>
       <move select="Extend Right" beats="1.5" scaleY=".5"/>
+      <move select="Extend Left" beats="1.5" scaleY=".5"/>
       <move select="Extend Left" scaleY=".5"/>
       <move select="Quarter Left" offsetX="1" offsetY="-.5"/>
     </path>
@@ -256,8 +256,8 @@
     <path>
       <move select="Extend Left" scaleY=".5"/>
       <move select="Extend Right" scaleY=".5"/>
-      <move select="Extend Left" beats="1.5" scaleY=".5"/>
       <move select="Extend Right" beats="1.5" scaleY=".5"/>
+      <move select="Extend Left" beats="1.5" scaleY=".5"/>
       <move select="Extend Left" scaleY=".5"/>
       <move select="Lead Right" scaleY=".5"/>
     </path>
@@ -276,8 +276,8 @@
     </path>
     <path>
       <move select="Stand" beats="2"/>
-      <move select="Extend Left" beats="1.5" scaleY=".5"/>
       <move select="Extend Right" beats="1.5" scaleY=".5"/>
+      <move select="Extend Left" beats="1.5" scaleY=".5"/>
       <move select="Extend Left" scaleY=".5"/>
       <move select="Quarter Left" offsetX="1" offsetY="-.5"/>
     </path>
