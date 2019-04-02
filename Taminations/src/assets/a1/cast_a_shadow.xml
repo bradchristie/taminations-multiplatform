@@ -144,14 +144,58 @@
     </path>
   </tam>
 
-  <tam title="Cast a Shadow"
-       from="Three and One Lines, Centers Facing Out">
-     <formation>
-      <dancer gender="girl" x="-2" y="3" angle="0"/>
-      <dancer gender="boy" x="-2" y="1" angle="180"/>
-      <dancer gender="girl" x="-2" y="-1" angle="180"/>
-      <dancer gender="boy" x="-2" y="-3" angle="180"/>
-    </formation>
+  <tam title="Cast a Shadow" formation="3 and 1 lines #1"
+       from="3 and 1 Lines #1">
+    <path>
+      <move select="U-Turn Right" beats=".5" offsetY="-.75" />
+      <move select="Forward 2" beats="1" />
+      <move select="Swing Right" scaleX=".75" scaleY=".75" />
+      <move select="Lead Right" beats="3" offsetX="2" offsetY="1.25" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Lead Right" beats="3.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Lead Left" beats="3.5" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="1.5" scaleX="2" scaleY=".75" />
+      <move select="Swing Right" scaleX=".75" scaleY=".75" />
+      <move select="Lead Right" beats="3" offsetX="2" offsetY="-.75" />
+    </path>
+  </tam>
+
+  <tam title="Cast a Shadow" formation="3 and 1 lines #4"
+       from="3 and 1 Lines #4">
+    <path>
+      <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".75" />
+      <move select="Swing Left" scaleX=".75" scaleY=".75" />
+      <move select="Lead Left" beats="3" offsetX="2" offsetY=".75" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Lead Right" beats="3.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Lead Left" beats="3.5" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats=".5" offsetY=".75" />
+      <move select="Forward 2" beats="1" />
+      <move select="Swing Left" scaleX=".75" scaleY=".75" />
+      <move select="Lead Left" beats="3" offsetX="2" offsetY="-1.25" />
+    </path>
+  </tam>
+
+  <tam title="Cast a Shadow" formation="3 and 1 lines #5"
+       from="3 and 1 Lines #5">
     <path couples="2 4">
       <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".75" />
       <move select="Swing Left" scaleX=".75" scaleY=".75" />
@@ -177,34 +221,30 @@
     </path>
   </tam>
 
-  <tam title="Cast a Shadow"
-       from="3 and 1 Lines, Centers Facing In">
-    <formation>
-      <dancer gender="girl" x="-2" y="3" angle="0"/>
-      <dancer gender="boy" x="-2" y="1" angle="0"/>
-      <dancer gender="boy" x="-2" y="-1" angle="0"/>
-      <dancer gender="girl" x="-2" y="-3" angle="180"/>
-    </formation>
-    <path numbers="1 8">
-      <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".75" />
-      <move select="Swing Left" scaleX=".75" scaleY=".75" />
-      <move select="Lead Left" beats="3" offsetX="2" offsetY=".75" />
-    </path>
-    <path numbers="2 7">
-      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
-      <move select="Lead Right" beats="3.5" scaleX="1.5" scaleY="1.5" />
-      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
-    </path>
-    <path numbers="3 6">
-      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
-      <move select="Lead Left" beats="3.5" scaleX=".5" scaleY=".5" />
-      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
-    </path>
-    <path numbers="4 5">
-      <move select="U-Turn Left" beats=".5" offsetY=".75" />
+  <tam title="Cast a Shadow" formation="3 and 1 lines #8"
+       from="3 and 1 Lines #8">
+    <path>
+      <move select="U-Turn Right" beats=".5" offsetY="-.75" />
       <move select="Forward 2" beats="1" />
-      <move select="Swing Left" scaleX=".75" scaleY=".75" />
-      <move select="Lead Left" beats="3" offsetX="2" offsetY="-1.25" />
+      <move select="Swing Right" scaleX=".75" scaleY=".75" />
+      <move select="Lead Right" beats="3" offsetX="2" offsetY="1.25" />
+    </path>
+    <path>
+      <move select="Lead Right" />
+      <move select="Lead Right" beats="3" scaleX="3" scaleY="1.25"/>
+      <move select="Lead Right" scaleX="1.25"/>
+      <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Left" />
+      <move select="Lead Left" beats="3" scaleX="3" scaleY="1.25"/>
+      <move select="Lead Left" scaleX="1.25"/>
+      <move select="Extend Left" beats="1.5" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="1.5" scaleX="2" scaleY=".75" />
+      <move select="Swing Right" scaleX=".75" scaleY=".75" />
+      <move select="Lead Right" beats="3" offsetX="2" offsetY="-.75" />
     </path>
   </tam>
 
