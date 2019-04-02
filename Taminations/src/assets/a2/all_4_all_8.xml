@@ -388,6 +388,39 @@
     </path>
   </tam>
 
+
+
+  <tam title="All 8 Box Circulate" group="All 8" formation="Static MiniWaves RH">
+    <path>
+      <move select="Forward 6" beats="4"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward 6" beats="4"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="All 8 Box Circulate" group="All 8"
+       formation="Static MiniWaves LH" display="none">
+    <path>
+      <move select="Run Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward 6" beats="4"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward 6" beats="4"/>
+    </path>
+  </tam>
+
   <tam title="All 8 Chain Down the Line" group="All 8" formation="Thar RH Girls">
     <path>
       <move select="Swing Right" />
