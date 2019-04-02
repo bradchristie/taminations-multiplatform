@@ -31,7 +31,7 @@ class TouchAQuarter(norm:String,name:String) : Action(norm,name) {
     return getMove("Extend Left")
         .scale(d.distanceTo(d2)/2.0,1.0)
         .add(getMove("Hinge Right"))
-        .ifAlso(name.matches(Regex("Left.*"))) { p -> p.reflect() }
+        .alsoIf(name.matches(Regex("Left.*"))) { reflect() }
   }
 
 }

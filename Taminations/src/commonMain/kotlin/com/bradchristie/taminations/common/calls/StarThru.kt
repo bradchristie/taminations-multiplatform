@@ -36,7 +36,7 @@ class StarThru(norm:String,name:String) : Action(norm,name) {
         else
           getMove("Quarter Left").skew(1.0, -0.5)))
             //  "left" star thru is used by double/triple star thru
-            .ifAlso(norm.startsWith("left")) { it.reflect() }
+            .alsoIf(norm.startsWith("left")) { reflect() }
   }
 
 }
