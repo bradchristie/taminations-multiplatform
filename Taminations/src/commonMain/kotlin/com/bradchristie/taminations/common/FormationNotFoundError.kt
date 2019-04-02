@@ -19,7 +19,5 @@ package com.bradchristie.taminations.common
 
 */
 
-import com.bradchristie.taminations.common.CallError
-
 class FormationNotFoundError(call:String)
   : CallError("No animation for $call from that formation.")

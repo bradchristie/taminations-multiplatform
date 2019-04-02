@@ -20,7 +20,6 @@ package com.bradchristie.taminations.common
 */
 
 import com.bradchristie.taminations.Application
-import com.bradchristie.taminations.common.shapes.BackwardShape
 import com.bradchristie.taminations.common.shapes.PauseShape
 import com.bradchristie.taminations.common.shapes.PlayShape
 import com.bradchristie.taminations.platform.*
