@@ -26,7 +26,7 @@ class SpeakerShape : Shape() {
 
   override fun draw(ctx: DrawingContext) {
     val h = height/2.0
-    val w = h/3.0f
+    val w = h/3.0
     val myp = DrawingStyle()
     ctx.translate(width*0.4,height*0.5)
     ctx.fillRect(Rect(-w*1.5,-h*0.33, w/2.0, h*0.66),myp)
