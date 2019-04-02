@@ -21,7 +21,6 @@ package com.bradchristie.taminations.common.calls
 
 import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.LevelObject
-import com.bradchristie.taminations.common.capWords
 
 class SingleWheel(norm:String, name:String) : Action(norm,name) {
 
