@@ -37,8 +37,8 @@ class CenterSix : CodedCall("Center 6") {
         dorder[2].data.active = false
         dorder[3].data.active = false
       }
-    else  //  Could not separate 6 dancers from other 2
-      throw CallError("Cannot find 6 dancers in center")
+      else  //  Could not separate 6 dancers from other 2
+        throw CallError("Cannot find 6 dancers in center")
   }
 
 }
