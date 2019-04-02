@@ -69,7 +69,7 @@ class StepToACompactWave(norm: String, name: String) : Action(norm, name) {
   }
 
   override fun postProcess(ctx: CallContext, i: Int) {
-
+    //  Do not snap to formation, which parent does
   }
 
 }
