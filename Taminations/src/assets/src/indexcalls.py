@@ -13,6 +13,50 @@ def checkversion():
         sys.stderr.write('Do not use win python!\n')
         sys.exit(1)
 
+def normalize(str):
+    n = str.lower()
+    n = re.sub(r'&','and',n)
+    n = re.sub(r'[^a-zA-Z0-9 ]','',n)
+    #  Through => Thru
+    n = re.sub(r'\bthrou?g?h?\b','thru',n)
+    #  One and a half
+    n = re.sub(r'(onc?e and a half)|(1 12)|(15)','112',n)
+    #  Process fractions 1/2 3/4 1/4 2/3
+    #  Non-alphanums are not used in matching
+    #  so these fractions become 12 34 14 23
+    #  Fortunately two-digit numbers are not used in calls
+    n = re.sub(r'\b12|((a|one).)?half\b','12',n)
+    n = re.sub(r'\b(three.quarters?|34)\b','34',n)
+    n = re.sub(r'\b(((a|one).)?quarter|14)\b','14',n)
+    n = re.sub(r'\b23|two.thirds?\b','23',n)
+    #  Process any other numbers
+    n = re.sub(r'\b(1|onc?e)\b','1',n)
+    n = re.sub(r'\b(2|two)\b','2',n)
+    n = re.sub(r'\b(3|three)\b','3',n)
+    n = re.sub(r'\b(4|four)\b','4',n)
+    n = re.sub(r'\b(5|five)\b','5',n)
+    n = re.sub(r'\b(6|six)\b','6',n)
+    n = re.sub(r'\b(7|seven)\b','7',n)
+    n = re.sub(r'\b(8|eight)\b','8',n)
+    n = re.sub(r'\b(9|nine)\b','9',n)
+    #  Use singular form
+    n = re.sub(r'\b(boy|girl|beau|belle|center|end|point|head|side)s\b',r'\1',n)
+    #  Misc other variations
+    n = re.sub(r'\bswap(\s+around)?\b','swap',n)
+    n = re.sub(r'\bmen\b','boy',n)
+    n = re.sub(r'\bwomen\b','girl',n)
+    n = re.sub(r'\blead(er)?(ing)?s?\b','lead',n)
+    n = re.sub(r'\btrail(er)?(ing)?s?\b','trail',n)
+    #  Accept optional "dancers" e.g. "head dancers" == "heads"
+    n = re.sub(r'\bdancers?\b','',n)
+    # Also handle "Lead Couples" as "Leads"
+    #  but make sure not to clobber "As Couples" or "Couples Hinge"
+    n = re.sub(r'((head|side|lead|trail|center|end).)couple',r'\1',n)
+    #  Finally remove spaces and non-alphanums
+    #  done above  n = re.sub(r'\W','',n)
+    n = re.sub(r'\s','',n)
+    return n
+
 def main():
     leveldict = {'b1':{'level':'Basic and Mainstream','sublevel':'Basic 1','order':'A'},
                  'b2':{'level':'Basic and Mainstream','sublevel':'Basic 2','order':'B'},
@@ -80,7 +124,7 @@ def main():
         calldict[title+'  '+order+'  '+link] = {
             'title':title,
             'link':link,
-            'text':re.sub(r4,'',title.lower()).replace(' ',''),
+            'norm':normalize(title),
             'level':leveldict[sublevel]['level'],
             'sublevel':leveldict[sublevel]['sublevel']
         }
@@ -104,7 +148,7 @@ def main():
                 calldict[title+'  '+order+'  '+link] = {
                     'title':title,
                     'link':link,
-                    'text':re.sub(r4,'',title.lower()).replace(' ',''),
+                    'norm':normalize(title),
                     'level':leveldict[sublevel]['level'],
                     'sublevel':leveldict[sublevel]['sublevel']
                 }

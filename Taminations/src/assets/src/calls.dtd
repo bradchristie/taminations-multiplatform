@@ -20,6 +20,7 @@
 <!ELEMENT calls (call+)>
 <!ELEMENT call EMPTY>
 <!ATTLIST call text CDATA #IMPLIED
+               norm CDATA #IMPLIED
                level CDATA #IMPLIED
                sublevel CDATA #IMPLIED
                link CDATA #IMPLIED
