@@ -27,7 +27,8 @@ class BoxtheGnat : Action("Box the Gnat") {
 
   private fun checkOtherDancer(d: Dancer, d2: Dancer?): Dancer {
     val other = d2 ?: throw CallError("Cannot find dancer to turn with ${d.number}")
-    if (!other.data.active) throw CallError("Cannot find dancer to turn with ${d.number}")
+    if (!other.data.active)
+      throw CallError("Cannot find dancer to turn with ${d.number}")
     if (other.gender == d.gender)
       throw CallError("Same gender cannot Box the Gnat")
     return other
