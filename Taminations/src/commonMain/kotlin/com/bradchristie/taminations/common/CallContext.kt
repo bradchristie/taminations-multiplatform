@@ -204,14 +204,14 @@ class CallContext {
           err = err4
         }
         if (success) {
-          //  Remove the words we matched, break out of and
+          //  Remove the words we matched, break out of
           //  the chopped loop, and continue if any words left
           calltext = calltext.replaceFirst(onecall,"").trim()
         }
         success
       })
-      //  Every combination from callwords.chopped failed
-      throw err
+        //  Every combination from callwords.chopped failed
+        throw err
     }
     checkForAction(calltxt)
     return this
@@ -219,8 +219,6 @@ class CallContext {
 
   //  Main routine to map a call to an animation in a Taminations XML file
   private fun matchXMLcall(calltext:String, fuzzy:Boolean=false):Boolean {
-    val found:Boolean
-    val matches:Boolean
     val ctx0 = this
     var ctx1 = this
     //  If there are precursors, run them first so the result
@@ -246,8 +244,8 @@ class CallContext {
     val callnorm = TamUtils.normalizeCall(calltext)
     val callfiles = TamUtils.callmap[callnorm] ?: listOf<TamUtils.CallListDatum>()
     //  Found xml file with call, now look through each animation
-    found = callfiles.isNotEmpty()
-    matches = callfiles.any {
+    val found = callfiles.isNotEmpty()
+    val matches = callfiles.any {
       if (loadedXML[it.link] == null)
         throw CallError("Internal Error: ${it.link} not loaded.")
       loadedXML[it.link]!!.evalXPath("/tamination/tam").asSequence().filter { tam -> tam.attr("sequencer")!="no" &&
@@ -569,7 +567,7 @@ class CallContext {
       }
     }
     if (bestMapping != null) {
-      this.dancers.forEachIndexed { i,d ->
+      dancers.forEachIndexed { i,d ->
         if (bestMapping!!.offsets[i].length > 0.1) {
           //  Get the last movement
           val m = if (d.path.movelist.count() > 0) d.path.pop() else TamUtils.getMove("Stand").pop()
@@ -656,9 +654,9 @@ class CallContext {
 
   //  Return true if this dancer is in tandem with another dancer
   fun isInTandem(d: Dancer):Boolean = when {
-      d.data.trailer ->  this.dancerInFront(d)!!.data.leader
-      d.data.leader -> this.dancerInBack(d)!!.data.trailer
-      else -> false
+    d.data.trailer ->  dancerInFront(d)!!.data.leader
+    d.data.leader -> dancerInBack(d)!!.data.trailer
+    else -> false
   }
 
 /*

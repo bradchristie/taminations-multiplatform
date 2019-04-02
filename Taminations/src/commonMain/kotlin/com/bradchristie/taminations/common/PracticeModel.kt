@@ -69,6 +69,7 @@ open class PracticeModel(val layout: PracticeLayout) {
   protected val av = layout.animationView
 
   init {
+    //  TODO remove readyListener, just use message
     av.readyListener = {
       animationReady()
       av.doPlay()

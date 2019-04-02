@@ -102,7 +102,7 @@ class LevelView : LinearLayout(Direction.VERTICAL) {
 
   init {
     backgroundColor = LevelObject.find("all").color
-    border.right.width = 1
+    border.right.width = 1  // insure separator in landscape
     //  Basic and Mainstream
     oneView("bms")
     indentedOneLevelView("bms", "b1")
@@ -115,7 +115,6 @@ class LevelView : LinearLayout(Direction.VERTICAL) {
     indentedOneLevelView("adv", "a2")
     //  Challenge
     oneView("challenge")
-
     indentedOneLevelView("challenge", "c1")
     indentedOneLevelView("challenge", "c2")
     indentedOneLevelView("challenge", "c3a")

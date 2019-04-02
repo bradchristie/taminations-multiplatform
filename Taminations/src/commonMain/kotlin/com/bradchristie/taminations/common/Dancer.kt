@@ -91,9 +91,6 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
   var leftHandNewVisibility = false
   val data = DancerData()  // for sequencer
   var name = ""  // for sequencer
-  //  Init paint and matrix ahead of time for faster animation
-  //val p = Paint(Paint.ANTI_ALIAS_FLAG)
-  val m = FloatArray(9)
 
   constructor(from: Dancer) : this(from.number,from.number_couple,from.gender,from.fillcolor,from.tx,
       //  Already geometrically rotated so don't do it again

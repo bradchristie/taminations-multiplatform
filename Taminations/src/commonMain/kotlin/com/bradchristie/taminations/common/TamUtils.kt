@@ -160,7 +160,6 @@ object TamUtils {
     //  First retrieve the requested path
     val movename = move.attr("select")
     val pathelem = moves[movename]!!
-      //movementDoc.evalXPath("/moves/path[@name='$movename']").first()
     //  Get the list of movements
     val movements = translatePath(pathelem)
     //  Get any modifications

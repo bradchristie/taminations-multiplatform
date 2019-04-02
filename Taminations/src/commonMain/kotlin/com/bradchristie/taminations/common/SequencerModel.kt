@@ -133,7 +133,7 @@ class SequencerPage : Page() {
     }
 
     onMessage(Request.Action.SETTINGS_CHANGED) {
-      seqView.animationView.readSequencerSettngs()
+      seqView.animationView.readSequencerSettings()
       model.checkStartingFormation()
     }
     onMessage(Request.Action.SEQUENCER_CALLLIST) { message ->
@@ -235,7 +235,7 @@ class SequencerModel(private val seqView: SequencerLayout,
   private fun startSequence() {
     seqView.animationView.setAnimation(TamUtils.getFormation(formation))
     setDancerNames()
-    seqView.animationView.readSequencerSettngs()
+    seqView.animationView.readSequencerSettings()
     updateParts()
   }
 

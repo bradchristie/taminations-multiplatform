@@ -176,6 +176,7 @@ class AnimationView : Canvas() {
           when (it) {
             -2 -> -leadin
             -1 -> 0.0
+            //  FIXME I don't think the follow is ever added
             t.count() -> beats - 2.0
             t.count() + 1 -> beats
             else -> { b += t[it].d; b }
@@ -320,6 +321,7 @@ class AnimationView : Canvas() {
 
   val totalBeats:Double get() = leadin + beats
   val movingBeats:Double get() = beats - leadout
+  val score:Double get() = iscore
 
   /**
    *   Set time of animation as offset from start including leadin
@@ -329,8 +331,6 @@ class AnimationView : Canvas() {
     invalidate()
   }
 
-  val score:Double get() = iscore
-  private val partbeats:List<Double> get() = partsValues()
 
   //  Convert x and y to dance floor coords
   private fun mouse2dancer(x:Int,y:Int):Pair<Double,Double> {
@@ -367,6 +367,7 @@ class AnimationView : Canvas() {
     return (ivu-ivc).length < 2.0 &&
         angleAngleDiff(au, ac).abs < PI/4 &&
         //  Check relationship with the other dancers
+        //  TODO should this be all?
         dancers.filter{it != idancer}.any{d: Dancer ->
           val dv = Matrix(d.tx).location
           //  Compare angle to computed vs actual
@@ -483,7 +484,7 @@ class AnimationView : Canvas() {
           val loc2 = d.leftdancer!!.location
           ctx.drawLine(loc.x, loc.y, loc2.x, loc2.y, hline)
           ctx.fillCircle((loc.x + loc2.x) / 2.0,
-              (loc.y.f + loc2.y) / 2.0, .125, hline)
+              (loc.y + loc2.y) / 2.0, .125, hline)
         }
       }
     }
@@ -513,7 +514,7 @@ class AnimationView : Canvas() {
 
     //  Find the current part, and send a message if it's changed
     val thispart = if (beat < 0 || beat  > beats) 0 else
-      partbeats.indexOfLast { it < beat }
+      partsValues().indexOfLast { it < beat }
     if (thispart != currentPart) {
       currentPart = thispart
       Application.sendMessage(Request.Action.ANIMATION_PART,
@@ -775,7 +776,7 @@ class AnimationView : Canvas() {
     invalidate()
   }
 
-  fun readSequencerSettngs() {
+  fun readSequencerSettings() {
     //  TODO setNewGeometry(Geometry(Setting("Special Geometry").s ?: "None").geometry)
     setNewGeometry(Geometry("None").geometry)
     setGridVisibility(Setting("Grid").b == true)
