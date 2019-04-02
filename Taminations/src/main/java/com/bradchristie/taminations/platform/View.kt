@@ -24,7 +24,6 @@ import android.graphics.Rect
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.ShapeDrawable
 import android.view.GestureDetector
-import android.view.Gravity
 import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
