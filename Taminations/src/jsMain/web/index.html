@@ -17,7 +17,7 @@
 </style>
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/taminations-test/sw.js',{scope:"/taminations-test/"})
+      navigator.serviceWorker.register('/taminations/sw.js',{scope:"/taminations/"})
       .then(function(reg) {
         // registration worked
       }).catch(function(error) {
