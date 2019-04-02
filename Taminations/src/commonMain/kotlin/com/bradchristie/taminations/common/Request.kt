@@ -51,7 +51,7 @@ class Request(val action:Action, vararg pairs:Pair<String,String>) {
     ANIMATION_PART,
     ANIMATION_PROGRESS,
     ANIMATION_DONE,
-    SEQUENCER_CALLLIST,
+    SEQUENCER_CURRENTCALL,
     SEQUENCER_LISTEN,
     SEQUENCER_READY,
     SEQUENCER_ERROR,

@@ -136,7 +136,7 @@ class SequencerPage : Page() {
       seqView.animationView.readSequencerSettings()
       model.checkStartingFormation()
     }
-    onMessage(Request.Action.SEQUENCER_CALLLIST) { message ->
+    onMessage(Request.Action.SEQUENCER_CURRENTCALL) { message ->
       seqView.animationView.goToPart(message["item"].i)
     }
     onMessage(Request.Action.TRANSITION_COMPLETE) {

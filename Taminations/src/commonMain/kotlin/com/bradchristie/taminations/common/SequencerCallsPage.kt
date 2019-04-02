@@ -77,7 +77,7 @@ class SequencerCallsPage : Page() {
     callList.selectablePanel {
       val item = callList.children.lastIndex
       clickAction {
-        Application.sendMessage(Request.Action.SEQUENCER_CALLLIST,
+        Application.sendMessage(Request.Action.SEQUENCER_CURRENTCALL,
             "item" to "$item")
       }
       backgroundColor = level.color
