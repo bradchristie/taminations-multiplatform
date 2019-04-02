@@ -26,6 +26,8 @@ import kotlin.math.sin
 
 class Cross : Action("Cross") {
 
+  override val level = LevelObject.find("a1")
+
   override fun perform(ctx: CallContext, i: Int) {
     //  If dancers are not specified, then the trailers cross
     if (ctx.actives.count() == ctx.dancers.count())
