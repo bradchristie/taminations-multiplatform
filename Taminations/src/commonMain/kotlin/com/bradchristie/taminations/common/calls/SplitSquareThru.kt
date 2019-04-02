@@ -20,10 +20,12 @@ package com.bradchristie.taminations.common.calls
 */
 
 import com.bradchristie.taminations.common.CallContext
+import com.bradchristie.taminations.common.LevelObject
 import com.bradchristie.taminations.common.r
 
 class SplitSquareThru(norm: String, name: String) : Action(norm, name) {
 
+  override val level = LevelObject("a1")
   override val requires = listOf("b1/pass_thru","a1/quarter_in","b1/square_thru",
       "b2/ocean_wave","plus/explode_the_wave","b1/step_thru")
 
