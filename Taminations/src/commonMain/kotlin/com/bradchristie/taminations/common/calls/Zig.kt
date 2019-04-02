@@ -23,6 +23,8 @@ import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.Dancer
 import com.bradchristie.taminations.common.LevelObject
 
+//  This is for the one-word calls Zig and Zag
+//  Zig-Zag etc are handled in another class
 class Zig(norm:String,name:String) : QuarterTurns(norm,name) {
 
   override val level = LevelObject("a2")
