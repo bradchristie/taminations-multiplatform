@@ -182,7 +182,7 @@ class AbbreviationModel(val view:AbbreviationsView) {
         //  error if duplicate
         Storage["abbrev "+view[i].abbr] != null -> view.markError(i)
         //  error if a word used in calls
-        view[i].abbr in TamUtils.words -> view.markError(i)
+        view[i].abbr.lc in TamUtils.words -> view.markError(i)
         //  ok if a single non-blank string
         view[i].abbr.matches("\\S+".r) && view[i].expa.isNotBlank() ->
           Storage["abbrev "+view[i].abbr] = view[i].expa
