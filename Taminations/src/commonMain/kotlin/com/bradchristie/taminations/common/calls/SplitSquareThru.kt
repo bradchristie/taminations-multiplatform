@@ -26,7 +26,8 @@ import com.bradchristie.taminations.common.r
 class SplitSquareThru(norm: String, name: String) : Action(norm, name) {
 
   override val level = LevelObject("a1")
-  override val requires = listOf("b1/pass_thru","a1/quarter_in","b1/square_thru",
+  override val requires = listOf("b1/pass_thru","a1/quarter_in",
+      "b1/square_thru","b1/face",
       "b2/ocean_wave","plus/explode_the_wave","b1/step_thru")
 
   override fun perform(ctx: CallContext, i: Int) {
