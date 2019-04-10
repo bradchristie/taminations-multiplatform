@@ -291,4 +291,86 @@
 		</path>
 	</tam>
 
+  <tam title="Pass and Roll Your Cross Neighbor" group=" "
+       formation="Eight Chain Thru">
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Forward" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Flip Right" scaleX=".5" scaleY=".5" />
+      <move select="Quarter Right" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Forward" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Quarter Right" beats="2" offsetX="1" />
+      <move select="Quarter Right" />
+      <move select="Quarter Right" beats="2" offsetY="-1" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Forward" />
+      <move select="Flip Right" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Extend Right" beats="2"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Lead Left" hands="left" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Forward" />
+      <move select="Flip Right" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Extend Right" beats="2"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Quarter Left" hands="left" offsetX="1" offsetY="-.5" />
+    </path>
+  </tam>
+
+  <tam title="Left Pass and Roll Your Cross Neighbor" group=" "
+       formation="Eight Chain Thru">
+    <path>
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Forward 3" />
+      <move select="Quarter Left"/>
+      <move select="Quarter Left"/>
+      <move select="Quarter Left" offsetY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Forward" />
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Lead Left"/>
+      <move select="Quarter Left" />
+      <move select="Quarter Left"/>
+    </path>
+    <path>
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Forward" />
+      <move select="Flip Left" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Extend Left" beats="2"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Quarter Right" hands="right" offsetX="1" offsetY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Forward" />
+      <move select="Flip Left" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Extend Left" beats="2"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Lead Right" hands="right" scaleY="1.5" />
+    </path>
+  </tam>
+
 </tamination>

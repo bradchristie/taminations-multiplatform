@@ -95,7 +95,7 @@
       <move select="Flip Right" scaleY=".5" />
       <move select="Forward 3" />
       <move select="Swing Right" scaleX=".5" scaleY=".5" />
-      <move select="Quarter Right" offsetX="1" offsetY=".5" />
+      <move select="Quarter Right" hands="right" offsetX="1" offsetY=".5" />
     </path>
     <path>
       <move select="Extend Left" scaleY=".5" />
@@ -103,7 +103,7 @@
       <move select="Flip Right" scaleY=".5" />
       <move select="Forward 3" />
       <move select="Swing Right" scaleX=".5" scaleY=".5" />
-      <move select="Lead Right" scaleY="1.5" />
+      <move select="Lead Right" hands="right" scaleY="1.5" />
     </path>
   </tam>
 
@@ -216,7 +216,7 @@
       <move select="Flip Left" scaleY=".5" />
       <move select="Forward 3" />
       <move select="Swing Left" scaleX=".5" scaleY=".5" />
-      <move select="Lead Left" scaleY="1.5" />
+      <move select="Lead Left" hands="left" scaleY="1.5" />
     </path>
     <path>
       <move select="Extend Right" scaleY=".5" />
@@ -224,7 +224,7 @@
       <move select="Flip Left" scaleY=".5" />
       <move select="Forward 3" />
       <move select="Swing Left" scaleX=".5" scaleY=".5" />
-      <move select="Quarter Left" offsetX="1" offsetY="-.5" />
+      <move select="Quarter Left" hands="left" offsetX="1" offsetY="-.5" />
     </path>
   </tam>
 
