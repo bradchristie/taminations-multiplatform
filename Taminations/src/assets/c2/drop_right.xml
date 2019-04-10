@@ -62,5 +62,12 @@
     </path>
   </tam>
 
+  <tamxref title="Grand Drop Right" group=" "
+           xref-link="c2/drop_in"
+           xref-title="Grand Drop In"/>
+
+  <tamxref title="Grand Drop Left" group=" "
+           xref-link="c2/drop_in"
+           xref-title="Grand Drop Out"/>
 
 </tamination>

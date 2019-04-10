@@ -246,6 +246,8 @@
     <call title="Grand Chain Eight" level="Challenge" sublevel="C-2" link="c2/grand_chain_eight"/>
     <call title="Grand Cross Back" level="Challenge" sublevel="C-2" link="c2/grand_cross_back"/>
     <call title="Grand Cross Trade and Wheel" level="Challenge" sublevel="C-2" link="c2/grand_cross_trade_and_wheel"/>
+    <call title="Grand Drop In / Out" level="Challenge" sublevel="C-2" link="c2/drop_in"/>
+    <call title="Grand Drop Left / Right" level="Challenge" sublevel="C-2" link="c2/drop_right"/>
     <call title="Grand Follow Your Neighbor" level="Advanced" sublevel="A-1" link="a1/grand_follow_your_neighbor"/>
     <call title="Grand Mix" level="Challenge" sublevel="C-3A" link="c3a/grand_mix"/>
     <call title="Grand Quarter Thru" level="Advanced" sublevel="A-1" link="a1/grand_quarter_thru"/>
