@@ -264,6 +264,31 @@
     </path>
   </tam>
 
+
+  <tam title="Hinge the Top" from="Right-Hand Box"
+       formation="Box RH" parts="1.5">
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Cast Left"/>
+    </path>
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3"/>
+    </path>
+  </tam>
+
+  <tam title="Hinge the Top" from="Left-Hand Box"
+       formation="Box LH" parts="1.5">
+    <path>
+      <move select="Hinge Left"/>
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Hinge Left"/>
+      <move select="Cast Right"/>
+    </path>
+  </tam>
+
   <tam title="All 8 Hinge the Lock" formation="Static Square"
        group=" " parts="1.5">
     <path>
