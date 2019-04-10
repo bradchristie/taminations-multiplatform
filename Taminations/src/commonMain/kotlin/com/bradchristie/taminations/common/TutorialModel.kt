@@ -117,9 +117,8 @@ class TutorialModel(layout: PracticeLayout) : PracticeModel(layout) {
     System.getXMLAsset("src/tutorial") { tutdoc ->
       val gender = if (Setting("PracticeGender").s == "Girl")
         Gender.GIRL else Gender.BOY
-      val offset = if (gender == Gender.BOY) 0 else 1
       val tamlist = tutdoc.evalXPath("/tamination/tam")
-      val tam = tamlist[tutnum * 2 + offset]
+      val tam = tamlist[tutnum]
       av.setAnimation(tam, gender)
       Application.titleBar.title = tam.attr("title")
       Alert("Tutorial ${tutnum + 1}").apply {

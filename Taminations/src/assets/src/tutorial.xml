@@ -25,35 +25,14 @@
   <tam title="Couples Circulate">
     <formation>
       <dancer gender="boy" x="-2" y="3" angle="0"/>
-      <dancer gender="girl" x="-2" y="-1" angle="180"/>
-      <dancer gender="boy" x="-2" y="1" angle="0"/>
+      <dancer gender="girl" x="-2" y="1" angle="0"/>
+      <dancer gender="boy" x="-2" y="-1" angle="180"/>
       <dancer gender="girl" x="-2" y="-3" angle="180"/>
     </formation>
     <path>
       <move select="Forward 4" hands="right" />
     </path>
     <path>
-      <move select="Run Right" beats="4" hands="left" />
-    </path>
-    <path>
-      <move select="Forward 4" hands="left" />
-    </path>
-    <path>
-      <move select="Run Right" beats="4" scaleX="3" scaleY="3" hands="right" />
-    </path>
-  </tam>
-
-  <tam title="Couples Circulate">
-    <formation>
-      <dancer gender="girl" x="-2" y="3" angle="0"/>
-      <dancer gender="girl" x="-2" y="1" angle="0"/>
-      <dancer gender="boy" x="-2" y="-1" angle="180"/>
-      <dancer gender="boy" x="-2" y="-3" angle="180"/>
-    </formation>
-    <path>
-      <move select="Forward 4" hands="right" />
-    </path>
-    <path>
       <move select="Forward 4" hands="left" />
     </path>
     <path>
@@ -61,15 +40,6 @@
     </path>
     <path>
       <move select="Run Right" beats="4" scaleX="3" scaleY="3" hands="right" />
-    </path>
-  </tam>
-
-  <tam title="Partner Trade" formation="Box RH">
-    <path>
-      <move select="Swing Right" />
-    </path>
-    <path>
-      <move select="Swing Right" />
     </path>
   </tam>
 
@@ -95,31 +65,6 @@
     </path>
     <path>
       <move select="Forward 4" hands="left" />
-    </path>
-  </tam>
-
-  <tam title="As Couples Walk and Dodge" group="As Couples"
-       formation="Two-Faced Lines RH">
-    <path>
-      <move select="Forward 4" hands="right" />
-    </path>
-    <path>
-      <move select="Forward 4" hands="left" />
-    </path>
-    <path>
-      <move select="Dodge Right" beats="4" hands="gripleft" scaleX="2" scaleY="2" />
-    </path>
-    <path>
-      <move select="Dodge Right" beats="4" hands="gripright" scaleX="2" scaleY="2" />
-    </path>
-  </tam>
-
-  <tam title="U-Turn Left" formation="Facing Couples">
-    <path>
-      <move select="U-Turn Left" />
-    </path>
-    <path>
-      <move select="U-Turn Left" />
     </path>
   </tam>
 

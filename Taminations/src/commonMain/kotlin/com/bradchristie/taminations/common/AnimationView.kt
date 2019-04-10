@@ -45,6 +45,7 @@ class AnimationView : Canvas() {
   private var tam: TamElement? = null
   var dancers = arrayOf<Dancer>()
   private var interactiveDancer = -1
+  private var interactiveRandom = true
   private var idancer: InteractiveDancer? = null
   private var leadin = 2.0
   private var leadout = 2.0
@@ -618,10 +619,11 @@ class AnimationView : Canvas() {
    * @param xtam     XML element containing the call
    * @param intdan  Dancer controlled by the user, or -1 if not used
    */
-  fun setAnimation(xtam:TamElement, intdan:Int = -1) {
+  fun setAnimation(xtam:TamElement, intdan:Int = -1, intrand:Boolean = true) {
     TamUtils.tamXref(xtam) { element ->
       tam = element
       interactiveDancer = intdan
+      interactiveRandom = intrand
       resetAnimation()
       Application.sendMessage(Request.Action.ANIMATION_LOADED)
     }
@@ -685,18 +687,13 @@ class AnimationView : Canvas() {
         val glist = formation.children("dancer").filter { d ->
           d["gender"] == if (interactiveDancer == Gender.BOY) "boy" else "girl"
         }
-        icount = (random() * glist.count()).i
-        //  If the animations starts with "Heads" or "Sides"
-        //  then select the first dancer.
-        //  Otherwise the formation could rotate 90 degrees
-        //  which would be confusing
-        val title = tam!!.attr("title")
-        if (title.contains("Heads") || title.contains("Sides"))
-          icount = 0
+        //  Select either the first or random dancer to be interactive
+        icount = if (interactiveRandom) (random() * glist.count()).i else 0
         //  Find the angle the interactive dancer faces at start
         //  We want to rotate the formation so that direction is up
         val iangle = glist[icount].attr("angle").d
         im.preRotate(-iangle.toRadians)
+        //  Adjust icount for looping through geometry below
         icount = icount * geoms.size + 1
       }
 

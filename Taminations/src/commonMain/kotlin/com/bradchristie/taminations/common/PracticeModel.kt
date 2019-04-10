@@ -113,7 +113,16 @@ open class PracticeModel(val layout: PracticeLayout) {
             .filter { e2 -> !e2.attr("title").contains("(") }
         if (tams.isNotEmpty()) {
           tam = tams.shuffle().first()
-          layout.animationView.setAnimation(tam, if (Setting("PracticeGender").s == "Boy") Gender.BOY else Gender.GIRL)
+          //  Normally select a random dancer
+          var randomDancer = true
+          //  But if the animations starts with "Heads" or "Sides"
+          //  then select the first dancer.
+          //  Otherwise the formation could rotate 90 degrees
+          //  which would be confusing
+          val title = tam.attr("title")
+          if (title.contains("Heads") || title.contains("Sides"))
+            randomDancer = false
+          layout.animationView.setAnimation(tam, if (Setting("PracticeGender").s == "Boy") Gender.BOY else Gender.GIRL, randomDancer)
           Application.titleBar.title = tam.attr("title")
         } else {
           nextAnimation(level)
