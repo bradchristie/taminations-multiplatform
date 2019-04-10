@@ -79,6 +79,7 @@ class SliderTicView(code: SliderTicView.()->Unit = { }) : Canvas() {
     beats = b
     this.isParts = isParts
     this.isCalls = isCalls
+    parts = doubleArrayOf()
     if (partstr.isNotEmpty()) {
       val t = partstr.split(";")
       parts = DoubleArray(t.count())
