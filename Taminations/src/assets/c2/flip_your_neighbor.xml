@@ -188,4 +188,43 @@
     </path>
   </tam>
 
+
+  <tam title="Flip Your Cross Neighbor" group=" "
+       from="Right-Hand Wave"
+       formation="Wave RH"
+       parts="5.5">
+    <path>
+      <move select="Lead Right" />
+      <move select="Forward 4" />
+      <move select="Lead Right" beats="2.5" scaleX="2" />
+      <move select="Run Right" beats="4" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Right" />
+      <move select="Run Right" beats="4" hands="nohands" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY="1.75" />
+      <move select="Swing Left" scaleX=".75" scaleY=".75" />
+      <move select="Hinge Left" scaleY=".75" />
+    </path>
+  </tam>
+
+  <tam title="Flip Your Criss Cross Neighbor" group=" "
+       from="Right-Hand Wave"
+       formation="Wave RH"
+       parts="5.5">
+    <path>
+      <move select="Lead Right" />
+      <move select="Forward 4" />
+      <move select="Lead Right" beats="2"/>
+      <move select="Run Right" beats="6" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Lead Right" />
+      <move select="Run Right" beats="4" hands="nohands" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY="1.75" />
+      <move select="Swing Left" scaleX=".75" scaleY=".75" />
+      <move select="Lead Left" beats="3" scaleX="3" scaleY=".75" />
+    </path>
+  </tam>
+
 </tamination>
