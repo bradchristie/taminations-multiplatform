@@ -558,6 +558,32 @@
     </path>
   </tam>
 
+  <tam title="As Couples Slide Thru" group="As Couples"
+       sequencer="gender-specific" display="none">
+    <formation>
+      <dancer gender="girl" x="-2" y="3" angle="0"/>
+      <dancer gender="boy" x="-2" y="-1" angle="0"/>
+      <dancer gender="girl" x="-2" y="1" angle="0"/>
+      <dancer gender="boy" x="-2" y="-3" angle="0"/>
+    </formation>
+    <path>
+      <move select="Extend Left" beats="2" hands="right" scaleX="2" scaleY=".5" />
+      <move select="Quarter Left" beats="2" hands="right" offsetX="1" offsetY="-1.5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" hands="right" scaleX="2" scaleY=".5" />
+      <move select="Lead Right" beats="2" hands="right" scaleX="3" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" hands="left" scaleX="2" scaleY="1.5" />
+      <move select="Quarter Left" beats="2" hands="left" offsetX="3" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" hands="left" scaleX="2" scaleY="1.5" />
+      <move select="Lead Right" beats="2" hands="left" scaleY=".5" />
+    </path>
+  </tam>
+
   <tam title="As Couples Spin the Top" group="As Couples"
        formation="Two-Faced Tidal Line RH">
     <path>
