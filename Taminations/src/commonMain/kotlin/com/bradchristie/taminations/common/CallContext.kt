@@ -51,9 +51,9 @@ class CallContext {
       calltext.forEach { line ->
         line.minced().forEach { name ->
           //  Load any animation files that match
-          val query = Regex(TamUtils.callnameQuery(name))
+          val norm = TamUtils.normalizeCall(name)
           val callfiles = TamUtils.calllistdata.filter {
-            it.text.matches(query)
+            it.norm == norm
           }
           callfiles.forEach {
             loadOneFile(it.link)

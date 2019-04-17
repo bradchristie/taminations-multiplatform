@@ -26,7 +26,7 @@ import kotlin.math.min
 object TamUtils {
 
   data class CallListDatum(val title:String,
-                           val text:String,
+                           val norm:String,
                            val link:String,
                            val sublevel:String,
                            val languages:String,
@@ -62,7 +62,7 @@ object TamUtils {
       calllistdata = nodelist.map {
         CallListDatum(
             it.attr("title"),
-            it.attr("text"),
+            it.attr("norm"),
             it.attr("link"),
             it.attr("sublevel"),
             it.attr("languages"),
@@ -73,7 +73,7 @@ object TamUtils {
         data.title.split("\\s+".r).forEach {
           words.add(it.toLowerCase())
         }
-        val norm = normalizeCall(data.title)
+        val norm = data.norm
         if (callmap.containsKey(norm))
           callmap[norm]?.add(data)
         else
