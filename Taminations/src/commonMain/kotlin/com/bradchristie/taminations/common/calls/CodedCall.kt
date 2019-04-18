@@ -141,9 +141,9 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "out(er|sides?)(2|4|6)?".r -> Outsides(callnorm,callname)
         //  Boys Walk Girls Dodge etc
         //  Also handles Heads Boy Walk Girl Dodge
-        in "$specifier walk (and )?$specifier dodge".r -> WalkandDodge(callnorm,callname)
+        in "${specifier}walk(and)?${specifier}dodge".r -> WalkandDodge(callnorm,callname)
         //  Head Boy Walk Head Girl Dodge etc
-        in "$specifier $specifier walk (and )?$specifier $specifier dodge".r -> WalkandDodge(callnorm,callname)
+        in "${specifier}${specifier}walk(and)?${specifier}${specifier}dodge".r -> WalkandDodge(callnorm,callname)
 // not yet        in "(left)?spinthewindmill(left|right|in|out|forward|back)".r -> SpinTheWindmill(callnorm,callname)
         in "(left)?squarethru(1|2|3|4|5|6|7)?".r -> SquareThru(callnorm,callname)
         in "(left)?splitsquarethru(2|3|4|5|6|7)?".r -> SplitSquareThru(callnorm,callname)
