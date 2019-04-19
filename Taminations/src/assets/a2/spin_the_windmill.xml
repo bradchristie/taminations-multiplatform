@@ -562,7 +562,7 @@
     </path>
   </tam>
 
-  <tam title="Outsides Windmill" from="Facing In">
+  <tam title="Outsides Windmill" from="Facing In" display="none">
     <formation>
       <dancer gender="boy" x="-2" y="3" angle="0"/>
       <dancer gender="girl" x="-2" y="-3" angle="0"/>
