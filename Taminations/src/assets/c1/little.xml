@@ -103,7 +103,7 @@
 
   <tam title="Little"
        from="Right-Hand Quarter Waves"
-       formation="Quarter Wave RH">
+       formation="Mixed Quarter Tag #1">
     <path>
       <move select="Lead Right" scaleX=".5" />
       <move select="Lead Left" beats="3.5" scaleX="3" scaleY=".5" />
@@ -122,7 +122,7 @@
 
   <tam title="Little"
        from="Left-Hand Quarter Waves"
-       formation="Quarter Wave LH">
+       formation="Mixed Quarter Tag #6">
     <path>
       <move select="Flip Right" beats="2" offsetX="-1" />
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
@@ -318,7 +318,7 @@
 
   <tam title="Left Little"
        from="Right-Hand Quarter Waves"
-       formation="Quarter Wave RH">
+       formation="Mixed Quarter Tag #1">
     <path>
       <move select="Extend Left" beats="4" scaleX="3" scaleY="2.5" />
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />

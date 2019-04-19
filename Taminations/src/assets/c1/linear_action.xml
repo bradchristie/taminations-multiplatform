@@ -82,7 +82,7 @@
 
   <tam title="Linear Action"
        from="Right-Hand Quarter Waves"
-       formation="Quarter Wave RH"
+       formation="Mixed Quarter Tag #1"
        parts="1.5;5" >
     <path numbers="1 8" couples="2 4">
       <move select="Hinge Right" />
@@ -110,7 +110,7 @@
 
   <tam title="Linear Action"
        from="Left-Hand Quarter Waves"
-       formation="Quarter Wave LH"
+       formation="Mixed Quarter Tag #6"
        parts="1.5;5" >
     <path>
       <move select="Hinge Left" />

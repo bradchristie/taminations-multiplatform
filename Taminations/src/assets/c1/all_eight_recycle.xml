@@ -56,7 +56,7 @@
     </path>
   </tam>
 
-  <tam title="All Eight Recycle" from="Quarter Waves" formation="Quarter Wave RH">
+  <tam title="All Eight Recycle" from="Quarter Waves" formation="Mixed Quarter Tag #1">
     <path couples="2 4">
       <move select="U-Turn Right" hands="gripright" beats="6" offsetX="3" />
     </path>
@@ -72,7 +72,7 @@
     </path>
   </tam>
 
-  <tam title="All Eight Recycle" from="Left-Hand Quarter Waves" formation="Quarter Wave LH">
+  <tam title="All Eight Recycle" from="Left-Hand Quarter Waves" formation="Mixed Quarter Tag #6">
     <path couples="2 4">
       <move select="Run Left" hands="gripleft" beats="6" offsetX="-3" offsetY="2" />
     </path>

@@ -698,20 +698,64 @@
     <dancer gender="girl" x="0" y="-3" angle="0"/>
   </formation>
 
-  <formation name="Quarter Wave RH">
+  <!-- More exhaustive enumeration of mixed quarter tags -->
+  <formation name="Mixed Quarter Tag #1">
     <dancer gender="boy" x="-3" y="1" angle="0"/>
     <dancer gender="girl" x="-3" y="-1" angle="180"/>
     <dancer gender="boy" x="0" y="-3" angle="180"/>
     <dancer gender="girl" x="0" y="-1" angle="0"/>
   </formation>
 
-  <formation name="Quarter Wave LH">
+  <formation name="Mixed Quarter Tag #2">
+    <dancer gender="boy" x="-3" y="1" angle="0"/>
+    <dancer gender="girl" x="-3" y="-1" angle="180"/>
+    <dancer gender="boy" x="0" y="-3" angle="0"/>
+    <dancer gender="girl" x="0" y="-1" angle="180"/>
+  </formation>
+
+  <formation name="Mixed Quarter Tag #3">
+    <dancer gender="boy" x="-3" y="1" angle="0"/>
+    <dancer gender="girl" x="-3" y="-1" angle="180"/>
+    <dancer gender="boy" x="0" y="-3" angle="180"/>
+    <dancer gender="girl" x="0" y="-1" angle="180"/>
+  </formation>
+
+  <formation name="Mixed Quarter Tag #4">
+    <dancer gender="boy" x="-3" y="1" angle="0"/>
+    <dancer gender="girl" x="-3" y="-1" angle="180"/>
+    <dancer gender="boy" x="0" y="-3" angle="0"/>
+    <dancer gender="girl" x="0" y="-1" angle="0"/>
+  </formation>
+
+  <formation name="Mixed Quarter Tag #5">
+    <dancer gender="boy" x="-3" y="1" angle="180"/>
+    <dancer gender="girl" x="-3" y="-1" angle="0"/>
+    <dancer gender="boy" x="0" y="-3" angle="180"/>
+    <dancer gender="girl" x="0" y="-1" angle="0"/>
+  </formation>
+
+  <formation name="Mixed Quarter Tag #6">
     <dancer gender="boy" x="-3" y="1" angle="180"/>
     <dancer gender="girl" x="-3" y="-1" angle="0"/>
     <dancer gender="boy" x="0" y="-3" angle="0"/>
     <dancer gender="girl" x="0" y="-1" angle="180"/>
   </formation>
 
+  <formation name="Mixed Quarter Tag #7">
+    <dancer gender="boy" x="-3" y="1" angle="180"/>
+    <dancer gender="girl" x="-3" y="-1" angle="0"/>
+    <dancer gender="boy" x="0" y="-3" angle="180"/>
+    <dancer gender="girl" x="0" y="-1" angle="180"/>
+  </formation>
+
+  <formation name="Mixed Quarter Tag #8">
+    <dancer gender="boy" x="-3" y="1" angle="180"/>
+    <dancer gender="girl" x="-3" y="-1" angle="0"/>
+    <dancer gender="boy" x="0" y="-3" angle="0"/>
+    <dancer gender="girl" x="0" y="-1" angle="0"/>
+  </formation>
+
+  <!-- Like a Quarter Tag but outsides are lined up to make Zs with centers   -->
   <formation name="Quarter Z RH">
     <dancer gender="girl" x="-2" y="3" angle="0"/>
     <dancer gender="girl" x="-2" y="-1" angle="0"/>

@@ -23,7 +23,7 @@
 <tamination title="Anything and Circle">
 
   <tam title="All 8 Recycle and Circle 1/4"
-       formation="Quarter Wave RH" group=" " parts="6">
+       formation="Mixed Quarter Tag #1" group=" " parts="6">
     <path couples="2 4">
       <move select="U-Turn Right" hands="gripright" beats="6" offsetX="3" />
     </path>

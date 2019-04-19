@@ -102,7 +102,7 @@
 
   <tam title="Chain Reaction"
        from="Right-Hand Quarter Waves"
-       formation="Quarter Wave RH"
+       formation="Mixed Quarter Tag #1"
        fractions="3;2;3">
     <path couples="2 4">
       <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5" />
@@ -135,7 +135,7 @@
 
   <tam title="Chain Reaction"
        from="Left-Hand Quarter Waves"
-       formation="Quarter Wave LH"
+       formation="Mixed Quarter Tag #6"
        fractions="3;2;2" >
     <path couples="2 4">
       <move select="Stand" beats="3"/>
@@ -357,7 +357,7 @@
 
   <tam title="Chain Reaction, Turn the Star 1/2"
        from="Right-Hand Quarter Waves"
-       formation="Quarter Wave RH"
+       formation="Mixed Quarter Tag #1"
        fractions="3;2;4.5">
     <path>
       <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5" />
@@ -396,7 +396,7 @@
 
   <tam title="Chain Reaction, Turn the Star 1/2"
        from="Left-Hand Quarter Waves"
-       formation="Quarter Wave LH"
+       formation="Mixed Quarter Tag #6"
        fractions="3;2;3" >
     <path>
       <move select="Stand" beats="3"/>

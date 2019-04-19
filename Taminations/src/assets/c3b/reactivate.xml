@@ -97,7 +97,7 @@
   </tam>
 
   <tam title="Reactivate" from="Quarter Waves"
-       formation="Quarter Wave RH" fractions="3;3">
+       formation="Mixed Quarter Tag #1" fractions="3;3">
     <path>
       <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5"/>
       <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5"/>

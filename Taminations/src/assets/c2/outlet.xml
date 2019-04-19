@@ -59,7 +59,7 @@
 
   <tam title="Outlet"
        from="Quarter Waves"
-       formation="Quarter Wave RH"
+       formation="Mixed Quarter Tag #1"
        fractions="" >
     <path>
       <move select="U-Turn Right" beats="4" hands="gripright" offsetX="1" />
