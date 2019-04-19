@@ -23,8 +23,6 @@
 
 <calls>
 
-    <call title="(Any Tagging Call) and Scatter" level="Challenge" sublevel="C-3B" link="c3b/anything_and_scatter"/>
-    <call title="(Any Tagging Call) the Top" level="Challenge" sublevel="C-3B" link="c3b/anything_the_top"/>
     <call title="1/4 Mix" level="Challenge" sublevel="C-3A" link="c3a/1_4_mix"/>
     <call title="1/4 the Deucey" level="Challenge" sublevel="C-3A" link="c3a/1_4_the_deucey"/>
     <call title="1/4 Wheel the Ocean" level="Challenge" sublevel="C-3A" link="c3a/1_4_wheel_the_ocean"/>
@@ -50,6 +48,9 @@
     <call title="Alter and Circulate" level="Challenge" sublevel="C-2" link="c2/alter_and_circulate"/>
     <call title="Alter the Wave" level="Challenge" sublevel="C-1" link="c1/alter_the_wave"/>
     <call title="Any Hand Concept" level="Advanced" sublevel="A-1" link="a1/any_hand_concept"/>
+    <call title="(Anyone) Hop" level="Challenge" sublevel="C-3A" link="c3a/anyone_hop"/>
+    <call title="(Any Tagging Call) and Scatter" level="Challenge" sublevel="C-3B" link="c3b/anything_and_scatter"/>
+    <call title="(Any Tagging Call) the Top" level="Challenge" sublevel="C-3B" link="c3b/anything_the_top"/>
     <call title="Anything and Circle" level="Challenge" sublevel="C-2" link="c2/anything_and_circle"/>
     <call title="Anything and Cross" level="Advanced" sublevel="A-1" link="a1/anything_and_cross"/>
     <call title="Anything and Roll" level="Plus" sublevel="Plus" link="plus/anything_and_roll"/>
@@ -57,7 +58,10 @@
     <call title="Anything and Spread" level="Plus" sublevel="Plus" link="plus/anything_and_spread"/>
     <call title="Anything and Weave" level="Challenge" sublevel="C-1" link="c1/anything_and_weave"/>
     <call title="Anything Chain Thru" level="Challenge" sublevel="C-1" link="c1/anything_chain_thru"/>
+    <call title="Anything Choice" level="Challenge" sublevel="C-3A" link="c3a/anything_choice"/>
     <call title="Anything Concept" level="Challenge" sublevel="C-2" link="c2/anything_concept"/>
+    <call title="(Anything) (Cross) Reaction" level="Challenge" sublevel="C-3A" link="c3a/anything_reaction"/>
+    <call title="(Anything)er's Couple Up" level="Challenge" sublevel="C-3A" link="c3a/anythingers_couple_up"/>
     <call title="Anything the K" level="Challenge" sublevel="C-2" link="c2/anything_the_k"/>
     <call title="Anything the Windmill" level="Challenge" sublevel="C-1" link="c1/anything_the_windmill"/>
     <call title="Anything to a Wave" level="Challenge" sublevel="C-1" link="c1/anything_to_a_wave"/>
@@ -95,7 +99,6 @@
     <call title="Chain Reaction" level="Advanced" sublevel="A-1" link="a1/chain_reaction"/>
     <call title="Chain Reaction" level="Challenge" sublevel="C-1" link="c1/chain_reaction"/>
     <call title="Chain the Square" level="Challenge" sublevel="C-2" link="c2/chain_the_square"/>
-    <call title="&lt;tag&gt; Chain Thru" level="Challenge" sublevel="C-3A" link="c3a/any_tagging_call_chain_thru"/>
     <call title="Change Lanes" level="Challenge" sublevel="C-3B" link="c3b/change_lanes"/>
     <call title="Change the Centers" level="Challenge" sublevel="C-3B" link="c3b/change_the_centers"/>
     <call title="Change the Wave" level="Challenge" sublevel="C-3B" link="c3b/change_the_centers"/>
@@ -109,7 +112,6 @@
     <call title="Checkpoint" level="Challenge" sublevel="C-2" link="c2/checkpoint"/>
     <call title="Chisel Thru" level="Challenge" sublevel="C-2" link="c2/chisel_thru"/>
     <call title="Choice" level="Challenge" sublevel="C-3A" link="c3a/choice"/>
-    <call title="&lt;anything&gt; Choice" level="Challenge" sublevel="C-3A" link="c3a/anything_choice"/>
     <call title="Chuck-A-Luck" level="Challenge" sublevel="C-3B" link="c3b/chuck_a_luck"/>
     <call title="Circle By" level="Challenge" sublevel="C-1" link="c1/circle_by"/>
     <call title="Circle Left and Circle Right" level="Basic and Mainstream" sublevel="Basic 1" link="b1/circle" languages="ja"/>
@@ -124,7 +126,6 @@
     <call title="Counter Rotate" level="Challenge" sublevel="C-1" link="c1/counter_rotate"/>
     <call title="Counter" level="Challenge" sublevel="C-2" link="c2/counter"/>
     <call title="Couple Up" level="Challenge" sublevel="C-3A" link="c3a/couple_up"/>
-    <call title="&lt;anything&gt;er's Couple Up" level="Challenge" sublevel="C-3A" link="c3a/anythingers_couple_up"/>
     <call title="Courtesy Turn" level="Basic and Mainstream" sublevel="Basic 1" link="b1/courtesy_turn"/>
     <call title="Crazy Concept" level="Challenge" sublevel="C-2" link="c2/crazy_concept"/>
     <call title="Criss Cross the Deucey" level="Challenge" sublevel="C-3B" link="c3b/criss_cross_the_deucey"/>
@@ -263,7 +264,6 @@
     <call title="Hinge the Lock" level="Challenge" sublevel="C-3A" link="c3a/lock_the_hinge"/>
     <call title="Hinge" level="Basic and Mainstream" sublevel="Mainstream" link="ms/hinge"/>
     <call title="Hocus Pocus" level="Challenge" sublevel="C-2" link="c2/hocus_pocus"/>
-    <call title="&lt;anyone&gt; Hop" level="Challenge" sublevel="C-3A" link="c3a/anyone_hop"/>
     <call title="Horseshoe Turn" level="Advanced" sublevel="A-1" link="a1/horseshoe_turn"/>
     <call title="Hourglass Circulate" level="Advanced" sublevel="A-2" link="a2/hourglass_circulate"/>
     <call title="Hubs Trade (Anything)" level="Challenge" sublevel="C-2" link="c2/hubs_trade_anything"/>
@@ -384,7 +384,6 @@
     <call title="Rally" level="Challenge" sublevel="C-3A" link="c3a/rally"/>
     <call title="Ramble" level="Challenge" sublevel="C-1" link="c1/ramble"/>
     <call title="Reach Out" level="Challenge" sublevel="C-3A" link="c3a/reach_out"/>
-    <call title="&lt;anything&gt; (Cross) Reaction" level="Challenge" sublevel="C-3A" link="c3a/anything_reaction"/>
     <call title="Reactivate" level="Challenge" sublevel="C-3B" link="c3b/reactivate"/>
     <call title="Recoil" level="Challenge" sublevel="C-3A" link="c3a/recoil"/>
     <call title="Recycle" level="Advanced" sublevel="A-2" link="a2/recycle"/>
@@ -559,6 +558,7 @@
     <call title="Switch to an Interlocked Diamond" level="Challenge" sublevel="C-1" link="c1/switch_to_an_interlocked_diamond"/>
     <call title="T-Bone Formation" level="Challenge" sublevel="C-1" link="c1/t_bone_formation"/>
     <call title="Take n" level="Challenge" sublevel="C-3B" link="c3b/take_n"/>
+    <call title="(Tag) Chain Thru" level="Challenge" sublevel="C-3A" link="c3a/any_tagging_call_chain_thru"/>
     <call title="Tag Back to a Wave" level="Challenge" sublevel="C-1" link="c1/tagging_calls_back_to_a_wave" anim="TagBacktoaWavefromLines"/>
     <call title="Tag the Line" level="Basic and Mainstream" sublevel="Mainstream" link="ms/tag"/>
     <call title="Tag the Top" level="Challenge" sublevel="C-3B" link="c3b/anything_the_top"/>
