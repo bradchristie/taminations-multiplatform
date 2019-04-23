@@ -48,8 +48,7 @@
 
   <tam title="Galaxy Circulate"
        from="Left-Hand Galaxy"
-       formation="Galaxy LH GP"
-       fractions="" >
+       formation="Galaxy LH GP">
     <path>
       <move select="Extend Right" beats="3" scaleY="2.1" />
     </path>
@@ -63,4 +62,47 @@
       <move select="Extend Left" beats="3" scaleY="2.1" />
     </path>
   </tam>
+
+  <tam title="Galaxy Circulate"
+       from="Facing Galaxy Right-Hand Box"
+       formation="Galaxy Facing RH Box">
+    <path>
+      <move select="Forward"/>
+      <move select="Lead Right" beats="2"/>
+    </path>
+    <path>
+      <move select="Eighth Left" beats="1" offsetY="1"/>
+      <move select="Eighth Left" beats="2" offsetX="1.41"/>
+    </path>
+    <path>
+      <move select="Quarter Left" offsetY="1"/>
+      <move select="Lead Right" beats="2" scaleX="1.1"/>
+    </path>
+    <path>
+      <move select="Quarter Left" offsetY="1"/>
+      <move select="Lead Right" beats="2" scaleX="1.1"/>
+    </path>
+  </tam>
+
+  <tam title="Galaxy Circulate"
+       from="Facing Galaxy Left-Hand Box"
+       formation="Galaxy Facing LH Box">
+    <path>
+      <move select="Lead Right" beats="2"/>
+      <move select="Quarter Left" offsetX="1.1"/>
+    </path>
+    <path>
+      <move select="Lead Right" beats="2"/>
+      <move select="Forward"/>
+    </path>
+    <path>
+      <move select="Eighth Left" beats="2" offsetX="1" offsetY="1"/>
+      <move select="Eighth Left" beats="1" offsetX="0.707" offsetY="-0.707"/>
+    </path>
+    <path>
+      <move select="Lead Right" beats="2"/>
+      <move select="Quarter Left" offsetX="1.1"/>
+    </path>
+  </tam>
+
 </tamination>
