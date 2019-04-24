@@ -453,6 +453,34 @@
     </path>
   </tam>
 
+  <tam title="As Couples Reverse Flutterwheel" group="As Couples"
+       formation="Normal Lines">
+    <path>
+      <move select="Extend Right" hands="gripright" beats="2" scaleX="2" scaleY="3.5" />
+      <move select="Beau Wheel" scaleX=".5" scaleY=".5" offsetX="1" offsetY=".5" />
+      <move select="Counter Rotate Left 0 -3" beats="3" hands="right"/>
+      <move select="Counter Rotate Left 0 -3" beats="3" hands="right" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Extend Right" hands="gripleft" beats="2" scaleX="2" scaleY="2.5" />
+      <move select="Belle Wheel" scaleX=".5" scaleY=".5" offsetX="1" offsetY=".5" />
+      <move select="Counter Rotate Left 1 -2" beats="3" hands="both" />
+      <move select="Counter Rotate Left 1 -2" beats="3" hands="both" />
+    </path>
+    <path>
+      <move select="Stand" beats="2" hands="right" />
+      <move select="Forward" hands="right" beats="3" />
+      <move select="Counter Rotate Left 2 0" hands="both" beats="3" offsetY="-1"/>
+      <move select="Counter Rotate Left 2 0" hands="both" beats="3" offsetY="-1" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2" hands="left" />
+      <move select="Extend Left" hands="left" beats="3" />
+      <move select="Counter Rotate Left 3 1" hands="left" beats="3" offsetY="-1"/>
+      <move select="Counter Rotate Left 3 1" hands="left" beats="3" offsetY="-1" offsetX="2"/>
+    </path>
+  </tam>
+
   <tam title="As Couples Right and Left Thru" group="As Couples"
        formation="Normal Lines">
     <path>
