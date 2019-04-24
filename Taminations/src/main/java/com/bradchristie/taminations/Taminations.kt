@@ -24,8 +24,8 @@ import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.content.res.Configuration.*
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
-import android.support.v4.content.PermissionChecker.PERMISSION_GRANTED
+import androidx.core.app.ActivityCompat
+import androidx.core.content.PermissionChecker.PERMISSION_GRANTED
 import android.util.DisplayMetrics
 import com.bradchristie.taminations.Application.doRequest
 import com.bradchristie.taminations.Taminations.Companion.context

@@ -4,8 +4,8 @@
     <facet type="kotlin-language" name="Kotlin">
       <configuration version="3" platform="JavaScript " useProjectSettings="false" isTestModule="true" externalProjectId=":Taminations">
         <sourceSets>
-          <sourceSet>Taminations_commonMain</sourceSet>
           <sourceSet>Taminations_jsMain</sourceSet>
+          <sourceSet>Taminations_commonMain</sourceSet>
           <sourceSet>Taminations_commonTest</sourceSet>
         </sourceSets>
         <newMppModelJpsModuleKind>COMPILATION_AND_SOURCE_SET_HOLDER</newMppModelJpsModuleKind>
@@ -41,7 +41,7 @@
     <content url="file://$MODULE_DIR$/src/jsTest/resources" />
     <orderEntry type="jdk" jdkName="Kotlin SDK" jdkType="KotlinSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="Taminations_commonMain" scope="TEST" />
+    <orderEntry type="module" module-name="Taminations_jsMain" scope="TEST" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlin:kotlin-test-js:1.3.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-js:1.3.0" level="project" />
@@ -50,7 +50,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-common:1.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.0" level="project" />
     <orderEntry type="module" module-name="Taminations_commonTest" scope="TEST" />
-    <orderEntry type="module" module-name="Taminations_jsMain" scope="TEST" />
+    <orderEntry type="module" module-name="Taminations_commonMain" scope="TEST" />
   </component>
   <component name="TestModuleProperties" production-module="Taminations_jsMain" />
 </module>

@@ -21,7 +21,7 @@ package com.bradchristie.taminations.platform
 
 import android.graphics.Canvas
 import android.graphics.Typeface
-import android.support.v7.widget.AppCompatTextView
+import androidx.appcompat.widget.AppCompatTextView
 import android.text.Layout
 import android.text.StaticLayout
 import android.text.TextPaint
