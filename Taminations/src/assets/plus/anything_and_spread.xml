@@ -207,6 +207,28 @@
     </path>
   </tam>
 
+  <tam title="Heads Touch 1/4 and Spread" group=" "
+       formation="Static Square" difficulty="2">
+    <path>
+      <move select="Extend Left" beats="3" scaleX="3" scaleY=".5"/>
+      <move select="Hinge Right" scaleY=".5"/>
+      <move select="Stand" beats="2" offsetX="-1" offsetY="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="3" scaleY=".5"/>
+      <move select="Hinge Right" scaleY=".5"/>
+      <move select="Extend Left" beats="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Stand Right" beats="4.5"/>
+      <move select="Forward" hands="right" beats="2"/>
+    </path>
+    <path>
+      <move select="Stand Left" beats="4.5"/>
+      <move select="Forward" hands="left" beats="2"/>
+    </path>
+  </tam>
+
   <tam title="Hinge and Spread" group=" "
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
