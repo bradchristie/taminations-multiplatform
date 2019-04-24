@@ -21,10 +21,12 @@ package com.bradchristie.taminations.common.calls
 
 import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.CallError
+import com.bradchristie.taminations.common.LevelObject
 import com.bradchristie.taminations.common.r
 
 class CircleBy(norm:String,name:String) : Action(norm,name) {
 
+  override val level = LevelObject("c1")
   override val requires = listOf("b1/circle","b2/ocean_wave","b2/trade",
                                  "ms/hinge","ms/cast_off_three_quarters")
 
