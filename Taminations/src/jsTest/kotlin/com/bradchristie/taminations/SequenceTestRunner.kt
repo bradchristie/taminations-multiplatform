@@ -191,8 +191,7 @@ Boys Run
 Bend the Line
 Star Thru
 Pass Thru
-Allemande Left
-""",
+Allemande Left""",
 
       "Clover And" to
 """Heads Pass Thru
