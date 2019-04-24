@@ -174,6 +174,26 @@ Right and Left Thru """,
 Center 6 Turn Back
 Acey Deucey """,
 
+      "Circle By" to
+"""Heads Circle By 1/2 and 1/4
+Girls Pass Thru
+Centers Girls Cross
+Checkmate
+Bend the Line
+Circle By 1/4 and 3/4
+Boys Run
+Ferris Wheel
+Centers Pass Thru
+Circle By 3/4 and Recycle
+Pass the Ocean
+Circulate
+Boys Run
+Bend the Line
+Star Thru
+Pass Thru
+Allemande Left
+""",
+
       "Clover And" to
 """Heads Pass Thru
 Clover and Touch 1/4

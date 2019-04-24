@@ -151,6 +151,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
           //  Don't want to match Sides Star Thru e.g.
           if (callname.toLowerCase() in ".*\\bstart\\b.*".r)
             HeadsStart(callnorm,callname)  else null
+        in "circleby.*".r -> CircleBy(callnorm,callname)
         else -> null
       }
     }
