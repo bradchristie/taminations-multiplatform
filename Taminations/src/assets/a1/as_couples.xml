@@ -692,6 +692,24 @@
     </path>
   </tam>
 
+  <tam title="As Couples Trade the Wave"
+       group="As Couples"
+       formation="Two-Faced Tidal Line LH"
+       display="none">
+    <path>
+      <move select="Run Left" beats="4" hands="right" scaleX="1.5" scaleY="2.5" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" hands="left" scaleX=".5" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" hands="right" scaleX="3.5" scaleY="2.5" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" hands="left" scaleX="2.5" scaleY="1.5" />
+    </path>
+  </tam>
+
   <tam title="As Couples U-Turn Back" group="As Couples"
        formation="Lines Facing Out">
     <path>
