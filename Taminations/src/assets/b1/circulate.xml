@@ -72,6 +72,78 @@
     </path>
   </tam>
 
+  <tam title="Box Circulate"
+       from="Right-Hand Square"
+       formation="Square RH" display="none">
+    <path>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+    </path>
+  </tam>
+
+  <tam title="Box Circulate"
+       from="Left-Hand Square"
+       formation="Square LH" display="none">
+    <path>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+    </path>
+  </tam>
+
+  <tam title="Box Circulate"
+       from="Right-Hand Square Facing Out"
+       formation="Square Facing Out RH" display="none">
+    <path>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Run Right"/>
+    </path>
+  </tam>
+
+  <tam title="Box Circulate"
+       from="Left-Hand Square Facing Out"
+       formation="Square Facing Out LH" display="none">
+    <path>
+      <move select="Run Left"/>
+    </path>
+    <path>
+      <move select="Run Left"/>
+    </path>
+  </tam>
+
+  <tam title="Box Circulate"
+       from="T-Bone 1" display="none">
+    <formation>
+      <dancer gender="boy" x="-1" y="1" angle="0"/>
+      <dancer gender="girl" x="-1" y="-1" angle="270"/>
+    </formation>
+    <path>
+      <move select="Forward 2" beats="3"/>
+    </path>
+    <path>
+      <move select="Run Left"/>
+    </path>
+  </tam>
+
+  <tam title="Box Circulate"
+       from="T-Bone 2" display="none">
+    <formation>
+      <dancer gender="boy" x="-1" y="1" angle="270"/>
+      <dancer gender="girl" x="-1" y="-1" angle="180"/>
+    </formation>
+    <path>
+      <move select="Forward 2" beats="3"/>
+    </path>
+    <path>
+      <move select="Run Right"/>
+    </path>
+  </tam>
+
   <tam title="Centers Circulate"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"

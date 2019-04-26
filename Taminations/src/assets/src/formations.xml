@@ -171,6 +171,26 @@
     <dancer gender="girl" x="-1" y="0" angle="0"/>
   </formation>
 
+  <formation name="Square RH">
+    <dancer gender="boy" x="-1" y="1" angle="0"/>
+    <dancer gender="girl" x="-1" y="-1" angle="90"/>
+  </formation>
+
+  <formation name="Square LH">
+    <dancer gender="boy" x="-1" y="1" angle="270"/>
+    <dancer gender="girl" x="-1" y="-1" angle="0"/>
+  </formation>
+
+  <formation name="Square Facing Out LH">
+    <dancer gender="boy" x="-1" y="1" angle="180"/>
+    <dancer gender="girl" x="-1" y="-1" angle="270"/>
+  </formation>
+
+  <formation name="Square Facing Out RH">
+    <dancer gender="boy" x="-1" y="1" angle="90"/>
+    <dancer gender="girl" x="-1" y="-1" angle="180"/>
+  </formation>
+
   <!-- Four Couple Formations    -->
   <formation name="Static Square">
     <dancer gender="boy" x="-3" y="1" angle="0"/>
