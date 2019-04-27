@@ -61,6 +61,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "partnerhinge" to { Hinge("hinge","Partner Hinge") },
         "lefthinge" to { Hinge("lefthinge","Left Hinge") },
         "leftpartnerhinge" to { Hinge("lefthinge","Left Partner Hinge") },
+        "jaywalk" to { Jaywalk() },
         "ladies" to { Girls() },
         "12" to { Half() },
         "12sashay" to { HalfSashay() },
@@ -107,6 +108,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         //  also Centers Walk and Dodge goes through here
         "walkanddodge" to { WalkandDodge("walkanddodge","Walk and Dodge") },
         "wheelaround" to { WheelAround("wheelaround","Wheel Around") },
+        "withtheflow" to { WithTheFlow() },
         "reversewheelaround" to { WheelAround("reversewheelaround","Reverse Wheel Around") },
         "zig" to { Zig("zig","Zig") },
         "zag" to { Zig("zag","Zag") },
