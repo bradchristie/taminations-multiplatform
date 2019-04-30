@@ -58,7 +58,10 @@ class Windmillx(norm:String, name:String) : Action(norm,name) {
     //  Get the direction
     val dir = norm.replace("windmillx","")
     //  Face that way and do two circulates
-    ctx.applyCalls("Face $dir","Circulate","Circulate")
+    if (dir == "forward")
+      ctx.applyCalls("Circulate","Circulate")
+    else
+      ctx.applyCalls("Face $dir","Circulate","Circulate")
   }
 
 }
