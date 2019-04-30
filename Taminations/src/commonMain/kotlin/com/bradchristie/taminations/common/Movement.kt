@@ -178,4 +178,7 @@ class Movement(private val fullbeats:Double, val hands:Int,
 
   fun clip(b:Double): Movement = Movement(fullbeats, hands, cx1, cy1, cx2, cy2, x2, y2, cx3, cx4, cy4, x4, y4, b)
 
+  fun isStand(): Boolean =
+      x2.isApprox(0.0) && y2.isApprox(0.0) && x4.isApprox(0.0) && y4.isApprox(0.0)
+
 }

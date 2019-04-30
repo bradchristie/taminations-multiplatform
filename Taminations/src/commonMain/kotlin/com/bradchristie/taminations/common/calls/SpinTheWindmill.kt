@@ -21,6 +21,8 @@ package com.bradchristie.taminations.common.calls
 
 import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.LevelObject
+import com.bradchristie.taminations.common.r
+import com.bradchristie.taminations.platform.System
 
 class SpinTheWindmill(norm: String, name: String) : Action(norm, name) {
 
@@ -29,6 +31,7 @@ class SpinTheWindmill(norm: String, name: String) : Action(norm, name) {
       "ms/cast_off_three_quarters","a2/spin_the_windmill")
 
   override fun perform(ctx: CallContext, i: Int) {
+    var prefix = ""
     //  Get the center 4 dancers
     //  Note that if tidal it's not the same as the "centers"
     val centers = ctx.center(4)
@@ -38,26 +41,24 @@ class SpinTheWindmill(norm: String, name: String) : Action(norm, name) {
     if (ctxCenters.dancers.all { d ->
           ctxCenters.isInCouple(d)
         })
-      ctxCenters.applyCalls("Step to a $wave")
+      prefix = "Step to a $wave"
     //  Then Swing, Slip, Cast
-    ctxCenters.applyCalls("Trade","Slip","Cast Off 3/4")
-    ctxCenters.appendToSource()
+    val centerPart = "Center 4 $prefix Trade Slip Cast Off 3/4"
 
-    //  Get the outer 4 dancers
-    val outers = ctx.outer(4)
-    val ctxOuters = CallContext(ctx,outers)
-    //  Turn the requested direction
-    when (norm.takeLast(2)) {
-      "in" -> ctxOuters.applyCalls("Face In")
-      "ut" -> ctxOuters.applyCalls("Face Out")
-      "ft" -> ctxOuters.applyCalls("Face Left")
-      "ht" -> ctxOuters.applyCalls("Face Right")
-      "ck" -> ctxOuters.applyCalls("Turn Back")
-    }
-    //  Do the circulates
-    ctxOuters.applyCalls("Outsides Windmill")
-    ctxOuters.appendToSource()
+    val outerPart = "Outer 4 Windmillx "+norm.replace(".*windmill".r,"")
 
+    ctx.applyCalls("$outerPart while $centerPart")
+  }
+
+}
+
+class Windmillx(norm:String, name:String) : Action(norm,name) {
+
+  override fun perform(ctx: CallContext, i: Int) {
+    //  Get the direction
+    val dir = norm.replace("windmillx","")
+    //  Face that way and do two circulates
+    ctx.applyCalls("Face $dir","Circulate","Circulate")
   }
 
 }

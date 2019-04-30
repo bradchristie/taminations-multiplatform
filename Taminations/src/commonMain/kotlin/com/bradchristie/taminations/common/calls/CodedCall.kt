@@ -141,12 +141,15 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
              when (callnorm) {
         in "(cross)?cloverand(\\w.*)".r -> CloverAnd(callnorm,callname)
         in "out(er|sides?)(2|4|6)?".r -> Outsides(callnorm,callname)
+        in "in(ner|sides?)(2|4|6)?".r -> Insides(callnorm,callname)
+        in "center(2|4|6)".r -> Insides(callnorm,callname)
         //  Boys Walk Girls Dodge etc
         //  Also handles Heads Boy Walk Girl Dodge
         in "${specifier}walk(and)?${specifier}dodge".r -> WalkandDodge(callnorm,callname)
         //  Head Boy Walk Head Girl Dodge etc
         in "${specifier}${specifier}walk(and)?${specifier}${specifier}dodge".r -> WalkandDodge(callnorm,callname)
-// not yet        in "(left)?spinthewindmill(left|right|in|out|forward|back)".r -> SpinTheWindmill(callnorm,callname)
+        in "(left)?spinthewindmill(left|right|in|out|forward)".r -> SpinTheWindmill(callnorm,callname)
+        in "windmillx(in|out|left|right|forward)".r -> Windmillx(callnorm,callname)
         in "(left)?squarethru(1|2|3|4|5|6|7)?".r -> SquareThru(callnorm,callname)
         in "(left)?splitsquarethru(2|3|4|5|6|7)?".r -> SplitSquareThru(callnorm,callname)
         in "(head|side)start.+".r ->
@@ -154,6 +157,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
           if (callname.toLowerCase() in ".*\\bstart\\b.*".r)
             HeadsStart(callnorm,callname)  else null
         in "circleby.*".r -> CircleBy(callnorm,callname)
+        in "while.+".r -> While(callnorm,callname)
         else -> null
       }
     }

@@ -134,11 +134,13 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
   //  angle the dancer turns to look at the origin
   val angleToOrigin:Double get() = Vector().preConcatenate(tx.inverse()).angle
 
+  fun vectorToDancer(d2:Dancer):Vector =
+      d2.location.concatenate(tx.inverse())
   //  Angle of d2 as viewed from this dancer
   //  If angle is 0 then d2 is in front
   //  Angle returned is in the range -pi to pi
   fun angleToDancer(d2: Dancer):Double =
-    d2.location.concatenate(tx.inverse()).angle
+      vectorToDancer(d2).angle
 
   //  Other geometric interrogatives
   val isFacingIn : Boolean get() {

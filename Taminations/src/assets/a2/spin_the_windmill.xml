@@ -562,21 +562,4 @@
     </path>
   </tam>
 
-  <tam title="Outsides Windmill" from="Facing In" display="none">
-    <formation>
-      <dancer gender="boy" x="-2" y="3" angle="0"/>
-      <dancer gender="girl" x="-2" y="-3" angle="0"/>
-    </formation>
-    <path>
-      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
-      <move select="Lead Right" beats="4" scaleX="5" scaleY="3.5"/>
-      <move select="Lead Right" beats="4" scaleX="3" scaleY="3"/>
-    </path>
-    <path>
-      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
-      <move select="Lead Left" beats="4" scaleX="4" scaleY="2.5"/>
-      <move select="Lead Left" beats="4" scaleX="3" scaleY="2"/>
-    </path>
-  </tam>
-
 </tamination>

@@ -74,7 +74,6 @@ class CallContext {
   var level = LevelObject.find("b1")
   var callstack = mutableListOf<Call>()
   var dancers = listOf<Dancer>()
-  var nosync = false  //  Set to true to do calls asynchronously
   private var source: CallContext? = null
   private val genderMap = mapOf("boy" to Gender.BOY, "girl" to Gender.GIRL, "phantom" to Gender.PHANTOM)
 
@@ -247,7 +246,8 @@ class CallContext {
     val found = callfiles.isNotEmpty()
     val matches = callfiles.any {
       if (loadedXML[it.link] == null)
-        throw CallError("Internal Error: ${it.link} not loaded.")
+        return false
+        //throw CallError("Internal Error: ${it.link} not loaded.")
       loadedXML[it.link]!!.evalXPath("/tamination/tam").asSequence().filter { tam -> tam.attr("sequencer")!="no" &&
           TamUtils.normalizeCall(tam.attr("title")) == callnorm
       }.any { tam ->
@@ -736,6 +736,14 @@ class CallContext {
       val b = maxb - d.path.beats
       if (b > 0)
         d.path.add(TamUtils.getMove("Stand").changebeats(b))
+    }
+  }
+
+  //  Strip off extra beats added by extendPaths
+  fun contractPaths() {
+    dancers.forEach { d ->
+      while (d.path.movelist.lastOrNull()?.isStand() == true)
+        d.path.pop()
     }
   }
 

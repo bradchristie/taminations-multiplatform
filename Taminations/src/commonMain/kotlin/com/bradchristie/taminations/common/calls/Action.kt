@@ -31,8 +31,7 @@ abstract class Action(norm:String,name:String=norm) : CodedCall(norm,name) {
       d.path.recalculate()
       d.animateToEnd()
     }
-    if (!ctx.nosync)
-      ctx.extendPaths()
+    ctx.extendPaths()
   }
 
   //  Default method to perform one call
