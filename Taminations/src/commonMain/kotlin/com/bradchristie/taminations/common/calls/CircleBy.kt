@@ -31,16 +31,20 @@ class CircleBy(norm:String,name:String) : Action(norm,name) {
                                  "ms/hinge","ms/cast_off_three_quarters")
 
   override fun perform(ctx: CallContext, i: Int) {
+    //  Make sure we have "Circle By <fraction> and <something>"
     val a = norm.replace("circleby","").split("and".r,2)
     if (a.count() != 2)
       throw CallError("Circle By <fraction> and <fraction or call>")
     val (frac1,frac2) = a
+    //  Do the first fraction
     when (frac1) {
       "nothing" -> { }
       "14", "12", "34" -> ctx.applyCalls("Circle Four Left $frac1")
       else -> throw CallError("Circle by what?")
     }
+    //  Step to a Wave
     ctx.applyCalls("Step to a Wave")
+    //  Do the second fraction or call
     when (frac2) {
       "nothing" -> { }
       "14" -> ctx.applyCalls("Hinge")
