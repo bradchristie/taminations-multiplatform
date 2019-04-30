@@ -60,16 +60,22 @@ class Circulate : Action("Circulate") {
         dx.data.active && (dx isRightOf d || dx isLeftOf d) }
       if (d2 != null) {
         val dist = d.distanceTo(d2)
+        //  Pass right shoulders if crossing another dancer
+        val xScale = if (d2.data.leader && d2 isRightOf d) 1+dist/3 else dist/3
         return TamUtils.getMove(if (d2 isRightOf d) "Run Right" else "Run Left")
-        .scale(dist/3,dist/2).changebeats(4.0)
+        .scale(xScale,dist/2).changebeats(4.0)
       }
     } else if (d.data.trailer) {
-      //  Looking at active leader?  Then take its place
+      //  Looking at active dancer?  Then take its place
       //  TODO maybe allow diagonal circulate?
       val d2 = ctx.dancerInFront(d)
       if (d2 != null && d2.data.active) {
         val dist = d.distanceTo(d2)
-        return TamUtils.getMove("Forward").scale(dist,1.0).changebeats(4.0)
+        return if (d2.data.leader)
+          TamUtils.getMove("Forward").scale(dist,1.0).changebeats(4.0)
+        else  //  Facing dancers - pass right shoulders
+          TamUtils.getMove("Extend Left").scale(dist/2.0,0.5).changebeats(2.0) +
+          TamUtils.getMove("Extend Right").scale(dist/2.0,0.5).changebeats(2.0)
       }
     }
     throw CallError("Cannot figure out how to Circulate.")
