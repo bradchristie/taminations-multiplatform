@@ -22,12 +22,11 @@ package com.bradchristie.taminations.common.calls
 import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.LevelObject
 import com.bradchristie.taminations.common.r
-import com.bradchristie.taminations.platform.System
 
 class SpinTheWindmill(norm: String, name: String) : Action(norm, name) {
 
   override val level = LevelObject.find("a2")
-  override val requires = listOf("b2/trade","a2/slip","b1/face",
+  override val requires = listOf("b2/trade","b2/ocean_wave","a2/slip","b1/face",
       "ms/cast_off_three_quarters","a2/spin_the_windmill")
 
   override fun perform(ctx: CallContext, i: Int) {
@@ -37,15 +36,14 @@ class SpinTheWindmill(norm: String, name: String) : Action(norm, name) {
     val centers = ctx.center(4)
     //  Step to a wave if facing couples
     val ctxCenters = CallContext(ctx, centers)
+    ctxCenters.analyze()
     val wave = if (norm.startsWith("left")) "Left-Hand Wave" else "Wave"
-    if (ctxCenters.dancers.all { d ->
-          ctxCenters.isInCouple(d)
-        })
+    if (ctxCenters.dancers.all { d -> ctxCenters.isInCouple(d) })
       prefix = "Step to a $wave"
     //  Then Swing, Slip, Cast
     val centerPart = "Center 4 $prefix Trade Slip Cast Off 3/4"
 
-    val outerPart = "Outer 4 Windmillx "+norm.replace(".*windmill".r,"")
+    val outerPart = "Outer 4 _Windmill "+norm.replace(".*windmill".r,"")
 
     ctx.applyCalls("$outerPart while $centerPart")
   }
@@ -56,7 +54,7 @@ class Windmillx(norm:String, name:String) : Action(norm,name) {
 
   override fun perform(ctx: CallContext, i: Int) {
     //  Get the direction
-    val dir = norm.replace("windmillx","")
+    val dir = norm.replace("_windmill","")
     //  Face that way and do two circulates
     if (dir == "forward")
       ctx.applyCalls("Circulate","Circulate")

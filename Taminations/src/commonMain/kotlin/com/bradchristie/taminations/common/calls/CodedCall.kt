@@ -30,6 +30,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
     //  "simple" calls are ones where we don't need the original text
     private val simpleCallMaker = mapOf(
         "and" to { And() },
+        "and14more" to { QuarterMore() },
         "roll" to { Roll() },
         "andspread" to { Spread() },
         "backaway" to { BackAway() },
@@ -149,7 +150,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         //  Head Boy Walk Head Girl Dodge etc
         in "${specifier}${specifier}walk(and)?${specifier}${specifier}dodge".r -> WalkandDodge(callnorm,callname)
         in "(left)?spinthewindmill(left|right|in|out|forward)".r -> SpinTheWindmill(callnorm,callname)
-        in "windmillx(in|out|left|right|forward)".r -> Windmillx(callnorm,callname)
+        in "_windmill(in|out|left|right|forward)".r -> Windmillx(callnorm,callname)
         in "(left)?squarethru(1|2|3|4|5|6|7)?".r -> SquareThru(callnorm,callname)
         in "(left)?splitsquarethru(2|3|4|5|6|7)?".r -> SplitSquareThru(callnorm,callname)
         in "(head|side)start.+".r ->

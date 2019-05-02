@@ -76,7 +76,6 @@ class XMLCall(val xelem: TamElement,
     }
     inactives.forEach { d ->  d.data.active = false  }
 
-    ctx.extendPaths()
     ctx.analyze()
   }
 
@@ -86,6 +85,7 @@ class XMLCall(val xelem: TamElement,
     //  the ending formation should be
     if (i > 0)
       ctx.matchStandardFormation()
+    ctx.extendPaths()
   }
 
 }

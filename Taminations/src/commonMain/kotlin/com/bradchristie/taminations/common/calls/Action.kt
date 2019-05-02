@@ -31,7 +31,6 @@ abstract class Action(norm:String,name:String=norm) : CodedCall(norm,name) {
       d.path.recalculate()
       d.animateToEnd()
     }
-    ctx.extendPaths()
   }
 
   //  Default method to perform one call
@@ -51,6 +50,7 @@ abstract class Action(norm:String,name:String=norm) : CodedCall(norm,name) {
   override fun postProcess(ctx: CallContext, i: Int) {
     super.postProcess(ctx, i)
     ctx.matchStandardFormation()
+    ctx.extendPaths()
   }
 
 }

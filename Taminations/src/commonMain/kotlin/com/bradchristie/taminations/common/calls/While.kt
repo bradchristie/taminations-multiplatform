@@ -21,7 +21,6 @@ package com.bradchristie.taminations.common.calls
 
 import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.r
-import com.bradchristie.taminations.platform.System
 
 class While(norm:String,name:String) : Action(norm,name)  {
 
@@ -29,15 +28,13 @@ class While(norm:String,name:String) : Action(norm,name)  {
 
     //  First strip off extra beats added to the inactive dancers
     ctx.contractPaths()
-    ctx.dancers.forEach { d ->
-      d.data.active = true
-      System.log("Dancer $d has ${d.data.actionBeats} action beats.")
-    }
 
     //  Use another context to do the rest of the call
     val ctx2 = CallContext(ctx)
     ctx2.dancers.forEach { d -> d.data.active = true }
     val whilecall = name.toLowerCase().replace("while(\\s+the)?\\s+".r,"")
+    //  Don't add standing beats for the inactive dancers
+    //  Otherwise there's a lot of standing around at the end
     ctx2.applyCalls(whilecall)
     ctx2.contractPaths()
     ctx2.appendToSource()

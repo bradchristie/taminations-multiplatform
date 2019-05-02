@@ -226,7 +226,10 @@ class CallContext {
     if (callstack.isNotEmpty()) {
       ctx1 = CallContext(this)
       ctx1.callstack = callstack
-      ctx1.performCall()
+      //  Ignore any errors, some precursors (like Half) expect to find more on the stack
+      try {
+        ctx1.performCall()
+      } catch ( err:CallError ) { }
     }
     //  If actives != dancers, create another call context with just the actives
     val dc = ctx1.dancers.count()
@@ -570,7 +573,7 @@ class CallContext {
       dancers.forEachIndexed { i,d ->
         if (bestMapping!!.offsets[i].length > 0.1) {
           //  Get the last movement
-          val m = if (d.path.movelist.count() > 0) d.path.pop() else TamUtils.getMove("Stand").pop()
+          val m = if (d.path.movelist.count() > 0) d.path.pop() else TamUtils.getMove("Stand").notFromCall().pop()
           //  Transform the offset to the dancer's angle
           d.animateToEnd()
           val vd = bestMapping!!.offsets[i].rotate(-d.tx.angle)
@@ -718,11 +721,8 @@ class CallContext {
   }
   fun roll(d:Dancer):Rolling {
     //  Look at the last curve of the past, excluding post-processing adjustments
-    var beats = 0.0
-    return Rolling(d.path.movelist.first { move ->
-      beats += move.beats
-      beats >= d.data.actionBeats
-    }.brotate.rolling())
+      return Rolling(d.path.movelist.lastOrNull { move -> move.fromCall }
+                    ?.brotate?.rolling() ?: 0.0)
   }
 
 
@@ -732,17 +732,17 @@ class CallContext {
     val maxb = maxBeats()
     //  add that number as needed by using the "Stand" move
     dancers.forEach { d ->
-      d.data.actionBeats = d.path.beats
+      // d.data.actionBeats = d.path.beats  now set in postProcess
       val b = maxb - d.path.beats
       if (b > 0)
-        d.path.add(TamUtils.getMove("Stand").changebeats(b))
+        d.path.add(TamUtils.getMove("Stand").changebeats(b).notFromCall())
     }
   }
 
   //  Strip off extra beats added by extendPaths
   fun contractPaths() {
     dancers.forEach { d ->
-      while (d.path.movelist.lastOrNull()?.isStand() == true)
+      while (d.path.movelist.lastOrNull()?.fromCall == false)
         d.path.pop()
     }
   }

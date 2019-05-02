@@ -20,6 +20,7 @@ package com.bradchristie.taminations.common.calls
 */
 
 import com.bradchristie.taminations.common.CallContext
+import com.bradchristie.taminations.common.CallError
 import com.bradchristie.taminations.common.Movement
 import com.bradchristie.taminations.platform.attr
 import com.bradchristie.taminations.common.d
@@ -45,6 +46,8 @@ class Half : Action("Half") {
       }
       prevbeats = ctx.maxBeats()
     }
+    else
+      throw CallError("Half of what?")
   }
 
   //  Call is performed between these two methods
@@ -62,8 +65,10 @@ class Half : Action("Half") {
       var mo: Movement? = null
       while (d.path.beats > prevbeats + halfbeats)
         mo = d.path.pop()
-      if (d.path.beats < prevbeats+halfbeats)
-        d.path.add(mo!!.clip(prevbeats+halfbeats-d.path.beats))
+      mo?.let {
+        if (d.path.beats < prevbeats + halfbeats)
+          d.path.add(mo.clip(prevbeats + halfbeats - d.path.beats))
+      }
     }
 
     super.postProcess(ctx, i)

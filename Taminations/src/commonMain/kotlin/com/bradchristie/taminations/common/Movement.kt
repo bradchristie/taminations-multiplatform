@@ -68,6 +68,9 @@ class Movement(private val fullbeats:Double, val hands:Int,
   private val btranslate = Bezier(0.0, 0.0, cx1, cy1, cx2, cy2, x2, y2)
   val brotate = Bezier(0.0, 0.0, cx3, 0.0, cx4, cy4, x4, y4)
 
+  //  for sequencer
+  var fromCall = true
+
   /**
    * Constructor for a movement where the dancer always faces
    * the direction of travel, so only one Bezier curve is needed

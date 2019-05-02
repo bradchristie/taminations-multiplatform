@@ -108,6 +108,11 @@ class Path(moves:List<Movement> = listOf()) {
     return this
   }
 
+  fun notFromCall() : Path {
+    movelist.forEach { m -> m.fromCall = false }
+    return this
+  }
+
   /**
    * Return a transform for a specific point of time
    */
