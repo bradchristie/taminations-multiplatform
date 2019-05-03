@@ -31,7 +31,7 @@ class QuarterMore : Action("and a Quarter More") {
     if (ctx.actives.any {
           d -> !ctx.isInCouple(d)
         })
-      throw CallError("Only couples can do With the Flow")
+      throw CallError("Only couples can go a Quarter More")
     var isLeft = true
     var isRight = true
     ctx.actives.forEach { d ->

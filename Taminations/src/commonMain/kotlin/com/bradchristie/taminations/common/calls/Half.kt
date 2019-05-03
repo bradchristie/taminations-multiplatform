@@ -65,6 +65,7 @@ class Half : Action("Half") {
       var mo: Movement? = null
       while (d.path.beats > prevbeats + halfbeats)
         mo = d.path.pop()
+      //  OK if there's no movement, half of nothing is nothing
       mo?.let {
         if (d.path.beats < prevbeats + halfbeats)
           d.path.add(mo.clip(prevbeats + halfbeats - d.path.beats))

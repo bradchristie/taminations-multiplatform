@@ -26,12 +26,6 @@ abstract class Call(val name:String) {
 
   open val level = LevelObject("b1")
   open fun performCall(ctx: CallContext, i:Int=0) { }
-
-  open fun postProcess(ctx: CallContext, i:Int=0) {
-    //  This is called before snapping to formations or
-    //  rounding off path lengths, so set the number of
-    //  real beats here
-    ctx.dancers.forEach { it.data.actionBeats = it.beats }
-  }
+  open fun postProcess(ctx: CallContext, i:Int=0) { }
 
 }
