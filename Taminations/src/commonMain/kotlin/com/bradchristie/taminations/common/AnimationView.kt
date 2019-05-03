@@ -726,7 +726,7 @@ class AnimationView : Canvas() {
             g == Gender.PHANTOM -> Color.LIGHTGRAY
             randomColors -> randomColorArray[dnum]
             usercolor != null -> Color(usercolor)
-            else -> dancerColor[colorstr.i - 1]
+            else -> dancerColor[colorstr.i]
           }
           //  add one dancer
           if (g==interactiveDancer && run {icount -= 1; icount==0}) {

@@ -49,6 +49,9 @@
       <move select="Swing Right" scaleX=".5" scaleY=".5"/>
       <move select="Extend Left" beats="3" scaleX="1.5" scaleY="2"/>
     </path>
+    <taminator>
+      Some dance this instead as Couples Twosome Scoot Back
+    </taminator>
   </tam>
 
   <tam title="Interlocked Scoot Back" from="Left-Hand Quarter Line" formation="Quarter Lines LH">

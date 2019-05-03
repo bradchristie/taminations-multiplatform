@@ -119,7 +119,7 @@ class TutorialModel(layout: PracticeLayout) : PracticeModel(layout) {
         Gender.GIRL else Gender.BOY
       val tamlist = tutdoc.evalXPath("/tamination/tam")
       val tam = tamlist[tutnum]
-      av.setAnimation(tam, gender)
+      av.setAnimation(tam, gender, intrand = false)
       Application.titleBar.title = tam.attr("title")
       Alert("Tutorial ${tutnum + 1}").apply {
         textView(tutdata[tutnum]

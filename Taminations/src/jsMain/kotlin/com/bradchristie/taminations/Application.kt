@@ -48,7 +48,7 @@ actual object Application : Page() {
   actual val isLandscape get() = window.innerHeight < window.innerWidth
   actual val isPortrait get() = window.innerHeight >= window.innerWidth
   actual val screenHeight = window.innerHeight
-  actual val isTouch = true
+  actual val isTouch = false
   private var contentPage: Page? = null
   private var testMessager:((Request)->Unit)? = null
   private val landscapePage = object : NavigationPage() {
