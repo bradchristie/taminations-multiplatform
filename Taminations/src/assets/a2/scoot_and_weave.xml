@@ -209,6 +209,32 @@
     </path>
   </tam>
 
+  <tam title="Scoot and Weave" from="Left-Hand Quarter Tag"
+       formation="Quarter Tag LH" parts="5">
+    <path>
+      <move select="Forward" beats="2" />
+      <move select="Swing Left" />
+      <move select="Lead Left" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+      <move select="Swing Left" />
+      <move select="Lead Left" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Swing Left" />
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="1.75" />
+      <move select="Hinge Right" scaleY=".75" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Swing Left" />
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="1.75" />
+      <move select="Hinge Right" scaleY=".75" />
+    </path>
+  </tam>
+
   <tam title="As Couples Scoot and Weave" from="Two-Faced Lines"
     formation="Two-Faced Lines RH" parts="6">
     <path>
