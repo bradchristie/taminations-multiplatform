@@ -25,13 +25,17 @@ class HalfSashay : Action("Half Sashay") {
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
     //  Figure out who we sashay with
-    return TamUtils.getMove( when {
-      d.data.partner in ctx.actives && d.data.beau -> "BackSashay Right"
-      d.data.partner in ctx.actives && d.data.belle -> "Sashay Left"
-      ctx.dancerToRight(d) in ctx.actives -> "BackSashay Right"
-      ctx.dancerToLeft(d) in ctx.actives -> "Sashay Left"
+    val d2 = when {
+      d.data.partner in ctx.actives && d.data.beau -> d.data.partner!!
+      d.data.partner in ctx.actives && d.data.belle -> d.data.partner!!
+      ctx.dancerToRight(d) in ctx.actives -> ctx.dancerToRight(d)!!
+      ctx.dancerToLeft(d) in ctx.actives -> ctx.dancerToLeft(d)!!
       else -> throw CallError("Dancer $d has nobody to Sashay with")
-    })
+    }
+    val move = if (d2.isLeftOf(d)) "Sashay Left" else "BackSashay Right"
+    val dist = d.distanceTo(d2)
+
+    return TamUtils.getMove(move).scale(1.0,dist/2.0)
   }
 
 }
