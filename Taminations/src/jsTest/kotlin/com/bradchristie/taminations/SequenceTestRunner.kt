@@ -787,6 +787,22 @@ Boys Run
 Circulate
 Ferris Wheel
 Centers Square Thru 3
+Allemande Left""",
+
+      "Cross Over Circulate" to
+"""Heads Lead Right While Sides Half Sashay
+Veer Left
+Boys Cross Over Circulate
+Bend the Line
+Brace Thru
+Boys Cross Over Circulate
+Girls Cross Over Circulate
+Boys Cross Over Circulate
+Girls Cross Over Circulate
+Star Thru
+Right and Left Thru
+Pass Thru
+Trade By
 Allemande Left"""
 
   )

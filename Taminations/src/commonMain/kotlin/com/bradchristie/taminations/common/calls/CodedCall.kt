@@ -47,6 +47,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "cloverleaf" to { Cloverleaf() },
         "courtesyturn" to { CourtesyTurn() },
         "crossfold" to { CrossFold() },
+        "crossovercirculate" to { CrossOverCirculate() },
         "crossrun" to { CrossRun() },
         "cross" to { Cross() },
         "doublestarthru" to { DoubleStarThru() },
