@@ -1,7 +1,7 @@
 package com.bradchristie.taminations.platform
 /*
 
-  Taminations Square Dance Animations for Web Browsers
+  Taminations Square Dance Animations
   Copyright (C) 2019 Brad Christie
 
   This program is free software: you can redistribute it and/or modify
@@ -19,26 +19,28 @@ package com.bradchristie.taminations.platform
 
 */
 
-//  ViewGroup is any view that contains child views
+actual class CachingLinearLayout actual constructor(private val adapter: CachingAdapter) : ViewGroup() {
 
-expect abstract class ViewGroup : View {
+  init {
+    style.display = "flex"
+    style.flexDirection = "column"
+    style.alignItems = "stretch"
+    style.overflowY = "auto"
+    style.overflowX = "hidden"
+  }
 
-  val children: MutableList<View>
+  override fun clear() {
+    super.clear()
+    fillView()
+  }
 
-  //  appendView can be overridden
-  //  Various forms for creating a view or using an existing view
-  open fun<T : View> appendView(child:T, code: T.()->Unit = { }) : T
-  open fun appendView(code: View.()->Unit = { }) : View
-  fun removeView(v: View)
+  private fun fillView() {
+    val nitems = adapter.numberOfItems()
+    for (i in 0..nitems) {
+      val view = adapter.getItem(i)
+      appendView(view)
+    }
+  }
 
-  //  Apply code to all descendants
-  fun onDescendants(code:View.()->Unit)
 
-  open fun clear()
-
-}
-
-fun View.removeFromParent() {
-  parentView?.removeView(this)
-  parentView = null
 }

@@ -18,6 +18,6 @@ package com.bradchristie.taminations.platform
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-actual class MultiColumnLayout actual constructor() : ViewGroup() {
+actual class MultiColumnLayout actual constructor(adapter: CachingAdapter) : ViewGroup() {
 
 }

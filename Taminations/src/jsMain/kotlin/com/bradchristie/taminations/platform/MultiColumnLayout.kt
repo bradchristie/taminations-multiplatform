@@ -21,7 +21,7 @@ package com.bradchristie.taminations.platform
 
 import kotlin.browser.window
 
-actual class MultiColumnLayout : ViewGroup() {
+actual class MultiColumnLayout actual constructor(private val adapter: CachingAdapter) : ViewGroup() {
 
   init {
     style.display = "flex"
@@ -40,5 +40,19 @@ actual class MultiColumnLayout : ViewGroup() {
         child.width = 300
     return child
   }
+
+  override fun clear() {
+    super.clear()
+    fillView()
+  }
+
+  private fun fillView() {
+    val nitems = adapter.numberOfItems()
+    for (i in 0 until nitems) {
+      val view = adapter.getItem(i)
+      appendView(view)
+    }
+  }
+
 
 }

@@ -29,6 +29,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
 
     //  "simple" calls are ones where we don't need the original text
     private val simpleCallMaker = mapOf(
+        "aceydeucey" to { AceyDeucey() },
         "and" to { And() },
         "and14more" to { QuarterMore() },
         "roll" to { Roll() },

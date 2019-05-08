@@ -67,6 +67,7 @@ task syncAll(dependsOn: [syncAndroidAssets, syncIosAssets, syncJsAssets, syncJsH
 dependencies {
   implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
   implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+  implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha04'
   implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.1'
   androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
 }

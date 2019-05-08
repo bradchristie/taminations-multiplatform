@@ -19,6 +19,6 @@ package com.bradchristie.taminations.platform
 
 */
 
-expect class MultiColumnLayout() : ViewGroup {
+expect class MultiColumnLayout(adapter: CachingAdapter) : ViewGroup {
 
 }

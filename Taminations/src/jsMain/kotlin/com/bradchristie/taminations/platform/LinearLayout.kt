@@ -1,8 +1,4 @@
 package com.bradchristie.taminations.platform
-
-import org.w3c.dom.HTMLElement
-import kotlin.browser.document
-
 /*
 
   Taminations Square Dance Animations for Web Browsers
@@ -22,6 +18,9 @@ import kotlin.browser.document
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
+
+import org.w3c.dom.HTMLElement
+import kotlin.browser.document
 
 actual open class LinearLayout(private val dir: Direction, div:HTMLElement) : ViewGroup(div) {
 

@@ -22,14 +22,27 @@ package com.bradchristie.taminations.common
 import com.bradchristie.taminations.Application
 import com.bradchristie.taminations.platform.*
 
-class CallListView : LinearLayout(LinearLayout.Direction.VERTICAL) {
+class CallListView : LinearLayout(Direction.VERTICAL) {
+
+  inner class CallListViewAdapter : CachingAdapter() {
+
+    override fun numberOfItems(): Int {
+      return items.count()
+    }
+
+    override fun getItem(i: Int): View {
+      return makeSelectableView(i)
+    }
+
+  }
 
   private val callList = if (Application.isLandscape)
-    MultiColumnLayout()
+    MultiColumnLayout(CallListViewAdapter())
   else
-    ScrollingLinearLayout()
+    CachingLinearLayout(CallListViewAdapter())
   val searchInput = TextInput()
   private val textsize = 20
+  private var dirty = false
 
   init {
     backgroundColor = Color.LIGHTGRAY
@@ -44,10 +57,25 @@ class CallListView : LinearLayout(LinearLayout.Direction.VERTICAL) {
 
   fun clearItems() {
     callList.clear()
+    items.clear()
   }
 
+  var items = mutableListOf<CallListData>()
+
   fun addItem(item: CallListData) {
-    callList.selectablePanel {
+    items.add(item)
+    if (!dirty) {
+      dirty = true
+      System.later {
+        callList.clear()
+        dirty = false
+      }
+    }
+  }
+
+  fun makeSelectableView(position: Int): View {
+    val item = items[position]
+    return SelectablePanel().apply {
       clickAction {
         Application.sendMessage(Request.Action.CALLITEM,
             "title" to item.title,

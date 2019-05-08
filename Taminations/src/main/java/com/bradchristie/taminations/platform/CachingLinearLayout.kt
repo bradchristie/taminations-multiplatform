@@ -25,43 +25,33 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bradchristie.taminations.Taminations
 
-actual class MultiColumnLayout actual constructor(private val adapter: CachingAdapter) : ViewGroup() {
+actual class CachingLinearLayout actual constructor(private val adapter:CachingAdapter) : ViewGroup() {
 
-  val itemHeight = 70
   override val div = RecyclerView(Taminations.context).apply {
-    layoutManager = LinearLayoutManager(Taminations.context,RecyclerView.HORIZONTAL,false)
+    layoutManager = LinearLayoutManager(Taminations.context)
     this.adapter = RecyclerViewAdapter()
-    setHasFixedSize(true)
   }
 
   class CachingHolder(val vg:ViewGroup) : RecyclerView.ViewHolder(vg.div) {  }
 
   inner class RecyclerViewAdapter : RecyclerView.Adapter<CachingHolder> () {
     override fun onCreateViewHolder(parent: android.view.ViewGroup, viewType: Int): CachingHolder {
-      val cell = LinearLayout(LinearLayout.Direction.VERTICAL)
-      cell.div.layoutParams = RecyclerView.LayoutParams(WRAP_CONTENT, MATCH_PARENT)
+      val cell = LinearLayout(LinearLayout.Direction.HORIZONTAL)
+      cell.div.layoutParams = RecyclerView.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
       return CachingHolder(cell)
     }
 
-    private val screenHeightPixels = Taminations.context.resources.displayMetrics.heightPixels
-    private fun itemsPerColumn() = when {
-      parentView != null && (parentView?.height ?: 0) > 0 -> (parentView?.height ?: 0) / itemHeight
-      //  Hack to compute available height when Android won't tell me
-      else -> (screenHeightPixels * 9 / 10 - 40) / itemHeight
-    }
-
     override fun getItemCount(): Int {
-      return (adapter.numberOfItems() + itemsPerColumn() - 1) / itemsPerColumn()
+      return adapter.numberOfItems()
     }
 
     override fun onBindViewHolder(holder: CachingHolder, position: Int) {
+      if (position.rem(100) == 0)
+        System.log("Binding item $position")
       holder.vg.clear()
-      for (i in position*itemsPerColumn() until (position+1)*itemsPerColumn()) {
-        val view = if (i < adapter.numberOfItems()) adapter.getItem(i) else View()
-        holder.vg.appendView(view)
-        view.weight = 1
-      }
-
+      val view = adapter.getItem(position)
+      holder.vg.appendView(view)
+      view.fillHorizontal()
     }
 
   }
@@ -70,6 +60,5 @@ actual class MultiColumnLayout actual constructor(private val adapter: CachingAd
     NotImplementedError("Do not use appendView, use the adapter")
     return child
   }
-
 
 }
