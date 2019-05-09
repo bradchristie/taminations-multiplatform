@@ -60,6 +60,36 @@
     </path>
   </tam>
 
+  <tam title="Allemande Left" from="after Dixie Grand"
+       sequencer="gender-specific" display="none">
+    <formation>
+      <dancer gender="boy" x="-3" y="1" angle="0"/>
+      <dancer gender="girl" x="-3" y="-1" angle="0"/>
+      <dancer gender="boy" x="-1" y="-2" angle="180"/>
+      <dancer gender="girl" x="-1" y="2" angle="180"/>
+    </formation>
+    <path>
+      <move select="Forward"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Eighth Left" beats="2" offsetX="1.5" offsetY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Right"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Eighth Right" beats="2" offsetX="1.5" offsetY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Right"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Extend Left" beats="2" scaleY=".5"/>
+    </path>
+    <path couples="4 2">
+      <move select="Forward"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Extend Left" beats="2" scaleY=".5"/>
+    </path>
+  </tam>
+
   <tam title="Allemande Left" sequencer="gender-specific"
        from="Trade By" formation="Trade By">
     <path couples="1 3">

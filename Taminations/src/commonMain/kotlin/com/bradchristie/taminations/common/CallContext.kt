@@ -268,7 +268,7 @@ class CallContext {
           val xmlCall = XMLCall(tam,mm,ctx2)
           if (xmlCall.name in listOf(
                   "Allemande Left",
-                  "Dixie Grand",
+                  //  "Dixie Grand",
                   "Right and Left Grand")) {
             if (!checkResolution(ctx2, mm))
               throw ResolutionError()
