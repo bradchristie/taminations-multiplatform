@@ -37,7 +37,7 @@ class CrossOverCirculate : Action("Cross Over Circulate") {
       d.data.leader -> {
         //  Find another active dancer in this line
         val d2 = ctx.actives.firstOrNull { dd ->
-          dd != d && dd.isRightOf(d) || dd.isLeftOf(d)
+          dd.isRightOf(d) || dd.isLeftOf(d)
         } ?: throw CallError("Unable to calculate Cross Over Circulate for dancer $d")
         val move = if (d2.isRightOf(d)) "Run Right" else "Run Left"
         //  Pass right shoulders if necessary

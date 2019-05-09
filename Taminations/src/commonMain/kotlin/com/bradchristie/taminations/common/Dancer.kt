@@ -166,7 +166,7 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
     this != d2 && d2.angleToDancer(this).angleEquals(PI/2)
 
   infix fun isOpposite(d2:Dancer) : Boolean =
-      (location + d2.location).length.isApprox(0.0)
+    this != d2 && (location + d2.location).length.isApprox(0.0)
 
 
   /**

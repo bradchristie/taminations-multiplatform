@@ -20,35 +20,11 @@ package com.bradchristie.taminations.common.calls
 */
 
 import com.bradchristie.taminations.common.CallContext
-import com.bradchristie.taminations.common.CallError
-import com.bradchristie.taminations.common.LevelObject
 
-class SweepAQuarter : Action("and Sweep a Quarter") {
-
-  override val level = LevelObject("b2")
-  override val requires = listOf("b2/sweep_a_quarter")
+class AceyDeucey : Action("Acey Deucey") {
 
   override fun performCall(ctx: CallContext, i: Int) {
-    if (ctx.actives.any {
-          d -> !ctx.isInCouple(d)
-        })
-      throw CallError("Only couples can Sweep a Quarter")
-    var isLeft = true
-    var isRight = true
-    ctx.actives.forEach { d ->
-      val roll = ctx.roll(d)
-      if (!roll.isLeft)
-        isLeft = false
-      if (!roll.isRight)
-        isRight = false
-    }
-    //  Sweeping direction is opposite rolling direction
-    if (isRight)
-      ctx.applyCalls("Sweep a Quarter Left")
-    else if (isLeft)
-      ctx.applyCalls("Sweep a Quarter Right")
-    else
-      throw CallError("All dancers must be moving the same direction to Sweep a Quarter")
+    ctx.applyCalls("Center 4 Trade While Outer 4 Circulate")
   }
 
 }

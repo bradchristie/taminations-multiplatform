@@ -204,7 +204,7 @@
     </path>
   </tam>
 
-  <tam title="Left-Shoulder Half Tag" from="Left-Hand Two-Faced Lines"
+  <tam title="Left Half Tag" from="Left-Hand Two-Faced Lines"
        formation="Two-Faced Lines LH" difficulty="2">
     <path>
       <move select="Lead Left" />
