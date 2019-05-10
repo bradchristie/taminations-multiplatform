@@ -422,10 +422,13 @@ class CallContext {
           //  All dancers mapped
           //  Rate the mapping and save if best
           val matchResult = ctx1.computeFormationOffsets(ctx2,mapping)
-          val totOffset = matchResult.offsets.fold(0.0) { s,v -> s+v.length }
-          if (bestmapping == null || totOffset < bestOffset) {
-            bestmapping = mapping.copyOf()
-            bestOffset = totOffset
+          val maxOffset = matchResult.offsets.maxBy { it.length }!!
+          if (maxOffset.length < 2.0) {
+            val totOffset = matchResult.offsets.fold(0.0) { s, v -> s + v.length }
+            if (bestmapping == null || totOffset < bestOffset) {
+              bestmapping = mapping.copyOf()
+              bestOffset = totOffset
+            }
           }
           // continue to look for more mappings
           mapindex -= 2
