@@ -242,6 +242,7 @@ object TamUtils {
   /**  Standardize a call name to match against other names  */
   fun normalizeCall(callname:String):String =
       callname.toLowerCase().replace("&","and")
+          .replace("\\(.*\\)".r,"")
           .replace("[^a-zA-Z0-9_ ]".r,"")
           //  Through => Thru
           .replace("\\bthrou?g?h?\\b".r,"thru")

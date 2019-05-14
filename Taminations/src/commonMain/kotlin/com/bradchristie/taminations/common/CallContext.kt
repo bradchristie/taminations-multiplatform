@@ -275,7 +275,7 @@ class CallContext {
           }
           // add XMLCall object to the call stack
           ctx0.callstack.add(xmlCall)
-          ctx0.callname = callname + tam.attr("title") + " "
+          ctx0.callname = callname + tam.attr("title").replace("\\(.*\\)".r,"") + " "
           // set level to max of this and any previous
           val thislevel = LevelObject.find(it.sublevel)
           if (thislevel > ctx0.level)
@@ -422,6 +422,7 @@ class CallContext {
           //  All dancers mapped
           //  Rate the mapping and save if best
           val matchResult = ctx1.computeFormationOffsets(ctx2,mapping)
+          //  Don't match if some dancers are too far from their mapped location
           val maxOffset = matchResult.offsets.maxBy { it.length }!!
           if (maxOffset.length < 2.0) {
             val totOffset = matchResult.offsets.fold(0.0) { s, v -> s + v.length }
