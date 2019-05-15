@@ -22,10 +22,37 @@
 -->
 <tamination title="Wheel and Anything">
 
+  <tam title="Wheel" from="Couples Facing Out" display="none"
+       formation="Couples Facing Out" sequencer="perimeter">
+    <path>
+      <move select="Lead Left" hands="left" beats="3" scaleX="2" scaleY="3" />
+      <move select="Lead Left" hands="left" beats="3" scaleX="2" scaleY="2" />
+      <move select="Lead Left" hands="left" beats="3" scaleX="3" />
+    </path>
+    <path>
+      <move select="Lead Left" hands="right" beats="3" />
+      <move select="Lead Left" hands="right" beats="3" />
+      <move select="Quarter Left" hands="right" beats="3" offsetX="1" />
+    </path>
+  </tam>
+
+  <tam title="Reverse Wheel" from="Couples Facing Out" display="none"
+       formation="Couples Facing Out" sequencer="perimeter">
+    <path>
+      <move select="Lead Right" hands="left" beats="3" />
+      <move select="Lead Right" hands="left" beats="3" />
+      <move select="Quarter Right" hands="left" beats="3" offsetX="1" />
+    </path>
+    <path>
+      <move select="Lead Right" hands="right" beats="3" scaleX="2" scaleY="3" />
+      <move select="Lead Right" hands="right" beats="3" scaleX="2" scaleY="2" />
+      <move select="Lead Right" hands="right" beats="3" scaleX="3" />
+    </path>
+  </tam>
+
   <tam title="Wheel And Spin the Top"
        from="Trade By"
-       formation="Trade By" group="Wheel And"
-       fractions="" >
+       formation="Trade By" group="Wheel And">
     <path>
       <move select="Lead Left" hands="left" beats="3" scaleY="3" />
       <move select="Lead Left" beats="3" scaleX="2" scaleY="2" />

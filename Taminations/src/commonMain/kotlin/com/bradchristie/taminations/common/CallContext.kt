@@ -234,12 +234,13 @@ class CallContext {
     //  If actives != dancers, create another call context with just the actives
     val dc = ctx1.dancers.count()
     val ac = ctx1.actives.count()
+    var perimeter = false
     if (dc != ac) {
       //  Don't try to match unless the actives are together
       if (ctx1.actives.any { d ->
             ctx1.inBetween(d,ctx1.actives.first()).any { !it.data.active }
       })
-        return false
+        perimeter = true
       ctx1 = CallContext(ctx1,ctx1.actives)
     }
     //  Try to find a match in the xml animations
@@ -252,6 +253,8 @@ class CallContext {
         return false
         //throw CallError("Internal Error: ${it.link} not loaded.")
       loadedXML[it.link]!!.evalXPath("/tamination/tam").asSequence().filter { tam -> tam.attr("sequencer")!="no" &&
+          //  Check for calls that must go around the centers
+          (!perimeter || tam.attr("sequencer")=="perimeter") &&
           TamUtils.normalizeCall(tam.attr("title")) == callnorm
       }.any { tam ->
         //  Calls that are gender-specific, e.g. Star Thru,

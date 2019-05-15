@@ -143,6 +143,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         //  More complex cases need to be parsed by a regex
              when (callnorm) {
         in "(cross)?cloverand(\\w.*)".r -> CloverAnd(callnorm,callname)
+        in "(reverse)?wheeland(\\w.*)".r -> WheelAnd(callnorm,callname)
         in "out(er|sides?)(2|4|6)?".r -> Outsides(callnorm,callname)
         in "in(ner|sides?)(2|4|6)?".r -> Insides(callnorm,callname)
         in "center(2|4|6)".r -> Insides(callnorm,callname)
