@@ -1192,6 +1192,13 @@
     <dancer gender="boy" x="-1" y="-3" angle="180"/>
   </formation>
 
+  <formation name="T-Bone DRRU">
+    <dancer gender="boy" x="-1" y="3" angle="180"/>
+    <dancer gender="girl" x="-1" y="1" angle="270"/>
+    <dancer gender="girl" x="-1" y="-1" angle="270"/>
+    <dancer gender="boy" x="-1" y="-3" angle="0"/>
+  </formation>
+
   <formation name="T-Bone ULRU">
     <dancer gender="boy" x="-1" y="3" angle="0"/>
     <dancer gender="girl" x="-1" y="-1" angle="270"/>
