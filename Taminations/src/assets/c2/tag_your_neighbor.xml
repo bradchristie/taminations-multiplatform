@@ -67,7 +67,7 @@
     <path>
       <move select="Lead Right" beats="2" scaleY="2"/>
       <move select="Lead Right" beats="3" scaleX="3" />
-      <move select="Run Right" beats="5" scaleX="2" scaleY="1.5" />
+      <move select="Run Right" beats="5" scaleX="2" scaleY="2.5" />
     </path>
   </tam>
 
