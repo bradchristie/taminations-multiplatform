@@ -76,7 +76,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "passout" to { PassOut() },
         "passthru" to { PassThru("passthru","Pass Thru") },
         "leftpassthru" to { PassThru("leftpassthru","Left Pass Thru") },
-        "point" to { Outsides("point","Points") },
+        "point" to { Points() },
         "14in" to { QuarterIn("14in","Quarter In") },
         "14out" to { QuarterIn("14out","Quarter Out") },
         "run" to { Run() },
