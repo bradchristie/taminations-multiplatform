@@ -603,7 +603,7 @@ class CallContext {
   fun maxBeats() = dancers.fold(0.0) { v,d -> v max d.path.beats }
 
   //  Return all dancers, ordered by distance, that satisfies a conditional
-  private fun dancersInOrder(d: Dancer, f:(Dancer)->Boolean): List<Dancer> =
+  fun dancersInOrder(d: Dancer, f:(Dancer)->Boolean = { true }): List<Dancer> =
       (dancers-d).asSequence().filter(f).sortedBy { d.distanceTo(it) }.toList()
 
   //  Return closest dancer that satisfies a given conditional

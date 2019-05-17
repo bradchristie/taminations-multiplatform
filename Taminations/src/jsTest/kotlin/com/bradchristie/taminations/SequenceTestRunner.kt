@@ -616,14 +616,14 @@ Allemande Left""",
       "Sweep 1/4" to
 """Heads Lead Right
 Veer Left
-Wheel and Deal and and Sweep a Quarter
+Wheel and Deal and Sweep a Quarter
 Pass the Ocean
 Boys Run
-Wheel and Deal and and Sweep a Quarter
+Wheel and Deal and Sweep a Quarter
 Pass the Ocean
 Recycle and Sweep a Quarter
 Pass the Sea
-Recycle and and Sweep a Quarter
+Recycle and Sweep a Quarter
 Touch a Quarter
 Circulate
 Boys Run
@@ -803,7 +803,45 @@ Star Thru
 Right and Left Thru
 Pass Thru
 Trade By
-Allemande Left"""
+Allemande Left""",
+
+      "Interlocked Diamond Chain Thru" to
+"""Heads Lead Right
+Veer Left
+Trade Circulate
+Boys Hinge
+Centers Switch the Wave
+Interlocked Diamond Chain Thru
+Centers Pass Thru
+Girls Chase Right
+Slide
+Right and Left Grand """,
+
+      "Triangle Circulate" to
+"""Sides Pass the Ocean
+Extend
+Switch to an Hourglass
+Outside Triangle Circulate
+Points Turn Back
+Tandem-Based Triangle Circulate
+Flip the Hourglass
+Centers Hinge
+Inpoint Triangle Circulate
+Outpoint Triangle Circulate
+Lockit
+Outside Triangle Circulate
+Inside Triangle Circulate
+Flip the Diamond
+Recycle
+Pass the Ocean
+Circulate
+Acey Deucey
+Swing Thru
+Recycle
+Pass Thru
+Centers Cross Trail Thru
+Ends Turn Back
+Allemande Left """
 
   )
 

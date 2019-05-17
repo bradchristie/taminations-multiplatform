@@ -22,13 +22,18 @@ package com.bradchristie.taminations.common.calls
 import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.LevelObject
 
-class AceyDeucey : Action("Acey Deucey") {
+class AnythingChainThru(norm: String, name: String) : Action(norm, name) {
 
-  override val level = LevelObject("plus")
-  override val requires = listOf("b2/trade","b1/circulate")
+  override val level = LevelObject("c1")
+  override val requires = listOf("b2/trade","ms/cast_off_three_quarters",
+                                 "plus/diamond_circulate","c1/triangle_formation",
+                                 "c1/interlocked_diamond_circulate")
 
-  override fun performCall(ctx: CallContext, i: Int) {
-    ctx.applyCalls("Center 4 Trade While Outer 4 Circulate")
+  override fun perform(ctx: CallContext, i: Int) {
+    val firstCall = norm.replace("chainthru","")
+        .replace("triangle","trianglecirculate")
+        .replace("diamond","diamondcirculate")
+    ctx.applyCalls(firstCall,"very centers trade","centers cast off 34")
   }
 
 }
