@@ -405,32 +405,4 @@
     </taminator>
   </tam>
 
-  <tam title="Follow Your Neighbor and Spread"
-       from="Quarter Tag" formation="Quarter Tag" difficulty="3">
-    <path>
-      <move select="Extend Left" scaleX="1.5" scaleY="1.5" />
-      <move select="Hinge Right" scaleX=".75" scaleY=".75" />
-      <move select="U-Turn Right"/>
-    </path>
-    <path>
-      <move select="Forward" scaleX="1.5" />
-      <move select="Hinge Right" scaleX=".75" scaleY=".75" />
-      <move select="U-Turn Right"/>
-    </path>
-    <path>
-      <move select="Extend Right" scaleX="1.5" scaleY=".5" />
-      <move select="Hinge Right" scaleX=".75" scaleY=".75" />
-      <move select="U-Turn Right"/>
-    </path>
-    <path>
-      <move select="Forward" scaleX="1.5" />
-      <move select="Hinge Right" scaleX=".75" scaleY=".75" />
-      <move select="U-Turn Right"/>
-    </path>
-    <taminator>
-      This does not flow the same as Follow Your Neighbor and Spread from
-      parallel waves.
-    </taminator>
-  </tam>
-
 </tamination>
