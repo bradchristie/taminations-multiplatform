@@ -79,6 +79,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "point" to { Points() },
         "14in" to { QuarterIn("14in","Quarter In") },
         "14out" to { QuarterIn("14out","Quarter Out") },
+        "14tag" to { QuarterTag() },
         "run" to { Run() },
         "separate" to { Separate() },
         "slidethru" to { SlideThru() },

@@ -61,7 +61,7 @@ class TriangleCirculate(norm: String, name: String) : Action(norm, name) {
           it.data.active = false
       }
       "outside" -> ctx.center(2).forEach { it.data.active = false }
-      "inpoint" -> ctx.points().forEach {
+      "inpoint" -> points.forEach {
         if (it.data.leader)
           it.data.active = false
       }

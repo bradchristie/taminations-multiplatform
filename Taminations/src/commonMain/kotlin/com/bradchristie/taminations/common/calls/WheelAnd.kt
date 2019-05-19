@@ -21,9 +21,13 @@ package com.bradchristie.taminations.common.calls
 
 import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.CallError
+import com.bradchristie.taminations.common.LevelObject
 import com.bradchristie.taminations.common.r
 
 class WheelAnd(norm:String,name:String) : Action(norm,name) {
+
+  override val level = LevelObject("c1")
+  override val requires = listOf("c1/wheel_and_anything")
 
   override fun perform(ctx: CallContext, i: Int) {
     val (wheelcall,andcall) = name.split("and".r,2)

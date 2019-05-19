@@ -1,8 +1,12 @@
 package com.bradchristie.taminations.common.calls
+
+import com.bradchristie.taminations.common.CallContext
+import com.bradchristie.taminations.common.LevelObject
+
 /*
 
   Taminations Square Dance Animations
-  Copyright (C) 2018 Brad Christie
+  Copyright (C) 2019 Brad Christie
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -19,26 +23,13 @@ package com.bradchristie.taminations.common.calls
 
 */
 
-import com.bradchristie.taminations.common.CallContext
-import com.bradchristie.taminations.common.Dancer
-import com.bradchristie.taminations.common.r
+class QuarterTag : Action("Quarter Tag") {
 
-class While(norm:String,name:String) : Action(norm,name)  {
+  override val level = LevelObject("ms")
+  override val requires = listOf("ms/hinge","b1/face")
 
   override fun performCall(ctx: CallContext, i: Int) {
-
-    //  First strip off extra beats added to the inactive dancers
-    ctx.contractPaths()
-
-    //  Use another context to do the rest of the call
-    val ctx2 = CallContext(ctx,beat=0.0)
-    ctx2.dancers.forEach { it.data.active = true }
-    val whilecall = name.toLowerCase().replace("while(\\s+the)?\\s+".r,"")
-    //  Don't add standing beats for the inactive dancers
-    //  Otherwise there's a lot of standing around at the end
-    ctx2.applyCalls(whilecall)
-    ctx2.contractPaths()
-    ctx2.appendToSource()
+    ctx.applyCalls("Centers Hinge While Ends Face In")
   }
 
 }

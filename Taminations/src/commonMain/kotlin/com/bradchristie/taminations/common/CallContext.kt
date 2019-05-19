@@ -81,8 +81,10 @@ class CallContext {
   //  get the dancers from the source and clone them.
   //  The new context contains the dancers in their current location
   //  and no paths.
-  constructor(source: CallContext, sourcedancers: List<Dancer> = source.dancers) {
-    dancers = sourcedancers.map { it.animateToEnd(); Dancer(it) }
+  constructor(source: CallContext,
+              sourcedancers: List<Dancer> = source.dancers,
+              beat: Double = Double.MAX_VALUE) {
+    dancers = sourcedancers.map { it.animate(beat); Dancer(it) }
     this.source = source
   }
 
@@ -166,6 +168,7 @@ class CallContext {
     }
     return this
   }
+
 
   /**
    * This is the main loop for interpreting a call
@@ -485,8 +488,14 @@ class CallContext {
         when {
           handholds && (relq1 == 2 || relq1 == 6) && (relq2 == 2 || relq2 == 6) -> {
             val d1 = ctx1.dancers[i].distanceTo(ctx1.dancers[j])
+            val hold1 = d1 < 2.1 &&
+                (ctx1.dancerToLeft(ctx1.dancers[i]) == ctx1.dancers[j] ||
+                 ctx1.dancerToRight(ctx1.dancers[i]) == ctx1.dancers[j] )
             val d2 = ctx2.dancers[mapping[i]].distanceTo(ctx2.dancers[mapping[j]])
-            relq1 == relt1 && relq2 == relt2 && (d1 < 2.1) == (d2 < 2.1)
+            val hold2 = d2 < 2.1 &&
+                (ctx2.dancerToLeft(ctx2.dancers[mapping[i]]) == ctx2.dancers[mapping[j]] ||
+                 ctx2.dancerToRight(ctx2.dancers[mapping[i]]) == ctx2.dancers[mapping[j]] )
+            relq1 == relt1 && relq2 == relt2 && hold1 == hold2
           }
           fuzzy -> {
             val reldif1 = (relt1-relq1).abs
@@ -664,7 +673,7 @@ class CallContext {
   private fun tryOneDiamondFormation(f:String) : List<Dancer> {
     val ctx2 = CallContext(TamUtils.getFormation(f))
     val points = mutableListOf<Dancer>()
-    matchFormations(ctx2,rotate = true)?.let { mapping ->
+    matchFormations(ctx2, rotate = true)?.let { mapping ->
       dancers.forEachIndexed { i, d ->
         if (ctx2.dancers[mapping[i]].gender == Gender.GIRL)
           points.add(d)
@@ -672,6 +681,7 @@ class CallContext {
     }
     return points
   }
+
   fun points():List<Dancer> =
         tryOneDiamondFormation("Diamond LH Boys Center") +
         tryOneDiamondFormation("Diamonds RH Girl Points") +
