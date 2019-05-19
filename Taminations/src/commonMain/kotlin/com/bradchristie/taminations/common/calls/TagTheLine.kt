@@ -22,13 +22,15 @@ package com.bradchristie.taminations.common.calls
 import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.LevelObject
 
-class QuarterTag : Action("Quarter Tag") {
+class TagTheLine : Action("Tag the Line") {
 
   override val level = LevelObject("ms")
-  override val requires = listOf("ms/hinge","b1/face")
+  override val requires = listOf("ms/fraction_tag")
 
   override fun performCall(ctx: CallContext, i: Int) {
-    ctx.applyCalls("Centers Hinge While Ends Face In")
+    ctx.applyCalls("34tag")
+    ctx.contractPaths()
+    ctx.applyCalls("extend")
   }
 
 }
