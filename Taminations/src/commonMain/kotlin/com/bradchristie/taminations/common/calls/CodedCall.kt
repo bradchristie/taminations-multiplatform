@@ -87,7 +87,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "starthru" to { StarThru("starthru","Star Thru") },
         "steptoacompactwave" to { StepToACompactWave("","") },
         "steptoacompactlefthandwave" to { StepToACompactWave("left","") },
-        "leftstarthru" to { StarThru("leftstarthru","Left Star Thru") },
+        //  "Left" Star Thru is only used for Double/Triple Star Thru
+        "_leftstarthru" to { StarThru("leftstarthru","Left Star Thru") },
         "step" to { Step() },
         "tagtheline" to { TagTheLine() },
         "34tag" to { ThreeQuartersTag() },

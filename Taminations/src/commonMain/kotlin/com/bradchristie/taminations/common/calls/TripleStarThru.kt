@@ -28,7 +28,7 @@ class TripleStarThru : Action("Triple Star Thru") {
 
   override fun perform(ctx: CallContext, i: Int) {
     ctx.applyCalls("Facing Dancers Star Thru",
-                   "Facing Dancers Left Star Thru",
+                   "Facing Dancers _Left Star Thru",
                    "Facing Dancers Star Thru")
   }
 

@@ -27,7 +27,7 @@ class DoubleStarThru : Action("Double Star Thru") {
   override val requires = listOf("b1/star_thru")
 
   override fun perform(ctx: CallContext, i: Int) {
-    ctx.applyCalls("Facing Dancers Star Thru","Facing Dancers Left Star Thru")
+    ctx.applyCalls("Facing Dancers Star Thru","Facing Dancers _Left Star Thru")
   }
 
 }
