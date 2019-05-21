@@ -75,6 +75,8 @@ class CallContext {
   var callstack = mutableListOf<Call>()
   var dancers = listOf<Dancer>()
   private var source: CallContext? = null
+  private var snap = true
+  private var extend = true
   private val genderMap = mapOf("boy" to Gender.BOY, "girl" to Gender.GIRL, "phantom" to Gender.PHANTOM)
 
   //  For cases where creating a new context from a source,
@@ -129,6 +131,15 @@ class CallContext {
 
       )
     }.flatten()
+  }
+
+  fun noSnap() : CallContext {
+    snap = false
+    return this
+  }
+  fun noExtend() : CallContext {
+    extend = false
+    return this
   }
 
   //  Get the active dancers, e.g. for "Boys Trade" the boys are active
@@ -514,8 +525,6 @@ class CallContext {
     if (call != null) {
       callstack.add(call)
       callname = callname + call.name + " "
-      if (call.level > level)
-        level = call.level
       return true
     }
     return false
@@ -527,12 +536,19 @@ class CallContext {
   fun performCall() {
     analyze()
     callstack.forEachIndexed{ i,c ->
+      System.log("Performing ${c.name}")
       c.performCall(this,i)
-      if (c is Action && i < callstack.count()-1) {
+      if (c is Action && i < callstack.count()-1)
         analyze()
-      }
+      //  A few calls (e.g. Hinge) don't know their level until the call is performed
+      if (c.level > level)
+        level = c.level
     }
     callstack.forEachIndexed{ i,c -> c.postProcess(this,i) }
+ //   if (snap)
+ //     matchStandardFormation()
+    if (extend)
+      extendPaths()
   }
 
   //  See if the current dancer positions resemble a standard formation
@@ -582,6 +598,7 @@ class CallContext {
         //  then consider it bogus
         val angsnap = matchResult.transform.angle/(PI/4)
         val totOffset = matchResult.offsets.fold(0.0) { s,v -> s+v.length }
+        System.log("$f $totOffset")
         //  Favor formations closer to the top of the list
         if (angsnap.isApproxInt() && (bestMapping==null || totOffset+0.1 < bestMapping!!.totOffset))
           bestMapping = BestMapping(

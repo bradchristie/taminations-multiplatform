@@ -79,13 +79,4 @@ class XMLCall(val xelem: TamElement,
     ctx.analyze()
   }
 
-  override fun postProcess(ctx: CallContext, i: Int) {
-    super.postProcess(ctx, i)
-    //  If just this one call then assume it knows what
-    //  the ending formation should be
-    if (i > 0)
-      ctx.matchStandardFormation()
-    ctx.extendPaths()
-  }
-
 }

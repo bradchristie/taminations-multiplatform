@@ -22,6 +22,7 @@ package com.bradchristie.taminations.common.calls
 import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.Dancer
 import com.bradchristie.taminations.common.Path
+import com.bradchristie.taminations.platform.System
 
 abstract class Action(norm:String,name:String=norm) : CodedCall(norm,name) {
 
@@ -46,11 +47,5 @@ abstract class Action(norm:String,name:String=norm) : CodedCall(norm,name) {
   //  Default method for one dancer to perform one call
   //  Returns an empty path (the dancer just stands there)
   open fun performOne(d: Dancer, ctx: CallContext): Path = Path()
-
-  override fun postProcess(ctx: CallContext, i: Int) {
-    super.postProcess(ctx, i)
-    ctx.matchStandardFormation()
-    ctx.extendPaths()
-  }
 
 }
