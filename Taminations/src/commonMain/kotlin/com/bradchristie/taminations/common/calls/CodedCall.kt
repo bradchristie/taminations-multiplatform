@@ -84,6 +84,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "separate" to { Separate() },
         "slidethru" to { SlideThru() },
         "slip" to { Slip() },
+        "squeeze" to { Squeeze() },
         "starthru" to { StarThru("starthru","Star Thru") },
         "steptoacompactwave" to { StepToACompactWave("","") },
         "steptoacompactlefthandwave" to { StepToACompactWave("left","") },

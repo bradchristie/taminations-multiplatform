@@ -841,6 +841,59 @@ Recycle
 Pass Thru
 Centers Cross Trail Thru
 Ends Turn Back
+Allemande Left """,
+
+      "Squeeze" to
+"""Heads Slide Thru and Spread
+Pass Thru
+Wheel and Deal
+Girls Squeeze
+Girls Squeeze
+Beaus Girls Cross
+Girls Squeeze
+Girls Squeeze
+Girls Turn Back
+Girls Squeeze
+Girls Squeeze
+Boys Separate
+Girls Walk and Dodge
+Any Hand Swing Thru
+Tag the Line
+Face Right
+Boys Circulate
+Ferris Wheel
+Double Pass Thru
+Ends Trade
+Star Thru
+Pass Thru
+Wheel and Deal
+Zoom
+Centers Pass Thru
+Pass Thru
+Allemande Left """,
+
+      "Squeeze 2" to
+"""Heads Lead Right
+Veer Left
+Bend the Line
+Touch a Quarter
+Centers Circulate
+Circulate
+Girls Squeeze
+Butterfly Circulate
+Butterfly Circulate
+Boys Squeeze
+Circulate 1.5
+Very Centers Squeeze
+Galaxy Circulate
+Flip the Galaxy
+All 8 Swing Thru
+All 8 Recycle
+Heads Slide Thru
+Slide Thru
+Pass Thru
+Wheel and Deal
+Centers Reverse Swap Around
 Allemande Left """
 
   )
