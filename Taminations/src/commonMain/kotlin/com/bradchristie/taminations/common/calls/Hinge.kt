@@ -23,13 +23,16 @@ import com.bradchristie.taminations.common.*
 
 class Hinge(norm:String, name:String) : Action(norm,name) {
 
-  override val level = LevelObject("ms")
+  private var myLevel = LevelObject("ms")
+  override val level get() = myLevel
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
     //  Find the dancer to hinge with
     val d2 = listOf(d.data.partner, ctx.dancerToRight(d), ctx.dancerToLeft(d)).firstOrNull {
       it != null && it.data.active
     } ?: throw CallError("Dancer $d has no one to hinge with.")
+    if (!ctx.isInWave(d,d2))
+      myLevel = LevelObject("a1")
     val dist = d.distanceTo(d2)
     return when {
       //  Hinge from mini-wave, left or right handed
@@ -44,7 +47,7 @@ class Hinge(norm:String, name:String) : Action(norm,name) {
       ctx.isInCouple(d,d2) && d2 isRightOf d ->
         TamUtils.getMove("Lead Right").scale(1.0,dist/2)
       ctx.isInCouple(d,d2) && d2 isLeftOf d ->
-        TamUtils.getMove("Quarter Left").skew(-1.0,1.0*(dist/2))
+        TamUtils.getMove("Quarter Left").skew(-1.0,dist/2)
       else ->
         throw CallError("Dancer $d has no one to hinge with.")
     }
