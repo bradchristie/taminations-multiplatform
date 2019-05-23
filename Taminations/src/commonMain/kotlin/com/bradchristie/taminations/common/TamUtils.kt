@@ -266,6 +266,9 @@ object TamUtils {
           .replace("\\b(7|seven)\\b".r,"7")
           .replace("\\b(8|eight)\\b".r,"8")
           .replace("\\b(9|nine)\\b".r,"9")
+          //  Standardize 6 by 2, 6-2, 6 2 Acey Deucey
+          .replace("(six|6)\\s*(by)?x?-?\\s*(two|2)".r,"62")
+          .replace("(three|3)\\s*(by)?x?-?\\s*(two|2)".r,"32")
           //  Use singular form
           .replace("\\b(boy|girl|beau|belle|center|end|point|head|side)s\\b".r,"$1")
           //  Misc other variations

@@ -39,6 +39,9 @@ def normalize(str):
     n = re.sub(r'\b(7|seven)\b','7',n)
     n = re.sub(r'\b(8|eight)\b','8',n)
     n = re.sub(r'\b(9|nine)\b','9',n)
+    #  Standardize 6 by 2, 6-2, 6 2 Acey Deucey
+    n  = re.sub(r'(six|6)\s*(by)?-?\s*(two|2)',r'62',n)
+    n  = re.sub(r'(three|3)\s*(by)?-?\s*(two|2)',r'32',n)
     #  Use singular form
     n = re.sub(r'\b(boy|girl|beau|belle|center|end|point|head|side)s\b',r'\1',n)
     #  Misc other variations
