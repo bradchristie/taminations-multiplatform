@@ -536,7 +536,6 @@ class CallContext {
   fun performCall() {
     analyze()
     callstack.forEachIndexed{ i,c ->
-      System.log("Performing ${c.name}")
       c.performCall(this,i)
       if (c is Action && i < callstack.count()-1)
         analyze()
@@ -598,7 +597,6 @@ class CallContext {
         //  then consider it bogus
         val angsnap = matchResult.transform.angle/(PI/4)
         val totOffset = matchResult.offsets.fold(0.0) { s,v -> s+v.length }
-        System.log("$f $totOffset")
         //  Favor formations closer to the top of the list
         if (angsnap.isApproxInt() && (bestMapping==null || totOffset+0.1 < bestMapping!!.totOffset))
           bestMapping = BestMapping(

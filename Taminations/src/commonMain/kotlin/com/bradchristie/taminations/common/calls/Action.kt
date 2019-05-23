@@ -22,7 +22,6 @@ package com.bradchristie.taminations.common.calls
 import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.Dancer
 import com.bradchristie.taminations.common.Path
-import com.bradchristie.taminations.platform.System
 
 abstract class Action(norm:String,name:String=norm) : CodedCall(norm,name) {
 
