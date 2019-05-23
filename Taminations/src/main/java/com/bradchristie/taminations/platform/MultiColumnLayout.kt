@@ -23,11 +23,16 @@ import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bradchristie.taminations.Application
 import com.bradchristie.taminations.Taminations
+import com.bradchristie.taminations.common.i
 
 actual class MultiColumnLayout actual constructor(private val adapter: CachingAdapter) : ViewGroup() {
 
-  val itemHeight = 70
+  //  Found this formula by experimentation
+  //  User's setting for font size affects sp2px
+  //  User's setting for display size affects density
+  val itemHeight get() = (20 * Application.sp2px + 16 * Application.density).i
   override val div = RecyclerView(Taminations.context).apply {
     layoutManager = LinearLayoutManager(Taminations.context,RecyclerView.HORIZONTAL,false)
     this.adapter = RecyclerViewAdapter()
@@ -61,7 +66,6 @@ actual class MultiColumnLayout actual constructor(private val adapter: CachingAd
         holder.vg.appendView(view)
         view.weight = 1
       }
-
     }
 
   }

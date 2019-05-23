@@ -89,6 +89,7 @@ class Taminations : Activity(), ActivityCompat.OnRequestPermissionsResultCallbac
 actual object Application : Page() {
 
   private val metrics: DisplayMetrics get() = context.resources.displayMetrics
+  val sp2px get() = metrics.scaledDensity
   private val config: Configuration get() = context.resources.configuration
   //  And these could change if the user rotates the device
   val density:Float get() = metrics.density
@@ -134,6 +135,8 @@ actual object Application : Page() {
   }
 
   fun buildDisplay() : View = LinearLayout(LinearLayout.Direction.VERTICAL).apply {
+    com.bradchristie.taminations.platform.System.log("sp2px: $sp2px")
+    com.bradchristie.taminations.platform.System.log("density: $density")
     fillParent()
     //  Add the title bar
     //titleBar = TitleBar()
