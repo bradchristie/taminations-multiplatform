@@ -286,48 +286,6 @@ object TamUtils {
           .replace("\\W".r,"")
           .replace("\\s".r,"")
 
-
-  fun callnameQuery(query:String):String =
-      query.toLowerCase().replace("&","and")
-          .replace("[^a-zA-Z0-9 ]".r,"")
-          //  Use upper case and dup numbers while building regex
-          //  so expressions don't get compounded
-          //  Through => Thru
-          .replace("\\bthrou?g?h?\\b".r,"THRU")
-          //  Process fractions 1/2 3/4 1/4 2/3
-          .replace("\\b12|((a|one).)?half\\b".r,"((A|ONE)?HALF|1122)")
-          .replace("\\b(three.quarters?|34)\\b".r,"(THREEQUARTERS|3344)")
-          .replace("\\b(((a|one).)?quarter|14)\\b".r,"((A|ONE)?QUARTER|1144)")
-          .replace("\\b23|two.thirds?\\b".r,"(TWOTHIRDS|2233)")
-          //  One and a half
-          .replace("\\b1.5\\b".r,"ONEANDAHALF")
-          //  Process any other numbers
-          .replace("\\b(1|onc?e)\\b".r,"(11|ONE)")
-          .replace("\\b(2|two)\\b".r,"(22|TWO)")
-          .replace("\\b(3|three)\\b".r,"(33|THREE)")
-          .replace("\\b(4|four)\\b".r,"(44|FOUR)")
-          .replace("\\b(5|five)\\b".r,"(55|FIVE)")
-          .replace("\\b(6|six)\\b".r,"(66|SIX)")
-          .replace("\\b(7|seven)\\b".r,"(77|SEVEN)")
-          .replace("\\b(8|eight)\\b".r,"(88|EIGHT)")
-          .replace("\\b(9|nine)\\b".r,"(99|NINE)")
-          //  Accept single and plural forms of some words
-          .replace("\\bboys?\\b".r,"BOYS?")
-          .replace("\\bgirls?\\b".r,"GIRLS?")
-          .replace("\\bends?\\b".r,"ENDS?")
-          .replace("\\bcenters?\\b".r,"CENTERS?")
-          .replace("\\bheads?\\b".r,"HEADS?")
-          .replace("\\bsides?\\b".r,"SIDES?")
-          //  Accept optional "dancers" e.g. "head dancers" == "heads"
-          .replace("\\bdancers?\\b".r,"(DANCERS?)?")
-          //  Misc other variations
-          .replace("\\bswap(\\s+around)?\\b".r,"SWAP (AROUND)?")
-
-          //  Finally repair the upper case and dup numbers
-          //  and make spaces optional
-          .toLowerCase().replace("([0-9])\\1".r, "$1").replace("\\s+".r,"\\s*")
-
-
 }
 
 //  Returns list of animations from an xml document

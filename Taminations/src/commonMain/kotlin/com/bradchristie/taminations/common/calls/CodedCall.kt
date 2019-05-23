@@ -92,6 +92,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "_leftstarthru" to { StarThru("leftstarthru","Left Star Thru") },
         "step" to { Step() },
         "tagtheline" to { TagTheLine() },
+        "32aceydeucey" to { ThreeByTwoAceyDeucey() },
         "34tag" to { ThreeQuartersTag() },
         "34tagtheline" to { ThreeQuartersTag() },
         "trade" to { Trade() },
