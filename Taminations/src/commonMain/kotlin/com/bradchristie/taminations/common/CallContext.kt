@@ -88,6 +88,8 @@ class CallContext {
               beat: Double = Double.MAX_VALUE) {
     dancers = sourcedancers.map { it.animate(beat); Dancer(it) }
     this.source = source
+    this.snap = source.snap
+    this.extend = source.extend
   }
 
   //  Create a context from an array of Dancer
@@ -572,6 +574,16 @@ class CallContext {
       "T-Bone RDRD",
       "Static Square"
   )
+  private var twoCoupleFormations = listOf(
+      "Facing Couples Compact",
+      "Facing Couples",
+      "Two-Faced Line RH",
+      "Diamond RH",
+      "Single Eight Chain Thru",
+      "Single Quarter Tag",
+      "Square RH",
+      "Square LH"
+  )
   @Suppress("ArrayInDataClass")
   data class BestMapping(
       var name:String,
@@ -586,7 +598,8 @@ class CallContext {
     val ctx1 = CallContext(this)
     ctx1.dancers.forEach { d -> d.data.active = true }
     var bestMapping: BestMapping? = null
-    standardFormations.forEach { f ->
+    val formations = if (ctx1.dancers.count() == 4) twoCoupleFormations else standardFormations
+    formations.forEach { f ->
       val ctx2 = CallContext(TamUtils.getFormation(f))
       //  See if this formation matches
       val mapping = ctx1.matchFormations(ctx2,sexy=false,fuzzy=true,rotate=true,handholds=false)

@@ -275,6 +275,8 @@
     <call title="Interlocked 3 by 1 Triangle Circulate" level="Challenge" sublevel="C-2" link="c2/3_by_1_triangle_formation" anim="3by1InterlockedTriangleCirculatefromInterlocked3by1Triangles"/>
     <call title="Interlocked Counter" level="Challenge" sublevel="C-3B" link="c3b/interlocked_counter"/>
     <call title="Interlocked Diamond Circulate" level="Challenge" sublevel="C-1" link="c1/interlocked_diamond_circulate"/>
+    <call title="Interlocked Extend" level="Challenge" sublevel="C-3A"
+          link="c3a/interlocked_scoot_back"/>
     <call title="Interlocked Little" level="Challenge" sublevel="C-3A" link="c3a/interlocked_little"/>
     <call title="Interlocked Little More" level="Challenge" sublevel="C-3A" link="c3a/interlocked_little_more"/>
     <call title="Interlocked Plenty" level="Challenge" sublevel="C-3A" link="c3a/interlocked_plenty"/>

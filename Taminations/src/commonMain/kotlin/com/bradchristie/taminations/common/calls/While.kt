@@ -37,7 +37,6 @@ class While(norm:String,name:String) : Action(norm,name)  {
     //  Don't add standing beats for the inactive dancers
     //  Otherwise there's a lot of standing around at the end
     ctx2.applyCalls(whilecall)
-    //ctx2.contractPaths()
     ctx2.appendToSource()
   }
 
