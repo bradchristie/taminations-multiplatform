@@ -29,7 +29,7 @@ class WheelAnd(norm:String,name:String) : Action(norm,name) {
   override val level = LevelObject("c1")
   override val requires = listOf("c1/wheel_and_anything")
 
-  override fun perform(ctx: CallContext, i: Int) {
+  override fun performCall(ctx: CallContext, i: Int) {
     val (wheelcall,andcall) = name.split("and".r,2)
     val reverse = if (wheelcall.toLowerCase().contains("reverse")) "Reverse" else ""
     //  Find the 4 dancers to Wheel

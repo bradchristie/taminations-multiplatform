@@ -29,7 +29,7 @@ class AnythingChainThru(norm: String, name: String) : Action(norm, name) {
                                  "plus/diamond_circulate","c1/triangle_formation",
                                  "c1/interlocked_diamond_circulate")
 
-  override fun perform(ctx: CallContext, i: Int) {
+  override fun performCall(ctx: CallContext, i: Int) {
     val firstCall = norm.replace("chainthru","")
         .replace("triangle","trianglecirculate")
         .replace("diamond","diamondcirculate")

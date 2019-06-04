@@ -1,4 +1,8 @@
 package com.bradchristie.taminations.common.calls
+
+import com.bradchristie.taminations.common.CallContext
+import com.bradchristie.taminations.common.LevelObject
+
 /*
 
   Taminations Square Dance Animations
@@ -19,17 +23,14 @@ package com.bradchristie.taminations.common.calls
 
 */
 
-import com.bradchristie.taminations.common.CallContext
-import com.bradchristie.taminations.common.LevelObject
-
-class ThreeByTwoAceyDeucey : Action("Three By Two Acey Deucey") {
+class ScootAndRamble : Action("Scoot and Ramble") {
 
   override val level = LevelObject("c1")
-  override val requires = listOf("c1/triangle_formation","b2/trade")
+  override val requires = listOf("ms/scoot_back","a2/single_wheel","ms/slide_thru","b1/separate")
 
 
   override fun performCall(ctx: CallContext, i: Int) {
-    ctx.applyCalls("Outside Triangle Circulate While Very Centers Trade")
+    ctx.applyCalls("Scoot Back","Ramble")
   }
 
 }

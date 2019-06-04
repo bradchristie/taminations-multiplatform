@@ -1,8 +1,12 @@
 package com.bradchristie.taminations.common.calls
+
+import com.bradchristie.taminations.common.CallContext
+import com.bradchristie.taminations.common.LevelObject
+
 /*
 
   Taminations Square Dance Animations
-  Copyright (C) 2018 Brad Christie
+  Copyright (C) 2019 Brad Christie
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -19,24 +23,15 @@ package com.bradchristie.taminations.common.calls
 
 */
 
-import com.bradchristie.taminations.common.CallContext
-import com.bradchristie.taminations.common.Dancer
-import com.bradchristie.taminations.common.r
+class Ramble : Action("Ramble") {
 
-class While(norm:String,name:String) : Action(norm,name)  {
+  override val level = LevelObject("c1")
+  override val requires = listOf("a2/single_wheel","ms/slide_thru","b1/separate")
 
   override fun performCall(ctx: CallContext, i: Int) {
-
-    //  First strip off extra beats added to the inactive dancers
-    ctx.contractPaths()
-
-    //  Use another context to do the rest of the call
-    //  Don't add standing beats for the inactive dancers
-    //  Otherwise there's a lot of standing around at the end
     val ctx2 = CallContext(ctx,beat=0.0).noSnap().noExtend()
-    ctx2.dancers.forEach { it.data.active = true }
-    val whilecall = name.toLowerCase().replace("while(\\s+the)?\\s+".r,"")
-    ctx2.applyCalls(whilecall)
+    ctx2.applyCalls("Center 4 Single Wheel and Slide Thru")
+    ctx2.applyCalls("Outer 4 Separate and Slide Thru")
     ctx2.appendToSource()
   }
 

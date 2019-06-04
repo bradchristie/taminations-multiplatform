@@ -80,7 +80,9 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "14in" to { QuarterIn("14in","Quarter In") },
         "14out" to { QuarterIn("14out","Quarter Out") },
         "14tag" to { QuarterTag() },
+        "ramble" to { Ramble() },
         "run" to { Run() },
+        "scootandramble" to { ScootAndRamble() },
         "separate" to { Separate() },
         "slidethru" to { SlideThru() },
         "slip" to { Slip() },
@@ -171,7 +173,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "while.+".r -> While(callnorm,callname)
         in "(inside|outside|inpoint|outpoint|tandembased|wavebased)trianglecirculate".r ->
           TriangleCirculate(callnorm,callname)
-        in ".*chainthru".r -> AnythingChainThru(callnorm,callname)
+        //  Anything Chain Thru should not match Square Chain Thru, others?
+        in ".*(?<!square)chainthru".r -> AnythingChainThru(callnorm,callname)
         else -> null
       }
     }

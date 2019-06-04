@@ -61,20 +61,20 @@
   <tam title="Single Wheel" from="Right-Hand Wave"
        formation="Wave RH">
     <path>
-      <move select="Flip Right" beats="4" offsetX="2" />
+      <move select="Flip Right" beats="4" offsetX="1.5" />
     </path>
     <path>
-      <move select="U-Turn Right" beats="4" offsetX="2" />
+      <move select="U-Turn Right" beats="4" offsetX="1.5" />
     </path>
   </tam>
 
   <tam title="Single Wheel" from="Left-Hand Wave"
        formation="Wave LH">
     <path>
-      <move select="Flip Left" beats="4" offsetX="2" />
+      <move select="Flip Left" beats="4" offsetX="1.5" />
     </path>
     <path>
-      <move select="U-Turn Left" beats="4" offsetX="2" />
+      <move select="U-Turn Left" beats="4" offsetX="1.5" />
     </path>
   </tam>
 
