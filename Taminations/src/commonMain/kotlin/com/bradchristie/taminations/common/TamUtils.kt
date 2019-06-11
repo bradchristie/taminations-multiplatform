@@ -241,8 +241,10 @@ object TamUtils {
 
   /**  Standardize a call name to match against other names  */
   fun normalizeCall(callname:String):String =
-      callname.toLowerCase().replace("&","and")
+      callname.toLowerCase().trim()
           .replace("\\(.*\\)".r,"")
+          .replace("&","and")
+          .replace("\\s+".r," ")
           .replace("[^a-zA-Z0-9_ ]".r,"")
           //  Through => Thru
           .replace("\\bthrou?g?h?\\b".r,"thru")
@@ -269,6 +271,8 @@ object TamUtils {
           //  Standardize 6 by 2, 6-2, 6 2 Acey Deucey
           .replace("(six|6)\\s*(by)?x?-?\\s*(two|2)".r,"62")
           .replace("(three|3)\\s*(by)?x?-?\\s*(two|2)".r,"32")
+          //  'Column' of Magic Column is optional
+          .replace("magic (?!column)(?!o)(?!expand)".r,"magic column ")
           //  Use singular form
           .replace("\\b(boy|girl|beau|belle|center|end|point|head|side)s\\b".r,"$1")
           //  Misc other variations
