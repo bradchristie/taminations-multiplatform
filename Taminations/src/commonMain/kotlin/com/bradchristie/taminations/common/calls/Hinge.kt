@@ -28,9 +28,15 @@ class Hinge(norm:String, name:String) : Action(norm,name) {
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
     //  Find the dancer to hinge with
-    val d2 = listOf(d.data.partner, ctx.dancerToRight(d), ctx.dancerToLeft(d)).firstOrNull {
-      it != null && it.data.active
-    } ?: throw CallError("Dancer $d has no one to hinge with.")
+    val leftCount = ctx.dancersToLeft(d).filter { it.data.active }.count()
+    val rightCount = ctx.dancersToRight(d).filter { it.data.active }.count()
+    val d2 = when {
+      leftCount.isOdd && rightCount.isEven -> ctx.dancerToLeft(d)!!
+      leftCount.isEven && rightCount.isOdd -> ctx.dancerToRight(d)!!
+      else -> throw CallError("Dancer $d has no one to hinge with.")
+    }
+    if (!d2.data.active)
+     throw CallError("Dancer $d has no one to hinge with.")
     if (!ctx.isInWave(d,d2))
       myLevel = LevelObject("a1")
     val dist = d.distanceTo(d2)

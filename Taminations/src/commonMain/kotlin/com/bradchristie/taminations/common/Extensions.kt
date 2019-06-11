@@ -54,7 +54,6 @@ fun <T> Iterable <T>.shuffle():Iterable<T> {
 }
 
 //  Apply code if a condition is true
-fun <T> T.applyIf(e:Boolean, block: (T) -> T): T = if (e) block(this) else this
 fun <T> T.alsoIf(e:Boolean, block: T.() -> T): T = if (e) this.block() else this
 
 
@@ -141,6 +140,8 @@ infix fun Int.min(i:Int) = min(this,i)
 infix fun Int.max(i:Int) = max(this,i)
 infix fun Float.max(x:Float) = max(this,x)
 val Int.abs:Int get() = abs(this)
+val Int.isEven:Boolean get() = this % 2 == 0
+val Int.isOdd:Boolean get() = this % 2 == 1
 // not used infix fun Float.min(x:Float) = min(this,x)
 infix fun Double.max(x:Double) = max(this,x)
 infix fun Double.min(x:Double) = min(this,x)
