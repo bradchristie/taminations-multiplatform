@@ -32,7 +32,6 @@
     </path>
     <path>
       <move select="Swing Right" />
-      <move select="Stand" beats="3" hands="none"/>
     </path>
   </tam>
 
@@ -61,7 +60,6 @@
     <path>
       <move select="Forward 2" beats="3"/>
       <move select="Swing Right"/>
-      <move select="Stand" beats="3"/>
     </path>
   </tam>
 
@@ -75,11 +73,9 @@
     </path>
     <path>
       <move select="Swing Right" />
-      <move select="Stand" beats="3"/>
     </path>
     <path>
       <move select="Swing Right" />
-      <move select="Stand" beats="3"/>
     </path>
     <path>
       <move select="Swing Right" />
@@ -119,18 +115,16 @@
     </path>
     <path>
       <move select="Swing Right" scaleX=".75" scaleY=".5" hands="gripright"/>
-      <move select="Stand" beats="3" hands="none"/>
     </path>
     <path>
       <move select="Swing Right" scaleX=".75" scaleY=".5" hands="gripright"/>
-      <move select="Stand" beats="3" hands="left"/>
     </path>
     <path>
       <move select="Swing Right" scaleX=".75" scaleY=".5" hands="gripright"/>
       <move select="Swing Left" scaleX=".75" scaleY=".5" hands="gripleft"/>
     </path>
     <taminator>
-       Most dancers will do a Grand Swing Thru if not
+       Many dancers will do a Grand Swing Thru if not
        explicitly warned first.
     </taminator>
   </tam>
@@ -187,10 +181,8 @@
   <tam title="Swing Thru" from="Quarter Tag" formation="Quarter Tag"
        parts="3" difficulty="1">
     <path>
-      <move select="Stand" beats="6"/>
     </path>
     <path>
-      <move select="Stand" beats="6"/>
     </path>
     <path>
       <move select="Swing Right"/>
@@ -198,7 +190,6 @@
     </path>
     <path>
       <move select="Swing Right"/>
-      <move select="Stand" beats="3" hands="none"/>
     </path>
     <taminator>
       The center dancers do not extend to the outside dancers.
@@ -255,7 +246,6 @@
     </path>
     <path>
       <move select="Swing Left" />
-      <move select="Stand" beats="3" hands="none"/>
     </path>
   </tam>
 
@@ -301,11 +291,9 @@
     </path>
     <path>
       <move select="Swing Left" />
-      <move select="Stand" beats="3" />
     </path>
     <path>
       <move select="Swing Left" />
-      <move select="Stand" beats="3" />
     </path>
     <path>
       <move select="Swing Left" />
@@ -345,11 +333,9 @@
     </path>
     <path>
       <move select="Swing Left" scaleX=".75" scaleY=".5" hands="gripleft"/>
-      <move select="Stand" beats="3" hands="nohands" />
     </path>
     <path>
       <move select="Swing Left" scaleX=".75" scaleY=".5" hands="gripleft"/>
-      <move select="Stand" beats="3" hands="nohands" />
     </path>
     <path>
       <move select="Swing Left" scaleX=".75" scaleY=".5" hands="gripleft"/>

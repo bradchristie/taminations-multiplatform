@@ -32,7 +32,6 @@
     </path>
     <path>
       <move select="Swing Right" scaleX=".65" scaleY=".5" />
-      <move select="Stand" beats="3" hands="nohands" />
     </path>
     <path>
       <move select="Swing Right" scaleX=".65" scaleY=".5" />
@@ -88,7 +87,6 @@
     <path>
       <move select="Extend Left" scaleX="1.5" scaleY=".5"/>
       <move select="Swing Right" scaleX=".65" scaleY=".5" />
-      <move select="Stand" beats="3" hands="nohands" />
     </path>
   </tam>
 
@@ -102,7 +100,6 @@
     </path>
     <path>
       <move select="Swing Left" scaleX=".65" scaleY=".5" />
-      <move select="Stand" beats="3" hands="nohands" />
     </path>
     <path>
       <move select="Swing Left" scaleX=".65" scaleY=".5" />
@@ -143,7 +140,6 @@
     <path>
       <move select="Extend Right" scaleX="1.5" scaleY=".5"/>
       <move select="Swing Left" scaleX=".65" scaleY=".5" />
-      <move select="Stand" beats="3" hands="nohands" />
     </path>
     <path>
       <move select="Extend Right" scaleX="1.5" scaleY=".5"/>
