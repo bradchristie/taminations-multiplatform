@@ -11,6 +11,7 @@ repositories {
 apply plugin: 'com.android.application'
 // apply plugin: 'kotlin-android-extensions'
 apply plugin: 'maven-publish'
+//apply plugin: 'GreetingTask'
 
 android {
   signingConfigs {
@@ -37,6 +38,9 @@ android {
     targetCompatibility JavaVersion.VERSION_1_8
   }
 }
+
+// Create a task using the task type
+//task hello(type: GreetingTask)
 
 //  Copy XML files from common area to Android-specific location
 task syncAndroidAssets(type: Sync) {

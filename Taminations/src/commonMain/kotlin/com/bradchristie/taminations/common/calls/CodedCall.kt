@@ -174,7 +174,9 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "(inside|outside|inpoint|outpoint|tandembased|wavebased)trianglecirculate".r ->
           TriangleCirculate(callnorm,callname)
         //  Anything Chain Thru should not match Square Chain Thru, others?
-        in ".*(?<!square)chainthru".r -> AnythingChainThru(callnorm,callname)
+        //  cannot use negative look-behind in Javascript, so..
+        in ".*chainthru".r ->
+          if (callnorm in ".*squarechainthru".r) null else AnythingChainThru(callnorm,callname)
         else -> null
       }
     }
