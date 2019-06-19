@@ -32,7 +32,7 @@ class SequencerInstructionPage : Page() {
   private val model = DefinitionModel(view)
 
   init {
-    onAction(Request.Action.DEFINITION) {
+    onAction(Request.Action.SEQUENCERHELP) {
       model.setDefinition("info/sequencer","")
     }
   }
@@ -43,7 +43,7 @@ class SequencerSettingsPage : Page() {
 
   override val view = SettingsView()
   init {
-    onAction(Request.Action.SETTINGS) {
+    onAction(Request.Action.SEQUENCERSETTINGS) {
       view.showSequencerSettings()
     }
   }
@@ -79,7 +79,7 @@ class SequencerPage : Page() {
   private lateinit var panelModel: AnimationPanelModel
 
   init {
-    rightPage.doRequest(Request.Action.DEFINITION)
+    rightPage.doRequest(Request.Action.SEQUENCERHELP)
     onAction(Request.Action.SEQUENCER) {
       Application.titleBar.title = "Taminations Sequencer"
       if (!::model.isInitialized) {
@@ -100,10 +100,10 @@ class SequencerPage : Page() {
     }
     onMessage(Request.Action.BUTTON_PRESS) { request ->
       when (request["button"]) {
-        "Help" -> rightPage.doRequest(Request.Action.DEFINITION)
-        "Settings" -> rightPage.doRequest(Request.Action.SETTINGS)
-        "Abbrev" -> rightPage.doRequest(Request.Action.ABBREVIATIONS)
-        "Calls" -> rightPage.doRequest(Request.Action.CALLLIST)
+        "Help" -> doRequest(Request.Action.SEQUENCERHELP)
+        "Settings" -> doRequest(Request.Action.SEQUENCERSETTINGS)
+        "Abbrev" -> doRequest(Request.Action.ABBREVIATIONS)
+        "Calls" -> doRequest(Request.Action.SEQUENCERCALLS)
         "Undo" -> model.undoLastCall()
         "Reset" -> model.reset()
         "Copy" -> model.copyCallsToClipboard()
@@ -148,6 +148,13 @@ class SequencerPage : Page() {
     onMessage(Request.Action.SEQUENCER_LISTEN) {
       model.listen(callPage.listening)
     }
+  }
+
+  private fun doRequest(action: Request.Action) {
+    if (Application.isPortrait)
+      Application.sendRequest(action)
+    else
+      rightPage.doRequest(action)
   }
 
   override fun sendMessage(message: Request) {

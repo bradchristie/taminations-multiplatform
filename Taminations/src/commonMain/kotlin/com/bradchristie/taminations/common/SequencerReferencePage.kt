@@ -27,7 +27,7 @@ class SequencerReferencePage : Page() {
   private val model = SequencerReferenceModel(view)
 
   init {
-    onAction(Request.Action.CALLLIST) {
+    onAction(Request.Action.SEQUENCERCALLS) {
       model.reset()
     }
     listOf(view.b1Checkbox,view.b2Checkbox,view.msCheckbox,

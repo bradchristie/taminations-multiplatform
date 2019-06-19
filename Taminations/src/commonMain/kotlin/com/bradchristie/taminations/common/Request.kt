@@ -42,6 +42,9 @@ class Request(val action:Action, vararg pairs:Pair<String,String>) {
     ANIMATION,
     DEFINITION,
     ABBREVIATIONS,
+    SEQUENCERHELP,
+    SEQUENCERSETTINGS,
+    SEQUENCERCALLS,
 
     //  Other messages
     SETTINGS_CHANGED,
