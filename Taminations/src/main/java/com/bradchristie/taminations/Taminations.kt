@@ -131,7 +131,11 @@ actual object Application : Page() {
         StartPracticePage(),
         TutorialPage(),
         PracticePage(),
-        SequencerPage())
+        SequencerPage(),
+        SequencerInstructionPage(),
+        SequencerSettingsPage(),
+        AbbreviationsPage(),
+        SequencerReferencePage())
   }
 
   fun buildDisplay() : View = LinearLayout(LinearLayout.Direction.VERTICAL).apply {
