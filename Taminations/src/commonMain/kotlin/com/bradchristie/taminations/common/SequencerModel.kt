@@ -277,6 +277,7 @@ class SequencerModel(private val seqView: SequencerLayout,
       val prevbeats = seqView.animationView.movingBeats
       cctx.interpretCall(calltext)
       cctx.performCall()
+      cctx.extendPaths()
       cctx.matchStandardFormation()
       for (i in avdancers.indices)
         avdancers[i].path.add(cctx.dancers[i].path)

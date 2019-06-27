@@ -89,7 +89,7 @@ class CallContext {
     dancers = sourcedancers.map { it.animate(beat); Dancer(it) }
     this.source = source
     this.snap = source.snap
-    this.extend = source.extend
+    //this.extend = source.extend
   }
 
   //  Create a context from an array of Dancer
@@ -176,9 +176,12 @@ class CallContext {
   }
 
   fun applyCalls(vararg calltext:String):CallContext {
-    calltext.forEach {
+    calltext.dropLast(1).forEach {
       CallContext(this).applyCall(it)
     }
+    val ctx = CallContext(this)
+    ctx.extend = extend
+    ctx.applyCall(calltext.last())
     return this
   }
 
@@ -281,7 +284,7 @@ class CallContext {
         val headsmatchsides = !tam.attr("title").contains("Heads?|Sides?".r)
         //  Try to match the formation to the current dancer positions
         val ctx2 = CallContext(tam)
-        val mm = ctx1.matchFormations(ctx2, sexy=sexy, fuzzy=fuzzy,
+        val mm = ctx1.matchFormations(ctx2, sexy=sexy, fuzzy=fuzzy, handholds = false,
             headsmatchsides=headsmatchsides)
         if (mm != null) {
           val xmlCall = XMLCall(tam,mm,ctx2)
@@ -548,7 +551,7 @@ class CallContext {
     callstack.forEachIndexed{ i,c -> c.postProcess(this,i) }
  //   if (snap)
  //     matchStandardFormation()
-    if (extend)
+  //  if (extend)
       extendPaths()
   }
 
@@ -800,6 +803,8 @@ class CallContext {
 
   //  Level off the number of beats for each dancer
   fun extendPaths() {
+    //  Remove anything previously added
+    contractPaths()
     //  get the longest number of beats
     val maxb = maxBeats()
     //  add that number as needed by using the "Stand" move
