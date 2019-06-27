@@ -202,10 +202,10 @@
       <move select="U-Turn Left" beats="4" offsetX="2" offsetY="-0.5"/>
     </path>
     <path>
-      <move select="U-Turn Left" beats="4" offsetX="2" offsetY="-0.5"/>
+      <move select="Run Left" beats="4" scaleX=".5" scaleY=".25"/>
     </path>
     <path>
-      <move select="Run Left" beats="4" scaleX=".5" scaleY=".25"/>
+      <move select="U-Turn Left" beats="4" offsetX="2" offsetY="-0.5"/>
     </path>
     <path>
       <move select="Run Left" beats="4" scaleX=".5" scaleY=".25"/>
@@ -214,20 +214,14 @@
 
   <tam title="Peel Off" from="Left-Hand Z-Tag"
        formation="Quarter Z LH" difficulty="2">
-    <formation>
-      <dancer gender="girl" x="-2" y="1" angle="0"/>
-      <dancer gender="girl" x="-2" y="-3" angle="0"/>
-      <dancer gender="boy" x="0" y="-3" angle="0"/>
-      <dancer gender="boy" x="0" y="-1" angle="180"/>
-    </formation>
-    <path>
-      <move select="U-Turn Right" beats="4" offsetX="2" offsetY="0.5"/>
-    </path>
     <path>
       <move select="U-Turn Right" beats="4" offsetX="2" offsetY="0.5"/>
     </path>
     <path>
       <move select="Run Right" beats="4" scaleX=".5" scaleY=".25"/>
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" offsetX="2" offsetY="0.5"/>
     </path>
     <path>
       <move select="Run Right" beats="4" scaleX=".5" scaleY=".25"/>

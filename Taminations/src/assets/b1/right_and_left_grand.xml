@@ -59,7 +59,7 @@
     </path>
   </tam>
 
-  <tam title="Right and Left Grand" from="Grand Circle 2" sequencer="gender-specific" display="none">
+  <tam title="Right and Left Grand" from="Grand Circle 2" sequencer="gender-specific" display="nonex">
      <formation>
       <dancer gender="boy" x="-3" y="-1.1" angle="315"/>
       <dancer gender="girl" x="-1" y="-1.5" angle="180"/>
@@ -358,7 +358,7 @@
     </path>
   </tam>
 
-  <tam title="Right and Left Grand" display="none" from="after Allemande Left" sequencer="gender-specific">
+  <tam title="Right and Left Grand" display="nonex" from="after Allemande Left" sequencer="gender-specific">
      <formation>
        <dancer gender="boy" x="3.5" y="-1.5" angle="45"/>
        <dancer gender="girl" x="3.5" y="1.5" angle="315"/>

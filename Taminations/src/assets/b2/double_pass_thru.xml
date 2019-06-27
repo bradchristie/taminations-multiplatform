@@ -95,10 +95,10 @@
       <move select="Extend Right" beats="3" scaleX="2" scaleY="2"/>
     </path>
     <path>
-      <move select="Forward 3" beats="4"/>
+      <move select="Extend Right" beats="4" scaleX="3" scaleY="2"/>
     </path>
     <path>
-      <move select="Extend Right" beats="4" scaleX="3" scaleY="2"/>
+      <move select="Forward 3" beats="4"/>
     </path>
     <path>
       <move select="Forward 3" beats="4"/>
