@@ -28,7 +28,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
   companion object {
 
     //  "simple" calls are ones where we don't need the original text
-    private val simpleCallMaker = mapOf(
+    private val simpleCallMaker:Map<String,()->CodedCall> = mapOf(
         "aceydeucey" to { AceyDeucey() },
         "and" to { And() },
         "and14more" to { QuarterMore() },
@@ -130,7 +130,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
 
     //  More complex calls where the text is needed either to select
     //  the correct variation or to echo the expected name
-    private val complexCallMaker = mapOf(
+    private val complexCallMaker:Map<String,(String,String)->CodedCall> = mapOf(
         "head" to { norm:String,call:String -> HeadsSides(norm,call) },
         "lead" to { norm:String,call:String -> Leaders(norm,call) },
         "side" to { norm:String,call:String -> HeadsSides(norm,call) },
