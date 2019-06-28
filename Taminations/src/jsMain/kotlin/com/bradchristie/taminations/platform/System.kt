@@ -54,7 +54,7 @@ actual object System {
       ontimeout = {
         window.alert("Timeout loading $name.xml")
       }
-      open("GET", "assets/$name.xml")
+      open("GET", "$name.xml")
       send()
     }
   }

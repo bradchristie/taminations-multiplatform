@@ -22,7 +22,6 @@ package com.bradchristie.taminations.platform
 
 //  Class to show a web page
 
-
 import com.bradchristie.taminations.platform.System.later
 import org.w3c.dom.HTMLIFrameElement
 
@@ -44,7 +43,7 @@ actual class WebView
         eval("loadFilesInBackground()") { }
       }
     }
-    frame.src = "assets/$src"
+    frame.src = src
     frame.style.overflowY = "auto"
   }
 
@@ -56,7 +55,7 @@ actual class WebView
       style.height = "100%"
       style.overflowY = "auto"
     } as HTMLIFrameElement
-    frame.src = "assets/$src"
+    frame.src = src
     frame.onload = { _ ->
       later {
         afterload()
