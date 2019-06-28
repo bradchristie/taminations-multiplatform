@@ -9,7 +9,7 @@ repositories {
 }
 
 apply plugin: 'com.android.application'
-// apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'maven-publish'
 
 android {
@@ -36,16 +36,13 @@ android {
     sourceCompatibility JavaVersion.VERSION_1_8
     targetCompatibility JavaVersion.VERSION_1_8
   }
+  sourceSets {
+    main {
+      assets.srcDir('src/assets')
+    }
+  }
 }
 
-//  Copy XML files from common area to Android-specific location
-task syncAndroidAssets(type: Sync) {
-  from 'src/assets'
-  into 'src/main/assets'
-}
-task cleanAndroidAssets(type: Delete) {
-  delete 'src/main/assets'
-}
 
 dependencies {
   implementation 'androidx.appcompat:appcompat:1.1.0-beta01'
@@ -56,22 +53,17 @@ dependencies {
 }
 
 kotlin {
-  targets {
-    fromPreset(presets.android, 'android') {
-      compilations.all {
-        tasks.compileDebugSources.dependsOn syncAndroidAssets
-      }
+  android("android")
+  // This is for iPhone emulator
+  // Switch here to iosArm64 (or iosArm32) to build library for iPhone device
+  iosX64("ios") {
+    binaries {
+      framework()
     }
-    // This preset is for iPhone emulator
-    // Switch here to presets.iosArm64 (or iosArm32) to build library for iPhone device
-    fromPreset(presets.iosX64, 'ios') {
-      compilations.main.outputKinds('FRAMEWORK')
-    }
-    js()
   }
+  js()
   sourceSets {
     commonMain {
-      resources.srcDir('src/assets')
       dependencies {
         implementation 'org.jetbrains.kotlin:kotlin-stdlib-common'
         implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core-common:1.0.1'
@@ -101,6 +93,7 @@ kotlin {
     iosTest {
     }
     jsMain {
+      resources.srcDir('src/assets')
       dependencies {
         implementation kotlin('stdlib-js')
         implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.0.1'
@@ -115,7 +108,7 @@ kotlin {
   }
 }
 
-clean.dependsOn cleanAndroidAssets
+// clean.dependsOn cleanAndroidAssets
 
 def webFolder = new File(project.buildDir, "../src/jsMain/web")
 def jsCompilations = kotlin.targets.js.compilations
@@ -155,7 +148,7 @@ task run(type: JavaExec, dependsOn: [jsJar]) {
 task copyFramework {
   def buildType = project.findProperty("kotlin.build.type") ?: "DEBUG"
   def target = project.findProperty("kotlin.target") ?: "ios"
-  dependsOn "link${buildType.toLowerCase().capitalize()}Framework${target.capitalize()}"
+  dependsOn kotlin.targets."$target".binaries.getFramework(buildType).linkTask
 
   doLast {
     def srcFile = kotlin.targets."$target".compilations.main.getBinary("FRAMEWORK", buildType)
