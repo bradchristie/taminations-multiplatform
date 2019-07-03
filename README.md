@@ -12,6 +12,6 @@ To set up this project on your computer
 
 4.  Now run the Gradle target `Build Taminations`.  This builds both the web site and Android app.
 
-5.  To view the web site, open ```Taminations/build/classes/kotlin/js/main/index.html```.
+5.  To view the web site, open ```Taminations/src/jsmain/web/index.html```.
 
 6.  To run the Android app, select the `Taminations` target and run it.
