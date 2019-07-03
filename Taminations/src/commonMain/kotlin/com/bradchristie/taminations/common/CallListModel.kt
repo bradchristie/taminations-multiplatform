@@ -21,7 +21,7 @@ package com.bradchristie.taminations.common
 
 import com.bradchristie.taminations.platform.attr
 
-data class CallListData(val title:String, val link:String, val sublevel:String)
+data class CallListData(val title:String, val link:String)
 
 class CallListModel(private val view: CallListView) {
 
@@ -30,13 +30,12 @@ class CallListModel(private val view: CallListView) {
     if (search.isEmpty())
       view.searchInput.text = ""
     val d = LevelObject.find(level)
-    val list = d.doc.evalXPath(d.selector)
+    val list = TamUtils.calldoc.evalXPath(d.selector)
     list.filter { it.attr("title").toLowerCase().contains(search.toLowerCase()) }
         .forEach {
       view.addItem(CallListData(
           it.getAttribute("title")!!,
-          it.getAttribute("link")!!,
-          it.getAttribute("sublevel")!!))
+          it.getAttribute("link")!!))
     }
     view.searchInput.keyAction {
       reset(level,view.searchInput.text)

@@ -33,10 +33,9 @@ object TamUtils {
                            val audio:String)
 
   //  Load required XML documents, then let the program know when ready
-  private var doccount = 4  // because we have 4 documents to read at startup
+  private var doccount = 3  // because we have 3 documents to read at startup
   lateinit var calldoc: TamDocument
-  lateinit var indexdoc: TamDocument
-  var calllistdata:List<CallListDatum> = listOf()
+  var calldata:List<CallListDatum> = listOf()
   var callmap:MutableMap<String,MutableList<CallListDatum>> = mutableMapOf()
   //  Keep a set of all words used in calls.
   //  Used to check sequencer abbreviations - don't let the use make
@@ -50,26 +49,22 @@ object TamUtils {
   private var testCallback:() -> Unit = { }
   var testing = false
   init {
-    System.getXMLAsset("src/calls") {
-      calldoc = it
-      checkForInit()
-    }
-    System.getXMLAsset("src/callindex") { doc ->
+    System.getXMLAsset("src/calls") { doc ->
       //  Read the global list of calls and save in a local list
       //  to speed up searching
-      indexdoc = doc
-      val nodelist = indexdoc.evalXPath("/calls/call[@level!='Info']")
-      calllistdata = nodelist.map {
+      calldoc = doc
+      val nodelist = calldoc.evalXPath("/calls/call")
+      calldata = nodelist.map {
         CallListDatum(
             it.attr("title"),
-            it.attr("norm"),
+            normalizeCall(it.attr("title")),
             it.attr("link"),
             it.attr("sublevel"),
             it.attr("languages"),
             it.attr("audio")
         )
       }
-      calllistdata.forEach { data ->
+      calldata.forEach { data ->
         data.title.split("\\s+".r).forEach {
           words.add(it.toLowerCase())
         }
@@ -259,6 +254,7 @@ object TamUtils {
           .replace("\\b(((a|one).)?quarter|14)\\b".r,"14")
           .replace("\\b23|two.thirds?\\b".r,"23")
           //  Process any other numbers
+          .replace("\\bzero\\b".r,"0")
           .replace("\\b(1|onc?e)\\b".r,"1")
           .replace("\\b(2|two)\\b".r,"2")
           .replace("\\b(3|three)\\b".r,"3")
@@ -281,6 +277,7 @@ object TamUtils {
           .replace("\\bwomen\\b".r,"girl")
           .replace("\\blead(er)?(ing)?s?\\b".r,"lead")
           .replace("\\btrail(er)?(ing)?s?\\b".r,"trail")
+          .replace("\\b(1|3)4 tag the line\\b".r,"$14 tag")
           //  Accept optional "dancers" e.g. "head dancers" == "heads"
           .replace("\\bdancers?\\b".r,"")
           //  Also handle "Lead Couples" as "Leads"

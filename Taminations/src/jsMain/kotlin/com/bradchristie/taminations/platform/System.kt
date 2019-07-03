@@ -109,7 +109,7 @@ actual object System {
   }
   actual fun shareButton():Button = Button("Share")
 
-  actual fun audio(filename:String) = Audio("assets/$filename")
+  actual fun audio(filename:String) = Audio(filename)
 
   actual fun log(msg:String) {
     console.log(msg)

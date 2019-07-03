@@ -56,10 +56,7 @@ class TriangleCirculate(norm: String, name: String) : Action(norm, name) {
     val triangleType = norm.replace("trianglecirculate","")
     val points = ctx.points()
     when (triangleType) {
-      "inside" -> ctx.outer(6).forEach {
-        if (!(it in points))
-          it.data.active = false
-      }
+      "inside" -> ctx.outer(2).forEach { it.data.active = false }
       "outside" -> ctx.center(2).forEach { it.data.active = false }
       "inpoint" -> points.forEach {
         if (it.data.leader)
@@ -69,10 +66,14 @@ class TriangleCirculate(norm: String, name: String) : Action(norm, name) {
         if (it.data.trailer)
           it.data.active = false
       }
-      "tandembased" -> points.forEach {
-        val others = ctx.dancersInOrder(it)
-        if (!others[0].isInFrontOf(others[1]) && !others[1].isInFrontOf(others[0]))
-          it.data.active = false
+      "tandembased" -> ctx.dancers.forEach {
+        //  Dancer must either be in a tandem ..
+        if (!ctx.isInTandem(it)) {
+          //  .. or two nearby dancers must form a tandem
+          val others = ctx.dancersInOrder(it) { d2 -> ctx.isInTandem(d2) }
+          if (!others[0].isInFrontOf(others[1]) && !others[1].isInFrontOf(others[0]))
+            it.data.active = false
+        }
       }
       "wavebased" -> points.forEach {
         val others = ctx.dancersInOrder(it)

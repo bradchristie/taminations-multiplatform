@@ -98,7 +98,7 @@ class TitleBar : LinearLayout(Direction.HORIZONTAL) {
     set(value) {
       titleView.text = value
       //  See if there is an audio file for this title
-      val calls = TamUtils.indexdoc.evalXPath("/calls/call[@title=${title.quote()}]")
+      val calls = TamUtils.calldoc.evalXPath("/calls/call[@title=${title.quote()}]")
       if (calls.isNotEmpty() && calls[0].hasAttribute("audio")) {
         val audiofile = calls[0].attr("audio")
         val audio = System.audio(audiofile)

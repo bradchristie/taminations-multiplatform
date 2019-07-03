@@ -33,6 +33,48 @@ class CallContext {
     //  XML files that have been loaded
     val loadedXML = mutableMapOf<String,TamDocument>()
 
+    fun lookupXMLcall(callnorm:String):List<String> {
+      val retval =
+          when {
+            callnorm.matches("circle4(left|right)(12|14|34)".r) -> "b1/circle"
+            callnorm.matches("cloverand.*".r) -> "a1/clover_and_anything"
+            callnorm.matches("explode".r) -> "plus/explode_the_wave"
+            callnorm.matches("(head|side)?12sashay".r) -> "b1/sashay"
+            callnorm.matches("4ladieschain(34)?".r) -> "b1/ladies_chain"
+            callnorm.matches("chaindowntheline".r) -> "b1/ladies_chain"
+            callnorm.matches("anyhand.*".r) -> "a1/any_hand_concept"
+            callnorm.matches("(head|side)start".r) -> "a1/split_square_thru"
+            callnorm.matches("sweep14(left|right)".r) -> "b2/sweep_a_quarter"
+            callnorm.matches("columncirculate".r) -> "b1/circulate"
+            callnorm.matches("boxcirculate".r) -> "b1/circulate"
+            callnorm.matches("all8circulate".r) -> "b1/circulate"
+            callnorm.matches("splitcirculate".r) -> "b1/circulate"
+            callnorm.matches("couplescirculate".r) -> "b1/circulate"
+            callnorm.matches("face.*".r) -> "b1/face"
+            callnorm.matches("butterfly.*".r) -> "c1/butterfly_formation"
+            callnorm.matches("all4couples.*".r) -> "a2/all_4_all_8"
+            callnorm.matches("all8.*".r) -> "a2/all_4_all_8"
+            callnorm.matches("ascouples".r) -> "a1/as_couples"
+            callnorm.matches("veer(left|right)".r) -> "b1/veer"
+            callnorm.matches("circle(left|right)".r) -> "b1/circle"
+            callnorm.matches(".*grandsquare".r) -> "b1/grand_square"
+            callnorm.matches("leadleft".r) -> "b1/lead_right"
+            callnorm.matches("firstcouplego(left|right)nextcouplego(left|right)".r) -> "b2/first_couple_go"
+            callnorm.matches("ascouples.*".r) -> "a1/as_couples"
+            callnorm.matches("stretch.*".r) -> "c1/stretch_concept"
+            callnorm.matches("butterfly.*".r) -> "c1/butterfly_formation"
+            callnorm.matches("o.*".r) -> "c1/o_formation"
+            callnorm.matches("(box|split)recycle".r) -> "c1/box_split_recycle"
+            callnorm.matches("magic.*".r) -> "c1/magic_column_formation"
+            callnorm.matches("phantom.*".r) -> "c1/phantom_formation"
+            callnorm.matches("tandem.*".r) -> "c1/tandem_concept"
+            callnorm.matches("track(0|1|3|4)".r) -> "c1/track_n"
+            callnorm.matches("triplebox.*".r) -> "c1/triple_box_concept"
+            else -> ""
+          }
+      return if (retval.isNotEmpty()) listOf(retval) else listOf()
+    }
+
     //  Load all XML files that might be used to interpret a call
     fun loadCalls(calltext:List<String>, allFilesLoaded:()->Unit) {
       var numfiles = 100  // make sure all possibilities are checked
@@ -52,11 +94,10 @@ class CallContext {
         line.minced().forEach { name ->
           //  Load any animation files that match
           val norm = TamUtils.normalizeCall(name)
-          val callfiles = TamUtils.calllistdata.filter {
-            it.norm == norm
-          }
+          val callitems = TamUtils.callmap[norm] ?: listOf<TamUtils.CallListDatum>()
+          val callfiles = callitems.map { it.link } + lookupXMLcall(norm)
           callfiles.forEach {
-            loadOneFile(it.link)
+            loadOneFile(it)
           }
           //  Check for coded calls that require xml files
           CodedCall.getCodedCall(name)?.requires?.forEach { loadOneFile(it) }
@@ -89,7 +130,6 @@ class CallContext {
     dancers = sourcedancers.map { it.animate(beat); Dancer(it) }
     this.source = source
     this.snap = source.snap
-    //this.extend = source.extend
   }
 
   //  Create a context from an array of Dancer
@@ -264,14 +304,15 @@ class CallContext {
     }
     //  Try to find a match in the xml animations
     val callnorm = TamUtils.normalizeCall(calltext)
-    val callfiles = TamUtils.callmap[callnorm] ?: listOf<TamUtils.CallListDatum>()
+    val callitems = TamUtils.callmap[callnorm] ?: listOf<TamUtils.CallListDatum>()
+    val callfiles = callitems.map { it.link } + lookupXMLcall(callnorm)
     //  Found xml file with call, now look through each animation
     val found = callfiles.isNotEmpty()
     val matches = callfiles.any {
-      if (loadedXML[it.link] == null)
+      if (loadedXML[it] == null)
         return false
         //throw CallError("Internal Error: ${it.link} not loaded.")
-      loadedXML[it.link]!!.evalXPath("/tamination/tam").asSequence().filter { tam -> tam.attr("sequencer")!="no" &&
+      loadedXML[it]!!.evalXPath("/tamination/tam").asSequence().filter { tam -> tam.attr("sequencer")!="no" &&
           //  Check for calls that must go around the centers
           (!perimeter || tam.attr("sequencer")=="perimeter") &&
           TamUtils.normalizeCall(tam.attr("title")) == callnorm
@@ -299,7 +340,7 @@ class CallContext {
           ctx0.callstack.add(xmlCall)
           ctx0.callname = callname + tam.attr("title").replace("\\(.*\\)".r,"") + " "
           // set level to max of this and any previous
-          val thislevel = LevelObject.find(it.sublevel)
+          val thislevel = LevelObject.find(it)
           if (thislevel > ctx0.level)
             ctx0.level = thislevel
           true

@@ -65,7 +65,7 @@ class DefinitionModel(private val dv: DefinitionView) {
       //  See if we have it in user's language
       val lang = System.userLanguage
       if (lang != "en" &&
-        TamUtils.calllistdata.any {
+        TamUtils.calldata.any {
           link == it.link && it.languages.contains(lang)
         })
         langlink += ".lang-$lang"

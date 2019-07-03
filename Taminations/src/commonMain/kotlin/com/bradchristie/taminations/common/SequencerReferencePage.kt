@@ -95,8 +95,7 @@ class SequencerReferenceModel(val view:SequencerReferenceView) {
       list.forEach {
         view.calllist.addItem(CallListData(
             it.getAttribute("title")!!,
-            it.getAttribute("link")!!,
-            it.getAttribute("sublevel")!!))
+            it.getAttribute("link")!!))
       }
     }
   }

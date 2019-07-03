@@ -80,10 +80,10 @@ class CallListView : LinearLayout(Direction.VERTICAL) {
         Application.sendMessage(Request.Action.CALLITEM,
             "title" to item.title,
             "link" to item.link,
-            "level" to item.sublevel)
+            "level" to item.link)
       }
       // not valid on Android weight = 0  // don't try to force list to fit screen
-      backgroundColor = LevelObject.find(item.sublevel).color
+      backgroundColor = LevelObject.find(item.link).color
       borders.width = 1
       textView(item.title) {
         margin.top = 4
@@ -93,7 +93,7 @@ class CallListView : LinearLayout(Direction.VERTICAL) {
         textSize = textsize
         nowrap()
       }
-      textView(LevelObject.find(item.sublevel).name) {
+      textView(LevelObject.find(item.link).name) {
         textSize = textsize * 2 / 3
         margin.right = 12
         margin.top = 4
