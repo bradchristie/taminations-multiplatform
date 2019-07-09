@@ -139,11 +139,8 @@ actual object Application : Page() {
   }
 
   fun buildDisplay() : View = LinearLayout(LinearLayout.Direction.VERTICAL).apply {
-    com.bradchristie.taminations.platform.System.log("sp2px: $sp2px")
-    com.bradchristie.taminations.platform.System.log("density: $density")
     fillParent()
     //  Add the title bar
-    //titleBar = TitleBar()
     titleBar.removeFromParent()
     appendView(titleBar) {
       weight = 1

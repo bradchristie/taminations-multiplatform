@@ -21,7 +21,6 @@ package com.bradchristie.taminations.common.calls
 
 import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.CallError
-import com.bradchristie.taminations.platform.System
 
 class QuarterMore : Action("and a Quarter More") {
 
@@ -36,7 +35,6 @@ class QuarterMore : Action("and a Quarter More") {
     var isRight = true
     ctx.actives.forEach { d ->
       val roll = ctx.roll(d)
-      System.log("Roll for $d is $roll")
       if (!roll.isLeft)
         isLeft = false
       if (!roll.isRight)

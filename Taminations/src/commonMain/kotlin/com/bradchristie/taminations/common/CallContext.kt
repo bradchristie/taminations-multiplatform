@@ -70,6 +70,7 @@ class CallContext {
             callnorm.matches("tandem.*".r) -> "c1/tandem_concept"
             callnorm.matches("track(0|1|3|4)".r) -> "c1/track_n"
             callnorm.matches("triplebox.*".r) -> "c1/triple_box_concept"
+            callnorm.matches("steptoawave".r) -> "b2/ocean_wave"
             else -> ""
           }
       return if (retval.isNotEmpty()) listOf(retval) else listOf()

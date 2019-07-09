@@ -59,7 +59,7 @@
     </path>
   </tam>
 
-  <tam title="Right and Left Grand" from="Grand Circle 2" sequencer="gender-specific" display="nonex">
+  <tam title="Right and Left Grand" from="Grand Circle 2" sequencer="gender-specific" display="none">
      <formation>
       <dancer gender="boy" x="-3" y="-1.1" angle="315"/>
       <dancer gender="girl" x="-1" y="-1.5" angle="180"/>
