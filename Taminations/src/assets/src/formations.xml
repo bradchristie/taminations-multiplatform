@@ -528,6 +528,20 @@
     <dancer gender="girl" x="0" y="-5" angle="0"/>
   </formation>
 
+  <formation name="Diamonds Facing PTP">
+    <dancer gender="boy" x="-1" y="-3" angle="90"/>
+    <dancer gender="girl" x="0" y="-1" angle="180"/>
+    <dancer gender="boy" x="1" y="-3" angle="270"/>
+    <dancer gender="girl" x="0" y="-5" angle="0"/>
+  </formation>
+
+  <formation name="Diamonds Facing LH PTP">
+    <dancer gender="boy" x="-1" y="-3" angle="270"/>
+    <dancer gender="girl" x="0" y="-1" angle="0"/>
+    <dancer gender="boy" x="1" y="-3" angle="90"/>
+    <dancer gender="girl" x="0" y="-5" angle="180"/>
+  </formation>
+
   <formation name="Diamonds 3 and 1 Girl Points">
     <dancer gender="boy" x="0" y="-3" angle="180"/>
     <dancer gender="girl" x="-3" y="-2" angle="270"/>

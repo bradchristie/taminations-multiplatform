@@ -49,6 +49,54 @@
   </tam>
 
   <tam title="Fan the Top"
+       from="Right-Hand Diamond"
+       formation="Diamond RH"
+       difficulty="3">
+    <path>
+      <move select="Lead Right" beats="4" scaleX="3" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Cast Right" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Fan the Top"
+       from="Left-Hand Diamond"
+       formation="Diamond LH"
+       difficulty="3">
+    <path>
+      <move select="Lead Left" beats="4" scaleX="3" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Cast Left" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Fan the Top"
+       from="Facing Diamond"
+       formation="Diamond Facing RH"
+       difficulty="3" display="none">
+    <path>
+      <move select="Lead Left" beats="4" scaleX="3" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Cast Right" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Fan the Top"
+       from="Left-Hand Facing Diamond"
+       formation="Diamond Facing"
+       difficulty="3" display="none">
+    <path>
+      <move select="Lead Right" beats="4" scaleX="3" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Cast Left" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Fan the Top"
        from="Right-Hand Two-Faced Line"
        formation="Two-Faced Line RH"
        difficulty="2">
@@ -327,6 +375,151 @@
     </path>
   </tam>
 
+  <tam title="Fan the Top"
+       from="Left-Hand Diamonds"
+       formation="Diamonds LH Girl Points"
+       difficulty="3" display="none">
+    <path>
+      <move select="Hinge Left" offsetY="-.33" />
+      <move select="Hinge Left" offsetX="-.33" />
+      <move select="Hinge Left" offsetY=".33" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="4" scaleX="3" scaleY="3" />
+    </path>
+    <path>
+      <move select="Hinge Left" offsetY=".33" />
+      <move select="Hinge Left" offsetX=".33" />
+      <move select="Hinge Left" offsetY="-.33" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="4" scaleY="3" />
+    </path>
+  </tam>
+
+  <tam title="Fan the Top"
+       from="Facing Diamonds"
+       formation="Diamonds Facing Girl Points"
+       difficulty="3">
+    <path>
+      <move select="Hinge Right" offsetY=".33" />
+      <move select="Hinge Right" offsetX="-.33" />
+      <move select="Hinge Right" offsetY="-.33" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="4" scaleX="3" scaleY="3" />
+    </path>
+    <path>
+      <move select="Hinge Right" offsetY="-.33" />
+      <move select="Hinge Right" offsetX=".33" />
+      <move select="Hinge Right" offsetY=".33" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="4" scaleY="3" />
+    </path>
+  </tam>
+
+  <tam title="Fan the Top"
+       from="Left-Hand Facing Diamonds"
+       formation="Diamonds Facing LH Girl Points"
+       difficulty="3" display="none">
+    <path>
+      <move select="Hinge Left" offsetY="-.33" />
+      <move select="Hinge Left" offsetX="-.33" />
+      <move select="Hinge Left" offsetY=".33" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="4" scaleY="3" />
+    </path>
+    <path>
+      <move select="Hinge Left" offsetY=".33" />
+      <move select="Hinge Left" offsetX=".33" />
+      <move select="Hinge Left" offsetY="-.33" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="4" scaleX="3" scaleY="3" />
+    </path>
+  </tam>
+
+  <tam title="Fan the Top"
+       from="Point-to-Point Diamonds"
+       formation="Diamonds RH PTP Girl Points"
+       difficulty="3">
+    <path>
+      <move select="Swing Right" offsetX=".67"/>
+      <move select="Hinge Right" offsetX="-.33"/>
+    </path>
+    <path>
+      <move select="Lead Right" beats="4" scaleX="3"/>
+    </path>
+    <path>
+      <move select="Swing Right" offsetX="-.67"/>
+      <move select="Hinge Right" offsetX=".33"/>
+    </path>
+    <path>
+      <move select="Lead Right" beats="4" scaleX="3" scaleY="3"/>
+    </path>
+  </tam>
+
+  <tam title="Fan the Top"
+       from="Left-Hand Point-to-Point Diamonds"
+       formation="Diamonds LH PTP Girl Points"
+       difficulty="3" display="none">
+    <path>
+      <move select="Swing Left" offsetX="-.67"/>
+      <move select="Hinge Left" offsetX=".33"/>
+    </path>
+    <path>
+      <move select="Lead Left" beats="4" scaleX="3"/>
+    </path>
+    <path>
+      <move select="Swing Left" offsetX=".67"/>
+      <move select="Hinge Left" offsetX="-.33"/>
+    </path>
+    <path>
+      <move select="Lead Left" beats="4" scaleX="3" scaleY="3"/>
+    </path>
+  </tam>
+
+  <tam title="Fan the Top"
+       from="Point-to-Point Facing Diamonds"
+       formation="Diamonds Facing PTP"
+       difficulty="3" display="none">
+    <path>
+      <move select="Swing Right" offsetX=".67"/>
+      <move select="Hinge Right" offsetX="-.33"/>
+    </path>
+    <path>
+      <move select="Lead Left" beats="4" scaleX="3"/>
+    </path>
+    <path>
+      <move select="Swing Right" offsetX="-.67"/>
+      <move select="Hinge Right" offsetX=".33"/>
+    </path>
+    <path>
+      <move select="Lead Left" beats="4" scaleX="3" scaleY="3"/>
+    </path>
+  </tam>
+
+  <tam title="Fan the Top"
+       from="Left-Hand Point-to-Point Facing Diamonds"
+       formation="Diamonds Facing LH PTP"
+       difficulty="3" display="none">
+    <path>
+      <move select="Swing Left" offsetX="-.67"/>
+      <move select="Hinge Left" offsetX=".33"/>
+    </path>
+    <path>
+      <move select="Lead Right" beats="4" scaleX="3"/>
+    </path>
+    <path>
+      <move select="Swing Left" offsetX=".67"/>
+      <move select="Hinge Left" offsetX="-.33"/>
+    </path>
+    <path>
+      <move select="Lead Right" beats="4" scaleX="3" scaleY="3"/>
+    </path>
+  </tam>
 
   <tam title="Left Fan the Top"
        from="Facing Couples"
