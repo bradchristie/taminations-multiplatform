@@ -28,8 +28,10 @@ function setAbbrev(isAbbrev) {
       elem.style.display = isAbbrev ? '' : 'none';
       found = 'true';
     }
-    if (elem.className.indexOf('full') >= 0)
+    if (elem.className.indexOf('full') >= 0) {
       elem.style.display = isAbbrev ? 'none' : '';
+      found = 'true';
+    }
   }
   //  Return value used to hide/show buttons
   return found;
