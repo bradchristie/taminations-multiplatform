@@ -99,6 +99,26 @@
     </path>
   </tam>
 
+  <tam title="Cast Off Three Quarters" from="Right-Hand Box"
+       formation="Box RH" difficulty="1">
+    <path>
+      <move select="Cast Right"/>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+    </path>
+  </tam>
+
+  <tam title="Cast Off Three Quarters" from="Left-Hand Box"
+       formation="Box LH" difficulty="1">
+    <path>
+      <move select="Cast Left"/>
+    </path>
+    <path>
+      <move select="Cast Left"/>
+    </path>
+  </tam>
+
   <tam title="Cast Off Three Quarters" from="Lines Facing In"
        formation="Normal Lines" difficulty="2" display="none">
     <path>
