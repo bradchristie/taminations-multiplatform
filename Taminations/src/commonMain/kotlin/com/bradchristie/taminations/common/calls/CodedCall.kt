@@ -71,6 +71,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "12sashay" to { HalfSashay() },
         "circulate" to { Circulate() },
         "all8circulate" to { Circulate() },
+        "makemagic" to { MakeMagic() },
         "nothing" to { Nothing() },
         "partnertag" to { PartnerTag() },
         "passin" to { PassIn() },
