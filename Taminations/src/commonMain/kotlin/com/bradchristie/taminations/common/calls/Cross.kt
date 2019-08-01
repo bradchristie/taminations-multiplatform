@@ -20,6 +20,7 @@ package com.bradchristie.taminations.common.calls
 */
 
 import com.bradchristie.taminations.common.*
+import com.bradchristie.taminations.platform.System
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
@@ -27,6 +28,8 @@ import kotlin.math.sin
 class Cross : Action("Cross") {
 
   override val level = LevelObject.find("a1")
+
+  var crosscount = 0
 
   override fun perform(ctx: CallContext, i: Int) {
     //  If dancers are not specified, then the trailers cross
@@ -37,14 +40,23 @@ class Cross : Action("Cross") {
     if (ctx.actives.count() == ctx.dancers.count() ||
         ctx.actives.count() == 0)
       throw CallError("You must specify which dancers Cross.")
+    crosscount = 0
     super.perform(ctx, i)
+    if (crosscount == 0)
+      throw CallError("Cannot find dancers to Cross")
   }
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
     //  Find the other dancer to cross with
     var d2:Dancer? = null
     ctx.actives.forEach {
-      if (d.tx.angle.angleDiff(it.tx.angle).abs.isApprox(PI)) {
+      //  Dancers must be facing opposite directions
+      //  and facing diagonal to each other
+      val a = d.angleToDancer(it).abs
+      if (d.tx.angle.angleDiff(it.tx.angle).abs.isApprox(PI) &&
+              !a.angleEquals(0.0) &&
+              !a.angleEquals(PI/2) &&
+              a < PI/2) {
         when {
           d2 == null -> d2 = it
           d.distanceTo(d2!!).isApprox(d.distanceTo(it)) ->
@@ -54,14 +66,17 @@ class Cross : Action("Cross") {
         }
       }
     }
-    if (d2 == null)
-      throw CallError("Cannot find dancer to Cross with $d")
+    //  OK if some dancers cannot cross
+    if (d2 == null) {
+      return Path()
+    }
     //  Now compute the X and Y values to travel
     //  The standard has x distance = 2 and y distance = 2
     val a = d.angleToDancer(d2!!)
     val dist = d.distanceTo(d2!!)
     val x = dist * cos(a)
     val y = dist * sin(a.abs)
+    crosscount += 1
     return TamUtils.getMove(if (a > 0) "Cross Left" else "Cross Right").scale(x/2.0,y/2.0)
   }
 
