@@ -36,6 +36,16 @@
     </path>
   </tam>
 
+  <tam title="Weave" from="Left-Hand Box" formation="Box LH">
+    <path>
+      <move select="Lead Left" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="1.5" />
+      <move select="Hinge Right" scaleY=".5" />
+    </path>
+  </tam>
+
   <tam title="Weave" from="Single Eight Chain Thru">
     <formation>
       <dancer gender="boy" x="0" y="3" angle="270"/>
