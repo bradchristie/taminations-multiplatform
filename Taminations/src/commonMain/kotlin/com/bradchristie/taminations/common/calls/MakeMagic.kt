@@ -34,6 +34,8 @@ class MakeMagic : Action("Make Magic") {
     } else {
       //  Otherwise, process each dancer
       super.performCall(ctx, i)
+      if (ctx.dancers.all { d -> d.path.movelist.isEmpty()})
+        throw CallError("Make Magic does nothing")
     }
   }
 
@@ -55,7 +57,6 @@ class MakeMagic : Action("Make Magic") {
       val dx = d.location.length * a.cos
       val dy = d.location.length * a.abs.sin
       return TamUtils.getMove(if (a > 0) "Cross Left" else "Cross Right").scale(dx,dy)
-
     }
     return Path()
   }

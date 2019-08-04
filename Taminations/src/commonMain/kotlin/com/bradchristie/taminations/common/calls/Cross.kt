@@ -20,7 +20,6 @@ package com.bradchristie.taminations.common.calls
 */
 
 import com.bradchristie.taminations.common.*
-import com.bradchristie.taminations.platform.System
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin

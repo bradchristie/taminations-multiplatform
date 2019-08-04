@@ -33,77 +33,95 @@ class CallContext {
     //  XML files that have been loaded
     val loadedXML = mutableMapOf<String,TamDocument>()
 
-    fun lookupXMLcall(callnorm:String):List<String> {
-      val retval =
-          when {
-            callnorm.matches("circle4(left|right)(12|14|34)".r) -> "b1/circle"
-            callnorm.matches("cloverand.*".r) -> "a1/clover_and_anything"
-            callnorm.matches("explode".r) -> "plus/explode_the_wave"
-            callnorm.matches("(head|side)?12sashay".r) -> "b1/sashay"
-            callnorm.matches("4ladieschain(34)?".r) -> "b1/ladies_chain"
-            callnorm.matches("chaindowntheline".r) -> "b1/ladies_chain"
-            callnorm.matches("anyhand.*".r) -> "a1/any_hand_concept"
-            callnorm.matches("(head|side)start".r) -> "a1/split_square_thru"
-            callnorm.matches("sweep14(left|right)".r) -> "b2/sweep_a_quarter"
-            callnorm.matches("columncirculate".r) -> "b1/circulate"
-            callnorm.matches("boxcirculate".r) -> "b1/circulate"
-            callnorm.matches("all8circulate".r) -> "b1/circulate"
-            callnorm.matches("splitcirculate".r) -> "b1/circulate"
-            callnorm.matches("couplescirculate".r) -> "b1/circulate"
-            callnorm.matches("face.*".r) -> "b1/face"
-            callnorm.matches("butterfly.*".r) -> "c1/butterfly_formation"
-            callnorm.matches("all4couples.*".r) -> "a2/all_4_all_8"
-            callnorm.matches("all8.*".r) -> "a2/all_4_all_8"
-            callnorm.matches("ascouples".r) -> "a1/as_couples"
-            callnorm.matches("veer(left|right)".r) -> "b1/veer"
-            callnorm.matches("circle(left|right)".r) -> "b1/circle"
-            callnorm.matches(".*grandsquare".r) -> "b1/grand_square"
-            callnorm.matches("leadleft".r) -> "b1/lead_right"
-            callnorm.matches("firstcouplego(left|right)nextcouplego(left|right)".r) -> "b2/first_couple_go"
-            callnorm.matches("ascouples.*".r) -> "a1/as_couples"
-            callnorm.matches("stretch.*".r) -> "c1/stretch_concept"
-            callnorm.matches("butterfly.*".r) -> "c1/butterfly_formation"
-            callnorm.matches("o.*".r) -> "c1/o_formation"
-            callnorm.matches("(box|split)recycle".r) -> "c1/box_split_recycle"
-            callnorm.matches("magic.*".r) -> "c1/magic_column_formation"
-            callnorm.matches("phantom.*".r) -> "c1/phantom_formation"
-            callnorm.matches("tandem.*".r) -> "c1/tandem_concept"
-            callnorm.matches("track(0|1|3|4)".r) -> "c1/track_n"
-            callnorm.matches("triplebox.*".r) -> "c1/triple_box_concept"
-            callnorm.matches("steptoawave".r) -> "b2/ocean_wave"
-            callnorm.matches("(reverse)?wheel".r) -> "c1/wheel_and_anything"
-            callnorm.matches("leftchase".r) -> "plus/chase_right"
-            else -> ""
-          }
-      return if (retval.isNotEmpty()) listOf(retval) else listOf()
+    //  Index into files for speciic calls
+    //  Supplements looking up calls in TamUtils.calldata
+    //  Keys are normalized call name
+    //  Values are file names
+    val callindex = mutableMapOf<String,MutableList<String>>()
+    //  Initialize callindex with calls in theses files
+    val callindexinitfiles = arrayOf(
+        "b1/circle",
+        "a1/clover_and_anything",
+        "plus/explode_the_wave",
+        "b1/sashay",
+        "b1/ladies_chain",
+        "a1/any_hand_concept",
+        "a1/split_square_thru",
+        "b2/sweep_a_quarter",
+        "b1/circulate",
+        "b1/face",
+        "c1/butterfly_formation",
+        "a2/all_4_all_8",
+        "a1/as_couples",
+        "b1/veer",
+        "b1/circle",
+        "b1/grand_square",
+        "b1/lead_right",
+        "b2/first_couple_go",
+        "a1/as_couples",
+        "c1/stretch_concept",
+        "c1/butterfly_formation",
+        "c1/o_formation",
+        "c1/box_split_recycle",
+        "c1/magic_column_formation",
+        "c1/phantom_formation",
+        "c1/tandem_concept",
+        "c1/track_n",
+        "c1/triple_box_concept",
+        "b2/ocean_wave",
+        "c1/wheel_and_anything",
+        "plus/chase_right",
+        "a1/fractional_tops",
+        "a1/quarter_thru",
+        "a1/three_quarter_thru"
+        )
+
+    var numfiles = 0
+
+    init {
+      callindexinitfiles.forEach { link ->
+        loadOneFile(link)
+      }
     }
 
-    //  Load all XML files that might be used to interpret a call
-    fun loadCalls(calltext:List<String>, allFilesLoaded:()->Unit) {
-      var numfiles = 100  // make sure all possibilities are checked
-      val loadOneFile = { link: String ->
-        if (!loadedXML.containsKey(link)) {
-          numfiles += 1
-          System.getXMLAsset(link) {
-            //  TODO check for xref
-            loadedXML[link] = it
-            numfiles -= 1
-            if (numfiles == 0)
-              allFilesLoaded()
+    private fun loadOneFile(link: String, allFilesLoaded: () -> Unit = { }) {
+      if (!loadedXML.containsKey(link)) {
+        numfiles += 1
+        System.getXMLAsset(link) { doc ->
+          //  Add all the calls to the index
+          doc.evalXPath("/tamination/tam").asSequence().filter { tam -> tam.attr("sequencer")!="no" }.forEach { tam ->
+            if (tam.hasAttribute("xref-link")) {
+              //  Look up an xref
+              loadOneFile(tam.attr("xref-link"),allFilesLoaded)
+            } else {
+              val norm = TamUtils.normalizeCall(tam.attr("title"))
+              if (!callindex.containsKey(norm))
+                callindex[norm] = mutableListOf()
+              callindex[norm]!! += link
+            }
+          }
+          loadedXML[link] = doc
+          numfiles -= 1
+          if (numfiles == 0) {
+            allFilesLoaded()
           }
         }
       }
+    }
+     //  Load all XML files that might be used to interpret a call
+    fun loadCalls(calltext:List<String>, allFilesLoaded:()->Unit) {
+      numfiles += 100  // make sure all possibilities are checked
       calltext.forEach { line ->
         line.minced().forEach { name ->
           //  Load any animation files that match
           val norm = TamUtils.normalizeCall(name)
           val callitems = TamUtils.callmap[norm] ?: listOf<TamUtils.CallListDatum>()
-          val callfiles = callitems.map { it.link } + lookupXMLcall(norm)
+          val callfiles = callitems.map { it.link }
           callfiles.forEach {
-            loadOneFile(it)
+            loadOneFile(it,allFilesLoaded)
           }
           //  Check for coded calls that require xml files
-          CodedCall.getCodedCall(name)?.requires?.forEach { loadOneFile(it) }
+          CodedCall.getCodedCall(name)?.requires?.forEach { loadOneFile(it,allFilesLoaded) }
         }
       }
       //  All possibilities checked - remove cap
@@ -307,8 +325,9 @@ class CallContext {
     }
     //  Try to find a match in the xml animations
     val callnorm = TamUtils.normalizeCall(calltext)
-    val callitems = TamUtils.callmap[callnorm] ?: listOf<TamUtils.CallListDatum>()
-    val callfiles = callitems.map { it.link } + lookupXMLcall(callnorm)
+    val callfiles1 = TamUtils.callmap[callnorm]?.map { it.link } ?: listOf()
+    val callfiles2 = callindex[callnorm] ?: mutableListOf()
+    val callfiles = callfiles1 + callfiles2
     //  Found xml file with call, now look through each animation
     val found = callfiles.isNotEmpty()
     val matches = callfiles.any {
@@ -614,6 +633,7 @@ class CallContext {
       "Galaxy RH GP",
       "Butterfly RH",
       "O RH",
+      "Thar RH Boys",
       "Sausage RH",
       "T-Bone URRD",
       "T-Bone RUUL",

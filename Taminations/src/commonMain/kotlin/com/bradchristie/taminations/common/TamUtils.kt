@@ -95,8 +95,11 @@ object TamUtils {
     initCallback = callback
   }
   fun testAction(callback:()->Unit) {
-    testCallback = callback
     testing = true
+    if (doccount <= 0)
+      testCallback()
+    else
+      testCallback = callback
   }
   private fun checkForInit() {
     doccount -= 1
