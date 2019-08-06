@@ -52,7 +52,7 @@ object LevelObject {
   fun find(s:String): LevelData {
     return data.find { it.name.equals(s,ignoreCase = true) ||
         //  following lets us easily find the level of a link
-        it.dir.equals(s.substring(0,it.dir.length),ignoreCase = true) ||
+        s.startsWith(it.dir) ||
         it.selector.equals(s,ignoreCase = true) }!!
   }
 

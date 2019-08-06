@@ -2,7 +2,7 @@
 //  This version number is reported to the client.  If it does not match
 //  the version number saved when files were downloaded, the client
 //  will request a new download to fill the new cache.
-self.version = "1.5.29";
+self.version = "1.5.30";
 //  This is run just once, when the user loads Taminations
 self.addEventListener('install', function(event) {
   event.waitUntil(
@@ -11,21 +11,20 @@ self.addEventListener('install', function(event) {
          //  These are the files needed to start up Taminations
          //  or are otherwise not loaded in the cache by the code below
         "index.html",
-        "lib/kotlin.js",
-        "lib/kotlinx-coroutines-core.js",
-        "main/Taminations.js",
+        "kotlin.js",
+        "kotlinx-coroutines-core.js",
+        "Taminations.js",
         "favicon.ico",
         "tam120.png",
         "notsupported.html",
-        "assets/src/callindex.xml",
-        "assets/src/calls.xml",
-        "assets/src/framecode.js",
-        "assets/src/formations.xml",
-        "assets/src/moves.xml",
-        "assets/src/tamination.css",
-        "assets/info/about.html",
-        "assets/info/sequencer.html",
-        "assets/src/tutorial.xml"
+        "src/calls.xml",
+        "src/framecode.js",
+        "src/formations.xml",
+        "src/moves.xml",
+        "src/tamination.css",
+        "info/about.html",
+        "info/sequencer.html",
+        "src/tutorial.xml"
       ]);
     })
   );
@@ -78,8 +77,8 @@ function getCallLinks(cache,str) {
   var match = re.exec(str);
   var thesePromises = [];
   while (match != null) {
-    let xml = "assets/"+match[1]+".xml";
-    let htmllink = "assets/"+match[1]+".html";
+    let xml = match[1]+".xml";
+    let htmllink = match[1]+".html";
     thesePromises.push(fetch(htmllink)
                     .then(response => {
                        cache.put(htmllink,response.clone())
@@ -137,8 +136,8 @@ self.addEventListener('message', event => {
     console.log("Loading all files");
     caches.open(self.version).then( cache => {
       console.log("Opened cache "+self.version);
-      cache.add("assets/src/calls.xml")
-           .then( _ => fetch("assets/src/calls.xml"))
+      cache.add("src/calls.xml")
+           .then( _ => fetch("src/calls.xml"))
            .then( response => response.text())
            .then( str => getCallLinks(cache,str) )
            .then( function() {
