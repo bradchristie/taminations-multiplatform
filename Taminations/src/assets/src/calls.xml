@@ -424,7 +424,7 @@
   <call link="c2/relocate_the_setup" title="Relocate the Setup"/>
   <call audio="a2/remake.mp3" link="a2/remake" title="Remake"/>
   <call audio="a2/remake_the_thar.mp3" link="a2/remake_the_thar" title="Remake The Thar"/>
-  <call link="c1/replace" title="Replace / But / Skip / Delete"/>
+  <call link="c1/replace" title="Replace"/>
   <call link="c3b/reset" title="Reset"/>
   <call link="c2/reshape_the_triangle" title="Reshape the Triangle"/>
   <call link="a1/reverse" title="Reverse"/>

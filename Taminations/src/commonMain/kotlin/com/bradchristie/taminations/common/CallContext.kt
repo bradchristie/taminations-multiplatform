@@ -73,7 +73,8 @@ class CallContext {
         "plus/chase_right",
         "a1/fractional_tops",
         "a1/quarter_thru",
-        "a1/three_quarter_thru"
+        "a1/three_quarter_thru",
+        "b1/split_the_outside_couple"
         )
 
     var numfiles = 0
