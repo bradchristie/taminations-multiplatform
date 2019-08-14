@@ -22,6 +22,8 @@ package com.bradchristie.taminations.platform
 
 //  Class to show a web page
 
+import com.bradchristie.taminations.Application
+import com.bradchristie.taminations.common.TamUtils
 import com.bradchristie.taminations.platform.System.later
 import org.w3c.dom.HTMLIFrameElement
 
@@ -35,16 +37,59 @@ actual class WebView
     style.height = "100%"
     style.overflowY = "auto"
   } as HTMLIFrameElement
+  private var doExtraStuff = true
 
   init {
     frame.onload = { _ ->
       eval("showPlatformElements('dom')") { }
       if (src.contains("about")) {
-        eval("loadFilesInBackground()") { }
+        eval("checkVersion(this)") { }
       }
     }
     frame.src = src
     frame.style.overflowY = "auto"
+  }
+
+  //  This method is called by JavaScript (framecode.js)
+  //  when the user clicks on the Load Files button on the About page
+  @JsName("loadMyFiles")
+  fun loadMyFiles(ctx:WebView) {
+    //  Get the list of all files
+    val allMyFiles = TamUtils.calldata.map { it.link }.toMutableList()
+    val totalCount = allMyFiles.count()
+    var loadedCount = 0
+    //  Set up recursive method to load files
+    //  Completion of each file triggers the next
+    var loadNext:WebView.()->Unit = { }
+    val loadNextRecurse:WebView.()->Unit = {
+      loadedCount += 1
+      //  Show the user how many files we have loaded
+      Application.titleBar.title = "Loading $loadedCount of $totalCount"
+      if (allMyFiles.isNotEmpty()) {
+        val file = allMyFiles.removeAt(0)
+        //  Load the xml file
+        System.getXMLAsset(file) {
+          //  and the html file, with any images
+          ctx.setSource("$file.html", loadNext)
+        }
+      }
+      else {
+        //  All files loaded, reset the About page
+        ctx.setSource("info/about.html") {
+          doExtraStuff = true
+          eval("allFilesLoaded()") { }
+        }
+        Application.titleBar.title = "Taminations"
+      }
+    }
+    //  final setup
+    loadNext = loadNextRecurse
+    doExtraStuff = false
+    //  Start the load
+    val file = allMyFiles.removeAt(0)
+    System.getXMLAsset(file) {
+      ctx.setSource("$file.html", loadNext)
+    }
   }
 
   actual fun setSource(src:String, afterload:WebView.()->Unit) {
@@ -59,14 +104,19 @@ actual class WebView
     frame.onload = { _ ->
       later {
         afterload()
-        eval("showPlatformElements('dom')") { }
+        if (doExtraStuff) {
+          eval("showPlatformElements('dom')") { }
+          if (src.contains("about")) {
+            eval("checkVersion(this)") { }
+          }
+        }
       }
     }
   }
 
   actual fun eval(script:String,code:(String)->Unit) {
     if (frame.contentWindow != null) {
-      val retval = kotlin.js.eval("this.iframeFrame.contentWindow.$script")
+      val retval = eval("this.iframeFrame.contentWindow.$script")
       code(retval as? String ?: "")
     }
   }
