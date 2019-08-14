@@ -20,8 +20,8 @@ android {
     applicationId 'com.bradchristie.taminationsapp'
     minSdkVersion 16
     targetSdkVersion 28
-    versionCode 94
-    versionName '1.5.30'
+    versionCode 95
+    versionName '1.5.31'
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
   buildTypes {
@@ -47,7 +47,7 @@ android {
 dependencies {
   implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
   implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-  implementation 'androidx.recyclerview:recyclerview:1.1.0-beta01'
+  implementation 'androidx.recyclerview:recyclerview:1.1.0-beta02'
   implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1'
   androidTestImplementation 'androidx.test:runner:1.3.0-alpha02'
 }
