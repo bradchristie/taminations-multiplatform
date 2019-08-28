@@ -276,4 +276,62 @@
     </path>
   </tam>
 
+  <tam title="Split Dixie Sashay"
+       from="Ends Facing"
+       formation="T-Bone ULRU" parts="2.5">
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right"/>
+      <move select="Forward"/>
+      <move select="Forward 2" scaleX=".75"/>
+      <move select="Hinge Left" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Extend Right" scaleX=".75"/>
+      <move select="Lead Left" hands="left" scaleY=".5" scaleX="1.25"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Forward" scaleX=".75"/>
+      <move select="Lead Left" scaleX="1.25" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Quarter Left" offsetX="1"/>
+      <move select="Extend Right" scaleX=".75"/>
+      <move select="Forward 2" scaleX="0.875" />
+      <move select="Hinge Left" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Split Dixie Sashay"
+       from="Centers Facing"
+       formation="T-Bone RUUL" parts="2.5">
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Extend Right" scaleX=".75"/>
+      <move select="Forward 2" scaleX="1.125" />
+      <move select="Hinge Left" hands="left" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Forward" scaleX=".75"/>
+      <move select="Forward 2" scaleX="1.125" />
+      <move select="Hinge Left" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Quarter Left" offsetX="1"/>
+      <move select="Extend Right" scaleX=".75"/>
+      <move select="Lead Left" hands="left" scaleX=".75" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right"/>
+      <move select="Forward" scaleX=".75"/>
+      <move select="Lead Left" scaleX=".75" scaleY=".5"/>
+    </path>
+  </tam>
+
 </tamination>
