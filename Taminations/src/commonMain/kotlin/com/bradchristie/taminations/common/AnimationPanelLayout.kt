@@ -30,13 +30,13 @@ class AnimationPanelLayout : LinearLayout(Direction.VERTICAL) {
   val playButton = ImageButton("Play",PlayShape())
   val forwardButton = ImageButton(">",ForwardShape())
   val endButton = ImageButton(">>", EndShape())
+  val beatSlider: Slider = slider {
+    height = 44
+  }
   val ticView: SliderTicView = appendView(SliderTicView()) {
     backgroundColor = Color.TICS
     height = 40 max Application.screenHeight/20
     weight = 0
-  }
-  val beatSlider: Slider = slider {
-    height = 44
   }
 
   init {
