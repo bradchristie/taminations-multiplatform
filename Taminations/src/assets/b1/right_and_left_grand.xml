@@ -325,8 +325,8 @@
      <formation>
        <dancer gender="girl" x="-1" y="-3" angle="0"/>
        <dancer gender="boy" x="1" y="-3" angle="180"/>
-       <dancer gender="girl" x="-3" y="1" angle="270"/>
-       <dancer gender="boy" x="-3" y="-1" angle="90"/>
+       <dancer gender="girl" x="3" y="-1" angle="90"/>
+       <dancer gender="boy" x="3" y="1" angle="270"/>
     </formation>
     <path>
       <move select="Pull Left" scaleY=".75" />
@@ -358,7 +358,7 @@
     </path>
   </tam>
 
-  <tam title="Right and Left Grand" display="nonex" from="after Allemande Left" sequencer="gender-specific">
+  <tam title="Right and Left Grand" display="none" from="after Allemande Left" sequencer="gender-specific" >
      <formation>
        <dancer gender="boy" x="3.5" y="-1.5" angle="45"/>
        <dancer gender="girl" x="3.5" y="1.5" angle="315"/>
