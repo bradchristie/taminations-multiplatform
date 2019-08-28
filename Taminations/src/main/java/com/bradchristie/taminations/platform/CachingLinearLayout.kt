@@ -32,7 +32,7 @@ actual class CachingLinearLayout actual constructor(private val adapter:CachingA
     this.adapter = RecyclerViewAdapter()
   }
 
-  class CachingHolder(val vg:ViewGroup) : RecyclerView.ViewHolder(vg.div) {  }
+  class CachingHolder(val vg:ViewGroup) : RecyclerView.ViewHolder(vg.div)
 
   inner class RecyclerViewAdapter : RecyclerView.Adapter<CachingHolder> () {
     override fun onCreateViewHolder(parent: android.view.ViewGroup, viewType: Int): CachingHolder {
@@ -46,8 +46,6 @@ actual class CachingLinearLayout actual constructor(private val adapter:CachingA
     }
 
     override fun onBindViewHolder(holder: CachingHolder, position: Int) {
-      if (position.rem(100) == 0)
-        System.log("Binding item $position")
       holder.vg.clear()
       val view = adapter.getItem(position)
       holder.vg.appendView(view)
@@ -57,8 +55,7 @@ actual class CachingLinearLayout actual constructor(private val adapter:CachingA
   }
 
   override fun <T : View> appendView(child: T, code: T.() -> Unit): T {
-    NotImplementedError("Do not use appendView, use the adapter")
-    return child
+    throw NotImplementedError("Do not use appendView, use the adapter")
   }
 
 }

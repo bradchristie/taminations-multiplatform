@@ -24,9 +24,6 @@ import com.bradchristie.taminations.common.d
 import com.bradchristie.taminations.common.i
 import com.bradchristie.taminations.common.s
 import org.w3c.dom.HTMLElement
-import org.w3c.dom.events.KeyboardEvent
-import org.w3c.dom.events.MouseEvent
-import org.w3c.dom.events.WheelEvent
 import kotlin.browser.document
 import kotlin.browser.window
 
@@ -206,16 +203,13 @@ actual open class View(internal val div:HTMLElement) {
     //  We just use one font
     div.style.fontFamily = "Arial, sans-serif"
     div.onclick = { clickCode() }
-    div.onwheel = { event -> wheelCode((event as WheelEvent).deltaY.i) }
+    div.onwheel = { event -> wheelCode(event.deltaY.i) }
     div.onmousedown = { event ->
-      val mouseEvent = event as MouseEvent
-      touchDownCode(0,mouseEvent.offsetX.i,mouseEvent.offsetY.i) }
+      touchDownCode(0,event.offsetX.i,event.offsetY.i) }
     div.onmouseup = { event ->
-      val mouseEvent = event as MouseEvent
-      touchUpCode(0,mouseEvent.offsetX.i,mouseEvent.offsetY.i) }
+      touchUpCode(0,event.offsetX.i,event.offsetY.i) }
     div.onmousemove = { event ->
-      val mouseEvent = event as MouseEvent
-      touchMoveCode(0,mouseEvent.offsetX.i,mouseEvent.offsetY.i) }
+      touchMoveCode(0,event.offsetX.i,event.offsetY.i) }
   }
 
   //  Actions
@@ -245,7 +239,7 @@ actual open class View(internal val div:HTMLElement) {
     when (code) {
      is (Int)->Unit -> { keyDownCode = code
           document.onkeydown = { event ->
-            keyDownCode((event as KeyboardEvent).keyCode)
+            keyDownCode(event.keyCode)
             event.preventDefault()
           }
       }
@@ -255,7 +249,7 @@ actual open class View(internal val div:HTMLElement) {
   actual fun keyUpAction(code:(Int)->Unit) {
     keyUpCode = code
     document.onkeyup = { event ->
-      keyUpCode((event as KeyboardEvent).keyCode)
+      keyUpCode(event.keyCode)
       event.preventDefault()
     }
   }
