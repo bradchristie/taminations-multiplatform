@@ -25,30 +25,38 @@ import com.bradchristie.taminations.platform.*
 
 class AnimationPanelLayout : LinearLayout(Direction.VERTICAL) {
 
+  val beatSlider: Slider = Slider()
+  val ticView = SliderTicView()
   val startButton = ImageButton("<<",StartShape())
   val backButton = ImageButton("<",BackwardShape())
   val playButton = ImageButton("Play",PlayShape())
   val forwardButton = ImageButton(">",ForwardShape())
   val endButton = ImageButton(">>", EndShape())
-  val beatSlider: Slider = slider {
-    height = 44
-  }
-  val ticView: SliderTicView = appendView(SliderTicView()) {
-    backgroundColor = Color.TICS
-    height = 40 max Application.screenHeight/20
-    weight = 0
-  }
 
   init {
+    //  Add slider
+    appendView(beatSlider) {
+      height = 44
+    }
+    //  Add slider tics
+    //  Wrapped in a dummy view to workaround a Chrome bug
+    //  which disables some buttons below the tic view
+    appendView(LinearLayout(Direction.HORIZONTAL)) {
+      appendView(ticView) {
+        backgroundColor = Color.TICS
+        height = 40 max Application.screenHeight / 20
+        weight = 0
+      }
+    }
     //  Add play buttons
     appendView(LinearLayout(Direction.HORIZONTAL)) {
       backgroundColor = Color.BLACK
       weight = 0
       listOf(appendView(startButton),
-             appendView(backButton),
-             appendView(playButton),
-             appendView(forwardButton),
-             appendView(endButton)).forEach {
+          appendView(backButton),
+          appendView(playButton),
+          appendView(forwardButton),
+          appendView(endButton)).forEach {
         it.weight = 1
         it.margins = 4
       }
