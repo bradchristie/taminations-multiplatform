@@ -33,7 +33,7 @@ class CallContext {
     //  XML files that have been loaded
     val loadedXML = mutableMapOf<String,TamDocument>()
 
-    //  Index into files for speciic calls
+    //  Index into files for specific calls
     //  Supplements looking up calls in TamUtils.calldata
     //  Keys are normalized call name
     //  Values are file names
@@ -74,7 +74,8 @@ class CallContext {
         "a1/fractional_tops",
         "a1/quarter_thru",
         "a1/three_quarter_thru",
-        "b1/split_the_outside_couple"
+        "b1/split_the_outside_couple",
+        "a2/transfer_and_anything"
         )
 
     var numfiles = 0
