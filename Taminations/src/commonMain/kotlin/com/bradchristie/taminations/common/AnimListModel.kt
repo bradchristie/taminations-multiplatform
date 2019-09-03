@@ -79,7 +79,7 @@ class AnimListModel(private val alview: AnimListView, val request: Request ) {
       var prevtitle = ""
       var prevgroup = ""
       alview.keyView.hide()
-      tams.filter { it.attr("display") != "none" }.forEach { tam ->
+      tams.filter { !it.attr("display").startsWith("n") }.forEach { tam ->
         val tamtitle = tam.attr("title")
         var from = "from"  // updated later after tamxref is loaded
         val group = tam.attr("group")
