@@ -172,7 +172,7 @@
     </path>
   </tam>
 
-  <tam title="Rollaway" from="Circle Left" formation="Circle">
+  <tam title="Rollaway" from="Circle Left" formation="Circle" sequencer="gender-specific">
     <path>
       <move select="Stand" hands="gripright" beats="4.5"/>
       <move select="Stand" hands="both" beats=".1"/>
