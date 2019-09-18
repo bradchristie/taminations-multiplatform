@@ -434,6 +434,26 @@
     </path>
   </tam>
 
+  <tam title="Half Tag" from="Two-Faced Tidal Line" difficulty="1"
+       formation="Two-Faced Tidal Line RH">
+    <path>
+      <move select="Quarter Right" offsetX="1" beats="2"/>
+      <move select="Forward" scaleX=".5" beats="2"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="1" beats="2" />
+      <move select="Forward" scaleX="1.5" beats="2"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="1" beats="2" />
+      <move select="Forward" scaleX="1.5" beats="2"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="1" beats="2"/>
+      <move select="Forward" scaleX=".5" beats="2"/>
+    </path>
+  </tam>
+
   <tam title="Half Tag"
        from="Tidal Line"
        formation="Tidal Line RH" difficulty="2">
