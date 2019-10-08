@@ -27,8 +27,16 @@ class QuarterTag : Action("Quarter Tag") {
   override val level = LevelObject("ms")
   override val requires = listOf("ms/hinge","b1/face")
 
+  private fun centersHoldLeftHands(ctx:CallContext): Boolean =
+      ctx.actives.any { d ->
+        d.data.center && (ctx.dancerToLeft(d)?.data?.center ?: false)
+      }
+
   override fun performCall(ctx: CallContext, i: Int) {
-    ctx.applyCalls("Centers Hinge While Ends Face In")
+    if (centersHoldLeftHands(ctx))
+      ctx.applyCalls("Center 4 Hinge and Spread While Ends Face In")
+    else
+      ctx.applyCalls("Centers Hinge While Ends Face In")
   }
 
 }
