@@ -24,6 +24,7 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bradchristie.taminations.Taminations
+import com.bradchristie.taminations.common.Color
 
 actual class CachingLinearLayout actual constructor(private val adapter:CachingAdapter) : ViewGroup() {
 
@@ -56,6 +57,11 @@ actual class CachingLinearLayout actual constructor(private val adapter:CachingA
 
   override fun <T : View> appendView(child: T, code: T.() -> Unit): T {
     throw NotImplementedError("Do not use appendView, use the adapter")
+  }
+
+  override fun clear() {
+    div.adapter?.notifyDataSetChanged()
+    super.clear()
   }
 
 }

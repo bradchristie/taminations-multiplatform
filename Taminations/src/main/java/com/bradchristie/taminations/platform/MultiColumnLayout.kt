@@ -42,6 +42,7 @@ actual class MultiColumnLayout actual constructor(private val adapter: CachingAd
   class CachingHolder(val vg:ViewGroup) : RecyclerView.ViewHolder(vg.div) {  }
 
   inner class RecyclerViewAdapter : RecyclerView.Adapter<CachingHolder> () {
+
     override fun onCreateViewHolder(parent: android.view.ViewGroup, viewType: Int): CachingHolder {
       val cell = LinearLayout(LinearLayout.Direction.VERTICAL)
       cell.div.layoutParams = RecyclerView.LayoutParams(WRAP_CONTENT, MATCH_PARENT)
@@ -49,6 +50,7 @@ actual class MultiColumnLayout actual constructor(private val adapter: CachingAd
     }
 
     private val screenHeightPixels = Taminations.context.resources.displayMetrics.heightPixels
+
     private fun itemsPerColumn() = when {
       parentView != null && (parentView?.height ?: 0) > 0 -> (parentView?.height ?: 0) / itemHeight
       //  Hack to compute available height when Android won't tell me
@@ -62,7 +64,10 @@ actual class MultiColumnLayout actual constructor(private val adapter: CachingAd
     override fun onBindViewHolder(holder: CachingHolder, position: Int) {
       holder.vg.clear()
       for (i in position*itemsPerColumn() until (position+1)*itemsPerColumn()) {
-        val view = if (i < adapter.numberOfItems()) adapter.getItem(i) else View()
+        val view = if (i < adapter.numberOfItems())
+          adapter.getItem(i)
+        else
+          SelectablePanel()
         holder.vg.appendView(view)
         view.weight = 1
       }
@@ -71,9 +76,12 @@ actual class MultiColumnLayout actual constructor(private val adapter: CachingAd
   }
 
   override fun <T : View> appendView(child: T, code: T.() -> Unit): T {
-    NotImplementedError("Do not use appendView, use the adapter")
-    return child
+    throw NotImplementedError("Do not use appendView, use the adapter")
   }
 
+  override fun clear() {
+    div.adapter?.notifyDataSetChanged()
+    super.clear()
+  }
 
 }
