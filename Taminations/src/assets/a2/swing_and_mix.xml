@@ -48,6 +48,18 @@
     </path>
   </tam>
 
+  <tam title="Swing and Mix" from="Left-Hand Wave" formation="Wave LH" parts="3;3">
+    <path>
+      <move select="Swing Left"/>
+      <move select="Run Right" scaleY="2" />
+    </path>
+    <path>
+      <move select="Swing Left"/>
+      <move select="Dodge Left" />
+      <move select="Swing Left" />
+    </path>
+  </tam>
+
   <tam title="Swing and Mix" from="Lines" formation="Normal Lines" parts="5;3">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
@@ -121,6 +133,50 @@
     </path>
   </tam>
 
+  <tam title="Swing and Mix" from="Inverted Lines, Ends Facing In"
+       formation="Inverted Lines Ends Facing In" parts="3;3">
+    <path>
+      <move select="Swing Right"/>
+      <move select="Run Left" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Swing Right"/>
+      <move select="Dodge Right"/>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Swing Left"/>
+      <move select="Dodge Left"/>
+      <move select="Flip Left"/>
+    </path>
+    <path>
+      <move select="Swing Left"/>
+      <move select="Run Right" scaleX="2" scaleY="2"/>
+    </path>
+  </tam>
+
+  <tam title="Swing and Mix" from="Inverted Lines, Ends Facing Out"
+       formation="Inverted Lines Ends Facing Out" parts="3;3">
+    <path>
+      <move select="Swing Left"/>
+      <move select="Run Right" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Swing Left"/>
+      <move select="Dodge Left"/>
+      <move select="Flip Left"/>
+    </path>
+    <path>
+      <move select="Swing Right"/>
+      <move select="Dodge Right"/>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Swing Right"/>
+      <move select="Run Left" scaleY="2"/>
+    </path>
+  </tam>
+
   <tam title="Swing and Mix"
        from="Eight Chain Thru" formation="Eight Chain Thru"
        parts="5;3">
@@ -145,6 +201,96 @@
       <move select="Swing Right"/>
       <move select="Dodge Right" />
       <move select="Swing Right" />
+    </path>
+  </tam>
+
+  <tam title="Swing and Mix" from="Right-Hand Tidal Wave"
+       formation="Tidal Wave RH BGGB" parts="3;3">
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Run Left" />
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Dodge Right" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Dodge Right" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Run Left" />
+    </path>
+  </tam>
+
+  <tam title="Swing and Mix" from="Left-Hand Tidal Wave"
+       formation="Tidal Wave LH BGGB" parts="3;3">
+    <path>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Run Right" />
+    </path>
+    <path>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Dodge Left" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Dodge Left" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Run Right" />
+    </path>
+  </tam>
+
+  <tam title="Swing and Mix" from="Tidal Inverted Line"
+       formation="Tidal Inverted Line RH" parts="3;3">
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Run Left" />
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Dodge Right" scaleY=".5"/>
+      <move select="Run Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Dodge Left" scaleY=".5"/>
+      <move select="Flip Left" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Forward" beats=".5"/>
+      <move select="Run Right" beats="2.5" offsetX="-1"/>
+    </path>
+  </tam>
+
+  <tam title="Swing and Mix" from="Tidal Inverted Line"
+       formation="Tidal Inverted Line LH" parts="3;3" display="none">
+    <path>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Forward" beats=".5"/>
+      <move select="Run Right" beats="2.5" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Dodge Left" scaleY=".5"/>
+      <move select="Flip Left" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Dodge Right" scaleY=".5"/>
+      <move select="Run Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Run Left" />
     </path>
   </tam>
 
