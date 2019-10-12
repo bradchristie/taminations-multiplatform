@@ -63,7 +63,14 @@ class DefinitionModel(private val dv: DefinitionView) {
     if (link != currentLink) {
       var langlink = link
       //  See if we have it in user's language
-      val lang = System.userLanguage
+      val lang =
+      //  If user has a preferred language other than system, use that instead
+      when (Setting("Language for Definitions").s) {
+        "English" -> "en"
+        "German" -> "de"
+        "Japanese" -> "ja"
+        else -> System.userLanguage
+      }
       if (lang != "en" &&
         TamUtils.calldata.any {
           link == it.link && it.languages.contains(lang)

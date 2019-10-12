@@ -218,6 +218,12 @@ class SettingsView : ScrollingLinearLayout() {
         "Fade" to "",
         "Fade and Zoom" to "")
 
+    radioButtons("Language for Definitions","System",
+        "System" to "Prefer system language, else English",
+        "English" to "Always show English",
+        "German" to "Prefer German, else English",
+        "Japanese" to "Prefer Japanese, else English")
+
     checkBox("Tips", "Show Tip of the Day at startup", true)
 
   }
