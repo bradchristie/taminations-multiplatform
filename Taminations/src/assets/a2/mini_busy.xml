@@ -54,7 +54,7 @@
   </tam>
 
   <tam title="_Mini-Busy But"
-       from="Right-Hand Two-Faced Lines"
+       from="Right-Hand Two-Faced Lines" display="none"
        parts="2;1.5" >
     <formation>
       <dancer gender="girl" x="-2" y="3" angle="0"/>
@@ -108,7 +108,7 @@
   </tam>
 
   <tam title="_Mini-Busy But"
-       from="Left-Hand Two-Faced Lines"
+       from="Left-Hand Two-Faced Lines" display="none"
        formation="Two-Faced Lines LH"
        parts="2;1.5" >
     <path>
