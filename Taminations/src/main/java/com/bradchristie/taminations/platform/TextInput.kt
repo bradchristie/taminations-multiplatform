@@ -64,7 +64,12 @@ actual class TextInput : View() {
       override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) { }
       override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) { }
       override fun afterTextChanged(s: Editable) {
-        onKey()
+        //  If string ends with a new line, user must have pressed soft return,
+        //  which doesn't seem to get processed by the ActionListener above
+        if (s.endsWith("\n"))
+          onReturn()
+        else
+          onKey()
       }
     })
   }
