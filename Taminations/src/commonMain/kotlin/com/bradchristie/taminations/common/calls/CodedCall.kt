@@ -181,6 +181,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         //  cannot use negative look-behind in Javascript, so..
         in ".*chainthru".r ->
           if (callnorm in ".*squarechainthru".r) null else AnythingChainThru(callnorm,callname)
+        in "minibusybut.*".r -> MiniBusyBut(callnorm,callname)
         else -> null
       }
     }

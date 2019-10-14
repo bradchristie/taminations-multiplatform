@@ -53,6 +53,34 @@
     </path>
   </tam>
 
+  <tam title="_Mini-Busy But"
+       from="Right-Hand Two-Faced Lines"
+       parts="2;1.5" >
+    <formation>
+      <dancer gender="girl" x="-2" y="3" angle="0"/>
+      <dancer gender="boy" x="-2" y="1" angle="0"/>
+      <dancer gender="boy" x="-2" y="-1" angle="180"/>
+      <dancer gender="girl" x="-2" y="-3" angle="180"/>
+    </formation>
+    <path>
+      <move select="Forward 2" hands="right" />
+    </path>
+    <path>
+      <move select="Forward 2" hands="left" />
+      <move select="Hinge Right" />
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetX="1" />
+      <move select="Forward 2" beats="1.5" />
+      <move select="Quarter Right" />
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetX="1" />
+      <move select="Forward 2" beats="1.5" />
+      <move select="Quarter Right" />
+    </path>
+  </tam>
+
   <tam title="Mini-Busy"
        from="Left-Hand Two-Faced Lines"
        formation="Two-Faced Lines LH"
@@ -76,6 +104,29 @@
       <move select="Forward 2" hands="left" />
       <move select="Stand" beats="1.5" />
       <move select="Flip Left" />
+    </path>
+  </tam>
+
+  <tam title="_Mini-Busy But"
+       from="Left-Hand Two-Faced Lines"
+       formation="Two-Faced Lines LH"
+       parts="2;1.5" >
+    <path>
+      <move select="Quarter Left" beats="2" offsetX="1" />
+      <move select="Forward 2" beats="1.5" />
+      <move select="Quarter Left" />
+    </path>
+    <path>
+      <move select="Quarter Left" beats="2" offsetX="1" />
+      <move select="Forward 2" beats="1.5" />
+      <move select="Quarter Left" />
+    </path>
+    <path>
+      <move select="Forward 2" hands="right" />
+      <move select="Hinge Left" />
+    </path>
+    <path>
+      <move select="Forward 2" hands="left" />
     </path>
   </tam>
 

@@ -344,7 +344,7 @@ class CallContext {
       }.any { tam ->
         //  Calls that are gender-specific, e.g. Star Thru,
         //  are specifically flagged in the XML
-        val sexy = tam.attr("sequencer") == "gender-specific"
+        val sexy = tam.attr("sequencer").contains("gender-specific")
         //  Make sure we don't mismatch heads and sides
         //  on calls that specifically refer to them
         val headsmatchsides = !tam.attr("title").contains("Heads?|Sides?".r)

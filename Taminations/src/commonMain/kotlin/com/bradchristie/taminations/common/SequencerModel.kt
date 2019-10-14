@@ -268,14 +268,16 @@ class SequencerModel(private val seqView: SequencerLayout,
   }
 
   private fun interpretOneCall(calltext:String):Boolean {
+    //  Remove any underscores, which are reserved for internal calls only
+    val calltxt = calltext.replace("_","")
     //  Add call as entered, in case parsing fails
     val line = callNames.count()
-    callNames.add(calltext)
+    callNames.add(calltxt)
     val avdancers = seqView.animationView.dancers
     val cctx = CallContext(avdancers)
     try {
       val prevbeats = seqView.animationView.movingBeats
-      cctx.interpretCall(calltext)
+      cctx.interpretCall(calltxt)
       cctx.performCall()
       cctx.extendPaths()
       cctx.matchStandardFormation()
@@ -285,7 +287,7 @@ class SequencerModel(private val seqView: SequencerLayout,
       val newbeats = seqView.animationView.movingBeats
       if (newbeats > prevbeats) {
         //  Call worked, add it to the list
-        callsView.addCall(calltext.capWords(),cctx.level)
+        callsView.addCall(calltxt.capWords(),cctx.level)
         callNames[line] = cctx.callname
         callBeats.add(newbeats - prevbeats)
         callsView.highlightCall(line)
