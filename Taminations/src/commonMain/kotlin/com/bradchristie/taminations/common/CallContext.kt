@@ -339,7 +339,7 @@ class CallContext {
         //throw CallError("Internal Error: ${it.link} not loaded.")
       loadedXML[it]!!.evalXPath("/tamination/tam").asSequence().filter { tam -> tam.attr("sequencer")!="no" &&
           //  Check for calls that must go around the centers
-          (!perimeter || tam.attr("sequencer")=="perimeter") &&
+          (!perimeter || tam.attr("sequencer").contains("perimeter")) &&
           TamUtils.normalizeCall(tam.attr("title")) == callnorm
       }.any { tam ->
         //  Calls that are gender-specific, e.g. Star Thru,

@@ -22,10 +22,23 @@
 -->
 <tamination title="Ends Bend">
 
+  <!--  For sequencer  -->
+  <tam title="Bend" display="none" sequencer="perimeter">
+    <formation>
+      <dancer gender="girl" x="-2" y="3" angle="180"/>
+      <dancer gender="boy" x="-2" y="-3" angle="180"/>
+    </formation>
+    <path>
+      <move select="Lead Left" beats="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="2" scaleY="2" />
+    </path>
+  </tam>
+
   <tam title="Ends Bend"
        from="Lines Facing Out"
-       formation="Lines Facing Out"
-       fractions="" >
+       formation="Lines Facing Out">
     <path numbers="1  ">
       <move select="Lead Left" beats="2" scaleY="2" />
     </path>
@@ -61,4 +74,5 @@
       <move select="Lead Right" beats="2" scaleY="2" />
     </path>
   </tam>
+
 </tamination>
