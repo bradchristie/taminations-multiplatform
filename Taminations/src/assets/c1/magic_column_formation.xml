@@ -97,6 +97,34 @@
     </path>
   </tam>
 
+  <tam title="Magic Column Transfer the Column" group="(Right-Hand Centers)"
+       formation="Magic Column RH">
+    <path>
+      <move select="Forward" beats="2" />
+      <move select="Extend Left" beats="2" scaleY="2" />
+      <move select="Swing Right" scaleX=".5" />
+      <move select="Hinge Right" scaleX=".5" />
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+      <move select="Forward" beats="2" />
+      <move select="Run Left" beats="3.5" scaleY="2" />
+      <move select="Quarter Left" beats="3" offsetY="1" />
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" />
+      <move select="Swing Right" scaleX=".5" />
+      <move select="Hinge Right" scaleX=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleY="2" />
+      <move select="Forward 2" beats="3" />
+      <move select="Lead Left" beats="3.5" scaleX="2" />
+    </path>
+  </tam>
+
   <tam title="Magic Column Walk and Dodge" group="(Right-Hand Centers)"
        formation="Magic Column RH">
     <path>
@@ -198,6 +226,24 @@
   </tam>    -->
 
 
+  <tam title="Magic Column Split Circulate" group="(Left-Hand Centers)" fractions="2"
+       formation="Magic Column LH">
+    <path>
+      <move select="Run Right" beats="4"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleY="2" />
+      <move select="Forward" beats="2" />
+    </path>
+    <path>
+      <move select="Forward" beats="2" />
+      <move select="Extend Right" beats="2" scaleY="2" />
+    </path>
+  </tam>
+
   <tam title="Magic Column Transfer the Column" group="(Left-Hand Centers)">
     <formation>
       <dancer gender="girl" y="3" x="-1" angle="90"/>
@@ -228,6 +274,24 @@
       <move select="Swing Left" scaleX=".5" />
       <move select="Hinge Left" scaleX=".5" />
       <move select="Extend Right" beats="2" scaleX="2" scaleY="1.5" />
+    </path>
+  </tam>
+
+  <tam title="Magic Column Walk and Dodge" group="(Left-Hand Centers)"
+       formation="Magic Column LH">
+    <path>
+      <move select="Dodge Right" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Left" beats="4" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleY="2" />
+      <move select="Forward" beats="2" />
+    </path>
+    <path>
+      <move select="Forward" beats="2" />
+      <move select="Extend Right" beats="2" scaleY="2" />
     </path>
   </tam>
 
