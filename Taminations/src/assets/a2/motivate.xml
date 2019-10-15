@@ -191,6 +191,36 @@
     </path>
   </tam>
 
+  <tam title="Motivate, Turn the Star 1/4" group=" " display="none"
+       from="Left-Hand Waves"
+       formation="Ocean Waves LH BGGB"
+       parts="4;4.5;3" difficulty="1">
+    <path>
+      <move select="Run Left" beats="4" scaleX="2" scaleY="3" />
+      <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2" />
+      <move select="Hinge Left" beats="3" />
+      <move select="Cast Right" />
+    </path>
+    <path>
+      <move select="Forward 4" />
+      <move select="Cast Right" />
+      <move select="Hinge Left" beats="3" />
+      <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" />
+      <move select="Cast Right" />
+      <move select="Swing Left" />
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3" />
+    </path>
+    <path>
+      <move select="Forward 4" />
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3" />
+      <move select="Swing Left" />
+      <move select="Cast Right" />
+    </path>
+  </tam>
+
   <tam title="Motivate, Turn the Star 3/4" group=" "
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
@@ -278,6 +308,36 @@
       <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2" />
       <move select="Stand" beats="3"/>
       <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2" />
+    </path>
+  </tam>
+
+  <tam title="Motivate, Do Not Turn the Star" group=" " display="none"
+       from="Left-Hand Waves"
+       formation="Ocean Waves LH BGGB"
+       parts="4;4.5;3" difficulty="2">
+    <path>
+      <move select="Run Left" beats="4" scaleX="2" scaleY="3" />
+      <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2" />
+      <move select="Stand" beats="3"/>
+      <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Forward 4" />
+      <move select="Cast Right" />
+      <move select="Stand" beats="3"/>
+      <move select="Cast Right" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" />
+      <move select="Cast Right" />
+      <move select="Swing Left" />
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3" />
+    </path>
+    <path>
+      <move select="Forward 4" />
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3" />
+      <move select="Swing Left" />
+      <move select="Cast Right" />
     </path>
   </tam>
 
