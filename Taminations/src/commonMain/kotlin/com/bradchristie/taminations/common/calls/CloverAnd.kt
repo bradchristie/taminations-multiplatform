@@ -23,11 +23,12 @@ import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.CallError
 import com.bradchristie.taminations.common.LevelObject
 import com.bradchristie.taminations.common.r
+import com.bradchristie.taminations.platform.System
 
 class Cloverleaf : Action("Cloverleaf") {
 
   override val level = LevelObject("ms")
-  override val requires = listOf("a1/clover_and_anything")
+  override val requires = listOf("a1/clover_and_anything","a1/cross_clover_and_anything")
 
   //  We get here only if standard Cloverleaf with all 8 dancers active fails.
   //  So do a 4-dancer cloverleaf

@@ -21,7 +21,7 @@ android {
     minSdkVersion 16
     targetSdkVersion 28
     versionCode 100
-    versionName '1.5.34'
+    versionName '1.5.34'  //  Also update sw.js and of course about.html
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
   buildTypes {

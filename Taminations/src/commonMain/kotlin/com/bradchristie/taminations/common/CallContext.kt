@@ -42,6 +42,7 @@ class CallContext {
     val callindexinitfiles = arrayOf(
         "b1/circle",
         "a1/clover_and_anything",
+        "a1/cross_clover_and_anything",
         "plus/explode_the_wave",
         "b1/sashay",
         "b1/ladies_chain",
