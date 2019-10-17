@@ -221,7 +221,7 @@
     </path>
   </tam>
 
-  <tam title="Four Ladies Chain 3/4"
+  <tam title="Four Ladies Chain 3/4" group=" "
        from="Static Square"
        formation="Static Square" sequencer="gender-specific"
        fractions="6.5" >
@@ -243,6 +243,30 @@
       <move select="Extend Left" beats="2.5" scaleX="3" scaleY="2" />
       <move select="Hinge Right" />
       <move select="Extend Right" beats="2.5" scaleX="3" scaleY="2" />
+      <move select="Belle Wheel" />
+    </path>
+  </tam>
+
+  <tam title="Four Ladies Chain 1/4" group=" "
+       from="Static Square"
+       formation="Static Square" sequencer="gender-specific"
+       fractions="6.5" >
+    <path>
+      <move select="Flip Left" beats="4" offsetY="-4" />
+      <move select="Beau Wheel" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Lead Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Belle Wheel" />
+    </path>
+    <path>
+      <move select="Flip Left" beats="4" offsetY="-4" />
+      <move select="Beau Wheel" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Lead Left" beats="2" scaleX="2" scaleY="2" />
       <move select="Belle Wheel" />
     </path>
   </tam>
