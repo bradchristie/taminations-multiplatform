@@ -34,7 +34,6 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "and14more" to { QuarterMore() },
         "androll" to { Roll() },
         "roll" to { Roll() },
-        "andspread" to { Spread() },
         "backaway" to { BackAway() },
         "beau" to { Beaus() },
         "belle" to { Belles() },
@@ -184,7 +183,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "minibusybut.*".r -> MiniBusyBut(callnorm,callname)
         in "(left|right)rolltoawave".r -> RollToaWave(callnorm,callname)
         in "(left|right)rollto".r -> RollTo(callnorm,callname)
-        else -> null
+        in "(and)?spread".r ->  Spread(callnorm,callname)
+               else -> null
       }
     }
   }
