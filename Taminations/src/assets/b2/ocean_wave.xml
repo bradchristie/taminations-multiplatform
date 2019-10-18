@@ -22,10 +22,19 @@
 -->
 <tamination title="Ocean Wave Family">
 
+  <tam title="Step to a Wave" from="Facing Dancers" difficulty="2">
+    <formation>
+      <dancer gender="boy" x="1.5" y="0" angle="180"/>
+    </formation>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="1.5"/>
+    </path>
+  </tam>
+
   <tam title="Step to a Wave"
        from="Facing Couples"
        formation="Facing Couples"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
     </path>
@@ -37,7 +46,7 @@
   <tam title="Step to a Wave"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Extend Left" beats="2" scaleY="2" />
     </path>
@@ -55,7 +64,7 @@
   <tam title="Step to a Wave"
        from="Facing Lines"
        formation="Normal Lines"
-       fractions="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
     </path>
@@ -70,10 +79,19 @@
     </path>
   </tam>
 
+  <tam title="Step to a Left-Hand Wave" from="Facing Dancers" difficulty="2">
+    <formation>
+      <dancer gender="boy" x="1.5" y="0" angle="180"/>
+    </formation>
+    <path>
+      <move select="Extend Right" beats="2" scaleX="1.5"/>
+    </path>
+  </tam>
+
   <tam title="Step to a Left-Hand Wave"
        from="Facing Couples"
        formation="Facing Couples"
-       fractions="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Forward 2" />
     </path>

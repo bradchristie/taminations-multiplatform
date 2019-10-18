@@ -182,6 +182,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in ".*chainthru".r ->
           if (callnorm in ".*squarechainthru".r) null else AnythingChainThru(callnorm,callname)
         in "minibusybut.*".r -> MiniBusyBut(callnorm,callname)
+        in "(left|right)rolltoawave".r -> RollToaWave(callnorm,callname)
+        in "(left|right)rollto".r -> RollTo(callnorm,callname)
         else -> null
       }
     }
