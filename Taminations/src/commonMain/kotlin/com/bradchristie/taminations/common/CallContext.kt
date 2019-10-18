@@ -682,7 +682,7 @@ class CallContext {
         val angsnap = matchResult.transform.angle/(PI/4)
         val totOffset = matchResult.offsets.fold(0.0) { s,v -> s+v.length }
         //  Favor formations closer to the top of the list
-        if (angsnap.isApproxInt() && (bestMapping==null || totOffset+0.1 < bestMapping!!.totOffset))
+        if (angsnap.isApproxInt() && (bestMapping==null || totOffset+0.2 < bestMapping!!.totOffset))
           bestMapping = BestMapping(
               f,  // only used for debugging
               mapping,
