@@ -24,7 +24,7 @@ import com.bradchristie.taminations.common.CallError
 import com.bradchristie.taminations.common.LevelObject
 import com.bradchristie.taminations.common.TamUtils
 
-class Run : Action("Run") {
+class Run(norm:String, name:String) : Action(norm,name) {
 
   override val level = LevelObject("b2")
 
@@ -35,7 +35,14 @@ class Run : Action("Run") {
       if (d.data.active) {
         //  Find dancer to run around
         //  Usually it's the partner
-        var d2 = d.data.partner ?: throw CallError("Dancer ${d.number} has nobody to Run around")
+        var d2 = d.data.partner
+        //  If a direction was given, look there
+        if (norm == "runright")
+          d2 = ctx.dancerToRight(d)
+        if (norm == "runleft")
+          d2 = ctx.dancerToLeft(d)
+        if (d2 == null)
+          throw CallError("Dancer ${d.number} has nobody to Run around")
         //  But special case of t-bones, could be the dancer on the other side,
         //  check if another dancer is running around this dancer's "partner"
         val d3 = d2.data.partner

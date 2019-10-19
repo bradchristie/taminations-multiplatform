@@ -24,7 +24,7 @@
 
   <tam title="Boys Run"
        from="Facing Couples"
-       formation="Facing Couples" sequencer="gender-specific">
+       formation="Facing Couples" sequencer="no">
     <path>
       <move select="Run Right" beats="4" />
     </path>
@@ -34,7 +34,7 @@
   </tam>
 
   <tam title="Boys Run" from="Right-Hand Box, Boys Lead"
-       formation="Box RH Boys Lead" sequencer="gender-specific">
+       formation="Box RH Boys Lead" sequencer="no">
     <path>
       <move select="Run Right" beats="4" />
     </path>
@@ -44,7 +44,7 @@
   </tam>
 
   <tam title="Boys Run" from="Right-Hand Box, Girls Lead"
-       formation="Box RH" sequencer="gender-specific">
+       formation="Box RH" sequencer="no">
     <path>
       <move select="Run Right" beats="4" />
     </path>
@@ -54,7 +54,7 @@
   </tam>
 
   <tam title="Boys Run" from="Left-Hand Box, Boys Lead"
-       formation="Box LH" sequencer="gender-specific">
+       formation="Box LH" sequencer="no">
     <path>
       <move select="Run Left" beats="4" />
     </path>
@@ -64,7 +64,7 @@
   </tam>
 
   <tam title="Boys Run" from="Left-Hand Box, Girls Lead"
-       formation="Box LH Girls Lead" sequencer="gender-specific">
+       formation="Box LH Girls Lead" sequencer="no">
     <path>
       <move select="Run Left" beats="4" />
     </path>
@@ -75,7 +75,7 @@
 
   <tam title="Boys Run"
        from="Couples Facing Out"
-       formation="Couples Facing Out" sequencer="gender-specific">
+       formation="Couples Facing Out" sequencer="no">
     <path>
       <move select="Dodge Left" beats="4" />
     </path>
@@ -85,7 +85,7 @@
   </tam>
 
   <tam title="Boys Run" from="Right-Hand Wave, Boys End"
-       formation="Wave RH" sequencer="gender-specific">
+       formation="Wave RH" sequencer="no">
     <path>
       <move select="Run Right" beats="4" />
     </path>
@@ -95,7 +95,7 @@
    </tam>
 
   <tam title="Boys Run" from="Right-Hand Wave, Boys Center"
-       formation="Wave RH Boys Center" sequencer="gender-specific">
+       formation="Wave RH Boys Center" sequencer="no">
     <path>
       <move select="Run Right" beats="4" />
     </path>
@@ -105,7 +105,7 @@
    </tam>
 
   <tam title="Boys Run" from="Left-Hand Wave, Boys End"
-       formation="Wave LH" sequencer="gender-specific">
+       formation="Wave LH" sequencer="no">
     <path>
       <move select="Run Left" beats="4" />
     </path>
@@ -115,7 +115,7 @@
    </tam>
 
   <tam title="Boys Run" from="Left-Hand Wave, Boys Center"
-       formation="Wave LH Boys Center" sequencer="gender-specific">
+       formation="Wave LH Boys Center" sequencer="no">
     <path>
       <move select="Run Left" beats="4" />
     </path>
@@ -126,7 +126,7 @@
 
   <tam title="Boys Run"
        from="Lines"
-       formation="Normal Lines" sequencer="gender-specific"
+       formation="Normal Lines" sequencer="no"
        difficulty="2" >
     <path>
       <move select="Run Right" beats="4" />
@@ -144,7 +144,7 @@
 
   <tam title="Boys Run"
        from="Right-Hand Waves"
-       formation="Ocean Waves RH GBBG"  sequencer="gender-specific"
+       formation="Ocean Waves RH GBBG"  sequencer="no"
        difficulty="1" >
     <path>
       <move select="Dodge Right" beats="4" />
@@ -162,7 +162,7 @@
 
   <tam title="Boys Run"
        from="Left-Hand Waves"
-       formation="Ocean Waves LH BGBG"  sequencer="gender-specific"
+       formation="Ocean Waves LH BGBG"  sequencer="no"
        difficulty="1" >
     <path>
       <move select="Run Left" beats="4" />
@@ -180,7 +180,7 @@
 
   <tam title="Boys Run"
        from="Right-Hand Columns"
-       formation="Column RH GBGB"  sequencer="gender-specific"
+       formation="Column RH GBGB"  sequencer="no"
        difficulty="1" >
     <path>
       <move select="Dodge Right" beats="4" />
@@ -198,7 +198,7 @@
 
   <tam title="Boys Run"
        from="Left-Hand Columns"
-       formation="Column LH GBGB"  sequencer="gender-specific"
+       formation="Column LH GBGB"  sequencer="no"
        difficulty="1" >
     <path>
       <move select="Run Left" beats="4" scaleX=".6" />
@@ -216,7 +216,7 @@
 
   <tam title="Boys Run"
        from="Completed Double Pass Thru" difficulty="2"
-       formation="Completed Double Pass Thru" sequencer="gender-specific">
+       formation="Completed Double Pass Thru" sequencer="no">
     <path>
       <move select="Dodge Left" beats="4" />
     </path>
@@ -233,7 +233,7 @@
 
   <tam title="Girls Run"
        from="Facing Couples"
-       formation="Facing Couples" sequencer="gender-specific"
+       formation="Facing Couples" sequencer="no"
        fractions="" >
     <path>
       <move select="Dodge Right" beats="4" />
@@ -244,7 +244,7 @@
   </tam>
 
   <tam title="Girls Run" from="Right-Hand Box, Boys Lead"
-       formation="Box RH Boys Lead" sequencer="gender-specific">
+       formation="Box RH Boys Lead" sequencer="no">
     <path>
       <move select="Dodge Right" beats="4" />
     </path>
@@ -254,7 +254,7 @@
   </tam>
 
   <tam title="Girls Run" from="Right-Hand Box, Girls Lead"
-       formation="Box RH" sequencer="gender-specific">
+       formation="Box RH" sequencer="no">
     <path>
       <move select="Dodge Right" beats="4" />
     </path>
@@ -265,7 +265,7 @@
 
   <tam title="Girls Run" from="Left-Hand Box, Boys Lead"
        formation="Box LH"
-       sequencer="gender-specific">
+       sequencer="no">
     <path>
       <move select="Dodge Left" beats="4" />
     </path>
@@ -276,7 +276,7 @@
 
   <tam title="Girls Run" from="Left-Hand Box, Girls Lead"
        formation="Box LH Girls Lead"
-       sequencer="gender-specific">
+       sequencer="no">
     <path>
       <move select="Dodge Left" beats="4" />
     </path>
@@ -287,7 +287,7 @@
 
   <tam title="Girls Run"
        from="Couples Facing Out"
-       formation="Couples Facing Out" sequencer="gender-specific">
+       formation="Couples Facing Out" sequencer="no">
     <path>
       <move select="Run Left" beats="4" />
     </path>
@@ -297,7 +297,7 @@
   </tam>
 
   <tam title="Girls Run" from="Right-Hand Wave, Girls End"
-       formation="Wave RH Boys Center" sequencer="gender-specific">
+       formation="Wave RH Boys Center" sequencer="no">
     <path>
       <move select="Dodge Right" beats="4" />
     </path>
@@ -307,7 +307,7 @@
    </tam>
 
   <tam title="Girls Run" from="Right-Hand Wave, Girls Center"
-       formation="Wave RH" sequencer="gender-specific">
+       formation="Wave RH" sequencer="no">
     <path>
       <move select="Dodge Right" beats="4" />
     </path>
@@ -317,7 +317,7 @@
    </tam>
 
   <tam title="Girls Run" from="Left-Hand Wave, Girls End"
-       formation="Wave LH Boys Center" sequencer="gender-specific">
+       formation="Wave LH Boys Center" sequencer="no">
     <path>
       <move select="Dodge Left" beats="4" />
     </path>
@@ -327,7 +327,7 @@
    </tam>
 
   <tam title="Girls Run" from="Left-Hand Wave, Girls Center"
-       formation="Wave LH" sequencer="gender-specific">
+       formation="Wave LH" sequencer="no">
     <path>
       <move select="Dodge Left" beats="4" />
     </path>
@@ -338,7 +338,7 @@
 
   <tam title="Girls Run"
        from="Lines"
-       formation="Normal Lines" sequencer="gender-specific"
+       formation="Normal Lines" sequencer="no"
        difficulty="2" >
     <path>
       <move select="Dodge Right" beats="4" />
@@ -356,7 +356,7 @@
 
   <tam title="Girls Run"
        from="Right-Hand Waves"
-       formation="Ocean Waves RH BGBG" sequencer="gender-specific"
+       formation="Ocean Waves RH BGBG" sequencer="no"
        difficulty="1" >
     <path>
       <move select="Dodge Right" beats="4" />
@@ -374,7 +374,7 @@
 
   <tam title="Girls Run"
        from="Left-Hand Waves"
-       formation="Ocean Waves LH BGGB" sequencer="gender-specific"
+       formation="Ocean Waves LH BGGB" sequencer="no"
        difficulty="1" >
     <path>
       <move select="Dodge Left" beats="4" />
@@ -392,7 +392,7 @@
 
   <tam title="Girls Run"
        from="Right-Hand Columns"
-       formation="Column RH GBGB" sequencer="gender-specific"
+       formation="Column RH GBGB" sequencer="no"
        difficulty="1" >
     <path>
       <move select="Run Right" beats="4" />
@@ -410,7 +410,7 @@
 
   <tam title="Girls Run"
        from="Left-Hand Columns"
-       formation="Column LH GBGB" sequencer="gender-specific"
+       formation="Column LH GBGB" sequencer="no"
        difficulty="1" >
     <path>
       <move select="Dodge Left" beats="4" />
@@ -428,7 +428,7 @@
 
   <tam title="Girls Run"
        from="Completed Double Pass Thru"
-       formation="Completed Double Pass Thru" sequencer="gender-specific"
+       formation="Completed Double Pass Thru" sequencer="no"
        difficulty="2" >
     <path>
       <move select="Run Left" beats="4" />
@@ -446,7 +446,7 @@
 
   <tam title="Girls Run"
        from="T-Bones"
-       formation="T-Bone DLDL" sequencer="gender-specific"
+       formation="T-Bone DLDL" sequencer="no"
        difficulty="3" >
     <path>
       <move select="Run Left" />
@@ -462,7 +462,7 @@
     </path>
   </tam>
 
-  <tam title="Centers Run" from="Right-Hand Two-Faced Line" formation="Two-Faced Line RH">
+  <tam title="Centers Run" from="Right-Hand Two-Faced Line" formation="Two-Faced Line RH" sequencer="no">
     <path>
       <move select="Dodge Right"/>
     </path>
@@ -471,7 +471,7 @@
     </path>
   </tam>
 
-  <tam title="Centers Run" from="Right-Hand Wave" formation="Wave RH">
+  <tam title="Centers Run" from="Right-Hand Wave" formation="Wave RH"  sequencer="no">
     <path>
       <move select="Dodge Right"/>
     </path>
@@ -480,7 +480,7 @@
     </path>
   </tam>
 
-  <tam title="Centers Run" from="Left-Hand Wave" formation="Wave LH">
+  <tam title="Centers Run" from="Left-Hand Wave" formation="Wave LH"  sequencer="no">
     <path>
       <move select="Dodge Left"/>
     </path>
@@ -492,6 +492,7 @@
   <tam title="Centers Run"
        from="Lines"
        formation="Normal Lines"
+       sequencer="no"
        difficulty="2" >
     <path>
       <move select="Dodge Right" beats="4" />
@@ -510,6 +511,7 @@
   <tam title="Centers Run"
        from="Lines Facing Out"
        formation="Lines Facing Out"
+       sequencer="no"
        difficulty="2" >
     <path>
       <move select="Dodge Left" beats="4" />
@@ -528,6 +530,7 @@
   <tam title="Centers Run"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGBG"
+       sequencer="no"
        difficulty="1" >
     <path>
       <move select="Dodge Right" beats="4" />
@@ -546,6 +549,7 @@
   <tam title="Centers Run"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGBG"
+       sequencer="no"
        difficulty="1" >
     <path>
       <move select="Dodge Left" beats="4" />
@@ -564,6 +568,7 @@
   <tam title="Centers Run"
        from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
+       sequencer="no"
        difficulty="2" >
     <path>
       <move select="Dodge Right" beats="4" />
@@ -582,6 +587,7 @@
   <tam title="Centers Run"
        from="Left-Hand Two-Faced Lines"
        formation="Two-Faced Lines LH"
+       sequencer="no"
        difficulty="2" >
     <path>
       <move select="Dodge Left" beats="4" />
@@ -597,7 +603,7 @@
     </path>
   </tam>
 
-  <tam title="Centers Run" difficulty="3"
+  <tam title="Centers Run" difficulty="3"  sequencer="no"
        from="T-Bones">
      <formation>
       <dancer gender="girl" x="-1" y="3" angle="270"/>
@@ -619,7 +625,7 @@
     </path>
   </tam>
 
-  <tam title="Ends Run" from="Right-Hand Two-Faced Line"
+  <tam title="Ends Run" from="Right-Hand Two-Faced Line" sequencer="no"
        formation="Two-Faced Line RH">
     <path>
       <move select="Run Right"/>
@@ -629,7 +635,7 @@
     </path>
   </tam>
 
-  <tam title="Ends Run" from="Right-Hand Wave" formation="Wave RH">
+  <tam title="Ends Run" from="Right-Hand Wave" formation="Wave RH" sequencer="no">
     <path>
       <move select="Run Right" />
     </path>
@@ -638,7 +644,7 @@
     </path>
   </tam>
 
-  <tam title="Ends Run" from="Left-Hand Wave" formation="Wave LH">
+  <tam title="Ends Run" from="Left-Hand Wave" formation="Wave LH" sequencer="no">
     <path>
       <move select="Run Left"/>
     </path>
@@ -650,6 +656,7 @@
   <tam title="Ends Run"
        from="Lines"
        formation="Normal Lines"
+       sequencer="no"
        difficulty="2" >
     <path>
       <move select="Run Right" beats="4" />
@@ -668,6 +675,7 @@
   <tam title="Ends Run"
        from="Lines Facing Out"
        formation="Lines Facing Out"
+       sequencer="no"
        difficulty="2" >
     <path>
       <move select="Run Left" beats="4" />
@@ -686,6 +694,7 @@
   <tam title="Ends Run"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
+       sequencer="no"
        difficulty="1" >
     <path>
       <move select="Run Right" beats="4" />
@@ -704,6 +713,7 @@
   <tam title="Ends Run"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
+       sequencer="no"
        difficulty="1" >
     <path>
       <move select="Run Left" beats="4" />
@@ -722,6 +732,7 @@
   <tam title="Ends Run"
        from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
+       sequencer="no"
        difficulty="2" >
     <path>
       <move select="Run Right" beats="4" />
@@ -740,6 +751,7 @@
   <tam title="Ends Run"
        from="Left-Hand Two-Faced Lines"
        formation="Two-Faced Lines LH"
+       sequencer="no"
        difficulty="2" >
     <path>
       <move select="Run Left" beats="4" />
