@@ -54,7 +54,7 @@ actual class Slider : View() {
       backgroundColor = Color.YELLOW
       borderRadius = 10
       borders.width = 2
-      div.onmousedown = { event -> startDrag((event as MouseEvent).screenX) }
+      div.onmousedown = { event -> startDrag(event.screenX) }
     }
   }
 

@@ -148,6 +148,10 @@ class SequencerPage : Page() {
     onMessage(Request.Action.SEQUENCER_LISTEN) {
       model.listen(callPage.listening)
     }
+    onMessage(Request.Action.RESOLUTION_ERROR) {
+      callPage.errorText.text = "Warning: Dancers are not resolved."
+      callPage.errorText.show()
+    }
   }
 
   private fun doRequest(action: Request.Action) {

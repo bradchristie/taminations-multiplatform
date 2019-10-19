@@ -19,6 +19,7 @@ package com.bradchristie.taminations.common
 
 */
 
+import com.bradchristie.taminations.Application
 import com.bradchristie.taminations.common.calls.Action
 import com.bradchristie.taminations.common.calls.Call
 import com.bradchristie.taminations.common.calls.CodedCall
@@ -360,7 +361,8 @@ class CallContext {
                   //  "Dixie Grand",
                   "Right and Left Grand")) {
             if (!checkResolution(ctx2, mm))
-              throw ResolutionError()
+              Application.sendMessage(Request.Action.RESOLUTION_ERROR)
+              //throw ResolutionError()
           }
           // add XMLCall object to the call stack
           ctx0.callstack.add(xmlCall)

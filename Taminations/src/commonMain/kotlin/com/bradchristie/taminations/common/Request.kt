@@ -62,7 +62,8 @@ class Request(val action:Action, vararg pairs:Pair<String,String>) {
     SLIDER_CHANGE,
     TRANSITION_COMPLETE,
     TITLE,
-    ABBREVIATIONS_CHANGED
+    ABBREVIATIONS_CHANGED,
+    RESOLUTION_ERROR
 
   }
   private val params:HashMap<String,String> = hashMapOf()
