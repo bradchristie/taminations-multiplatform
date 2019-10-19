@@ -28,7 +28,9 @@ class OneAndaHalf(norm:String,call:String) : CodedCall(norm,call) {
     if (ctx.callstack.count() < 2)
       throw CallError("One and a half of what?")
     //  At this point the call has already been done once
-    //  So just do half of it again
+    //  Be sure everyone waits until the call is complete
+    ctx.extendPaths()
+    //  Now do half of it again
     ctx.applyCalls("half " + ctx.callstack.dropLast(1).joinToString(" ") { it.name })
   }
 
