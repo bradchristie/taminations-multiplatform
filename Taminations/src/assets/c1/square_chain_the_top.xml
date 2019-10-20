@@ -50,6 +50,27 @@
   </tam>
 
   <tam title="Square Chain the Top"
+       from="Right-Hand Wave"
+       formation="Wave RH"
+       parts="3;3;4.5" >
+    <path>
+      <move select="Lead Right" beats="3" scaleY="3" />
+      <move select="Swing Left" />
+      <move select="Lead Left" beats="4.5" scaleX="2.5" scaleY="3" />
+      <move select="Swing Left" scaleX=".75" scaleY=".75" />
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Lead Left" beats="3" scaleX="3"/>
+      <move select="Swing Left" />
+      <move select="Swing Right" />
+      <move select="Hinge Right"  />
+      <move select="Swing Left"  scaleX=".75" scaleY=".75" />
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="1.5" />
+    </path>
+  </tam>
+
+  <tam title="Square Chain the Top"
        from="Normal Lines"
        formation="Normal Lines"
        parts="5;3;4.5" >
@@ -89,6 +110,118 @@
     </path>
   </tam>
 
+  <tam title="Square Chain the Top"
+       from="Eight Chain Thru"
+       formation="Eight Chain Thru"
+       parts="3;3;4.5" >
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Lead Right" beats="2" scaleX=".5" scaleY="1.5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Left" beats="4.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Lead Left" beats="2" scaleX="1.5" scaleY=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Right" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Lead Right" beats="2" scaleX=".5" scaleY="1.5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Left" beats="4.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Lead Left" beats="2" scaleX="1.5" scaleY=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Right" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Square Chain the Top"
+       from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB"
+       parts="2;3;4.5" >
+    <path>
+      <move select="Lead Right" beats="2" scaleX=".5" scaleY="3" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Left" beats="4.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="2" scaleX="1.5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Right" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="2" scaleX="1.5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Right" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="2" scaleX=".5" scaleY="3" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Left" beats="4.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Square Chain the Top"
+       from="Tidal Wave"
+       formation="Tidal Wave RH BGGB"
+       parts="3;3;4.5" >
+    <path>
+      <move select="Lead Right" beats="3" scaleY="1.5" />
+      <move select="Swing Left" />
+      <move select="Lead Left" beats="4.5" scaleX="1.5" scaleY="3" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="3" scaleX="3" scaleY=".5" />
+      <move select="Swing Left" />
+      <move select="Swing Right" />
+      <move select="Hinge Right" scaleX=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="3" scaleX="3" scaleY=".5" />
+      <move select="Swing Left" />
+      <move select="Swing Right" />
+      <move select="Hinge Right" scaleX=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="3" scaleY="1.5" />
+      <move select="Swing Left" />
+      <move select="Lead Left" beats="4.5" scaleX="1.5" scaleY="3" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+  </tam>
+
 
   <tam title="Left Square Chain the Top"
        from="Facing Couples"
@@ -110,6 +243,179 @@
       <move select="Lead Right" beats="4.5" scaleX="2.5" scaleY="3" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
       <move select="Forward 2"/>
+    </path>
+  </tam>
+
+  <tam title="Left Square Chain the Top"
+       from="Left-Hand Wave"
+       formation="Wave LH"
+       parts="3;3;4.5" >
+    <path>
+      <move select="Lead Left" beats="3" scaleY="3" />
+      <move select="Swing Right"/>
+      <move select="Lead Right" beats="4.5" scaleX="2.5" scaleY="3" />
+      <move select="Swing Right" scaleX=".75" scaleY=".75" />
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Lead Right" beats="3" scaleX="3"/>
+      <move select="Swing Right"/>
+      <move select="Swing Left"/>
+      <move select="Hinge Left"/>
+      <move select="Swing Right"  scaleX=".75" scaleY=".75" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY="1.5" />
+    </path>
+  </tam>
+
+  <tam title="Left Square Chain the Top"
+       from="Normal Lines"
+       formation="Normal Lines"
+       parts="5;3;4.5" >
+    <path>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Lead Right" beats="3" scaleX="3" scaleY=".5" />
+      <move select="Swing Right" />
+      <move select="Swing Left" />
+      <move select="Hinge Left" scaleX=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Lead Left" beats="3" scaleY="1.5" />
+      <move select="Swing Right" />
+      <move select="Lead Right" beats="4.5" scaleX="1.5" scaleY="3" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Lead Right" beats="3" scaleX="3" scaleY=".5" />
+      <move select="Swing Right" />
+      <move select="Swing Left" />
+      <move select="Hinge Left" scaleX=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Lead Left" beats="3" scaleY="1.5" />
+      <move select="Swing Right" />
+      <move select="Lead Right" beats="4.5" scaleX="1.5" scaleY="3" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Left Square Chain the Top"
+       from="Eight Chain Thru"
+       formation="Eight Chain Thru"
+       parts="3;3;4.5" >
+    <path>
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Lead Right" beats="2" scaleX="1.5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Left" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Lead Left" beats="2" scaleX=".5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Right" beats="4.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Lead Right" beats="2" scaleX="1.5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Left" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Lead Left" beats="2" scaleX=".5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Right" beats="4.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Left Square Chain the Top"
+       from="Left-Hand Waves"
+       formation="Ocean Waves LH BGGB"
+       parts="2;3;4.5" >
+    <path>
+      <move select="Lead Left" beats="2" scaleX=".5" scaleY="3" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Right" beats="4.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="2" scaleX="1.5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Left" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="2" scaleX="1.5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Left" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="2" scaleX=".5" scaleY="3" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Right" beats="4.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Left Square Chain the Top"
+       from="Left-Hand Tidal Wave"
+       formation="Tidal Wave LH BGGB"
+       parts="3;3;4.5" >
+    <path>
+      <move select="Lead Left" beats="3" scaleY="1.5" />
+      <move select="Swing Right" />
+      <move select="Lead Right" beats="4.5" scaleX="1.5" scaleY="3" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="3" scaleX="3" scaleY=".5" />
+      <move select="Swing Right" />
+      <move select="Swing Left" />
+      <move select="Hinge Left" scaleX=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="3" scaleX="3" scaleY=".5" />
+      <move select="Swing Right" />
+      <move select="Swing Left" />
+      <move select="Hinge Left" scaleX=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="3" scaleY="1.5" />
+      <move select="Swing Right" />
+      <move select="Lead Right" beats="4.5" scaleX="1.5" scaleY="3" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
     </path>
   </tam>
 
