@@ -23,7 +23,6 @@ import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.CallError
 import com.bradchristie.taminations.common.LevelObject
 import com.bradchristie.taminations.common.r
-import com.bradchristie.taminations.platform.System
 
 class Cloverleaf : Action("Cloverleaf") {
 
