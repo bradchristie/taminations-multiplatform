@@ -108,7 +108,7 @@ class AnimationModel(private val layout: AnimationLayout,
   init {
     //  Fetch the XML animation and send it to the animation view
     System.getXMLAsset(link) { tamdoc ->
-      val alltams = tamdoc.tamList().filter { tam -> tam.attr("display") != "none" }
+      val alltams = tamdoc.tamList().filter { tam -> !tam.attr("display").startsWith("n") }
       val tam = when {
         anim >= 0 -> alltams[anim]
         name.isNotBlank() ->

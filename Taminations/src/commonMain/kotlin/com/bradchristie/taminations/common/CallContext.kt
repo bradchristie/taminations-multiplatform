@@ -335,6 +335,9 @@ class CallContext {
     val callfiles = callfiles1 + callfiles2
     //  Found xml file with call, now look through each animation
     val found = callfiles.isNotEmpty()
+    var bestOffset = Double.MAX_VALUE
+    var xmlCall:XMLCall? = null
+    var title = ""
     val matches = callfiles.any {
       if (loadedXML[it] == null)
         return false
@@ -343,7 +346,7 @@ class CallContext {
           //  Check for calls that must go around the centers
           (!perimeter || tam.attr("sequencer").contains("perimeter")) &&
           TamUtils.normalizeCall(tam.attr("title")) == callnorm
-      }.any { tam ->
+      }.forEach { tam ->
         //  Calls that are gender-specific, e.g. Star Thru,
         //  are specifically flagged in the XML
         val sexy = tam.attr("sequencer").contains("gender-specific")
@@ -355,27 +358,35 @@ class CallContext {
         val mm = ctx1.matchFormations(ctx2, sexy=sexy, fuzzy=fuzzy, handholds = false,
             headsmatchsides=headsmatchsides)
         if (mm != null) {
-          val xmlCall = XMLCall(tam,mm,ctx2)
-          if (xmlCall.name in listOf(
-                  "Allemande Left",
-                  //  "Dixie Grand",
-                  "Right and Left Grand")) {
-            if (!checkResolution(ctx2, mm))
-              Application.sendMessage(Request.Action.RESOLUTION_ERROR)
-              //throw ResolutionError()
+          val matchResult = ctx1.computeFormationOffsets(ctx2, mm)
+          val totOffset = matchResult.offsets.fold(0.0) { s, v -> s + v.length }
+          if (totOffset < bestOffset) {
+            xmlCall = XMLCall(tam, mm, ctx2)
+            bestOffset = totOffset
+            title = tam.attr("title")
           }
-          // add XMLCall object to the call stack
-          ctx0.callstack.add(xmlCall)
-          ctx0.callname = callname + tam.attr("title").replace("\\(.*\\)".r,"") + " "
-          // set level to max of this and any previous
-          val thislevel = LevelObject.find(it)
-          if (thislevel > ctx0.level)
-            ctx0.level = thislevel
-          true
         }
-        else
-          false
       }
+      if (xmlCall != null) {
+        if (xmlCall!!.name in listOf(
+                "Allemande Left",
+                //  "Dixie Grand",
+                "Right and Left Grand"
+            )
+        ) {
+          if (!checkResolution(xmlCall!!.ctx2,xmlCall!!.xmlmap))
+            Application.sendMessage(Request.Action.RESOLUTION_ERROR)
+        }
+        // add XMLCall object to the call stack
+        ctx0.callstack.add(xmlCall!!)
+        ctx0.callname = callname + title.replace("\\(.*\\)".r, "") + " "
+        // set level to max of this and any previous
+        val thislevel = LevelObject.find(it)
+        if (thislevel > ctx0.level)
+          ctx0.level = thislevel
+        true
+      }
+      else false
     }
     if (found && !matches)
       //  Found the call but formations did not match
@@ -470,7 +481,7 @@ class CallContext {
   //  Most often ctx2 is a defined formation.
   //  Returns a mapping from ctx1 to ctx2
   //  or null if no mapping.
-  fun matchFormations(ctx2: CallContext,
+  private fun matchFormations(ctx2: CallContext,
                               sexy:Boolean=false,  // don't match girls with boys
                               fuzzy:Boolean=false,  // dancers can be somewhat offset
                               rotate:Boolean=false,  // opposite facing dancers match
