@@ -24,7 +24,7 @@ import com.bradchristie.taminations.common.CallError
 import com.bradchristie.taminations.common.Dancer
 import com.bradchristie.taminations.common.LevelObject
 
-class Roll : QuarterTurns("roll") {
+class Roll(norm:String,name:String) : QuarterTurns(norm,name) {
 
   override val level = LevelObject("plus")
 
