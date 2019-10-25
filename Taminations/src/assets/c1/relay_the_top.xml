@@ -81,4 +81,254 @@
       <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2" />
     </path>
   </tam>
+
+  <tam title="Relay the Top"
+       from="Eight Chain Thru"
+       formation="Eight Chain Thru"
+       parts="4.5;4.5;3" >
+    <path>
+      <move select="Extend Left" beats="1.5" scaleY="2"/>
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+      <move select="Hinge Right" beats="3" />
+      <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Forward" beats="1.5"/>
+      <move select="Swing Right" />
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3" />
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="1.5" scaleY="2"/>
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+      <move select="Swing Right" />
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3" />
+    </path>
+    <path>
+      <move select="Forward" beats="1.5"/>
+      <move select="Swing Right" />
+      <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2" />
+      <move select="Hinge Right" beats="3" />
+      <move select="Cast Left" />
+    </path>
+  </tam>
+
+  <tam title="Left Relay the Top"
+       group=" "
+       formation="Eight Chain Thru"
+       parts="4.5;4.5;3" >
+    <path>
+      <move select="Forward" beats="1.5"/>
+      <move select="Swing Left" />
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3" />
+      <move select="Swing Left" />
+      <move select="Cast Right" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="1.5" scaleY="2"/>
+      <move select="Swing Left" />
+      <move select="Cast Right" />
+      <move select="Hinge Left" beats="3" />
+      <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Forward" beats="1.5"/>
+      <move select="Swing Left" />
+      <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2" />
+      <move select="Hinge Left" beats="3" />
+      <move select="Cast Right" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="1.5" scaleY="2"/>
+      <move select="Swing Left" />
+      <move select="Cast Right" />
+      <move select="Swing Left" />
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3" />
+    </path>
+  </tam>
+
+
+  <tam title="Relay the Top, Turn the Star 1/2"
+       group=" "
+       formation="Ocean Waves RH BGGB"
+       parts="3;4.5;3" >
+    <path>
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+      <move select="Swing Right"/>
+      <move select="Cast Left" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2" />
+      <move select="Swing Right"/>
+      <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3" />
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+      <move select="Swing Right" />
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3" />
+    </path>
+  </tam>
+
+  <tam title="Relay the Top, Turn the Star 3/4"
+       group=" "
+       formation="Ocean Waves RH BGGB"
+       parts="3;4.5;4.5" >
+    <path>
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+      <move select="Cast Right"/>
+      <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2" />
+      <move select="Cast Right"/>
+      <move select="Cast Left" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3" />
+      <move select="Swing Right" beats="4.5"/>
+      <move select="Cast Left" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+      <move select="Swing Right" beats="4.5"/>
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3" />
+    </path>
+  </tam>
+
+  <tam title="Relay the Top, Do Not Turn the Star"
+       group=" "
+       formation="Ocean Waves RH BGGB"
+       parts="3;4.5;3" >
+    <path>
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+      <move select="Stand" beats="3"/>
+      <move select="Cast Left" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2" />
+      <move select="Stand" beats="3"/>
+      <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3" />
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+      <move select="Swing Right" />
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3" />
+    </path>
+  </tam>
+
+  <tam title="Relay the Top, Turn the Star 1/2"
+       group=" " display="none"
+       formation="Ocean Waves LH BGGB"
+       parts="3;4.5;3" >
+    <path>
+      <move select="Swing Left" />
+      <move select="Cast Right" />
+      <move select="Swing Left" />
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3" />
+    </path>
+    <path>
+      <move select="Swing Left" />
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3" />
+      <move select="Swing Left" />
+      <move select="Cast Right" />
+    </path>
+    <path>
+      <move select="Swing Left" />
+      <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2" />
+      <move select="Swing Left"/>
+      <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Swing Left" />
+      <move select="Cast Right" />
+      <move select="Swing Left"/>
+      <move select="Cast Right" />
+    </path>
+  </tam>
+
+  <tam title="Relay the Top, Turn the Star 3/4"
+       group=" " display="none"
+       formation="Ocean Waves LH BGGB"
+       parts="3;4.5;4.5" >
+    <path>
+      <move select="Swing Left" />
+      <move select="Cast Right" />
+      <move select="Swing Left" beats="4.5"/>
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3" />
+    </path>
+    <path>
+      <move select="Swing Left" />
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3" />
+      <move select="Swing Left" beats="4.5"/>
+      <move select="Cast Right" />
+    </path>
+    <path>
+      <move select="Swing Left" />
+      <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2" />
+      <move select="Cast Left"/>
+      <move select="Cast Right" />
+    </path>
+    <path>
+      <move select="Swing Left" />
+      <move select="Cast Right" />
+      <move select="Cast Left"/>
+      <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2" />
+    </path>
+  </tam>
+
+  <tam title="Relay the Top, Do Not Turn the Star"
+       group=" " display="none"
+       formation="Ocean Waves LH BGGB"
+       parts="3;4.5;3" >
+    <path>
+      <move select="Swing Left" />
+      <move select="Cast Right" />
+      <move select="Swing Left" />
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3" />
+    </path>
+    <path>
+      <move select="Swing Left" />
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3" />
+      <move select="Swing Left" />
+      <move select="Cast Right" />
+    </path>
+    <path>
+      <move select="Swing Left" />
+      <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2" />
+      <move select="Stand" beats="3"/>
+      <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Swing Left" />
+      <move select="Cast Right" />
+      <move select="Stand" beats="3"/>
+      <move select="Cast Right" />
+    </path>
+  </tam>
+
 </tamination>
