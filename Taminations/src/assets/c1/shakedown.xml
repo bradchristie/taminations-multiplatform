@@ -73,6 +73,17 @@
     </path>
   </tam>
 
+  <tam title="Left Shakedown" from="Couples Facing Out" formation="Couples Facing Out Compact">
+    <path>
+      <move select="Flip Left" scaleY="1.5" />
+      <move select="Quarter Left" offsetX=".5" />
+    </path>
+    <path>
+      <move select="U-Turn Left" offsetX="-2" offsetY="1" />
+      <move select="Quarter Left" offsetX=".5" />
+    </path>
+  </tam>
+
   <tam title="Left Shakedown"
        from="Trade By"
        formation="Trade By">
