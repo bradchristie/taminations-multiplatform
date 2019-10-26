@@ -500,6 +500,17 @@ class AnimationView : Canvas() {
 
   }
 
+  //  Check that there isn't another dancer in the middle of
+  //  a computed handhold.  Can happen when dancers are in
+  //  tight formations like tidal waves.
+  private fun dancerInHandhold(hh:Handhold): Boolean {
+    val hhloc = (hh.dancer1.location + hh.dancer2.location).scale(0.5,0.5)
+    return dancers.any { d ->
+      d != hh.dancer1 && d != hh.dancer2 &&
+          (d.location - hhloc).length < 0.5
+    }
+  }
+
   /**
    * Updates dancers positions based on the passage of realtime.
    * Called at the start of onDraw().
@@ -547,7 +558,7 @@ class AnimationView : Canvas() {
     val hhsorted = hhlist.sortedBy { it.score }
     //  Apply the handholds in order from best to worst
     //  so that if a dancer has a choice it gets the best handhold
-    hhsorted.forEach { hh ->
+    hhsorted.filter { !dancerInHandhold(it) }.forEach { hh ->
       //  Check that the hands aren't already used
       val incenter = geometry == Geometry.HEXAGON && hh.inCenter
       if (incenter ||
