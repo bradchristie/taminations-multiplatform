@@ -67,6 +67,7 @@ class CallContext {
         "c1/box_split_recycle",
         "c1/magic_column_formation",
         "c1/phantom_formation",
+        "plus/single_circle_to_a_wave",
         "c1/tandem_concept",
         "c1/track_n",
         "c1/triple_box_concept",
