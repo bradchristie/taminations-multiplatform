@@ -142,6 +142,178 @@
     </path>
   </tam>
 
+  <tam title="Any Hand Remake"
+       from="Inverted Lines, Ends Facing In"
+       formation="Inverted Lines Ends Facing In"
+       parts="1.5;3" >
+    <path>
+      <move select="Hinge Right" />
+      <move select="Flip Left" />
+      <move select="Hinge Right" scaleX="2" scaleY="2" offsetX=".33" offsetY=".33" />
+      <move select="Hinge Right" scaleX="2" scaleY="2" offsetX="-.33" offsetY=".33" />
+      <move select="Hinge Right" scaleX="2" scaleY="2" offsetX="-.33" offsetY="-.33" />
+    </path>
+    <path>
+      <move select="Hinge Right" />
+      <move select="Stand" beats="3" />
+      <move select="Quarter Left" hands="right" offsetX=".33" offsetY="-.33" />
+      <move select="Quarter Left" hands="right" offsetX="-.33" offsetY="-.33" />
+      <move select="Quarter Left" hands="right" offsetX="-.33" offsetY=".33" />
+    </path>
+    <path>
+      <move select="Hinge Left" />
+      <move select="Stand" beats="3" />
+      <move select="Quarter Right" hands="left" offsetX=".33" offsetY=".33" />
+      <move select="Quarter Right" hands="left" offsetX="-.33" offsetY=".33" />
+      <move select="Quarter Right" hands="left" offsetX="-.33" offsetY="-.33" />
+    </path>
+    <path>
+      <move select="Hinge Left" />
+      <move select="Run Right" />
+      <move select="Hinge Left" scaleX="2" scaleY="2" offsetX=".33" offsetY="-.33" />
+      <move select="Hinge Left" scaleX="2" scaleY="2" offsetX="-.33" offsetY="-.33" />
+      <move select="Hinge Left" scaleX="2" scaleY="2" offsetX="-.33" offsetY=".33" />
+    </path>
+  </tam>
+
+  <tam title="Any Hand Remake"
+       from="Inverted Lines, Ends Facing Out"
+       formation="Inverted Lines Ends Facing Out"
+       parts="1.5;3" >
+    <path>
+      <move select="Hinge Left" />
+      <move select="Stand" beats="3" />
+      <move select="Quarter Right" hands="left" offsetX=".33" offsetY=".33" />
+      <move select="Quarter Right" hands="left" offsetX="-.33" offsetY=".33" />
+      <move select="Quarter Right" hands="left" offsetX="-.33" offsetY="-.33" />
+    </path>
+    <path>
+      <move select="Hinge Left" />
+      <move select="Run Right" />
+      <move select="Hinge Left" scaleY="2" offsetX=".33" offsetY="-.33" />
+      <move select="Hinge Left"  offsetX="-.33" offsetY="-.33" />
+      <move select="Hinge Left" scaleX="2" offsetX="-.33" offsetY=".33" />
+    </path>
+    <path>
+      <move select="Hinge Right" />
+      <move select="Flip Left" />
+      <move select="Hinge Right" scaleY="2" offsetX=".33" offsetY=".33" />
+      <move select="Hinge Right" offsetX="-.33" offsetY=".33" />
+      <move select="Hinge Right" scaleX="2" offsetX="-.33" offsetY="-.33" />
+    </path>
+    <path>
+      <move select="Hinge Right" />
+      <move select="Stand" beats="3" />
+      <move select="Quarter Left" hands="right" offsetX=".33" offsetY="-.33" />
+      <move select="Quarter Left" hands="right" offsetX="-.33" offsetY="-.33" />
+      <move select="Quarter Left" hands="right" offsetX="-.33" offsetY=".33" />
+    </path>
+  </tam>
+
+  <tam title="Any Hand Remake" from="Magic Columns, Right-Hand Centers"
+       formation="Magic Column RH" parts="1.5;3">
+    <path>
+      <move select="Hinge Left" scaleX=".5"/>
+      <move select="Run Right" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Left" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Hinge Right" scaleX=".5"/>
+      <move select="Flip Left" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Hinge Right" scaleX=".5"/>
+      <move select="Stand" hands="left" beats="3"/>
+      <move select="BackHinge Right" scaleX=".5" scaleY=".5"/>
+      <move select="BackHinge Right" scaleX=".5" scaleY=".5"/>
+      <move select="BackHinge Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Hinge Left" scaleX=".5"/>
+      <move select="Stand Alone" beats="3"/>
+      <move select="BackHinge Left" scaleX=".5" scaleY=".5"/>
+      <move select="BackHinge Left" scaleX=".5" scaleY=".5"/>
+      <move select="BackHinge Left" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Any Hand Remake" from="Magic Columns, Left-Hand Centers"
+       formation="Magic Column LH" parts="1.5;3">
+    <path>
+      <move select="Hinge Right" scaleX=".5"/>
+      <move select="Stand Alone" beats="3"/>
+      <move select="BackHinge Right" scaleX=".5" scaleY=".5"/>
+      <move select="BackHinge Right" scaleX=".5" scaleY=".5"/>
+      <move select="BackHinge Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Hinge Left" scaleX=".5"/>
+      <move select="Stand" hands="right" beats="3"/>
+      <move select="BackHinge Left" scaleX=".5" scaleY=".5"/>
+      <move select="BackHinge Left" scaleX=".5" scaleY=".5"/>
+      <move select="BackHinge Left" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Hinge Left" scaleX=".5"/>
+      <move select="Run Right" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Left" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Hinge Right" scaleX=".5"/>
+      <move select="Flip Left" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Right" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Any Hand Remake" from="Right-Hand Diamonds"
+       formation="Diamonds RH Girl Points" parts="1.5;3">
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Flip Left"/>
+    </path>
+    <path>
+      <move select="Stand" beats="1.5"/>
+      <move select="Run Right"/>
+      <move select="Cast Left"/>
+    </path>
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Flip Left"/>
+    </path>
+    <path>
+      <move select="Stand" beats="1.5"/>
+      <move select="Run Right"/>
+      <move select="Cast Left"/>
+    </path>
+  </tam>
+
+  <tam title="Any Hand Remake" from="Left-Hand Diamonds"
+       formation="Diamonds LH Girl Points" parts="1.5;3">
+    <path>
+      <move select="Hinge Left"/>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Stand" beats="1.5"/>
+      <move select="Flip Left"/>
+      <move select="Cast Right"/>
+    </path>
+    <path>
+      <move select="Hinge Left"/>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Stand" beats="1.5"/>
+      <move select="Flip Left"/>
+      <move select="Cast Right"/>
+    </path>
+  </tam>
+
   <tam title="Remake the Alamo" group=" "
        from="Alamo Wave"
        formation="Alamo Wave"
@@ -175,40 +347,6 @@
       <move select="Stand" beats="3" />
       <move select="Cast Right" />
       <move select="Sxtnth Left" />
-    </path>
-  </tam>
-
-  <tam title="Any Hand Remake" group=" "
-       from="Inverted Lines"
-       formation="Inverted Lines Ends Facing In"
-       parts="1.5;3" >
-    <path>
-      <move select="Hinge Right" />
-      <move select="Flip Left" />
-      <move select="Hinge Right" scaleX="2" scaleY="2" offsetX=".33" offsetY=".33" />
-      <move select="Hinge Right" scaleX="2" scaleY="2" offsetX="-.33" offsetY=".33" />
-      <move select="Hinge Right" scaleX="2" scaleY="2" offsetX="-.33" offsetY="-.33" />
-    </path>
-    <path>
-      <move select="Hinge Right" />
-      <move select="Stand" beats="3" />
-      <move select="Quarter Left" hands="right" offsetX=".33" offsetY="-.33" />
-      <move select="Quarter Left" hands="right" offsetX="-.33" offsetY="-.33" />
-      <move select="Quarter Left" hands="right" offsetX="-.33" offsetY=".33" />
-    </path>
-    <path>
-      <move select="Hinge Left" />
-      <move select="Stand" beats="3" />
-      <move select="Quarter Right" hands="left" offsetX=".33" offsetY=".33" />
-      <move select="Quarter Right" hands="left" offsetX="-.33" offsetY=".33" />
-      <move select="Quarter Right" hands="left" offsetX="-.33" offsetY="-.33" />
-    </path>
-    <path>
-      <move select="Hinge Left" />
-      <move select="Run Right" />
-      <move select="Hinge Left" scaleX="2" scaleY="2" offsetX=".33" offsetY="-.33" />
-      <move select="Hinge Left" scaleX="2" scaleY="2" offsetX="-.33" offsetY="-.33" />
-      <move select="Hinge Left" scaleX="2" scaleY="2" offsetX="-.33" offsetY=".33" />
     </path>
   </tam>
 
