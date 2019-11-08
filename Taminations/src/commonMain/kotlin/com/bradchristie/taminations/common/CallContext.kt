@@ -44,6 +44,8 @@ class CallContext {
         "b1/circle",
         "a1/clover_and_anything",
         "a1/cross_clover_and_anything",
+        "c1/cross_your_neighbor",
+        "c2/criss_cross_your_neighbor",
         "plus/explode_the_wave",
         "b1/sashay",
         "b1/ladies_chain",
