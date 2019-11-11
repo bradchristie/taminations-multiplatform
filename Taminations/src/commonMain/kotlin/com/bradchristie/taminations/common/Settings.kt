@@ -224,8 +224,6 @@ class SettingsView : ScrollingLinearLayout() {
         "German" to "Prefer German, else English",
         "Japanese" to "Prefer Japanese, else English")
 
-    checkBox("Tips", "Show Tip of the Day at startup", true)
-
   }
 
 

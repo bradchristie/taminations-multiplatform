@@ -78,19 +78,6 @@ actual object Application : Page() {
         SequencerPage())
   }
 
-  private val tips = listOf(
-      "You can move an animation manually by dragging the slider with your finger.",
-      "Tap a dancer to display its path.",
-
-      "Looking for a call but don\'t know the level? " +
-      "Go to the Index and enter a search.",
-
-      "Tap the level at the upper right to jump back to the list of calls.",
-
-      "The square dancers are boys, and the round dancers girls.  But most square "+
-      "dance calls are not gender-specific.  So study all dancers in a call "+
-      "to be proficient in all-position dancing.")
-
   init {
     //checkForMobile()
     buildDisplay()
@@ -103,19 +90,6 @@ actual object Application : Page() {
         buildDisplay()
         winh = window.innerHeight
         winw = window.innerWidth
-      }
-    }
-    if (Setting("Tips").b != false && Request(window.location.hash)["embed"].isBlank() && !TamUtils.testing) {
-      Alert("Tip of the Day").apply {
-        val day = System.currentTime() / 86400000  // 8640000 milliseconds in a day
-        val tip = tips[day.i % tips.size]
-        textView(tip)
-        val showbox = appendView(Checkbox("Show Tip of the Day at startup"))
-        showbox.isChecked = true
-        okAction {
-          if (!showbox.isChecked)
-            Setting("Tips").b = false
-        }
       }
     }
   }
