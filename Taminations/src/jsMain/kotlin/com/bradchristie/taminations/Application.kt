@@ -27,7 +27,7 @@ import org.w3c.dom.HTMLBodyElement
 import kotlin.browser.document
 import kotlin.browser.window
 
-fun main(args: Array<String>) {
+fun main() {
 
   TamUtils.waitForInit {
     if (document.readyState == DocumentReadyState.COMPLETE)
@@ -94,6 +94,7 @@ actual object Application : Page() {
     }
   }
 
+  /*  not currently used
   private fun checkForMobile() {
     val request = Request(window.location.hash)
     if (request["link"].isNotBlank() && request["embed"].isBlank()) {
@@ -117,6 +118,7 @@ actual object Application : Page() {
       }
     }
   }
+   */
 
   private fun buildDisplay() {
     val request = Request(window.location.hash)

@@ -837,6 +837,10 @@
     </path>
   </tam>
 
+  <tamxref title="All 4 Couples (A-1) Cross Trail Thru" group="All 4 Couples (A-1)"
+           xref-link="a1/cross_trail_thru"
+           xref-title="All 4 Couples Cross Trail Thru"/>
+
   <tamxref title="All 4 Couples (A-1) Double Star Thru" group="All 4 Couples (A-1)"
            xref-link="a1/double_star_thru"
            xref-title="All 4 Couples Double Star Thru"/>
