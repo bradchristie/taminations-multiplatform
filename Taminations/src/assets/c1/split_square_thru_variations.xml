@@ -133,6 +133,43 @@
     </path>
   </tam>
 
+  <tam title="Split Square Chain the Top"
+       from="Right Side of Line Facing"
+       formation="T-Bone UURL">
+    <path>
+      <move select="Stand" />
+      <move select="Extend Right" beats="1.5" scaleY=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Lead Left" beats="4.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Stand" />
+      <move select="Extend Right" beats="1.5" scaleY=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Cast Right" scaleX=".5" scaleY=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" scaleX="1.5" scaleY=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Cast Right" scaleX=".5" scaleY=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Lead Left" beats="4.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+  </tam>
+
   <tam title="Split Dixie Style to a Wave"
        from="Ends Facing"
        formation="T-Bone ULRU" parts="2.5">
@@ -211,6 +248,33 @@
       <move select="Stand" beats="2.5"/>
       <move select="Extend Right" scaleX=".75" scaleY=".5"/>
       <move select="Hinge Left" scaleX="1.25" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Split Dixie Style to a Wave"
+       from="Right Side of Line Facing"
+       formation="T-Bone UURL" parts="2.5">
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Extend Right" scaleX=".75" scaleY=".5"/>
+      <move select="Hinge Left" scaleX="1.25" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Extend Right" scaleX=".75" scaleY=".5"/>
+      <move select="Hinge Left" scaleX="1.25" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Quarter Left" offsetX="1"/>
+      <move select="Extend Right" scaleX=".75" scaleY=".5"/>
+      <move select="Hinge Left" scaleX=".75" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right"/>
+      <move select="Extend Right" scaleX=".75" scaleY=".5"/>
+      <move select="Hinge Left" scaleX=".75" scaleY=".5"/>
     </path>
   </tam>
 
