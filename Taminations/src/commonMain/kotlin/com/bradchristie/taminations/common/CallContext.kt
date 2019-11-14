@@ -659,6 +659,9 @@ class CallContext {
       "T-Bone RUUL",
       "T-Bone DLDL",
       "T-Bone RDRD",
+      "T-Bone UURL",
+      "T-Bone RLUU",
+      //  There are also 8 possible 3x1 t-bones not listed here
       "Static Square"
   )
   private var twoCoupleFormations = listOf(
@@ -768,7 +771,7 @@ class CallContext {
       dancersInOrder(d) { d2 -> d2 isLeftOf d }
 
   //  Return all the dancers in front, in order
-  private fun dancersInFront(d: Dancer):List<Dancer> =
+  fun dancersInFront(d: Dancer):List<Dancer> =
       dancersInOrder(d) { d2 -> d2 isInFrontOf d }
 
   //  Return all the dancers in back, in order
@@ -807,6 +810,11 @@ class CallContext {
     //  Return true if this dancer is in a wave or mini-wave
   fun isInWave(d:Dancer,d2:Dancer?=d.data.partner):Boolean {
     return d2 != null && d.angleToDancer(d2) isAround d2.angleToDancer(d)
+  }
+
+  //  Return true if this dancer is part of a couple facing same direction
+  fun isFacingSameDirection(d: Dancer, d2:Dancer):Boolean {
+    return d.angleFacing isAround d2.angleFacing
   }
 
   //  Return true if this dancer is part of a couple facing same direction
@@ -872,6 +880,37 @@ class CallContext {
   //  Return true if dancers are tidal line or wave
   fun isTidal():Boolean =
       dancersToRight(dancers.first()).count() + dancersToLeft(dancers.first()).count() == 7
+
+  //  Return true if dancers are in any type of 2x4 formation
+  fun isTBone():Boolean {
+    val centerCount = dancers.count { d ->
+      d.location.let {
+        it.x.abs.isApprox(1.0) && it.y.abs.isApprox(1.0)
+      }
+    }
+    val xCount = dancers.count { d ->
+      d.location.let {
+        it.x.abs.isApprox(3.0) && it.y.abs.isApprox(1.0)
+      }
+    }
+    val yCount = dancers.count { d ->
+      d.location.let {
+        it.x.abs.isApprox(1.0) && it.y.abs.isApprox(3.0)
+      }
+    }
+    return centerCount == 4 &&
+        ((xCount==4 && yCount==0) || (xCount==0 && yCount==4))
+  }
+
+  //  Are two dancers on the same spot ?
+  fun isCollision():Boolean = dancers.any { d ->
+    dancers.any { d2 ->
+      d != d2 &&
+      d.location.x.isApprox(d2.location.x) &&
+      d.location.y.isApprox(d2.location.y)
+    }
+  }
+
 
   //  Get direction dancer would roll
   data class Rolling(val direction:Double) {
