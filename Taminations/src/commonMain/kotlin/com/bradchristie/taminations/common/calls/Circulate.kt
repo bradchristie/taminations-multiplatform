@@ -112,8 +112,13 @@ class Circulate : Action("Circulate") {
       }
       //  Line-like dancer
       else if (ctx.dancersToLeft(d).count() + ctx.dancersToRight(d).count() == 3) {
-        if (ctx.dancersInFront(d).count() == 1)
-          return TamUtils.getMove("Forward 2").changebeats(4.0)
+        if (ctx.dancersInFront(d).count() == 1) {
+          return if (ctx.dancerFacing(d) != null)
+            TamUtils.getMove("Extend Left").scale(1.0,0.5).changebeats(2.0) +
+            TamUtils.getMove("Extend Right").scale(1.0,0.5).changebeats(2.0)
+          else
+            TamUtils.getMove("Forward 2").changebeats(4.0)
+        }
         return when (ctx.dancersToLeft(d).count()) {
           0 -> {
             val d2 = ctx.dancersToRight(d).last()

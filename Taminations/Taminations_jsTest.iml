@@ -5,9 +5,9 @@
       <configuration version="3" platform="JavaScript " allPlatforms="JS []" useProjectSettings="false" isTestModule="true" externalProjectId=":Taminations">
         <dependsOnModuleNames>Taminations_commonTest</dependsOnModuleNames>
         <sourceSets>
-          <sourceSet>Taminations_commonMain</sourceSet>
           <sourceSet>Taminations_jsMain</sourceSet>
           <sourceSet>Taminations_commonTest</sourceSet>
+          <sourceSet>Taminations_commonMain</sourceSet>
         </sourceSets>
         <newMppModelJpsModuleKind>COMPILATION_AND_SOURCE_SET_HOLDER</newMppModelJpsModuleKind>
         <testOutputPath>$MODULE_DIR$/build/classes/kotlin/js/test/Taminations_test.js</testOutputPath>
