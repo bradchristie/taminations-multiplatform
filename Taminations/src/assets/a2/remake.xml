@@ -35,6 +35,19 @@
     </path>
   </tam>
 
+  <tam title="Remake" from="Facing Diamond"
+       formation="Diamond Facing RH" parts="1.5;3">
+    <path>
+      <move select="Stand" beats="1.5"/>
+      <move select="Swing Left"/>
+      <move select="Cast Right"/>
+    </path>
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Swing Left"/>
+    </path>
+  </tam>
+
   <tam title="Remake"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
@@ -119,7 +132,34 @@
     </path>
   </tam>
 
-  <tam title="Left Remake" formation="Ocean Waves LH BGGB" group=" ">
+  <tam title="Left Remake" from="Left-Hand Box" formation="Box LH" parts="1.5;3">
+    <path>
+      <move select="Hinge Left" />
+      <move select="Stand" beats="3" />
+      <move select="Cast Left" />
+    </path>
+    <path>
+      <move select="Hinge Left" />
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+    </path>
+  </tam>
+
+  <tam title="Left Remake" from="Facing Diamond"
+       formation="Diamond Facing" parts="1.5;3">
+    <path>
+      <move select="Stand" beats="1.5"/>
+      <move select="Swing Right"/>
+      <move select="Cast Left"/>
+    </path>
+    <path>
+      <move select="Hinge Left"/>
+      <move select="Swing Right"/>
+    </path>
+  </tam>
+
+
+  <tam title="Left Remake" from="Left-Hand Waves" formation="Ocean Waves LH BGGB">
     <path>
       <move select="Hinge Left"/>
       <move select="Stand" beats="3"/>
@@ -141,6 +181,65 @@
       <move select="Cast Left"/>
     </path>
   </tam>
+
+  <tam title="Left Remake"
+       from="Left-Hand Columns"
+       formation="Column LH GBGB"
+       parts="1.5;3" >
+    <path>
+      <move select="Hinge Left" scaleX=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Hinge Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Hinge Left" scaleX=".5" />
+      <move select="Stand" beats="3"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Hinge Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Hinge Left" scaleX=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Hinge Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Hinge Left" scaleX=".5" />
+      <move select="Stand" beats="3" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Hinge Left" scaleY=".5" />
+    </path>
+    <taminator>
+      Note that the very centers do not trade, since this is not a
+      Grand Remake.
+    </taminator>
+  </tam>
+
+  <tam title="Left Remake"
+       from="Facing Diamonds"
+       formation="Diamonds Facing LH Girl Points"
+       parts="1.5;3" >
+    <path>
+      <move select="Hinge Left" />
+      <move select="Swing Right" />
+    </path>
+    <path>
+      <move select="Stand" beats="1.5" />
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+    </path>
+    <path>
+      <move select="Hinge Left" />
+      <move select="Swing Right" />
+    </path>
+    <path>
+      <move select="Stand" beats="1.5" />
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+    </path>
+  </tam>
+
 
   <tam title="Any Hand Remake"
        from="Inverted Lines, Ends Facing In"
