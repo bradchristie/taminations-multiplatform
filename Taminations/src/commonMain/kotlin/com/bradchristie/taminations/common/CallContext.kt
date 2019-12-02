@@ -65,6 +65,7 @@ class CallContext {
         "a1/as_couples",
         "c1/stretch_concept",
         "c1/butterfly_formation",
+        "c1/concentric_concept",
         "c1/o_formation",
         "c1/box_split_recycle",
         "c1/magic_column_formation",
