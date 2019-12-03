@@ -132,6 +132,30 @@
     </path>
   </tam>
 
+  <tam title="Dixie Style to a Wave"
+       from="Quarter Tag"
+       formation="Quarter Tag"
+       difficulty="2" >
+    <path>
+      <move select="Stand" beats="2" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Hinge Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Stand" beats="2" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Hinge Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="2" scaleY="2.5" />
+      <move select="Hinge Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="2" scaleY=".5" />
+      <move select="Hinge Left" scaleY=".5" />
+    </path>
+  </tam>
+
   <tam title="Reverse Dixie Style to a Wave"
        from="Facing Couples"
        formation="Facing Couples"
