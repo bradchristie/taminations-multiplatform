@@ -185,4 +185,137 @@
     </path>
   </tam>
 
+  <tam title="Reverse Dixie Style to a Wave" from="Tandem" formation="Tandem Girls Lead"
+       difficulty="2">
+    <path>
+      <move select="Stand" beats="2" />
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Hinge Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Extend Left" beats="2" scaleX="2" />
+      <move select="Hinge Right" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Reverse Dixie Style to a Wave" from="Single Left-Hand Quarter Tag"
+       formation="Single Left Quarter Tag"
+       difficulty="2">
+    <path>
+      <move select="Stand" beats="2" />
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Hinge Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY="1.5" />
+      <move select="Hinge Right" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Reverse Dixie Style to a Wave"
+       from="Lines"
+       formation="Normal Lines"
+       difficulty="2" >
+    <path>
+      <move select="Extend Right" beats="2" hands="left" offsetX="1" offsetY="-.5" />
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="1.25" />
+      <move select="Hinge Right" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Dodge Left" beats="4" scaleY="0.875"/>
+      <move select="Hinge Right" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" hands="left" offsetX="1" offsetY="-.5" />
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="1.25" />
+      <move select="Hinge Right" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Dodge Left" beats="4" scaleY="0.875"/>
+      <move select="Hinge Right" scaleY=".75"/>
+    </path>
+  </tam>
+
+  <tam title="Reverse Dixie Style to a Wave"
+       from="Eight Chain Thru"
+       formation="Eight Chain Thru"
+       difficulty="2" >
+    <path>
+      <move select="Extend Right" beats="2" hands="right" scaleX="1.15" scaleY="1.5" />
+      <move select="Extend Left" beats="2" scaleX="1.15" scaleY="1.25" />
+      <move select="Quarter Right" hands="left" offsetX=".2" offsetY="-.75" />
+    </path>
+    <path>
+      <move select="Dodge Left" scaleY=".875" offsetX="-.3"/>
+      <move select="Stand" />
+      <move select="Hinge Right" scaleX=".8" scaleY=".75" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" hands="right" scaleX="1.15" scaleY="1.5" />
+      <move select="Extend Left" beats="2" scaleX="1.15" scaleY="1.25" />
+      <move select="Quarter Right" hands="left" offsetX=".2" offsetY="-.75" />
+    </path>
+    <path>
+      <move select="Dodge Left" scaleY=".875" offsetX="-.3"/>
+      <move select="Stand" />
+      <move select="Hinge Right" scaleX=".8" scaleY=".75" />
+    </path>
+  </tam>
+
+  <tam title="Reverse Dixie Style to a Wave"
+       from="Double Pass Thru"
+       difficulty="2" >
+    <formation>
+      <dancer gender="boy" x="-3" y="1" angle="0"/>
+      <dancer gender="girl" x="-1" y="1" angle="0"/>
+      <dancer gender="boy" x="-3" y="-1" angle="0"/>
+      <dancer gender="girl" x="-1" y="-1" angle="0"/>
+    </formation>
+    <path>
+      <move select="Stand" beats="2" />
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Hinge Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Extend Left" beats="2" scaleX="2" />
+      <move select="Hinge Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Stand" beats="2" />
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Hinge Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Extend Left" beats="2" scaleX="2" />
+      <move select="Hinge Right" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Reverse Dixie Style to a Wave"
+       from="Left-Hand Quarter Tag"
+       formation="Quarter Tag LH"
+       difficulty="2" >
+    <path>
+      <move select="Stand" beats="2" />
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Hinge Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Stand" beats="2" />
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Hinge Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY="2.5" />
+      <move select="Hinge Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY=".5" />
+      <move select="Hinge Right" scaleY=".5" />
+    </path>
+  </tam>
+
 </tamination>
