@@ -51,6 +51,20 @@
     </path>
   </tam>
 
+  <tam title="Dixie Style to a Wave" from="Single Quarter Tag"
+       formation="Single Quarter Tag"
+       difficulty="2">
+    <path>
+      <move select="Stand" beats="2" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Hinge Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="2" scaleY="1.5" />
+      <move select="Hinge Left" scaleY=".5" />
+    </path>
+  </tam>
+
   <tam title="Dixie Style to a Wave"
        from="Lines"
        formation="Normal Lines"
@@ -170,4 +184,5 @@
       <move select="Hinge Right" scaleY=".75"/>
     </path>
   </tam>
+
 </tamination>
