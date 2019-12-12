@@ -6,8 +6,8 @@
         <dependsOnModuleNames>Taminations_commonTest</dependsOnModuleNames>
         <sourceSets>
           <sourceSet>Taminations_commonTest</sourceSet>
-          <sourceSet>Taminations_iosMain</sourceSet>
           <sourceSet>Taminations_commonMain</sourceSet>
+          <sourceSet>Taminations_iosMain</sourceSet>
         </sourceSets>
         <newMppModelJpsModuleKind>COMPILATION_AND_SOURCE_SET_HOLDER</newMppModelJpsModuleKind>
         <compilerSettings />
