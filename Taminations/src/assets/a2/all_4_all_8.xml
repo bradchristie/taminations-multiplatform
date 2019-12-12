@@ -645,6 +645,29 @@
     </path>
   </tam>
 
+  <tam title="All 8 Half Tag" group="All 8">
+    <formation>
+      <dancer gender="boy" x="-1" y="0" angle="90"/>
+      <dancer gender="girl" x="-3" y="0" angle="90"/>
+      <dancer gender="boy" x="0" y="-1" angle="180"/>
+      <dancer gender="girl" x="0" y="-3" angle="180"/>
+    </formation>
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Forward 3"/>
+    </path>
+    <path>
+      <move select="Quarter Right" beats="3" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Forward 3"/>
+    </path>
+    <path>
+      <move select="Quarter Right" beats="3" offsetX="1"/>
+    </path>
+  </tam>
+
   <tam title="All 8 Left Swing Thru" formation="Thar RH Boys" group="All 8">
     <path>
       <move select="Swing Left"/>
