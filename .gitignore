@@ -24,6 +24,7 @@
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries
+gradle-wrapper-jar
 
 # Gradle and Maven with auto-import
 # When using Gradle or Maven with auto-import, you should exclude module files,
@@ -76,3 +77,13 @@ local.properties
 callindex.xml
 **/src/main/assets/
 **/src/iosMain/assets/
+###  Most files copied into the web directory
+**/web/
+###  Except a few files which originate there
+!**/web/index.html
+!**/web/notsupported.html
+!**/web/sw.js
+!**/web/.htaccess
+!**/web/favicon.ico
+!**/web/tam120.png
+!**/web/test.html
