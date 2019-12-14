@@ -647,6 +647,7 @@ class CallContext {
       "Double Pass Thru",
       "Quarter Tag",
       "Tidal Line RH",
+      "Tidal Wave of 6",
       "I-Beam",
       "Diamonds RH Girl Points",
       "Diamonds RH PTP Girl Points",
