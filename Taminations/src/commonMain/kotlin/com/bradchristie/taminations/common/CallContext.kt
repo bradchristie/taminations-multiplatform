@@ -485,7 +485,7 @@ class CallContext {
   //  Most often ctx2 is a defined formation.
   //  Returns a mapping from ctx1 to ctx2
   //  or null if no mapping.
-  private fun matchFormations(ctx2: CallContext,
+  fun matchFormations(ctx2: CallContext,
                               sexy:Boolean=false,  // don't match girls with boys
                               fuzzy:Boolean=false,  // dancers can be somewhat offset
                               rotate:Boolean=false,  // opposite facing dancers match

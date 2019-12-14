@@ -181,7 +181,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
             HeadsStart(callnorm,callname)  else null
         in "circleby.*".r -> CircleBy(callnorm,callname)
         in "while.+".r -> While(callnorm,callname)
-        in "(inside|outside|inpoint|outpoint|tandembased|wavebased)trianglecirculate".r ->
+        in "(inside|outside|inpoint|outpoint|tandembased|wavebased)?trianglecirculate".r ->
           TriangleCirculate(callnorm,callname)
         //  Anything Chain Thru should not match Square Chain Thru, others?
         //  cannot use negative look-behind in Javascript, so..

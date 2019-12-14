@@ -75,11 +75,23 @@ class TriangleCirculate(norm: String, name: String) : Action(norm, name) {
             it.data.active = false
         }
       }
-      "wavebased" -> points.forEach {
-        val others = ctx.dancersInOrder(it)
-        if (!(others[0].isLeftOf(others[1]) || others[0].isRightOf(others[1])) ||
-            !(others[1].isLeftOf(others[0]) || others[1].isRightOf(others[0])))
-          it.data.active = false
+      //  If no type given, assume a wave-based (maybe sausage?)
+      "wavebased", "" -> {
+        if (points.count() > 0) {
+          points.forEach {
+            val others = ctx.dancersInOrder(it)
+            if (!(others[0].isLeftOf(others[1]) || others[0].isRightOf(others[1])) ||
+                !(others[1].isLeftOf(others[0]) || others[1].isRightOf(others[0]))
+            )
+              it.data.active = false
+          }
+        } else {
+          //  No points, maybe a sausage
+          val sausage = CallContext(TamUtils.getFormation("Sausage RH"))
+          if (ctx.matchFormations(sausage,rotate = true) != null) {
+            ctx.center(2).forEach { d -> d.data.active = false }
+          }
+        }
       }
     }
     if (ctx.actives.count() != 6)
