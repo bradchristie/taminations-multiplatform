@@ -34,6 +34,17 @@
   </tam>
 
   <tam title="Step and Fold"
+       from="Left-Hand Wave"
+       formation="Wave LH" >
+    <path>
+      <move select="Run Left" offsetX="2" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+    </path>
+  </tam>
+
+  <tam title="Step and Fold"
        from="Right-Hand Diamond"
        formation="Diamond RH" >
     <path numbers="2 3">
