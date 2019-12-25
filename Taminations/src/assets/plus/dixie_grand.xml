@@ -207,6 +207,36 @@
     </path>
   </tam>
 
+  <tam title="Dixie Grand" from="Right-Hand Waves" parts="2;3"
+       formation="Ocean Waves RH BGGB" difficulty="2">
+    <path>
+      <move select="Extend Right" beats="1.5" scaleY="2"/>
+      <move select="Extend Right" beats="1.5" scaleY=".5"/>
+      <move select="Extend Left" beats="1.5" scaleY=".5"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Right" scaleY=".5"/>
+    </path>
+    <path couples="3 1">
+      <move select="Forward" beats="1.5"/>
+      <move select="Run Left"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" />
+    </path>
+    <path couples="4 2">
+      <move select="Forward" beats="1.5"/>
+      <move select="Extend Right" beats="1.5" scaleY=".5"/>
+      <move select="Extend Left" beats="1.5" scaleY=".5"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Quarter Left" offsetX="1" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="1.5" scaleY="2"/>
+      <move select="Flip Right"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Forward"/>
+    </path>
+  </tam>
+
   <tam title="Dixie Grand" from="Magic Columns Right-Hand Centers" parts="2;3"
        difficulty="2">
     <formation>
