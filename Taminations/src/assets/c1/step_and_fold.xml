@@ -57,8 +57,7 @@
 
   <tam title="Step and Fold"
        from="Right-Hand Waves"
-       formation="Ocean Waves RH BGGB"
-       fractions="" >
+       formation="Ocean Waves RH BGGB">
     <path>
       <move select="Flip Right" offsetX="1" />
     </path>
@@ -75,8 +74,7 @@
 
   <tam title="Step and Fold"
        from="Left-Hand Waves"
-       formation="Ocean Waves LH BGGB"
-       fractions="" >
+       formation="Ocean Waves LH BGGB">
     <path>
       <move select="Flip Left" offsetX="1" />
     </path>
@@ -92,7 +90,7 @@
   </tam>
 
   <tam title="Step and Fold"
-       from="Inverted Lines"
+       from="Inverted Lines, Ends Facing In"
        formation="Inverted Lines Ends Facing In">
     <path numbers="5 4">
       <move select="Flip Right" offsetX="1" />
@@ -109,9 +107,25 @@
   </tam>
 
   <tam title="Step and Fold"
+       from="Inverted Lines, Ends Facing Out"
+       formation="Inverted Lines Ends Facing Out">
+    <path>
+      <move select="Flip Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Forward" hands="right" />
+    </path>
+    <path>
+      <move select="Forward" hands="left" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="1" />
+    </path>
+  </tam>
+
+  <tam title="Step and Fold"
        from="Right-Hand Diamonds"
-       formation="Diamonds RH Girl Points"
-       fractions="" >
+       formation="Diamonds RH Girl Points">
     <path>
       <move select="Forward" />
     </path>
@@ -128,8 +142,7 @@
 
   <tam title="Step and Fold"
        from="Left-Hand Diamonds"
-       formation="Diamonds LH Girl Points"
-       fractions="" >
+       formation="Diamonds LH Girl Points">
     <path>
       <move select="Forward" />
     </path>
@@ -146,8 +159,7 @@
 
   <tam title="Step and Fold"
        from="Right-Hand Point-to-Point Diamonds"
-       formation="Diamonds RH PTP Girl Points"
-       fractions="" >
+       formation="Diamonds RH PTP Girl Points">
     <path>
       <move select="Forward 2" />
     </path>
@@ -158,6 +170,86 @@
     </path>
     <path>
       <move select="Flip Right" offsetX="1" />
+    </path>
+  </tam>
+
+  <tam title="Step and Fold"
+       from="Left-Hand Point-to-Point Diamonds"
+       formation="Diamonds LH PTP Girl Points">
+    <path>
+    </path>
+    <path>
+      <move select="U-Turn Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="1" />
+    </path>
+  </tam>
+
+  <tam title="Step and Fold" from="Right-Hand Tidal Wave"
+       formation="Tidal Wave RH BGGB">
+    <path>
+      <move select="Flip Right" offsetX="2" scaleY=".25" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="2" scaleY=".25" />
+    </path>
+  </tam>
+
+  <tam title="Step and Fold" from="Left-Hand Tidal Wave"
+       formation="Tidal Wave LH BGGB">
+    <path>
+      <move select="Flip Left" offsetX="2" scaleY=".25" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="2" scaleY=".25" />
+    </path>
+  </tam>
+
+  <tam title="Step and Fold" from="Tidal Inverted Line, Right-Hand Centers"
+       formation="Inverted Tidal Line RH">
+    <path>
+      <move select="Flip Right" beats="3" offsetX="2" scaleY=".25" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" hands="left" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" hands="right" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Flip Left" beats="3" offsetX="2" scaleY=".25"/>
+    </path>
+  </tam>
+
+  <tam title="Step and Fold" from="Tidal Inverted Line, Left-Hand Centers"
+       formation="Inverted Tidal Line LH">
+    <path>
+      <move select="Flip Left" beats="3" offsetX="2" scaleY=".25"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" hands="right" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" hands="left" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Flip Right" beats="3" offsetX="2" scaleY=".25" />
     </path>
   </tam>
 
