@@ -70,7 +70,7 @@ class XMLCall(val xelem: TamElement,
     //  Mark dancers that had no XML move as inactive
     //  Needed for post-call modifications e.g. spread
     var inactives = emptyArray<Dancer>()
-    this.xmlmap.forEachIndexed { m,i4 ->
+    xmlmap.forEachIndexed { i4, m ->
       if (allp[m shr 1].movelist.count() == 0)
       inactives += ctx.actives[i4]
     }

@@ -921,7 +921,7 @@ class CallContext {
   }
   fun roll(d:Dancer):Rolling {
     //  Look at the last curve of the past, excluding post-processing adjustments
-      return Rolling(d.path.movelist.lastOrNull { move -> move.fromCall }
+    return Rolling(d.path.movelist.lastOrNull { move -> move.fromCall }
                     ?.brotate?.rolling() ?: 0.0)
   }
 
