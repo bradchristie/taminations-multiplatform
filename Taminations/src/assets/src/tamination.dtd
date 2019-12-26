@@ -47,7 +47,8 @@
                   group CDATA #IMPLIED
                   xref-link CDATA #REQUIRED
                   xref-title CDATA #IMPLIED
-                  xref-from CDATA #IMPLIED >
+                  xref-from CDATA #IMPLIED
+                  xref-formation CDATA #IMPLIED >
 
 <!ELEMENT taminator ANY>
 

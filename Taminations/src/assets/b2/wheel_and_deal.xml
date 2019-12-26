@@ -200,4 +200,73 @@
     </path>
   </tam>
 
+  <!-- Various Concentric Wheel and Deal available for the sequencer -->
+  <tam title="Concentric Wheel and Deal" group="Concentric"
+       formation="Two-Faced Tidal Line RH"
+       display="none">
+    <path>
+      <move select="Run Right" beats="6" hands="right" offsetX="3" offsetY="-2.5" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="6" hands="left" offsetX="3" offsetY="-1.5" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" hands="left" offsetX="1" offsetY="0.5" />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="4" hands="right" offsetX="1" offsetY="-0.5" />
+    </path>
+  </tam>
+
+  <tam title="Concentric Wheel and Deal" group="Concentric"
+       formation="Two-Faced Tidal Line LH"
+       display="none">
+    <path>
+      <move select="Run Left" beats="6" hands="left" offsetX="3" offsetY="2.5" />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="6" hands="right" offsetX="3" offsetY="1.5" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" hands="right" offsetX="1" offsetY="-0.5" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" hands="left" offsetX="1" offsetY="0.5" />
+    </path>
+  </tam>
+
+  <tam title="Concentric Wheel and Deal" group="Concentric"
+       formation="Tidal Line RH"
+       display="none">
+    <path>
+      <move select="Run Right" beats="6" hands="right" offsetX="3" offsetY="-2.5" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="6" hands="left" offsetX="3" offsetY="-1.5" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" hands="right" offsetX="1" offsetY="-0.5" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" hands="left" offsetX="1" offsetY="0.5" />
+    </path>
+  </tam>
+
+  <tam title="Concentric Wheel and Deal" group="Concentric"
+       formation="Tidal Line LH"
+       display="none">
+    <path>
+      <move select="U-Turn Left" beats="6" hands="right" offsetX="3" offsetY="1.5" />
+    </path>
+    <path>
+      <move select="Run Left" beats="6" hands="left" offsetX="3" offsetY="2.5" />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="4" hands="right" offsetX="1" offsetY="-0.5" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" hands="left" offsetX="1" offsetY="0.5" />
+    </path>
+  </tam>
+
 </tamination>

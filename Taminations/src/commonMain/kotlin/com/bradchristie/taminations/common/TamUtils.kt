@@ -119,6 +119,8 @@ object TamUtils {
           s += "[@title='${tam.getAttribute("xref-title")}']"
         if (tam.hasAttribute("xref-from"))
           s += "[@from='${tam.getAttribute("xref-from")}']"
+        if (tam.hasAttribute("xref-formation"))
+          s += "[@formation='${tam.getAttribute("xref-formation")}']"
         val n = it.evalXPath(s)
         callback(n.first())
       }
