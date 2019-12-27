@@ -41,6 +41,7 @@ class CallContext {
     val callindex = mutableMapOf<String,MutableList<String>>()
     //  Initialize callindex with calls in theses files
     val callindexinitfiles = arrayOf(
+        "c1/block_formation",
         "b1/circle",
         "a1/clover_and_anything",
         "a1/cross_clover_and_anything",
