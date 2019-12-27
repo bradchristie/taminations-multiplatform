@@ -153,6 +153,13 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
     return !a.isApprox(PI / 2) && a > PI / 2
   }
 
+  val isCenterLeft : Boolean get() {
+    return angleToOrigin > 0
+  }
+  val isCenterRight : Boolean get() {
+    return angleToOrigin < 0
+  }
+
   infix fun isInFrontOf(d2:Dancer) : Boolean =
     this != d2 && d2.angleToDancer(this).angleEquals(0.0)
 
