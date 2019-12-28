@@ -40,11 +40,19 @@
     </path>
   </tam>
 
-  <tamxref title="Box Counter Rotate (C-1)" from="Facing Couples"
-           xref-link="ms/slide_thru"
-           xref-from="Facing Couples" />
+  <tam title="Box Counter Rotate" from="Facing Couples"
+       formation="Facing Couples">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Quarter Right" beats="2" offsetX="1" offsetY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Quarter Left" beats="2" offsetX="1" offsetY="-1.5" />
+    </path>
+  </tam>
 
-  <tamxref title="Box Counter Rotate (C-1)" from="Couples Facing Out"
+  <tamxref title="Box Counter Rotate" from="Couples Facing Out"
            xref-link="a1/partner_tag"
            xref-from="Couples Facing Out"/>
 
