@@ -712,6 +712,26 @@
     </path>
   </tam>
 
+  <tam title="(From lines) Concentric Pass Out" group="(From lines) Concentric"
+       formation="Normal Lines">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Quarter Left" beats="2" offsetX="3" offsetY="-1.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Quarter Left" beats="2" offsetX="1" offsetY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Quarter Right" beats="2" offsetX="1" offsetY="-1.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Quarter Right" beats="2" offsetX="3" offsetY=".5"/>
+    </path>
+  </tam>
+
   <tam title="(From lines) Concentric Pass the Ocean" group="(From lines) Concentric"
        formation="Normal Lines">
     <path>
