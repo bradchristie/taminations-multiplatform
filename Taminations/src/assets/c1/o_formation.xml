@@ -311,6 +311,21 @@
     </path>
   </tam>
 
+  <tam title="&quot;O&quot; Split Counter Rotate" group="&quot;O&quot;"
+       formation="O RH">
+    <path>
+      <move select="Counter Rotate Right 2 0" beats="4" offsetY="2"/>
+    </path>
+    <path>
+      <move select="Counter Rotate Right 0 -2" beats="4"/>
+    </path>
+    <path>
+      <move select="Counter Rotate Right 0 -2" beats="4" offsetY="-4"/>
+    </path>
+    <path>
+      <move select="Counter Rotate Right 2 0" beats="4" offsetY="-2"/>
+    </path>
+  </tam>
 
   <tam title="&quot;O&quot; Swap Around" group="&quot;O&quot;"
        formation="O Eight Chain Thru">
