@@ -91,4 +91,26 @@
     </path>
   </tam>
 
+  <tam title="Horseshoe Turn" from="T-Bones"
+       formation="T-Bone LUUR">
+    <path>
+      <move select="Lead Left" beats="2" scaleY="1.5" />
+      <move select="Lead Left" beats="2" scaleX="1.5" scaleY="1.5" />
+      <move select="Lead Left" beats="2" scaleX="1.5" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="2" scaleY="1.5" />
+      <move select="Lead Right" beats="2" scaleX="1.5" scaleY="1.5" />
+      <move select="Lead Right" beats="2" scaleX="1.5" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="3" scaleX=".5"/>
+      <move select="Extend Right" beats="3" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Quarter Left" beats="3" offsetX="-.5" offsetY="1"/>
+      <move select="Extend Right" beats="3" scaleY=".5" />
+    </path>
+  </tam>
+
 </tamination>
