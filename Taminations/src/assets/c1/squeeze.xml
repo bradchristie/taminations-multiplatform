@@ -41,8 +41,7 @@
 
   <tam title="Ends Squeeze"
        from="Butterfly"
-       formation="Butterfly RH"
-       fractions="" >
+       formation="Butterfly RH">
     <path>
       <move select="Lead Right" beats="3" scaleX=".5" scaleY="3" />
       <move select="Hinge Right" scaleY=".5" />
@@ -59,8 +58,7 @@
 
   <tam title="Squeeze"
        from="Butterfly"
-       formation="Butterfly RH"
-       fractions="" >
+       formation="Butterfly RH">
     <path>
       <move select="Lead Right" beats="3" scaleX=".5" scaleY="3" />
       <move select="Hinge Right" scaleY=".5" />
@@ -100,8 +98,7 @@
 
   <tam title="Squeeze"
        from="O"
-       formation="O RH"
-       fractions="" >
+       formation="O RH">
     <path>
       <move select="Hinge Right" scaleX=".5" />
       <move select="Lead Right" beats="3" scaleX="3" scaleY=".5" />
@@ -119,4 +116,39 @@
       <move select="Hinge Right" scaleY=".5" />
     </path>
   </tam>
+
+  <tam title="Centers Tandem Squeeze"
+       from="Right-Hand Columns" formation="Column RH GBGB">
+    <path>
+    </path>
+    <path>
+      <move select="Counter Rotate Right 0 -2" hands="right"/>
+      <move select="Lead Right" beats="3" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Counter Rotate Right 2 0" hands="right"/>
+      <move select="Forward 2" beats="1.5"/>
+      <move select="Quarter Right" beats="1.5" offsetX="2"/>
+    </path>
+    <path>
+    </path>
+  </tam>
+
+  <tam title="Centers Tandem Squeeze"
+       from="Left-Hand Columns" formation="Column LH GBGB">
+    <path>
+    </path>
+    <path>
+      <move select="Counter Rotate Left 2 0" hands="left"/>
+      <move select="Forward 2" beats="1.5"/>
+      <move select="Quarter Left" beats="1.5" offsetX="2"/>
+    </path>
+    <path>
+      <move select="Counter Rotate Left 0 2" hands="left"/>
+      <move select="Lead Left" beats="3" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+    </path>
+  </tam>
+
 </tamination>
