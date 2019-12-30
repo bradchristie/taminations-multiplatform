@@ -547,7 +547,8 @@
   <call link="c1/square_the_bases" title="Square the Bases"/>
   <call languages="lang-de lang-ja" link="b1/square_thru" title="Square Thru"/>
   <call link="c1/squeeze" title="Squeeze"/>
-  <call link="c1/squeeze_the_hourglass" title="Squeeze the Hourglass / Galaxy"/>
+  <call link="c1/squeeze_the_hourglass" title="Squeeze the Galaxy"/>
+  <call link="c1/squeeze_the_hourglass" title="Squeeze the Hourglass"/>
   <call link="c3a/stable_concept" title="Stable Concept"/>
   <call link="c2/stack_the_line" title="Stack the Line"/>
   <call link="c2/stagger_concept" title="Stagger Concept"/>
