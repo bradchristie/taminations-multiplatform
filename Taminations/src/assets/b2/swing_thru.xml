@@ -35,6 +35,17 @@
     </path>
   </tam>
 
+  <tam title="Swing Thru" from="Compact Right-Hand Wave" display="none"
+       formation="Compact Wave RH" parts="3">
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+    </path>
+  </tam>
+
   <tam title="Swing Thru"
        from="Left-Hand Wave"
        formation="Wave LH"
@@ -46,6 +57,20 @@
     <path>
       <move select="Swing Right" />
       <move select="Swing Left" />
+    </path>
+  </tam>
+
+  <tam title="Swing Thru"
+       from="Compact Left-Hand Wave" display="none"
+       formation="Compact Wave LH"
+       parts="3" difficulty="2">
+    <path>
+      <move select="Stand" beats="3" hands="none"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
     </path>
   </tam>
 
@@ -250,6 +275,19 @@
   </tam>
 
   <tam title="Left Swing Thru"
+       from="Compact Left-Hand Wave" display="none"
+       formation="Compact Wave LH"
+       parts="3" difficulty="1">
+    <path>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Left Swing Thru"
        from="Right-Hand Wave"
        formation="Wave RH"
        parts="3" difficulty="2">
@@ -260,6 +298,20 @@
     <path>
       <move select="Swing Left" />
       <move select="Swing Right" />
+    </path>
+  </tam>
+
+  <tam title="Left Swing Thru"
+       from="Compact Right-Hand Wave" display="none"
+       formation="Compact Wave RH"
+       parts="3" difficulty="2">
+    <path>
+      <move select="Stand" beats="3" hands="none"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
     </path>
   </tam>
 
