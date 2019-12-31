@@ -42,6 +42,25 @@
   </tam>
 
   <tam title="Alter the Wave"
+       from="Compact Right-Hand Wave"
+       formation="Compact Wave RH" display="none"
+       parts="3;4.5;4" >
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Cast Left" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Left" beats="4" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Left" beats="3" scaleX="1.5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="U-Turn Right" beats="4.5" />
+      <move select="Lead Left" beats="2" scaleX="1.5" scaleY="1.5" />
+      <move select="Lead Left" beats="2" scaleX="1.5" scaleY="1.5" />
+      <move select="Flip Left" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Alter the Wave"
        from="Left-Hand Wave"
        formation="Wave LH"
        parts="3;4.5;4" >
@@ -57,6 +76,25 @@
       <move select="Lead Right" beats="2" scaleX="1.5" scaleY="3" />
       <move select="Lead Right" beats="2" scaleX="3" scaleY="1.5" />
       <move select="Flip Right" />
+    </path>
+  </tam>
+
+  <tam title="Alter the Wave"
+       from="Compact Left-Hand Wave"
+       formation="Compact Wave LH" display="none"
+       parts="3;4.5;4" >
+    <path>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Cast Right" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Right" beats="4" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Right" beats="3" scaleX="1.5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="U-Turn Left" beats="4.5" />
+      <move select="Lead Right" beats="2" scaleX="1.5" scaleY="1.5" />
+      <move select="Lead Right" beats="2" scaleX="1.5" scaleY="1.5" />
+      <move select="Flip Right" scaleY=".5"/>
     </path>
   </tam>
 
