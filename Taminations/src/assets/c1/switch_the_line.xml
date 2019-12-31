@@ -29,6 +29,37 @@
     <path numbers="2 3">
       <move select="Run Right" />
     </path>
+    <taminator>Same as Switch the Wave (A-2)</taminator>
+  </tam>
+
+  <tam title="Switch the Line" from="Compact Right-Hand Wave"
+       formation="Compact Wave RH" display="none">
+    <path>
+      <move select="Run Right" beats="6" />
+    </path>
+    <path>
+      <move select="Run Right" beats="6" scaleX=".5" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Switch the Line" from="Left-Hand Wave" formation="Wave LH">
+    <path>
+      <move select="Run Left" beats="6" scaleY="2" />
+    </path>
+    <path>
+      <move select="Run Left" />
+    </path>
+    <taminator>Same as Switch the Wave (A-2)</taminator>
+  </tam>
+
+  <tam title="Switch the Line" from="Compact Left-Hand Wave"
+       formation="Compact Wave LH" display="none">
+    <path>
+      <move select="Run Left" beats="6"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="6" scaleX=".5" scaleY=".5"/>
+    </path>
   </tam>
 
   <tam title="Switch the Line" from="Right-Hand Two-Faced Line"
@@ -38,6 +69,36 @@
     </path>
     <path numbers="2 3">
       <move select="Flip Left" />
+    </path>
+  </tam>
+
+  <tam title="Switch the Line" from="Compact Right-Hand Two-Faced Line"
+       formation="Compact Two-Faced Line RH" display="none">
+    <path>
+      <move select="Run Right" beats="4" />
+    </path>
+    <path>
+      <move select="Flip Left" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Switch the Line" from="Left-Hand Two-Faced Line"
+       formation="Two-Faced Line LH">
+    <path>
+      <move select="Flip Right" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleY="2" />
+    </path>
+  </tam>
+
+  <tam title="Switch the Line" from="Compact Left-Hand Two-Faced Line"
+       formation="Compact Two-Faced Line LH" display="none">
+    <path>
+      <move select="Flip Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="4"/>
     </path>
   </tam>
 
