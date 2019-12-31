@@ -56,9 +56,19 @@
     <dancer gender="girl" x="0" y="1" angle="0"/>
   </formation>
 
+  <formation name="Compact Two-Faced Line RH">
+    <dancer gender="boy" x="0" y="1.5" angle="0"/>
+    <dancer gender="girl" x="0" y=".5" angle="0"/>
+  </formation>
+
   <formation name="Two-Faced Line LH">
     <dancer gender="boy" x="0" y="-1" angle="0"/>
     <dancer gender="girl" x="0" y="-3" angle="0"/>
+  </formation>
+
+  <formation name="Compact Two-Faced Line LH">
+    <dancer gender="boy" x="0" y="-.5" angle="0"/>
+    <dancer gender="girl" x="0" y="-1.5" angle="0"/>
   </formation>
 
   <formation name="Box RH">

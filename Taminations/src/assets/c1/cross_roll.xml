@@ -31,12 +31,32 @@
     </path>
   </tam>
 
+  <tam title="Cross Roll" from="Compact Right-Hand Wave"
+       formation="Compact Wave RH" display="none">
+    <path>
+      <move select="Flip Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="4" />
+    </path>
+  </tam>
+
   <tam title="Cross Roll" from="Left-Hand Wave" formation="Wave LH">
     <path>
       <move select="Flip Left" />
     </path>
     <path>
       <move select="Run Right" beats="4" scaleY="2" />
+    </path>
+  </tam>
+
+  <tam title="Cross Roll" from="Compact Left-Hand Wave"
+       formation="Compact Wave LH" display="none">
+    <path>
+      <move select="Flip Left" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4" />
     </path>
   </tam>
 
@@ -49,12 +69,32 @@
     </path>
   </tam>
 
+  <tam title="Cross Roll" from="Compact Right-Hand Two-Faced Line"
+       formation="Compact Two-Faced Line RH" display="none">
+    <path>
+      <move select="Flip Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4"/>
+    </path>
+  </tam>
+
   <tam title="Cross Roll" from="Left-Hand Two-Faced Line" formation="Two-Faced Line LH">
     <path>
       <move select="Run Left" beats="4" scaleY="2" />
     </path>
     <path>
       <move select="Flip Left" />
+    </path>
+  </tam>
+
+  <tam title="Cross Roll" from="Compact Left-Hand Two-Faced Line"
+       formation="Compact Two-Faced Line LH" display="none">
+    <path>
+      <move select="Run Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Flip Left" scaleY=".5"/>
     </path>
   </tam>
 
