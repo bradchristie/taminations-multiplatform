@@ -32,12 +32,32 @@
     </path>
   </tam>
 
+  <tam title="Switch the Wave" from="Compact Right-Hand Wave"
+       formation="Compact Wave RH" display="none">
+    <path>
+      <move select="Run Right" beats="6" />
+    </path>
+    <path>
+      <move select="Run Right" beats="6" scaleX=".5" scaleY=".5"/>
+    </path>
+  </tam>
+
   <tam title="Switch the Wave" from="Left-Hand Wave" formation="Wave LH">
     <path numbers="4 1" couples="3 1">
       <move select="Run Left" beats="6" scaleY="2" />
     </path>
     <path numbers="3 2" couples="3 1">
       <move select="Run Left" beats="6"/>
+    </path>
+  </tam>
+
+  <tam title="Switch the Wave" from="Compact Left-Hand Wave"
+       formation="Compact Wave LH" display="none">
+    <path>
+      <move select="Run Left" beats="6"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="6" scaleX=".5" scaleY=".5"/>
     </path>
   </tam>
 
