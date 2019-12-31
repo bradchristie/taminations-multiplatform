@@ -19,9 +19,7 @@ package com.bradchristie.taminations.common.calls
 
 */
 
-import com.bradchristie.taminations.common.CallContext
-import com.bradchristie.taminations.common.Gender
-import com.bradchristie.taminations.common.LevelObject
+import com.bradchristie.taminations.common.*
 
 class BraceThru : Action("Brace Thru") {
 
@@ -31,8 +29,44 @@ class BraceThru : Action("Brace Thru") {
 
   override fun perform(ctx: CallContext, i: Int) {
     ctx.applyCalls("Pass Thru")
-    val normal = ctx.actives.filter { it.data.beau xor (it.gender==Gender.GIRL) }
-    val sashay = ctx.actives.filter { it.data.beau xor (it.gender==Gender.BOY) }
+    //  This is a rather complex check to handle not only
+    //  Brace Thru for lines but also Centers Brace Thru
+    val normal = mutableListOf<Dancer>()
+    val sashay = mutableListOf<Dancer>()
+    for (d in ctx.actives) {
+      var isBeau = false
+      var isBelle = false
+      ctx.dancerToRight(d)?.let {
+        if (d.data.beau && it.data.active)
+          isBeau = true
+      }
+      ctx.dancerToLeft(d)?.let {
+        if (d.data.belle && it.data.active)
+          isBelle = true
+      }
+      if (!isBeau && !isBelle) {
+        ctx.dancerToRight(d)?.let {
+          if (it.data.active)
+            isBeau = true
+        }
+        ctx.dancerToLeft(d)?.let {
+          if (it.data.active)
+            isBelle = true
+        }
+      }
+      if (isBeau) {
+        if (d.gender == Gender.BOY)
+          normal += d
+        else
+          sashay += d
+      } else if (isBelle) {
+        if (d.gender == Gender.GIRL)
+          normal += d
+        else
+          sashay += d
+      } else
+        throw CallError("Cannot figure out how to Brace Thru")
+    }
     if (normal.count() > 0)
       CallContext(ctx,normal).applyCalls("Courtesy Turn").appendToSource()
     if (sashay.count() > 0)
