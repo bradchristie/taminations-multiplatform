@@ -26,51 +26,23 @@ class BraceThru : Action("Brace Thru") {
   override val level = LevelObject("a1")
   override val requires = listOf("b1/pass_thru","b1/courtesy_turn","b1/turn_back","b2/wheel_around")
 
-
   override fun perform(ctx: CallContext, i: Int) {
-    ctx.applyCalls("Pass Thru")
-    //  This is a rather complex check to handle not only
-    //  Brace Thru for lines but also Centers Brace Thru
-    val normal = mutableListOf<Dancer>()
-    val sashay = mutableListOf<Dancer>()
-    for (d in ctx.actives) {
-      var isBeau = false
-      var isBelle = false
-      ctx.dancerToRight(d)?.let {
-        if (d.data.beau && it.data.active)
-          isBeau = true
-      }
-      ctx.dancerToLeft(d)?.let {
-        if (d.data.belle && it.data.active)
-          isBelle = true
-      }
-      if (!isBeau && !isBelle) {
-        ctx.dancerToRight(d)?.let {
-          if (it.data.active)
-            isBeau = true
-        }
-        ctx.dancerToLeft(d)?.let {
-          if (it.data.active)
-            isBelle = true
-        }
-      }
-      if (isBeau) {
-        if (d.gender == Gender.BOY)
-          normal += d
-        else
-          sashay += d
-      } else if (isBelle) {
-        if (d.gender == Gender.GIRL)
-          normal += d
-        else
-          sashay += d
-      } else
-        throw CallError("Cannot figure out how to Brace Thru")
+    val ctx2 = CallContext(ctx,ctx.actives)
+    ctx2.analyze()
+    ctx2.applyCalls("Pass Thru")
+    for (d in ctx2.dancers) {
+      val partner = d.data.partner
+        ?: throw CallError("Dancer $d cannot Brace Thru")
+      if (d.gender == partner.gender)
+        throw CallError("Same-sex dancers cannot Brace Thru")
     }
+    val normal = ctx2.dancers.filter { it.data.beau xor (it.gender==Gender.GIRL) }
+    val sashay = ctx2.dancers.filter { it.data.beau xor (it.gender==Gender.BOY) }
     if (normal.count() > 0)
-      CallContext(ctx,normal).applyCalls("Courtesy Turn").appendToSource()
+      CallContext(ctx2,normal).applyCalls("Courtesy Turn").appendToSource()
     if (sashay.count() > 0)
-      CallContext(ctx,sashay).applyCalls("Turn Back").appendToSource()
+      CallContext(ctx2,sashay).applyCalls("Turn Back").appendToSource()
+    ctx2.appendToSource()
   }
 
 }
