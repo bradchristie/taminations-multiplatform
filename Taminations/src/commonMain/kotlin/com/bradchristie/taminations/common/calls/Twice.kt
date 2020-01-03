@@ -29,8 +29,10 @@ class Twice(norm:String,name:String) : CodedCall(norm,name) {
     if (ctx.callstack.count() < 2)
       throw CallError("Twice what?")
     //  At this point the call has already been done once
+    //  Make sure everyone waits to finish the first time
+    ctx.extendPaths()
     //  So just do it again
-    ctx.applyCalls(*ctx.callstack.dropLast(1).map { it.name }.toTypedArray())
+    ctx.applyCalls(ctx.callstack.dropLast(1).map { it.name }.joinToString(" "))
   }
 
 }
