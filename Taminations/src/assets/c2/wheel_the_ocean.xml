@@ -82,6 +82,28 @@
   </tam>
 
   <tam title="Wheel the Ocean"
+       from="Left-Hand Two-Faced Lines"
+       formation="Two-Faced Lines LH"
+       parts="3" >
+    <path>
+      <move select="Belle Wheel" />
+      <move select="Extend Left" hands="right" beats="3" scaleX="3" scaleY="2" />
+      <move select="Forward" />
+    </path>
+    <path>
+      <move select="Beau Wheel" />
+    </path>
+    <path>
+      <move select="Stand" beats="7" />
+    </path>
+    <path>
+      <move select="Stand" beats="3" />
+      <move select="Extend Left" hands="right" beats="3" scaleX="3" scaleY="2" />
+      <move select="Forward" />
+    </path>
+  </tam>
+
+  <tam title="Wheel the Ocean"
        from="Trade By"
        formation="Trade By"
        parts="3" >
