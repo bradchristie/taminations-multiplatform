@@ -22,9 +22,6 @@
 -->
 <tamination title="Swap Around">
 
-
-
-
   <tam title="Swap Around"
        from="Facing Couples"
        formation="Facing Couples"
@@ -34,6 +31,18 @@
     </path>
     <path>
       <move select="Forward 4" />
+    </path>
+  </tam>
+
+  <tam title="Swap Around"
+       from="Facing Couples Close"
+       formation="Facing Couples Close"
+       fractions="2" display="none">
+    <path>
+      <move select="Flip Right" beats="4" />
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" />
     </path>
   </tam>
 

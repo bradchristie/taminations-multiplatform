@@ -22,15 +22,24 @@
 -->
 <tamination title="Reverse Swap Around">
 
-
-
-
   <tam title="Reverse Swap Around"
        from="Facing Couples"
        formation="Facing Couples"
        fractions="2" >
     <path>
       <move select="Forward 4" />
+    </path>
+    <path>
+      <move select="Flip Left" beats="4" />
+    </path>
+  </tam>
+
+  <tam title="Reverse Swap Around"
+       from="Facing Couples Close"
+       formation="Facing Couples Close"
+       fractions="2" display="none">
+    <path>
+      <move select="Forward 2" beats="4"/>
     </path>
     <path>
       <move select="Flip Left" beats="4" />
