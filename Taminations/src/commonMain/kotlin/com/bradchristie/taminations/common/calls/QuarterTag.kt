@@ -22,21 +22,32 @@ package com.bradchristie.taminations.common.calls
 import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.LevelObject
 
-class QuarterTag : Action("Quarter Tag") {
+class QuarterTag(norm:String,name:String) : Action(norm,name) {
 
   override val level = LevelObject("ms")
   override val requires = listOf("ms/hinge","b1/face")
 
   private fun centersHoldLeftHands(ctx:CallContext): Boolean =
-      ctx.actives.any { d ->
-        d.data.center && (ctx.dancerToLeft(d)?.data?.center ?: false)
+      ctx.actives.filter { d -> d.data.center } .all { d ->
+        ctx.dancerToLeft(d)?.data?.center ?: false
+      }
+
+  private fun centersHoldRightHands(ctx:CallContext): Boolean =
+      ctx.actives.filter { d -> d.data.center } .all { d ->
+        ctx.dancerToRight(d)?.data?.center ?: false
       }
 
   override fun performCall(ctx: CallContext, i: Int) {
-    if (centersHoldLeftHands(ctx))
-      ctx.applyCalls("Center 4 Hinge and Spread While Ends Face In")
-    else
-      ctx.applyCalls("Centers Hinge While Ends Face In")
+    val dir = if (norm.startsWith("left")) "Left" else ""
+    if (ctx.isTidal()) {
+      ctx.applyCalls("Center 4 Face Out While Outer 4 Face In","Facing Dancers $dir Touch")
+    } else {
+      if (centersHoldLeftHands(ctx) && dir == "" ||
+          centersHoldRightHands(ctx) && dir == "Left")
+        ctx.applyCalls("Center 4 Hinge and Spread While Ends Face In")
+      else
+        ctx.applyCalls("Centers $dir Hinge While Ends Face In")
+    }
   }
 
 }

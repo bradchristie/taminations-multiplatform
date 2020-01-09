@@ -602,4 +602,60 @@
     </path>
   </tam>
 
+  <tam title="Left 3/4 Tag the Line" from="Right-Hand Two-Faced Line"
+       formation="Two-Faced Line RH" difficulty="3">
+    <path>
+      <move select="Quarter Right" offsetX="-.5" offsetY="-.5" />
+      <move select="Extend Right" beats="3" scaleX="2.5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="-.5" offsetY="-.5" />
+      <move select="Forward" />
+      <move select="Extend Left" beats="2" scaleX="2.5" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Left 3/4 Tag the Line" from="Left-Hand Two-Faced Line"
+       formation="Two-Faced Line LH" difficulty="2">
+    <path>
+      <move select="Lead Left" scaleX=".5" />
+      <move select="Forward" />
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Left" scaleX=".5" />
+      <move select="Extend Right" beats="3" scaleX="2" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Left 3/4 Tag the Line"
+       from="Right-Hand Wave"
+       formation="Wave RH"
+       difficulty="2">
+    <path>
+      <move select="Quarter Right" offsetX="-.5" offsetY="-.5" />
+      <move select="Extend Right" beats="3" scaleX="2.5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Left" scaleX=".5" />
+      <move select="Forward" />
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Left 3/4 Tag the Line"
+       from="Left-Hand Wave"
+       formation="Wave LH"
+       difficulty="3">
+    <path>
+      <move select="Lead Left" scaleX=".5" />
+      <move select="Extend Right" beats="3" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="-.5" offsetY="-.5" />
+      <move select="Forward" />
+      <move select="Extend Left" beats="2" scaleX="2.5" scaleY=".5" />
+    </path>
+  </tam>
+
 </tamination>

@@ -21,17 +21,22 @@ package com.bradchristie.taminations.common.calls
 
 import com.bradchristie.taminations.common.*
 
-class ThreeQuartersTag : Action("3/4 Tag the Line") {
+class ThreeQuartersTag(norm:String,name:String) : Action(norm,name) {
 
   override val level = LevelObject("ms")
-  override val requires = listOf("ms/fraction_tag")
+  override val requires = listOf("ms/fraction_tag","b2/extend")
 
   override fun perform(ctx: CallContext, i: Int) {
+    val dir = if (norm.startsWith("left")) "Left" else ""
     //  All the 4-dancer formations are in Taminations
     if (ctx.actives.count() < 8)
-      ctx.applyCalls("3/4 Tag the Line")
+      ctx.applyCalls("$dir 3/4 Tag the Line")
+    else if (ctx.isTidal())
+      ctx.applyCalls("$dir Quarter Tag","Extend","Extend")
     else if (!ctx.isLines())
       throw CallError("Dancers must be in lines")
+    else if (dir == "Left")
+      ctx.applyCalls("Face In","Centers Step to a Left-Hand Wave","Extend","Extend")
     else
       super.perform(ctx, i)
   }
