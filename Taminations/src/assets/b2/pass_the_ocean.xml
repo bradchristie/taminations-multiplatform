@@ -38,6 +38,20 @@
   </tam>
 
   <tam title="Pass the Ocean"
+       from="Close Couples"
+       formation="Facing Couples Close" display="none">
+    <path>
+      <move select="Extend Left" beats="2" scaleY=".5" />
+      <move select="Forward" beats=".5" scaleX=".5" />
+      <move select="Lead Right" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleY=".5" />
+      <move select="Lead Left" hands="left" beats="2" scaleX=".5" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Pass the Ocean"
        from="Lines"
        formation="Normal Lines"
        difficulty="1">
