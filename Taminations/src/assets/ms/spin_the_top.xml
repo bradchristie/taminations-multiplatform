@@ -68,6 +68,19 @@
     </path>
   </tam>
 
+  <tam title="Spin the Top" from="Close Couples" display="none"
+       formation="Facing Couples Close" parts="4" difficulty="2">
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Cast Left" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Right" beats="4.5" scaleX="1.5" scaleY="1.5"/>
+    </path>
+  </tam>
 
   <tam title="Spin the Top"
        from="Right-Hand Waves"
@@ -234,6 +247,20 @@
       <move select="Extend Right" beats="2" scaleX="2" scaleY="2"/>
       <move select="Swing Left"/>
       <move select="Cast Right"/>
+    </path>
+  </tam>
+
+  <tam title="Left Spin the Top" from="Close Couples" display="none"
+       formation="Facing Couples Close" parts="4" difficulty="2">
+    <path>
+      <move select="Extend Right" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Left" beats="4.5" scaleX="1.5" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Extend Right" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Cast Right" scaleX=".5" scaleY=".5"/>
     </path>
   </tam>
 
