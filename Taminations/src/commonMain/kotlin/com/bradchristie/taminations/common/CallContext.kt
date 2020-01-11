@@ -26,6 +26,8 @@ import com.bradchristie.taminations.common.calls.CodedCall
 import com.bradchristie.taminations.common.calls.XMLCall
 import com.bradchristie.taminations.platform.*
 import kotlin.math.PI
+import kotlin.math.cos
+import kotlin.math.sin
 
 class CallContext {
 
@@ -82,6 +84,7 @@ class CallContext {
         "a1/quarter_thru",
         "a1/three_quarter_thru",
         "b1/split_the_outside_couple",
+        "c2/anything_the_k",
         "a2/transfer_and_anything",
         "ms/eight_chain_thru"
         )
@@ -233,6 +236,22 @@ class CallContext {
     if (source != null && source!!.level < level)
       source?.level = level
     return this
+  }
+
+  //  For now this just checks for collisions in a tidal formation
+  //  If a collision is detected, then the animation is
+  //  squeezed along the axis of the formation
+  fun checkForCollisions() {
+    if (isOnAxis() && isCollision()) {
+      val a = if (isOnXAxis()) 0.0 else PI/2
+      dancers.forEach {
+        it.animate(0.0)
+        val b = it.angleFacing
+        val xscale = 1.0 - 0.5 * cos(a+b).abs
+        val yscale = 1.0 - 0.5 * sin(a+b).abs
+        it.path.scale(xscale,yscale)
+      }
+    }
   }
 
   private fun applyCall(calltext: String) {
@@ -650,6 +669,7 @@ class CallContext {
       "Tidal Line RH",
       "Tidal Wave of 6",
       "I-Beam",
+      "H-Beam",
       "Diamonds RH Girl Points",
       "Diamonds RH PTP Girl Points",
       "Hourglass RH BP",
@@ -883,6 +903,12 @@ class CallContext {
   //  Return true if dancers are tidal line or wave
   fun isTidal():Boolean =
       dancersToRight(dancers.first()).count() + dancersToLeft(dancers.first()).count() == 7
+
+  //  Return true if dancers are all on one axis
+  //  Could be tidal or could be e.g. dancers all facing center
+  private fun isOnXAxis():Boolean = dancers.all { it.location.y.isApprox(0.0) }
+  private fun isOnYAxis():Boolean = dancers.all { it.location.x.isApprox(0.0) }
+  fun isOnAxis():Boolean = isOnXAxis() || isOnYAxis()
 
   //  Return true if dancers are in any type of 2x4 formation
   fun isTBone():Boolean {

@@ -283,10 +283,12 @@ class SequencerModel(private val seqView: SequencerLayout,
       val prevbeats = seqView.animationView.movingBeats
       cctx.interpretCall(calltxt)
       cctx.performCall()
+      cctx.checkForCollisions()
       cctx.extendPaths()
       cctx.matchStandardFormation()
-      for (i in avdancers.indices)
-        avdancers[i].path.add(cctx.dancers[i].path)
+      //for (i in avdancers.indices)
+      //  avdancers[i].path.add(cctx.dancers[i].path)
+      cctx.appendToSource()
       seqView.animationView.recalculate()
       val newbeats = seqView.animationView.movingBeats
       if (newbeats > prevbeats) {

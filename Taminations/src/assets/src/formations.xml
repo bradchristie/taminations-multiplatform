@@ -1013,6 +1013,13 @@
     <dancer gender="girl" x="0" y="-.67" angle="0"/>
   </formation>
 
+  <formation name="H-Beam">
+    <dancer gender="boy" x="-1" y="-3" angle="0"/>
+    <dancer gender="girl" x="1" y="-3" angle="180"/>
+    <dancer gender="boy" x="0" y="-2" angle="180"/>
+    <dancer gender="girl" x="0" y="-.67" angle="0"/>
+  </formation>
+
   <formation name="Hourglass RH BP">
     <dancer gender="boy" x="-2" y="-3" angle="180"/>
     <dancer gender="girl" x="-3" y="0" angle="90"/>
