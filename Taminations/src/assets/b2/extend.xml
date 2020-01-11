@@ -40,6 +40,26 @@
     </path>
   </tam>
 
+  <tam title="Extend" from="Single Quarter Tag"
+       formation="Single Quarter Tag" difficulty="2">
+    <path>
+      <move select="Extend Left" beats="2"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+    </path>
+  </tam>
+
+  <tam title="Extend" from="Single Left Quarter Tag"
+       formation="Single Left Quarter Tag" difficulty="2">
+    <path>
+      <move select="Extend Right" beats="2"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+    </path>
+  </tam>
+
   <tam title="Extend"
        from="Right-Hand 1/4 Tag"
        formation="Quarter Tag"
@@ -142,4 +162,117 @@
       <move select="Forward" beats="2" />
     </path>
   </tam>
+
+  <tam title="Extend" from="Tidal Quarter Tag" difficulty="3">
+    <formation>
+      <dancer gender="boy" x="-1" y="-2" angle="90"/>
+      <dancer gender="girl" x="0" y="-.5" angle="270"/>
+      <dancer gender="boy" x="1" y="-2" angle="270"/>
+      <dancer gender="girl" x="0" y="-3.5" angle="90"/>
+    </formation>
+    <path>
+      <move select="Forward" beats="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Extend" from="Tidal Left Quarter Tag" difficulty="3">
+    <formation>
+      <dancer gender="boy" x="-1" y="-2" angle="270"/>
+      <dancer gender="girl" x="0" y="-.5" angle="270"/>
+      <dancer gender="boy" x="1" y="-2" angle="90"/>
+      <dancer gender="girl" x="0" y="-3.5" angle="90"/>
+    </formation>
+    <path>
+      <move select="Forward" beats="2"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleX=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Extend" from="Right-Hand Columns"
+       formation="Column RH GBGB" difficulty="3">
+    <path>
+      <move select="Extend Right" beats="2" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+    </path>
+  </tam>
+
+  <tam title="Extend" from="Left-Hand Columns"
+       formation="Column LH GBGB" difficulty="3">
+    <path>
+      <move select="Forward" beats="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Extend" from="Tidal 3/4 Tag" difficulty="3">
+    <formation>
+      <dancer gender="boy" x="-1" y="-2" angle="90"/>
+      <dancer gender="girl" x="0" y="-.5" angle="90"/>
+      <dancer gender="boy" x="1" y="-2" angle="270"/>
+      <dancer gender="girl" x="0" y="-3.5" angle="270"/>
+    </formation>
+    <path>
+      <move select="Extend Right" beats="2" scaleX=".5"/>
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleX=".5"/>
+    </path>
+    <path>
+    </path>
+  </tam>
+
+  <tam title="Extend" from="Tidal Left 3/4 Tag" difficulty="3">
+    <formation>
+      <dancer gender="boy" x="-1" y="-2" angle="270"/>
+      <dancer gender="girl" x="0" y="-.5" angle="90"/>
+      <dancer gender="boy" x="1" y="-2" angle="90"/>
+      <dancer gender="girl" x="0" y="-3.5" angle="270"/>
+    </formation>
+    <path>
+      <move select="Extend Left" beats="2" scaleX=".5"/>
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX=".5"/>
+    </path>
+    <path>
+    </path>
+  </tam>
+
 </tamination>
