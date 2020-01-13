@@ -27,29 +27,29 @@ class TurnThru(norm:String,name:String) : Action(norm,name) {
   override val level = LevelObject("ms")
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
-    val (dir1,dir2) = if (norm.contains("left"))
-      listOf("Right","Left")
+    val (dir1, dir2) = if (norm.contains("left"))
+      listOf("Right", "Left")
     else
-      listOf("Left","Right")
+      listOf("Left", "Right")
     //  Check for dancers in mini-wave
     if (ctx.isInWave(d)) {
       //  If in waves, Turn Thru has to be right-handed,
       //  Left Turn Thru left-handed
-      val d2 = (if (norm.contains("left")) ctx.dancerToLeft(d) else ctx.dancerToRight(d)) ?: throw CallError("Dancer $d has no one to $name with")
-      val dist = d.distanceTo(d2)
-      return getMove("Swing $dir2").scale(dist/2, 0.5) +
-             getMove("Extend $dir2").scale(1.0, 0.5)
+      val d2 = (if (norm.contains("left")) ctx.dancerToLeft(d) else ctx.dancerToRight(d))
+      if (d2 != null && d2.data.active) {
+        val dist = d.distanceTo(d2)
+        return getMove("Swing $dir2").scale(dist / 2, 0.5) +
+            getMove("Extend $dir2").scale(1.0, 0.5)
+      }
     }
     //  Otherwise has to be facing dancers
-    else {
-      val d2 = ctx.dancerFacing(d)
-      if (d2 == null || !d2.data.active || ctx.dancerInFront(d2) != d)
-        throw CallError("Cannot find dancer to Turn Thru with $d")
-      val dist = d.distanceTo(d2)
-      return getMove("Extend $dir1").scale(dist / 2, 0.5) +
-             getMove("Swing $dir2").scale(0.5, 0.5) +
-             getMove("Extend $dir2").scale(dist/2, 0.5)
-    }
+    val d2 = ctx.dancerFacing(d)
+    if (d2 == null || !d2.data.active || ctx.dancerInFront(d2) != d)
+      throw CallError("Cannot find dancer to Turn Thru with $d")
+    val dist = d.distanceTo(d2)
+    return getMove("Extend $dir1").scale(dist / 2, 0.5) +
+        getMove("Swing $dir2").scale(0.5, 0.5) +
+        getMove("Extend $dir2").scale(dist / 2, 0.5)
   }
 
 }
