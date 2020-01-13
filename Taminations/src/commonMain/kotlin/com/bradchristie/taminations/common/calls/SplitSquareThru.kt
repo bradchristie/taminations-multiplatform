@@ -20,6 +20,7 @@ package com.bradchristie.taminations.common.calls
 */
 
 import com.bradchristie.taminations.common.CallContext
+import com.bradchristie.taminations.common.CallError
 import com.bradchristie.taminations.common.LevelObject
 import com.bradchristie.taminations.common.r
 
@@ -31,6 +32,8 @@ class SplitSquareThru(norm: String, name: String) : Action(norm, name) {
       "b2/ocean_wave","plus/explode_the_wave","b1/step_thru")
 
   override fun perform(ctx: CallContext, i: Int) {
+    if (ctx.actives.count() < 8)
+      throw CallError("Use Heads Start or Sides Start Split Square Thru")
     val (left,right) = if (norm.startsWith("left")) Pair("","Left") else Pair("Left","")
     val count = norm.takeLast(1).toIntOrNull() ?: 4
     //  If the centers start, they need to face out to work with the ends
