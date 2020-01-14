@@ -328,7 +328,7 @@ actual open class View actual constructor() {
     }
   }
   //  Scroll
-  actual fun scrollToBottom() {
+  actual open fun scrollToBottom() {
     //  TODO
   }
 

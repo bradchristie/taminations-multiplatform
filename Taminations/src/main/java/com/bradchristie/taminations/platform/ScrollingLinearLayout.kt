@@ -21,6 +21,7 @@ package com.bradchristie.taminations.platform
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import com.bradchristie.taminations.Taminations
+import com.bradchristie.taminations.platform.System.later
 
 
 actual open class ScrollingLinearLayout : ViewGroup() {
@@ -45,6 +46,12 @@ actual open class ScrollingLinearLayout : ViewGroup() {
   override fun clear() {
     innerdiv.removeAllViews()
     children.clear()
+  }
+
+  override fun scrollToBottom() {
+    later {
+      div.fullScroll(android.widget.ScrollView.FOCUS_DOWN)
+    }
   }
 
 }

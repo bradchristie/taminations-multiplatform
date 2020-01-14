@@ -109,6 +109,6 @@ expect open class View() {
   open fun show()
 
   //  Scroll, Swipe
-  fun scrollToBottom()
+  open fun scrollToBottom()
   fun swipeAction(code:(SwipeDirection)->Unit)
 }

@@ -26,9 +26,10 @@ import com.bradchristie.taminations.platform.*
 class SequencerCallsPage : Page() {
 
   val textInput = TextInput()
-  private val callList = LinearLayout(LinearLayout.Direction.VERTICAL).apply {
-    isScrollable = true
-  }
+  //private val callList = LinearLayout(LinearLayout.Direction.VERTICAL).apply {
+  //  isScrollable = true
+  //}
+  private val callList = ScrollingLinearLayout()
   val errorText = TextView("")
   private var highlightedCall = -1
   private var savedBackground = Color.BLACK
@@ -39,7 +40,9 @@ class SequencerCallsPage : Page() {
   override val view = LinearLayout(LinearLayout.Direction.VERTICAL).apply {
     backgroundColor = Color.LIGHTGRAY
     border.right.width = 1
-    appendView(callList)
+    appendView(callList) {
+      weight = 1
+    }
     horizontalLayout {
       weight = 0
       appendView(textInput) {
