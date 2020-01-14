@@ -55,7 +55,7 @@ class Hinge(norm:String, name:String) : Action(norm,name) {
       ctx.isInCouple(d,d2) && d2 isLeftOf d ->
         TamUtils.getMove("Quarter Left").skew(-1.0,dist/2)
       else ->
-        throw CallError("Dancer $d has no one to hinge with.")
+        ctx.dancerCannotPerform(d,name)
     }
   }
 

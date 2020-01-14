@@ -45,7 +45,7 @@ class TurnThru(norm:String,name:String) : Action(norm,name) {
     //  Otherwise has to be facing dancers
     val d2 = ctx.dancerFacing(d)
     if (d2 == null || !d2.data.active || ctx.dancerInFront(d2) != d)
-      throw CallError("Cannot find dancer to Turn Thru with $d")
+      return ctx.dancerCannotPerform(d,name)
     val dist = d.distanceTo(d2)
     return getMove("Extend $dir1").scale(dist / 2, 0.5) +
         getMove("Swing $dir2").scale(0.5, 0.5) +

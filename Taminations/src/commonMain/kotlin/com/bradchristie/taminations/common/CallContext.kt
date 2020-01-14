@@ -152,6 +152,7 @@ class CallContext {
   private var source: CallContext? = null
   private var snap = true
   private var extend = true
+  private var thoseWhoCan = false
   private val genderMap = mapOf("boy" to Gender.BOY, "girl" to Gender.GIRL, "phantom" to Gender.PHANTOM)
 
   //  For cases where creating a new context from a source,
@@ -252,6 +253,16 @@ class CallContext {
         it.path.scale(xscale,yscale)
       }
     }
+  }
+
+  public fun thoseWhoCanCanOnly() {
+    thoseWhoCan = true
+  }
+
+  public fun dancerCannotPerform(d:Dancer, call:String) : Path {
+    if (thoseWhoCan)
+      return Path()
+    throw CallError("Dancer $d cannot $call")
   }
 
   private fun applyCall(calltext: String) {
@@ -833,6 +844,7 @@ class CallContext {
     //  Return true if this dancer is in a wave or mini-wave
   fun isInWave(d:Dancer,d2:Dancer?=d.data.partner):Boolean {
     return d2 != null && d.angleToDancer(d2) isAround d2.angleToDancer(d)
+                      && d.distanceTo(d2) < 2.1
   }
 
   //  Return true if this dancer is part of a couple facing same direction

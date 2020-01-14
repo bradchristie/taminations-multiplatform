@@ -27,7 +27,8 @@ class TouchAQuarter(norm:String,name:String) : Action(norm,name) {
   override val level = LevelObject("b2")
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
-    val d2 = ctx.dancerFacing(d) ?: throw CallError("Dancer ${d.number} cannot Touch a Quarter")
+    val d2 = ctx.dancerFacing(d)
+      ?: return ctx.dancerCannotPerform(d,name)
     return getMove("Extend Left")
         .scale(d.distanceTo(d2)/2.0,1.0)
         .add(getMove("Hinge Right"))

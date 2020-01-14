@@ -119,6 +119,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "lefttouch" to { Touch("lefttouch","Left Touch") },
         "trade" to { Trade() },
         "partnertrade" to { Trade() },
+        "thosewhocan" to { ThoseWhoCan() },
         "touch14" to { TouchAQuarter("touch14","Touch a Quarter") },
         "lefttouch14" to { TouchAQuarter("lefttouch14","Left Touch a Quarter") },
         "triplestarthru" to { TripleStarThru() },

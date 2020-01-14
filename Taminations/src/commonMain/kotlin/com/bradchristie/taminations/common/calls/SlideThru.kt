@@ -37,7 +37,8 @@ class SlideThru : Action("Slide Thru") {
     } else {
       //  Not in wave
       //  Must be facing dancers
-      val d2 = ctx.dancerFacing(d) ?: throw CallError("Dancer $d has nobody to Slide Thru with")
+      val d2 = ctx.dancerFacing(d)
+        ?: return ctx.dancerCannotPerform(d,name)
       val dist = d.distanceTo(d2)
       return getMove("Extend Left").scale(dist / 2, 0.5) +
           (if (d.gender == Gender.BOY)

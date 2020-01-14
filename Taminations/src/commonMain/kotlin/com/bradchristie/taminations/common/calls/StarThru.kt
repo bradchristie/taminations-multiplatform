@@ -26,7 +26,8 @@ class StarThru(norm:String,name:String) : Action(norm,name) {
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
     //  Must be facing dancers, opposite gender
-    val d2 = ctx.dancerFacing(d) ?: throw CallError("Dancer $d has nobody to Star Thru with")
+    val d2 = ctx.dancerFacing(d)
+      ?: return ctx.dancerCannotPerform(d,name)
     if (d2.gender == d.gender)
       throw CallError("Cannot Star Thru with same gender.")
     val dist = d.distanceTo(d2)

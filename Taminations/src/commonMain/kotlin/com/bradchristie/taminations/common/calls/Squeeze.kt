@@ -27,7 +27,8 @@ class Squeeze : Action("Squeeze") {
   override val level = LevelObject("c1")
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
-    val d2 = ctx.dancerToLeft(d) ?: ctx.dancerToRight(d) ?: throw CallError("No dancer to Squeeze with $d")
+    val d2 = ctx.dancerToLeft(d) ?: ctx.dancerToRight(d)
+             ?: return ctx.dancerCannotPerform(d,name)
     val dist = d.distanceTo(d2)
     val isClose = dist < 2.0 || dist isAbout 2.0
     val sameDirection = d.angleFacing isAround d2.angleFacing

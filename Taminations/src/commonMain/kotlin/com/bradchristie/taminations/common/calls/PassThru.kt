@@ -31,7 +31,7 @@ class PassThru(norm: String, name: String) : Action(norm, name) {
     //  Can only pass thru with another dancer
     //  in front of this dancer
     //  who is also facing this dancer
-    val d2 = ctx.dancerFacing(d) ?: throw CallError("Dancer ${d.number} has nobody to Pass Thru with")
+    val d2 = ctx.dancerFacing(d) ?: return ctx.dancerCannotPerform(d,"Pass Thru")
     if (!d2.data.active)
       throw CallError("Dancers must Pass Thru with each other")
     val dist = d.distanceTo(d2)

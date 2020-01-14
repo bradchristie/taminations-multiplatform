@@ -25,18 +25,19 @@ class BoxtheGnat : Action("Box the Gnat") {
 
   override val level = LevelObject("b2")
 
-  private fun checkOtherDancer(d: Dancer, d2: Dancer?): Dancer {
-    val other = d2 ?: throw CallError("Cannot find dancer to turn with ${d.number}")
+  private fun checkOtherDancer(d: Dancer, d2: Dancer?): Dancer? {
+    val other = d2 ?: return null
     if (!other.data.active)
-      throw CallError("Cannot find dancer to turn with ${d.number}")
+      return null
     if (other.gender == d.gender)
-      throw CallError("Same gender cannot Box the Gnat")
+      return null
     return other
   }
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
     if (ctx.isInWave(d)) {
       val d2 = checkOtherDancer(d,ctx.dancerToRight(d))
+        ?: return ctx.dancerCannotPerform(d,name)
       val dist = d.distanceTo(d2)
       val offset = when {
         dist > 1.5 && d.data.end -> -dist
@@ -46,6 +47,7 @@ class BoxtheGnat : Action("Box the Gnat") {
       return TamUtils.getMove(if (d.gender==Gender.BOY) "U-Turn Right" else "U-Turn Left").skew(1.0,offset).changehands(Hands.GRIPRIGHT)
     } else {
       val d2 = checkOtherDancer(d,ctx.dancerFacing(d))
+        ?: return ctx.dancerCannotPerform(d,name)
       val dist = d.distanceTo(d2)
       val cy1 = if (d.gender == Gender.BOY) 1.0 else 0.1
       val y4 = if (d.gender == Gender.BOY) -2.0 else 2.0

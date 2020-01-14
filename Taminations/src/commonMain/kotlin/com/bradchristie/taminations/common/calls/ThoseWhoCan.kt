@@ -1,6 +1,6 @@
 package com.bradchristie.taminations.common.calls
 
-import com.bradchristie.taminations.common.*
+import com.bradchristie.taminations.common.CallContext
 
 /*
 
@@ -22,14 +22,10 @@ import com.bradchristie.taminations.common.*
 
 */
 
-class Touch(norm:String,name:String) : Action(norm,name) {
+class ThoseWhoCan : CodedCall("Those Who Can") {
 
-  override fun performOne(d: Dancer, ctx: CallContext): Path {
-    val d2 = ctx.dancerFacing(d)
-      ?: return ctx.dancerCannotPerform(d,name)
-    val dist = d.distanceTo(d2)
-    val dir = if (norm.startsWith("left")) "Right" else "Left"
-    return TamUtils.getMove("Extend $dir").scale(dist/2,1.0)
+  override fun performCall(ctx: CallContext, i: Int) {
+    ctx.thoseWhoCanCanOnly()
   }
 
 }
