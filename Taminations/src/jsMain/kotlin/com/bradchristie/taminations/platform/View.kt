@@ -277,7 +277,7 @@ actual open class View(internal val div:HTMLElement) {
   }
 
   //  Scroll
-  actual fun scrollToBottom() {
+  actual open fun scrollToBottom() {
     div.scrollTop = div.scrollHeight.d - div.offsetHeight.d
   }
 
