@@ -577,7 +577,7 @@
   <tam title="Heads Square Thru 2" group=" "
        from="Static Square"
        formation="Static Square"
-       difficulty="1">
+       difficulty="1" sequencer="no">
     <path>
       <move select="Forward 2" />
       <move select="Pull Left" scaleY=".5" />
@@ -599,7 +599,7 @@
   <tam title="Heads Square Thru 3" group=" "
        from="Static Square"
        formation="Static Square"
-       difficulty="1">
+       difficulty="1" sequencer="no">
     <path>
       <move select="Forward 2" />
       <move select="Pull Left" scaleY=".5" />
@@ -623,7 +623,7 @@
   <tam title="Heads Square Thru 4" group=" "
        from="Static Square"
        formation="Static Square"
-       difficulty="1">
+       difficulty="1" sequencer="no">
     <path>
       <move select="Forward 2" />
       <move select="Pull Left" scaleY=".5" />
@@ -649,7 +649,7 @@
   <tam title="Heads Left Square Thru 4" group=" "
        from="Static Square"
        formation="Static Square"
-       difficulty="1">
+       difficulty="1" sequencer="no">
     <path>
       <move select="Forward 2" />
       <move select="Pull Right" scaleY=".5" />
@@ -675,7 +675,7 @@
   <tam title="Sides Square Thru 2" group=" "
        from="Static Square"
        formation="Static Square"
-       difficulty="1" display="none">
+       difficulty="1" display="none" sequencer="no">
     <path>
     </path>
     <path>
@@ -697,7 +697,7 @@
   <tam title="Sides Square Thru 3" group=" "
        from="Static Square"
        formation="Static Square"
-       difficulty="1" display="none">
+       difficulty="1" display="none" sequencer="no">
     <path>
     </path>
     <path>
@@ -721,7 +721,7 @@
   <tam title="Sides Square Thru 4" group=" "
        from="Static Square"
        formation="Static Square"
-       difficulty="1" display="none">
+       difficulty="1" display="none" sequencer="no">
     <path>
     </path>
     <path>
@@ -747,7 +747,7 @@
   <tam title="Sides Left Square Thru 4" group=" "
        from="Static Square"
        formation="Static Square"
-       difficulty="2" display="none">
+       difficulty="2" display="none" sequencer="no">
     <path>
     </path>
     <path>

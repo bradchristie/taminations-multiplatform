@@ -185,7 +185,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "${specifier}${specifier}walk(and)?${specifier}${specifier}dodge".r -> WalkandDodge(callnorm,callname)
         in "(left)?spinthewindmill(left|right|in|out|forward)".r -> SpinTheWindmill(callnorm,callname)
         in "_windmill(in|out|left|right|forward)".r -> Windmillx(callnorm,callname)
-        in "(left)?squarethru(1|2|3|4|5|6|7)?".r -> SquareThru(callnorm,callname)
+        in "(left)?squarethru(1|2|3|4|5|6|7)?(toawave)?".r -> SquareThru(callnorm,callname)
         in "(left)?splitsquarethru(2|3|4|5|6|7)?".r -> SplitSquareThru(callnorm,callname)
         in "(head|side)start.+".r ->
           //  Don't want to match Sides Star Thru e.g.

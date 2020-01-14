@@ -36,7 +36,7 @@ class SquareThru(norm: String, name: String) : Action(norm, name) {
     else
       Pair("Left-Hand","")
     //  Find out how many hands
-    val count = norm.takeLast(1).toIntOrNull() ?: 4
+    val count = norm.replace("toawave","").takeLast(1).toIntOrNull() ?: 4
     //  First hand is step to a wave if not already there
     if (ctx.actives.any { d -> ctx.isInCouple(d) }) {
       ctx.applyCalls("Facing Dancers Step to a Compact $right Wave")
@@ -53,7 +53,8 @@ class SquareThru(norm: String, name: String) : Action(norm, name) {
       val hand = if (c % 2 == 0) right else left
       ctx.applyCalls("Explode and Step to a Compact $hand Wave")
     }
-    ctx.applyCalls("Step Thru")
+    if (!norm.endsWith("toawave"))
+      ctx.applyCalls("Step Thru")
   }
 
 }

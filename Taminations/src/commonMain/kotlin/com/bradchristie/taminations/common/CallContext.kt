@@ -255,11 +255,11 @@ class CallContext {
     }
   }
 
-  public fun thoseWhoCanCanOnly() {
+  fun thoseWhoCanCanOnly() {
     thoseWhoCan = true
   }
 
-  public fun dancerCannotPerform(d:Dancer, call:String) : Path {
+  fun dancerCannotPerform(d:Dancer, call:String) : Path {
     if (thoseWhoCan)
       return Path()
     throw CallError("Dancer $d cannot $call")
