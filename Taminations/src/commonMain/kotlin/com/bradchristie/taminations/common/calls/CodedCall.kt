@@ -125,6 +125,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "triplestarthru" to { TripleStarThru() },
         "tripletrade" to { TripleTrade() },
         "turnback" to { TurnBack() },
+        "twisttheline" to { TwistTheLine() },
         "zoom" to { Zoom() },
         "singlewheel" to { SingleWheel("singlewheel","Single Wheel") },
         "leftsinglewheel" to { SingleWheel("leftsinglewheel","Left Single Wheel") },

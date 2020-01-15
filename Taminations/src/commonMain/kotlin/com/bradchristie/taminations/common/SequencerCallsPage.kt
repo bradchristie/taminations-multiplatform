@@ -41,6 +41,7 @@ class SequencerCallsPage : Page() {
     backgroundColor = Color.LIGHTGRAY
     border.right.width = 1
     appendView(callList) {
+      if (Application.isPortrait)
       weight = 1
     }
     horizontalLayout {
