@@ -520,6 +520,27 @@
     </path>
   </tam>
 
+  <tam title="(From columns) Concentric Touch a Quarter"
+       group="(From columns) Concentric"
+       formation="Double Pass Thru">
+    <path>
+      <move select="Extend Left" beats="3" scaleX="3" scaleY="2.5"/>
+      <move select="Hinge Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3" scaleY="1.5"/>
+      <move select="Hinge Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Hinge Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Hinge Right" scaleY=".5"/>
+    </path>
+  </tam>
+
   <tam title="(From columns) Concentric Turn Thru" group="(From columns) Concentric"
        formation="Double Pass Thru">
     <path>
