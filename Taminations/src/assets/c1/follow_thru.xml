@@ -218,6 +218,23 @@
     </path>
   </tam>
 
+  <tam title="As Couples Follow Thru" from="Two-Faced Lines" formation="Two-Faced Lines LH" group=" " display="none">
+    <path>
+      <move select="Hinge Left" beats="3" scaleX="1.5" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Hinge Left" hands="right" beats="3" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" hands="right" scaleX="2" scaleY=".5"/>
+      <move select="Hinge Left" hands="both" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" hands="left" scaleX="2" scaleY="1.5"/>
+      <move select="Hinge Left" scaleX="1.5" scaleY="1.5"/>
+    </path>
+  </tam>
+
   <tam title="Concentric Follow Thru" from="Right-Hand Columns" formation="Column RH GBGB" group=" ">
     <path>
       <move select="Lead Right" beats="2" scaleX=".5" />
