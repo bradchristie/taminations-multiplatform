@@ -23,8 +23,8 @@
 
 <tamination title="Eight Chain Thru">
 
-  <tam title="Eight Chain One" group=" " difficulty="1"
-       formation="Eight Chain Thru">
+  <tam title="Eight Chain One" difficulty="1"
+       from="Eight Chain Thru" formation="Eight Chain Thru">
     <path>
       <move select="Pull Left" beats="1.25" scaleY=".5" />
       <move select="Extend Right" beats="1.25" scaleY=".5" />
@@ -43,8 +43,24 @@
     </path>
   </tam>
 
-  <tam title="Eight Chain Two" group=" " difficulty="1"
-       formation="Eight Chain Thru" parts="2.5">
+  <tam title="Eight Chain One" difficulty="2" from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB">
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+    </path>
+    <path>
+      <move select="Forward" beats="2" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+    </path>
+  </tam>
+
+  <tam title="Eight Chain Two" difficulty="1"
+       from="Eight Chain Thru" formation="Eight Chain Thru" parts="2.5">
     <path>
       <move select="Pull Left" beats="1.25" scaleY=".5" />
       <move select="Extend Right" beats="1.25" scaleY=".5" />
@@ -69,7 +85,29 @@
     </path>
   </tam>
 
-  <tam title="Eight Chain Three" group=" " difficulty="1"
+  <tam title="Eight Chain Two" difficulty="2"
+       from="Right-Hand Waves" formation="Ocean Waves RH BGGB" parts="2">
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Forward" beats="2" />
+      <move select="Belle Wheel" beats="2.5" />
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+      <move select="Beau Wheel" beats="2.5" />
+    </path>
+  </tam>
+
+  <tam title="Eight Chain Three" difficulty="1" from="Eight Chain Thru"
        formation="Eight Chain Thru" parts="2.5;2.5">
     <path>
       <move select="Pull Left" beats="1.25" scaleY=".5" />
@@ -103,7 +141,37 @@
     </path>
   </tam>
 
-  <tam title="Eight Chain Four" group=" " difficulty="1"
+  <tam title="Eight Chain Three" difficulty="2" from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB" parts="2;2.5">
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+      <move select="Belle Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Forward" beats="2" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+      <move select="Beau Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Eight Chain Four" difficulty="1" from="Eight Chain Thru"
        formation="Eight Chain Thru" parts="2.5;2.5;2.5">
     <path>
       <move select="Pull Left" beats="1.25" scaleY=".5" />
@@ -143,7 +211,43 @@
     </path>
   </tam>
 
-  <tam title="Eight Chain Five" group=" " difficulty="1"
+  <tam title="Eight Chain Four" difficulty="2" from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB" parts="2;2.5;2.5">
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Beau Wheel" beats="2.5" />
+    </path>
+    <path>
+      <move select="Forward" beats="2" />
+      <move select="Belle Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Forward" beats="2" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Belle Wheel" beats="2.5" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+      <move select="Beau Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Eight Chain Five" difficulty="1" from="Eight Chain Thru"
        formation="Eight Chain Thru" parts="2.5;2.5;2.5;2.5">
     <path>
       <move select="Pull Left" beats="1.25" scaleY=".5" />
@@ -191,7 +295,51 @@
     </path>
   </tam>
 
-  <tam title="Eight Chain Six" group=" " difficulty="1"
+  <tam title="Eight Chain Five" difficulty="2" from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB" parts="2;2.5;2.5;2.5">
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Beau Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Forward" beats="2" />
+      <move select="Belle Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Forward" beats="2" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Belle Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+      <move select="Beau Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Eight Chain Six" difficulty="1" from="Eight Chain Thru"
        formation="Eight Chain Thru" parts="2.5;2.5;2.5;2.5;2.5">
     <path>
       <move select="Pull Left" beats="1.25" scaleY=".5" />
@@ -245,7 +393,57 @@
     </path>
   </tam>
 
-  <tam title="Eight Chain Seven" group=" " difficulty="1"
+  <tam title="Eight Chain Six" difficulty="2" from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB" parts="2;2.5;2.5;2.5;2.5">
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Beau Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Forward" beats="2" />
+      <move select="Belle Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Belle Wheel" beats="2.5" />
+    </path>
+    <path>
+      <move select="Forward" beats="2" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Belle Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+      <move select="Beau Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Beau Wheel" beats="2.5" />
+    </path>
+  </tam>
+
+  <tam title="Eight Chain Seven" difficulty="1" from="Eight Chain Thru"
        formation="Eight Chain Thru"
        parts="2.5;2.5;2.5;2.5;2.5;2.5" >
     <path>
@@ -308,7 +506,66 @@
     </path>
   </tam>
 
-  <tam title="Eight Chain Thru" group=" " difficulty="1"
+  <tam title="Eight Chain Seven" difficulty="2" from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB"
+       parts="2;2.5;2.5;2.5;2.5;2.5" >
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Beau Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+      <move select="Belle Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Belle Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Belle Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+      <move select="Beau Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Beau Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Eight Chain Thru" difficulty="1" from="Eight Chain Thru"
        formation="Eight Chain Thru"
        parts="2.5;2.5;2.5;2.5;2.5;2.5;2.5" >
     <path>
@@ -377,6 +634,70 @@
     </path>
   </tam>
 
+  <tam title="Eight Chain Thru" difficulty="2" from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB"
+       parts="2;2.5;2.5;2.5;2.5;2.5;2.5" >
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Beau Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Beau Wheel" beats="2.5" />
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+      <move select="Belle Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Belle Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Belle Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Belle Wheel" beats="2.5" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+      <move select="Beau Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Beau Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+    </path>
+  </tam>
 
   <tam title="Eight Chain One and a Half" group="  " difficulty="3"
        formation="Eight Chain Thru" parts="2.5">
