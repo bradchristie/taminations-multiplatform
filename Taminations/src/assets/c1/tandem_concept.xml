@@ -492,6 +492,34 @@
     </path>
   </tam>
 
+  <tam title="Tandem Follow Your Neighbor" group="Tandem"
+       formation="Column LH GBGB" display="none">
+    <path>
+      <move select="Forward 2"/>
+      <move select="Counter Rotate Left 2 0" hands="left"/>
+      <move select="Counter Rotate Left 2 0" hands="left"/>
+      <move select="Counter Rotate Left 2 0" hands="left" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Counter Rotate Left 0 2" hands="left"/>
+      <move select="Counter Rotate Left 0 2" hands="left"/>
+      <move select="Counter Rotate Left 0 2" hands="left" offsetY=".5"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Counter Rotate Left 2 0"/>
+      <move select="Counter Rotate Left 2 0"/>
+      <move select="Counter Rotate Left 2 0" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Counter Rotate Left 0 2"/>
+      <move select="Counter Rotate Left 0 2"/>
+      <move select="Counter Rotate Left 0 2" offsetY=".5"/>
+    </path>
+  </tam>
+
   <tam title="Tandem Hinge" group="Tandem" formation="Column RH GBGB">
     <path>
       <move select="Counter Rotate Right 0 -2" offsetY="-1" hands="right"/>
