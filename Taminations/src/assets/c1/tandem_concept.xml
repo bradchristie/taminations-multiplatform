@@ -535,6 +535,22 @@
     </path>
   </tam>
 
+  <tam title="Tandem Partner Hinge" group="Tandem"
+       formation="Completed Double Pass Thru">
+    <path>
+      <move select="Quarter Left" beats="3" offsetX="-2" offsetY="2.5"/>
+    </path>
+    <path>
+      <move select="Counter Rotate Right 0 -2" beats="3" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Quarter Left" beats="3" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Counter Rotate Right 2 0" beats="3" offsetY=".5"/>
+    </path>
+  </tam>
+
   <tam title="Tandem Pass the Ocean" group="Tandem"
        formation="Double Pass Thru">
     <path>
