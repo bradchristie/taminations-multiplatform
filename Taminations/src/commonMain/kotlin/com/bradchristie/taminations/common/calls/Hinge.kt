@@ -33,10 +33,10 @@ class Hinge(norm:String, name:String) : Action(norm,name) {
     val d2 = when {
       leftCount.isOdd && rightCount.isEven -> ctx.dancerToLeft(d)!!
       leftCount.isEven && rightCount.isOdd -> ctx.dancerToRight(d)!!
-      else -> throw CallError("Dancer $d has no one to hinge with.")
+      else -> return ctx.dancerCannotPerform(d,name)
     }
     if (!d2.data.active)
-     throw CallError("Dancer $d has no one to hinge with.")
+      return ctx.dancerCannotPerform(d,name)
     if (!ctx.isInWave(d,d2))
       myLevel = LevelObject("a1")
     val dist = d.distanceTo(d2)
