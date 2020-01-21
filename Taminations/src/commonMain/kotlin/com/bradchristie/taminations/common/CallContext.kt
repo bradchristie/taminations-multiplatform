@@ -86,7 +86,8 @@ class CallContext {
         "b1/split_the_outside_couple",
         "c2/anything_the_k",
         "a2/transfer_and_anything",
-        "ms/eight_chain_thru"
+        "ms/eight_chain_thru",
+        "b1/separate"
         )
 
     var numfiles = 0
