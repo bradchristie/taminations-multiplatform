@@ -976,6 +976,10 @@
            xref-link="c1/step_and_fold"
            xref-title="Tandem Step and Fold"/>
 
+  <tamxref title="Tandem (C-1) Weave" group="Tandem (C-1)"
+           xref-link="c1/anything_and_weave"
+           xref-title="Tandem Weave"/>
+
   <tamxref title="Tandem (C-1) Wheel Fan Thru" group="Tandem (C-1)"
            xref-link="c1/wheel_fan_thru"
            xref-title="Tandem Wheel Fan Thru"/>

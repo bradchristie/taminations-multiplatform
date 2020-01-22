@@ -167,7 +167,6 @@
   </tam>
 
   <tam title="As Couples Weave"
-       from="Two-Faced Lines"
        formation="Two-Faced Lines RH"
        group=" " >
     <path>
@@ -187,7 +186,6 @@
   </tam>
 
   <tam title="All 8 Weave"
-       from="Mini Waves"
        formation="Static MiniWaves RH"
        group=" " >
     <path>
@@ -206,5 +204,44 @@
     </path>
   </tam>
 
+  <tam title="Tandem Weave"
+       formation="Column RH GBGB"
+       group=" ">
+    <path>
+      <move select="Counter Rotate Right 0 -2" beats="3" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Counter Rotate Right 2 0" beats="3" offsetY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Right" scaleY="1.5"/>
+      <move select="Forward"/>
+      <move select="Counter Rotate Left 0 2" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY="1.5"/>
+      <move select="Counter Rotate Left 2 0" offsetY="-1"/>
+    </path>
+  </tam>
+
+  <tam title="Tandem Weave"
+       formation="Column LH GBGB"
+       group=" " display="none">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="1.5"/>
+      <move select="Counter Rotate Right 2 0" offsetY="1"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY="1.5"/>
+      <move select="Forward"/>
+      <move select="Counter Rotate Right 0 -2" />
+    </path>
+    <path>
+      <move select="Counter Rotate Left 2 0" beats="3" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Counter Rotate Left 0 2" beats="3" offsetY=".5"/>
+    </path>
+  </tam>
 
 </tamination>
