@@ -285,6 +285,7 @@ object TamUtils {
           .replace("\\b(1|3)4 tag the line\\b".r,"$14 tag")
           //  'Dixie Style' -> 'Dixie Style to a Wave'
           .replace("\\bdixie style(?! to)".r,"dixie style to a wave")
+          .replace("\\bchase left\\b".r,"left chase")
           //  Accept optional "dancers" e.g. "head dancers" == "heads"
           .replace("\\bdancers?\\b".r,"")
           //  Also handle "Lead Couples" as "Leads"
