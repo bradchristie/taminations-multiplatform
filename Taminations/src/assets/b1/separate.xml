@@ -238,4 +238,76 @@
     </path>
   </tam>
 
+  <tam title="Around One to a Line" group="   "
+       formation="T-Bone URLU">
+    <path>
+      <move select="Quarter Right" beats="2" offsetY="-1.5"/>
+    </path>
+    <path>
+      <move select="Dodge Left" beats="2" offsetX="-.5"/>
+    </path>
+    <path>
+      <move select="Dodge Right" beats="2" offsetX="-.5"/>
+    </path>
+    <path>
+      <move select="Quarter Left" beats="2" offsetY="1.5"/>
+    </path>
+  </tam>
+
+  <tam title="Around Two to a Line" group="   "
+       formation="T-Bone URLU">
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Right" beats="3" scaleX="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Back" hands="right" beats="3" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Back" hands="left" beats="3" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Left" beats="3" scaleX="3"/>
+    </path>
+  </tam>
+
+  <tam title="Around One and Come Into the Middle" group="   "
+       formation="T-Bone URLU">
+    <path>
+      <move select="Quarter Right" beats="3" offsetY="-2"/>
+    </path>
+    <path>
+      <move select="Dodge Left" beats="2" offsetX="-1" scaleY=".5"/>
+      <move select="Dodge Right" beats="2" offsetX="-1" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Dodge Right" beats="2" offsetX="-1" scaleY=".5"/>
+      <move select="Dodge Left" beats="2" offsetX="-1" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Quarter Left" beats="3" offsetY="2"/>
+    </path>
+  </tam>
+
+  <tam title="Around Two and Come Into the Middle" group="   "
+       formation="T-Bone URLU">
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Right" beats="2" scaleX="2.5" scaleY="1.5"/>
+      <move select="Lead Right" beats="2" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Back" hands="right" beats="3" scaleX="2"/>
+    </path>
+    <path>
+      <move select="Back" hands="left" beats="3" scaleX="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Left" beats="2" scaleX="2.5" scaleY=".5"/>
+      <move select="Lead Left" beats="2" scaleY="1.5"/>
+    </path>
+  </tam>
+
 </tamination>

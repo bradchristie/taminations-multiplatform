@@ -87,7 +87,10 @@ class CallContext {
         "c2/anything_the_k",
         "a2/transfer_and_anything",
         "ms/eight_chain_thru",
-        "b1/separate"
+        "b1/separate",
+        "c1/anything_the_windmill",
+        "c1/anything_to_a_wave",
+        "c1/tagging_calls_back_to_a_wave"
         )
 
     var numfiles = 0

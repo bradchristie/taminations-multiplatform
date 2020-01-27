@@ -34,6 +34,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "and14more" to { QuarterMore() },
         "androll" to { Roll("androll","and Roll") },
         "around1toaline" to { AroundToALine("around1toaline","Around One to a Line") },
+        "around2toaline" to { AroundToALine("around2toaline","Around Two to a Line") },
         "roll" to { Roll("roll","Roll") },
         "backaway" to { BackAway() },
         "beau" to { Beaus() },
