@@ -25,7 +25,7 @@ import com.bradchristie.taminations.common.r
 
 class While(norm:String,name:String) : Action(norm,name)  {
 
-  override fun performCall(ctx: CallContext, i: Int) {
+  override fun perform(ctx: CallContext, i: Int) {
 
     //  First strip off extra beats added to the inactive dancers
     ctx.contractPaths()

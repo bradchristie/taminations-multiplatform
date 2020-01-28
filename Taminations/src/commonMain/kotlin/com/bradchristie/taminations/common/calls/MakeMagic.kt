@@ -27,13 +27,13 @@ class MakeMagic : Action("Make Magic") {
   override val level = LevelObject("c1")
   override val requires = listOf("a1/cross_trail_thru")
 
-  override fun performCall(ctx: CallContext, i: Int) {
+  override fun perform(ctx: CallContext, i: Int) {
     //  If center 4 dancers are facing each other, they do a Cross Trail Thru
     if (ctx.center(4).all { d -> d.isFacingIn }) {
       ctx.applyCalls("Center 4 Cross Trail Thru")
     } else {
       //  Otherwise, process each dancer
-      super.performCall(ctx, i)
+      super.perform(ctx, i)
       if (ctx.dancers.all { d -> d.path.movelist.isEmpty()})
         throw CallError("Make Magic does nothing")
     }

@@ -25,7 +25,7 @@ import com.bradchristie.taminations.common.Path
 
 abstract class Action(norm:String,name:String=norm) : CodedCall(norm,name) {
 
-  override fun performCall(ctx: CallContext, i: Int) {
+  final override fun performCall(ctx: CallContext, i: Int) {
     perform(ctx,i)
     ctx.dancers.forEach { d ->
       d.path.recalculate()

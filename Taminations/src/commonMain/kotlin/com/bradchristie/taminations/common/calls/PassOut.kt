@@ -28,7 +28,7 @@ class PassOut : Action("Pass Out") {
   override val level = LevelObject.find("a1")
   override val requires = listOf("b1/face","b1/pass_thru")
 
-  override fun performCall(ctx: CallContext, i: Int) {
+  override fun perform(ctx: CallContext, i: Int) {
     ctx.applyCalls("Pass Thru","Face Out")
   }
 

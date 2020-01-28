@@ -27,7 +27,7 @@ class TagTheLine : Action("Tag the Line") {
   override val level = LevelObject("ms")
   override val requires = listOf("ms/fraction_tag","b2/extend")
 
-  override fun performCall(ctx: CallContext, i: Int) {
+  override fun perform(ctx: CallContext, i: Int) {
     ctx.applyCalls("34tag")
     ctx.contractPaths()
     ctx.applyCalls("extend")

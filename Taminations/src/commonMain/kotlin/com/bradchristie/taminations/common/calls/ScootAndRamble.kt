@@ -29,7 +29,7 @@ class ScootAndRamble : Action("Scoot and Ramble") {
   override val requires = listOf("ms/scoot_back","a2/single_wheel","ms/slide_thru","b1/separate")
 
 
-  override fun performCall(ctx: CallContext, i: Int) {
+  override fun perform(ctx: CallContext, i: Int) {
     ctx.applyCalls("Scoot Back","Ramble")
   }
 

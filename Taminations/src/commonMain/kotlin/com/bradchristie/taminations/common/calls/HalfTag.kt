@@ -28,7 +28,7 @@ class HalfTag(norm:String,name:String) : Action(norm,name) {
   override val level = LevelObject("ms")
   override val requires = listOf("b2/extend","ms/fraction_tag")
 
-  override fun performCall(ctx: CallContext, i: Int) {
+  override fun perform(ctx: CallContext, i: Int) {
     val dir = if (norm.startsWith("left")) "Left" else ""
     ctx.applyCalls("$dir Quarter Tag","Extend")
   }

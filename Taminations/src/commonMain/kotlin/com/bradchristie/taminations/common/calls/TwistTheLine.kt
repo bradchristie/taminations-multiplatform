@@ -27,7 +27,7 @@ class TwistTheLine : Action("Twist the Line") {
 
   override val level = LevelObject("c1")
 
-  override fun performCall(ctx: CallContext, i: Int) {
+  override fun perform(ctx: CallContext, i: Int) {
     //  Centers facing out or in?
     when {
       ctx.center(4).all { it.isFacingOut }

@@ -27,7 +27,7 @@ class AceyDeucey : Action("Acey Deucey") {
   override val level = LevelObject("plus")
   override val requires = listOf("b2/trade","b1/circulate")
 
-  override fun performCall(ctx: CallContext, i: Int) {
+  override fun perform(ctx: CallContext, i: Int) {
     ctx.applyCalls("Center 4 Trade While Outer 4 Circulate")
   }
 

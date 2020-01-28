@@ -26,7 +26,7 @@ class QuarterMore : Action("and a Quarter More") {
 
   override val requires = listOf("b2/wheel_around")
 
-  override fun performCall(ctx: CallContext, i: Int) {
+  override fun perform(ctx: CallContext, i: Int) {
     if (ctx.actives.any {
           d -> !ctx.isInCouple(d)
         })

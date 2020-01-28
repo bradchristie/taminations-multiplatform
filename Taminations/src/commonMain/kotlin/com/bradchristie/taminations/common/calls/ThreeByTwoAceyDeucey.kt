@@ -28,7 +28,7 @@ class ThreeByTwoAceyDeucey : Action("Three By Two Acey Deucey") {
   override val requires = listOf("c1/triangle_formation","b2/trade")
 
 
-  override fun performCall(ctx: CallContext, i: Int) {
+  override fun perform(ctx: CallContext, i: Int) {
     ctx.applyCalls("Outside Triangle Circulate While Very Centers Trade")
   }
 

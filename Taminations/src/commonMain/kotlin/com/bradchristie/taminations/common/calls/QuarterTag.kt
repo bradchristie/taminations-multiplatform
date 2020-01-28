@@ -37,7 +37,7 @@ class QuarterTag(norm:String,name:String) : Action(norm,name) {
         ctx.dancerToRight(d)?.data?.center ?: false
       }
 
-  override fun performCall(ctx: CallContext, i: Int) {
+  override fun perform(ctx: CallContext, i: Int) {
     val dir = if (norm.startsWith("left")) "Left" else ""
     if (ctx.isTidal()) {
       ctx.applyCalls("Center 4 Face Out While Outer 4 Face In","Facing Dancers $dir Touch")

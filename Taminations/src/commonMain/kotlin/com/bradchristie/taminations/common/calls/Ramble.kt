@@ -28,7 +28,7 @@ class Ramble : Action("Ramble") {
   override val level = LevelObject("c1")
   override val requires = listOf("a2/single_wheel","ms/slide_thru","b1/separate")
 
-  override fun performCall(ctx: CallContext, i: Int) {
+  override fun perform(ctx: CallContext, i: Int) {
     val ctx2 = CallContext(ctx,beat=0.0).noSnap().noExtend()
     ctx2.applyCalls("Center 4 Single Wheel and Slide Thru")
     ctx2.applyCalls("Outer 4 Separate and Slide Thru")

@@ -28,7 +28,7 @@ class SweepAQuarter : Action("and Sweep a Quarter") {
   override val level = LevelObject("b2")
   override val requires = listOf("b2/sweep_a_quarter")
 
-  override fun performCall(ctx: CallContext, i: Int) {
+  override fun perform(ctx: CallContext, i: Int) {
     if (ctx.actives.any {
           d -> !ctx.isInCouple(d)
         })

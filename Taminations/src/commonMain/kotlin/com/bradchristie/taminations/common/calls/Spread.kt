@@ -40,7 +40,7 @@ class Spread(norm: String, name: String) : Action(norm, name) {
    *  while the trailing dancers step forward between them.
    */
 
-  override fun performCall(ctx: CallContext, i:Int) {
+  override fun perform(ctx: CallContext, i:Int) {
     //  Is this spread from waves, tandem, actives?
     var spreader: Action? =  null
     when {
