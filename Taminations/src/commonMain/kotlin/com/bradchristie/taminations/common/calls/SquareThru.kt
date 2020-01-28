@@ -19,13 +19,13 @@ package com.bradchristie.taminations.common.calls
 
 */
 
-import com.bradchristie.taminations.common.CallContext
-import com.bradchristie.taminations.common.CallError
-import com.bradchristie.taminations.common.Dancer
-import com.bradchristie.taminations.common.Path
+import com.bradchristie.taminations.common.*
 import com.bradchristie.taminations.common.TamUtils.getMove
 
 class SquareThru(norm: String, name: String) : Action(norm, name) {
+
+  private var myLevel = LevelObject("b1")
+  override val level get() = myLevel
 
   override val requires = listOf("b2/ocean_wave","plus/explode_the_wave","b1/step_thru")
 
@@ -52,8 +52,12 @@ class SquareThru(norm: String, name: String) : Action(norm, name) {
     (1 until count).forEach { c ->
       val hand = if (c % 2 == 0) right else left
       ctx.applyCalls("Explode and Step to a Compact $hand Wave")
+      ctx.level = LevelObject("b1")  // override Explode (Plus)
     }
-    if (!norm.endsWith("toawave"))
+    //  Finish back-to-back unless C-1 concept "to a Wave" added
+    if (norm.endsWith("toawave"))
+      myLevel = LevelObject("c1")
+    else
       ctx.applyCalls("Step Thru")
   }
 
