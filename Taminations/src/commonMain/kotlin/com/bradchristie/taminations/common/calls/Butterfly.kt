@@ -61,12 +61,12 @@ class Butterfly(norm:String,name:String) : Action(norm,name) {
       if (d.data.center) {
         if (d.isFacingIn) {
           val d2 = ctx.dancerInFront(d)
-            ?: throw CallError("Unable to reform the Butterfly 5")
+            ?: throw CallError("Unable to reform the Butterfly")
           //  Both dancers will be adjusted, so only need to move halfway
           dx = (d.distanceTo(d2)-2.0)/2.0
         } else if (d.isFacingOut) {
           val d2 = ctx.dancerInBack(d)
-            ?: throw CallError("Unable to reform the Butterfly 6")
+            ?: throw CallError("Unable to reform the Butterfly")
           dx = -(d.distanceTo(d2)-2.0)/2.0
         }
 
@@ -76,22 +76,22 @@ class Butterfly(norm:String,name:String) : Action(norm,name) {
           //  Could be line-like formation or column-like formation
           //  Either way, we want to find distance to dancer farthest away
           val d2 = ctx.dancersInFront(d).lastOrNull()
-            ?: throw CallError("Unable to reform the Butterfly 1")
+            ?: throw CallError("Unable to reform the Butterfly")
           dx += -(6.0-d.distanceTo(d2))/2.0
         }
         if (d.isFacingOut) {
           val d2 = ctx.dancersInBack(d).lastOrNull()
-            ?: throw CallError("Unable to reform the Butterfly 2")
+            ?: throw CallError("Unable to reform the Butterfly")
           dx += (6.0-d.distanceTo(d2))/2.0
         }
         if (d.isCenterRight) {
           val d2 = ctx.dancersToRight(d).lastOrNull()
-            ?: throw CallError("Unable to reform the Butterfly 3")
+            ?: throw CallError("Unable to reform the Butterfly")
           dy += (6.0-d.distanceTo(d2))/2.0
         }
         if (d.isCenterLeft) {
           val d2 = ctx.dancersToLeft(d).lastOrNull()
-            ?: throw CallError("Unable to reform the Butterfly 4")
+            ?: throw CallError("Unable to reform the Butterfly")
           dy += -(6.0-d.distanceTo(d2))/2.0
         }
       }

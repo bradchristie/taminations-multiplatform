@@ -976,6 +976,26 @@ Star Thru
 Bend the Line 
 Star Thru 
 Pass Thru 
+Allemande Left""",
+
+      "O" to
+"""Sides Face Out 
+O Pass Out 
+O Centers Trade 
+O Left Chase 
+O Trade and Roll 
+O Left Roll to a Wave 
+O Magic Column Circulate 
+O Facing Dancers Pass Thru 
+Facing Dancers Slide In 
+Trade By 
+Touch a Quarter 
+Acey Deucey 
+Swing Thru 
+Hinge 
+Boys Run 
+Ferris Wheel 
+Centers Pass Thru 
 Allemande Left"""
 
 
