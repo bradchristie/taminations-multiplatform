@@ -28,8 +28,8 @@ class BraceThru : Action("Brace Thru") {
 
   override fun perform(ctx: CallContext, i: Int) {
     val ctx2 = CallContext(ctx,ctx.actives)
-    ctx2.analyze()
     ctx2.applyCalls("Pass Thru")
+    ctx2.analyze()
     for (d in ctx2.dancers) {
       val partner = d.data.partner
         ?: throw CallError("Dancer $d cannot Brace Thru")

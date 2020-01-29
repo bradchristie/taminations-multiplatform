@@ -165,6 +165,15 @@ Pass Thru
 Trade By
 Allemande Left""",
 
+      "Brace Thru 2" to
+"""Heads Star Thru and Spread 
+Pass the Ocean 
+Brace Thru 
+Veer Left 
+Ferris Wheel 
+Centers Square Thru 3 
+Allemande Left""",
+
       "California Twirl" to
 """Sides Star Thru
 Centers California Twirl
