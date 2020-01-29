@@ -176,6 +176,15 @@ class Movement(private val fullbeats:Double, val hands:Int,
     return if (maxiter > 0) m else this
   }
 
+  /**
+   * Skew a movement based on an  adjustment to the final position
+   */
+  fun skewFromEnd(x: Double, y: Double): Movement {
+    val a = rotate().angle
+    val v = Vector(x,y).rotate(a)
+    return skew(v.x,v.y)
+  }
+
 
   fun reflect(): Movement = scale(1.0, -1.0)
 

@@ -62,6 +62,14 @@ class Path(moves:List<Movement> = listOf()) {
   fun pop(): Movement {
     val m = movelist.last()
     movelist = movelist.dropLast(1)
+    recalculate()
+    return m
+  }
+
+  fun shift() : Movement? {
+    val m = movelist.firstOrNull()
+    movelist = movelist.drop(1)
+    recalculate()
     return m
   }
 
@@ -91,10 +99,22 @@ class Path(moves:List<Movement> = listOf()) {
     return this
   }
 
+  //  This likely will not work well for paths with >1 movement
+  //  Instead use skewFirst or skewFromEnd
   fun skew(x:Double, y:Double): Path {
     if (movelist.isNotEmpty()) {
       //  Apply the skew to just the last movement
       movelist = movelist.dropLast(1) + movelist.last().skew(x,y)
+      recalculate()
+    }
+    return this
+  }
+
+  //  Shift path based on adjustment to final position
+  //  This should work well with any number of movements in the path
+  fun skewFromEnd(x:Double, y:Double): Path {
+    if (movelist.isNotEmpty()) {
+      movelist = movelist.dropLast(1) + movelist.last().skewFromEnd(x,y)
       recalculate()
     }
     return this
