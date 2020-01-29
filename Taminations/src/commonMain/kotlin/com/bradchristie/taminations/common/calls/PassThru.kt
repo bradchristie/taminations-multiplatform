@@ -24,10 +24,29 @@ import com.bradchristie.taminations.common.CallError
 import com.bradchristie.taminations.common.Dancer
 import com.bradchristie.taminations.common.Path
 import com.bradchristie.taminations.common.TamUtils.getMove
+import com.bradchristie.taminations.platform.System
 
 class PassThru(norm: String, name: String) : Action(norm, name) {
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
+    //  If in wave then maybe Ocean Wave rule applies
+    if (ctx.isInWave(d)) {
+      var d2 = d.data.partner!!
+      if (!d2.data.active) {
+        val d3 = if (d2.isRightOf(d)) ctx.dancerToLeft(d) else ctx.dancerToRight(d)
+        if (d3 != null)
+          d2 = d3
+      }
+      System.log("$d pass thru with $d2")
+      if (d2.data.active) {
+        val dist = d.distanceTo(d2)
+        if (norm.startsWith("left")) {
+          if (d2.isLeftOf(d))
+            return getMove("Extend Left").scale(1.0, dist/2.0)
+        } else if (d2.isRightOf(d))
+          return getMove("Extend Right").scale(1.0, dist/2.0)
+      }
+    }
     //  Can only pass thru with another dancer
     //  in front of this dancer
     //  who is also facing this dancer
@@ -40,6 +59,6 @@ class PassThru(norm: String, name: String) : Action(norm, name) {
           getMove("Extend Left").scale(dist/2,0.5)
       else
           getMove("Extend Left").scale(dist/2,0.5) +
-          getMove("Extend Right").scale(dist/2,0.5)
+              getMove("Extend Right").scale(dist/2,0.5)
   }
 }
