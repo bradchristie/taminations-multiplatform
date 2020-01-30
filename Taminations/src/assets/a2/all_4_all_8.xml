@@ -554,6 +554,72 @@
     </path>
   </tam>
 
+  <tam title="All 8 Reverse Dixie Style to a Wave" group="All 8"
+       formation="Static Square">
+    <path>
+      <move select="Extend Right" hands="left" beats="3" scaleX="3" scaleY="2" />
+      <move select="Extend Left" hands="left" beats="2" scaleX="2" scaleY="1.75"/>
+      <move select="Hinge Right" scaleY=".75" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="5" scaleY="1.75"/>
+      <move select="Hinge Right" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Extend Right" hands="left" beats="3" scaleX="3" scaleY="2" />
+      <move select="Extend Left" hands="left" beats="2" scaleX="2" scaleY="1.75"/>
+      <move select="Hinge Right" scaleY=".75" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="5" scaleY="1.75"/>
+      <move select="Hinge Right" scaleY=".75"/>
+    </path>
+  </tam>
+
+  <tam title="All 8 Dixie Style to a Wave" group="All 8" display="none"
+       formation="Static Girls Lead">
+    <path>
+      <move select="Extend Right" beats="4" scaleX="2" scaleY=".75"/>
+      <move select="Hinge Left" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Extend Left" hands="right" beats="2" scaleX="2"/>
+      <move select="Extend Right" hands="right" beats="2" scaleX="2" scaleY="1.75"/>
+      <move select="Hinge Left" scaleY=".75" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="4" scaleX="2" scaleY=".75"/>
+      <move select="Hinge Left" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Extend Left" hands="right" beats="2" scaleX="2"/>
+      <move select="Extend Right" hands="right" beats="2" scaleX="2" scaleY="1.75"/>
+      <move select="Hinge Left" scaleY=".75" />
+    </path>
+  </tam>
+
+  <tam title="All 8 Reverse Dixie Style to a Wave" group="All 8" display="none"
+       formation="Static Girls Lead">
+    <path>
+      <move select="Extend Left" beats="4" scaleX="2" scaleY=".75"/>
+      <move select="Hinge Right" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Extend Right" hands="left" beats="2" scaleX="2"/>
+      <move select="Extend Left" hands="left" beats="2" scaleX="2" scaleY="1.75"/>
+      <move select="Hinge Right" scaleY=".75" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="4" scaleX="2" scaleY=".75"/>
+      <move select="Hinge Right" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Extend Right" hands="left" beats="2" scaleX="2"/>
+      <move select="Extend Left" hands="left" beats="2" scaleX="2" scaleY="1.75"/>
+      <move select="Hinge Right" scaleY=".75" />
+    </path>
+  </tam>
+
   <tam title="All 8 Explode the Wave" group="All 8" formation="Thar LH Girls">
     <path>
       <move select="Lead Left" scaleX="2" beats="4"/>

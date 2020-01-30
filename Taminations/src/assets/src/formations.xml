@@ -261,6 +261,13 @@
     <dancer gender="girl" x="0" y="2" angle="90"/>
   </formation>
 
+  <formation name="Static Girls Lead">
+    <dancer gender="boy" x="-4" y="0" angle="0"/>
+    <dancer gender="girl" x="-2" y="0" angle="0"/>
+    <dancer gender="boy" x="0" y="4" angle="270"/>
+    <dancer gender="girl" x="0" y="2" angle="270"/>
+  </formation>
+
   <formation name="Single File Promenade">
     <dancer gender="boy" x="-3" y="1" angle="270"/>
     <dancer gender="girl" x="-3" y="-1" angle="270"/>
