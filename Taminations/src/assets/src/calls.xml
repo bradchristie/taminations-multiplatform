@@ -202,7 +202,7 @@
   <call audio="ms/eight_chain_thru.mp3" languages="lang-ja" link="ms/eight_chain_thru" title="Eight Chain Thru"/>
   <call audio="a1/ends_bend.mp3" link="a1/ends_bend" title="Ends Bend"/>
   <call link="c3a/exchange_the_box" title="Exchange the Boxes"/>
-  <call link="c2/exchange_the_diamond" title="Exchange the Diamond 1/4, 1/2, 3/4, Full"/>
+  <call link="c2/exchange_the_diamond" title="Exchange the Diamond"/>
   <call link="c3a/exchange_the_box" title="Exchange the Triangles"/>
   <call link="c3a/expand_the_column" title="Expand the Column"/>
   <call languages="lang-ja" link="plus/explode_and_anything" title="Explode and Anything"/>
