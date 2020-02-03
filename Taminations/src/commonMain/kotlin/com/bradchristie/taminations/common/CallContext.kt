@@ -572,7 +572,7 @@ class CallContext {
           val matchResult = computeFormationOffsets(ctx2,mapping)
           //  Don't match if some dancers are too far from their mapped location
           val maxOffset = matchResult.offsets.maxBy { it.length }!!
-          if (maxOffset.length < 2.0) {
+          if (maxOffset.length < 1.9) {
             val totOffset = matchResult.offsets.fold(0.0) { s, v -> s + v.length }
             if (bestmapping == null || totOffset < bestOffset) {
               bestmapping = mapping.copyOf()
@@ -702,7 +702,7 @@ class CallContext {
       //  There are also 8 possible 3x1 t-bones not listed here
       "Static Square"
   )
-  private var twoCoupleFormations = listOf(
+  private val twoCoupleFormations = listOf(
       "Facing Couples Compact",
       "Facing Couples",
       "Two-Faced Line RH",

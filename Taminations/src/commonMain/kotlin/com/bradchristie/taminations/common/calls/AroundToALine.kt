@@ -21,21 +21,20 @@ package com.bradchristie.taminations.common.calls
 
 import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.CallError
-import com.bradchristie.taminations.common.LevelObject
-import com.bradchristie.taminations.common.TamUtils
 
-class SqueezeTheGalaxy : Action("Squeeze the Galaxy") {
+class AroundToALine(norm:String,name:String) : Action(norm,name) {
 
-  override val level = LevelObject("c1")
   override fun perform(ctx: CallContext, i: Int) {
-    //  Match to any galaxy
-    val galaxy = CallContext(TamUtils.getFormation("Galaxy RH GP"))
-    val mm = galaxy.matchFormations(ctx,rotate = true) ?:
-      throw CallError("Not a Galaxy formation")
-    //  All but two of the dancers squeeze
-    ctx.dancers[mm[2]].data.active = false
-    ctx.dancers[mm[3]].data.active = false
-    ctx.applyCalls("Squeeze")
+    if (ctx.actives.count() < ctx.dancers.count()) {
+      ctx.matchStandardFormation()
+      ctx.dancers.forEach { it.data.active = true }
+      when {
+        norm.contains("1") -> ctx.applyCalls("Around One To A Line")
+        norm.contains("2") -> ctx.applyCalls("Around Two To A Line")
+        else -> throw CallError("Go Around What?")
+      }
+    } else
+      throw CallError("Cannot Go Around to a Line")
   }
 
 }

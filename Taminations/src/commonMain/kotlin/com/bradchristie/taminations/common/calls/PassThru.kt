@@ -24,7 +24,6 @@ import com.bradchristie.taminations.common.CallError
 import com.bradchristie.taminations.common.Dancer
 import com.bradchristie.taminations.common.Path
 import com.bradchristie.taminations.common.TamUtils.getMove
-import com.bradchristie.taminations.platform.System
 
 class PassThru(norm: String, name: String) : Action(norm, name) {
 
@@ -37,7 +36,6 @@ class PassThru(norm: String, name: String) : Action(norm, name) {
         if (d3 != null)
           d2 = d3
       }
-      System.log("$d pass thru with $d2")
       if (d2.data.active) {
         val dist = d.distanceTo(d2)
         if (norm.startsWith("left")) {
