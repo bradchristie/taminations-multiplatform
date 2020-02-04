@@ -174,6 +174,26 @@ Ferris Wheel
 Centers Square Thru 3 
 Allemande Left""",
 
+      "Brace Thru 3" to
+"""Heads Star Thru and Spread 
+Pass the Ocean 
+Recycle 
+Centers In 
+Boys Run 
+Step to a Wave 
+Brace Thru 
+Centers Pass Thru 
+Centers Run 
+Touch a Quarter 
+Circulate 
+Face In 
+Fan the Top 
+Brace Thru 
+Pass Thru 
+Trade By 
+Pass Thru 
+Allemande Left """,
+
       "California Twirl" to
 """Sides Star Thru
 Centers California Twirl
@@ -1005,6 +1025,28 @@ Hinge
 Boys Run 
 Ferris Wheel 
 Centers Pass Thru 
+Allemande Left""",
+
+      "Pass Thru" to
+"""Sides Pass the Ocean 
+Extend 
+Pass Thru 
+Centers Pass the Ocean 
+Clover and Pass Thru 
+Allemande Left""",
+
+      "To A Wave" to
+"""Heads Square Chain Thru to a Wave 
+Extend 
+Recycle 
+Square Chain the Top to a Wave 
+Hinge 
+Boys Run 
+Load the Boat Centers to a Wave 
+Ping Pong Circulate 
+Centers Recycle 
+Half Sashay 
+Centers Square Thru 3 
 Allemande Left"""
 
 
