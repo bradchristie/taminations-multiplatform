@@ -153,7 +153,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "zagzig" to { ZigZag("zagzig","Zag Zig") },
         "zagzag" to { ZigZag("zagzag","Zag Zag") },
         "zing" to { Zing() },
-        "toawave" to { ToAWave() }
+        "toawave" to { ToAWave() },
+        "kickoff" to { KickOff() }
     )
 
     //  More complex calls where the text is needed either to select

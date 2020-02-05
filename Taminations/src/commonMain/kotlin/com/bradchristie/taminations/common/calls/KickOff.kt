@@ -1,5 +1,4 @@
 package com.bradchristie.taminations.common.calls
-
 /*
 
   Taminations Square Dance Animations
@@ -21,31 +20,28 @@ package com.bradchristie.taminations.common.calls
 */
 
 import com.bradchristie.taminations.common.CallContext
-import com.bradchristie.taminations.common.CallError
 import com.bradchristie.taminations.common.LevelObject
+import com.bradchristie.taminations.common.TamUtils
 
-class ZipCode(norm:String, name:String) : Action(norm,name) {
+class KickOff : Action("Kick Off") {
 
-  override val level = LevelObject("c1")
-  override val requires = listOf("b1/face","b2/run","b1/pass_thru","a1/ends_bend")
-
+  override val level = LevelObject("c2")
+  override val requires = listOf("b2/run","plus/anything_and_roll")
 
   override fun perform(ctx: CallContext, i: Int) {
-    val count = norm.takeLast(1).toIntOrNull()
-      ?: throw CallError("Zip Code how much?")
-    ctx.applyCalls("Centers Face Out")
-    ctx.analyze()
-    ctx.applyCalls("Centers Run")
-    if (count >= 2)
-      ctx.applyCalls("Ends Pass Thru")
-    if (count >= 3)
-      ctx.applyCalls("Ends Bend")
-    if (count >= 4)
-      ctx.applyCalls("Ends Pass Thru")
-    if (count >= 5)
-      ctx.applyCalls("Ends Bend")
-    if (count >= 6)
-      ctx.applyCalls("Ends Pass Thru")
+    //  Active dancers Run and Roll
+    ctx.applyCalls("Run and Roll")
+    //  Inactive dancers that moved do a Partner Tag
+    ctx.dancers.filter {
+      !it.data.active && it.path.movelist.count() > 0
+    }.forEach { d ->
+      val m = d.path.shift()!!
+      val dy = m.y2
+      if (dy > 0)
+        d.path = TamUtils.getMove("Quarter Left").changebeats(3.0).skew(0.0,dy)
+      else if (dy < 0)
+        d.path = TamUtils.getMove("Quarter Right").changebeats(3.0).skew(0.0,dy)
+    }
   }
 
 }

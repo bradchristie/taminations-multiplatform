@@ -1047,8 +1047,30 @@ Ping Pong Circulate
 Centers Recycle 
 Half Sashay 
 Centers Square Thru 3 
-Allemande Left"""
+Allemande Left""",
 
+      "Kick Off" to
+"""Heads Lead Right 
+Boys Kick Off 
+Centers Kick Off 
+Double Pass Thru 
+Lead Boys Kick Off 
+Centers Right Roll to a Wave 
+Cut the Diamond 
+Mini-Busy 
+Head Boys Kick Off 
+Flip the Diamond 
+Wheel and Deal 
+Pass Thru 
+Trade By 
+Touch a Quarter 
+Hinge 
+Acey Deucey 
+Swing Thru 
+Boys Run 
+Circulate 
+Wheel and Deal 
+Allemande Left"""
 
   )
 
