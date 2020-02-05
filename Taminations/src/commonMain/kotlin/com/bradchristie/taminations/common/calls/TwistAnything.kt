@@ -22,22 +22,27 @@ package com.bradchristie.taminations.common.calls
 import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.CallError
 import com.bradchristie.taminations.common.LevelObject
+import com.bradchristie.taminations.common.r
 
-class TwistTheLine : Action("Twist the Line") {
+class TwistAnything(norm:String, name:String) : Action(norm,name) {
 
   override val level = LevelObject("c1")
 
   override fun perform(ctx: CallContext, i: Int) {
+    //  Get "Anything" call
+    val anycall = if (norm == "twisttheline") "Star Thru" else
+      //  Be careful to allow e.g. "Twist and Right and Left Thru"
+      name.replaceFirst(".*? and ".r,"")
     //  Centers facing out or in?
     when {
       ctx.center(4).all { it.isFacingOut }
         //  This is for centers facing out
         -> ctx.applyCalls("Outer 4 Face In and Step while Center 4 Step Ahead",
-                          "Outer 4 Trade while Center 4 Star Thru")
+                          "Outer 4 Trade while Center 4 $anycall")
       ctx.center(4).all { it.isFacingIn }
         //  Centers facing in
         -> ctx.applyCalls("Outer 4 Face In and Step while Center 4 Half Step Ahead",
-                          "Center 4 Trade while Outer 4 Star Thru")
+                          "Center 4 Trade while Outer 4 $anycall")
       else
         -> throw CallError("Centers must face the same direction")
     }

@@ -129,7 +129,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "triplestarthru" to { TripleStarThru() },
         "tripletrade" to { TripleTrade() },
         "turnback" to { TurnBack() },
-        "twisttheline" to { TwistTheLine() },
+        "twisttheline" to { TwistAnything("twisttheline","Twist the Line") },
         "zoom" to { Zoom() },
         "singlewheel" to { SingleWheel("singlewheel","Single Wheel") },
         "leftsinglewheel" to { SingleWheel("leftsinglewheel","Left Single Wheel") },
@@ -215,6 +215,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "o.*".r -> if (callname.toLowerCase().matches("o .+".r))
             OFormation(callnorm,callname) else null
         in "zipcode\\d".r -> ZipCode(callnorm,callname)
+        in "twistand.*".r -> TwistAnything(callnorm,callname)
         else -> null
       }
     }

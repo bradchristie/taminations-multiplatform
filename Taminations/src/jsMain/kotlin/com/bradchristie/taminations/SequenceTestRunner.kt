@@ -1070,6 +1070,24 @@ Swing Thru
 Boys Run 
 Circulate 
 Wheel and Deal 
+Allemande Left""",
+
+      "Twist And" to
+"""Heads Lead Right 
+Star Thru 
+Twist and Pass Out 
+Centers In 
+Twist and Right and Left Thru 
+Split Square Thru 3 
+Twist and Left Touch 1/4 
+Girls Cross 
+Hinge 
+Grand Swing Thru 
+Recycle 
+Bend the Line 
+Pass Thru 
+Wheel and Deal 
+Centers Pass Thru 
 Allemande Left"""
 
   )
