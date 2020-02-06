@@ -63,8 +63,7 @@
 
   <tam title="Switch the Wave"
        from="Right-Hand Waves"
-       formation="Ocean Waves RH GBBG"
-       fractions="" >
+       formation="Ocean Waves RH GBBG">
     <path>
       <move select="Run Right" beats="6" scaleY="2" />
     </path>
@@ -81,8 +80,7 @@
 
   <tam title="Switch the Wave"
        from="Left-Hand Waves"
-       formation="Ocean Waves LH GBBG"
-       fractions="" >
+       formation="Ocean Waves LH GBBG">
     <path>
       <move select="Run Left" beats="6" scaleY="2" />
     </path>
@@ -99,8 +97,7 @@
 
   <tam title="Switch the Wave"
        from="Right-Hand Tidal Wave"
-       formation="Tidal Wave RH BGGB"
-       fractions="" >
+       formation="Tidal Wave RH BGGB">
     <path>
       <move select="Run Right" beats="6" scaleX=".75" />
     </path>
@@ -117,8 +114,7 @@
 
   <tam title="Switch the Wave"
        from="Left-Hand Tidal Wave"
-       formation="Tidal Wave LH BGGB"
-       fractions="" >
+       formation="Tidal Wave LH BGGB">
     <path>
       <move select="Run Left" beats="6" scaleX=".75" />
     </path>
@@ -135,8 +131,7 @@
 
   <tam title="As Couples Switch the Wave"
        from="Tidal Two-Faced Line"
-       formation="Two-Faced Tidal Line RH"
-       fractions="" >
+       formation="Two-Faced Tidal Line RH">
     <path>
       <move select="Run Right" hands="right" beats="6" scaleX="2.5" scaleY="2.5" />
     </path>
@@ -153,8 +148,7 @@
 
   <tam title="All 8 Switch the Wave"
        from="Thar"
-       formation="Thar LH Boys"
-       fractions="" >
+       formation="Thar LH Boys">
     <path>
       <move select="Run Right" />
     </path>
@@ -168,4 +162,5 @@
       <move select="Run Right" beats="6" scaleX="1.5" scaleY="2" />
     </path>
   </tam>
+
 </tamination>

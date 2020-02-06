@@ -203,6 +203,74 @@
     </path>
   </tam>
 
+  <tam title="All 8 Switch the Line"
+       from="Thar"
+       formation="Thar RH Boys">
+    <path>
+      <move select="Run Left" />
+    </path>
+    <path>
+      <move select="Run Left" beats="6" scaleX="1.5" scaleY="2" />
+    </path>
+    <path>
+      <move select="Run Left" />
+    </path>
+    <path>
+      <move select="Run Left" beats="6" scaleX="1.5" scaleY="2" />
+    </path>
+  </tam>
+
+  <tam title="All 8 Switch the Line"
+       from="Wrong Way Thar"
+       formation="Thar LH Boys">
+    <path>
+      <move select="Run Right" />
+    </path>
+    <path>
+      <move select="Run Right" beats="6" scaleX="1.5" scaleY="2" />
+    </path>
+    <path>
+      <move select="Run Right" />
+    </path>
+    <path>
+      <move select="Run Right" beats="6" scaleX="1.5" scaleY="2" />
+    </path>
+  </tam>
+
+  <tam title="All 8 Switch the Line"
+       from="Star Promenade"
+       formation="Star Promenade">
+    <path>
+      <move select="Flip Right" />
+    </path>
+    <path>
+      <move select="Run Left" beats="6" scaleX="1.5" scaleY="2" />
+    </path>
+    <path>
+      <move select="Flip Right" />
+    </path>
+    <path>
+      <move select="Run Left" beats="6" scaleX="1.5" scaleY="2" />
+    </path>
+  </tam>
+
+  <tam title="All 8 Switch the Line"
+       from="Reverse Star Promenade"
+       formation="Reverse Star Promenade">
+    <path>
+      <move select="Run Right" beats="6" scaleX="1.5" scaleY="2" />
+    </path>
+    <path>
+      <move select="Flip Left" />
+    </path>
+    <path>
+      <move select="Run Right" beats="6" scaleX="1.5" scaleY="2" />
+    </path>
+    <path>
+      <move select="Flip Left" />
+    </path>
+  </tam>
+
   <tam title="As Couples Switch the Line"
        from="Tidal Line"
        formation="Tidal Line RH">
