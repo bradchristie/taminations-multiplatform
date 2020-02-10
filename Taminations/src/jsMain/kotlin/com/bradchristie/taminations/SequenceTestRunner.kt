@@ -1099,6 +1099,25 @@ As Couples Alter the Wave
 As Couples Recycle 
 Star Thru 
 Leaders Trade 
+Allemande Left""",
+
+      "Crazy" to
+"""Heads Lead Right 
+Touch a Quarter 
+Crazy Counter Rotate Twice 
+Crazy Circulate 
+1/2 Crazy Circulate 
+1/2 Crazy Counter Rotate Twice 
+Boys Run 
+Bend the Line 
+3/4 Crazy Flutterwheel 
+Pass the Ocean 
+Acey Deucey 
+Swing Thru 
+Boys Run 
+Circulate 
+Ferris Wheel 
+Centers Square Thru 3 
 Allemande Left"""
 
   )

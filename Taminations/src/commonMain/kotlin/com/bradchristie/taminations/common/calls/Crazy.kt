@@ -20,26 +20,32 @@ package com.bradchristie.taminations.common.calls
 */
 
 import com.bradchristie.taminations.common.CallContext
-import com.bradchristie.taminations.common.CallError
 import com.bradchristie.taminations.common.LevelObject
+import com.bradchristie.taminations.common.r
 
-class ToAWave : Action("to a Wave") {
+class Crazy(norm:String,name:String) : Action(norm,name)  {
 
-  override val level = LevelObject("c1")
+  override val level = LevelObject("c2")
+  override val requires = listOf("a2/box_counter_rotate",
+      "a2/split_counter_rotate",
+      "b1/circulate")
 
   override fun perform(ctx: CallContext, i: Int) {
-    if (ctx.callstack.count() < 2)
-      throw CallError("What to a Wave?")
-    //  Assume the last move is an Extend from a wave
-    ctx.actives.forEach { d ->
-      d.path.pop()
+    val crazycall = name.replace(".*Crazy ".r,"")
+    val crazy8 = when (crazycall) {
+      in "Counter Rotate.*".r -> "Split"
+      in "Circulate.*".r -> "Split"
+      else -> ""
     }
-    //  Now let's see if they are in waves
-    ctx.analyze()
-    ctx.actives.forEach { d ->
-      if (!ctx.isInWave(d))
-        throw CallError("Unable to end in Wave")
+    val crazy4 = when (crazycall) {
+      in "Counter Rotate.*".r -> "Box"
+      else -> ""
+    }
+    ctx.applyCalls("$crazy8 $crazycall","Center 4 $crazy4 $crazycall")
+    if (!norm.startsWith("12")) {
+      ctx.applyCalls("$crazy8 $crazycall")
+      if (!norm.startsWith("34"))
+        ctx.applyCalls("Center 4 $crazy4 $crazycall")
     }
   }
-
 }
