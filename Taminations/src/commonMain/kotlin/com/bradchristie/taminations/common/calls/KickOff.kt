@@ -36,7 +36,7 @@ class KickOff : Action("Kick Off") {
       !it.data.active && it.path.movelist.count() > 0
     }.forEach { d ->
       val m = d.path.shift()!!
-      val dy = m.y2
+      val dy = m.btranslate.endPoint.y
       if (dy > 0)
         d.path = TamUtils.getMove("Quarter Left").changebeats(3.0).skew(0.0,dy)
       else if (dy < 0)

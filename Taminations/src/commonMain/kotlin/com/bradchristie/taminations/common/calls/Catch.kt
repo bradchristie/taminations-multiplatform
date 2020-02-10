@@ -26,6 +26,8 @@ import com.bradchristie.taminations.common.LevelObject
 class Catch(norm:String,name:String) : Action(norm,name)  {
 
   override val level = LevelObject("c2")
+  override val requires = listOf("b1/square_thru","b2/trade","c1/step_and_fold")
+
 
   override fun perform(ctx: CallContext, i: Int) {
     val dir = if (norm.startsWith("left")) "Left" else ""

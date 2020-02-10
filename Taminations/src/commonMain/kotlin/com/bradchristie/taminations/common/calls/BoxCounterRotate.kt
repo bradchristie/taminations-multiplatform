@@ -53,8 +53,8 @@ class BoxCounterRotate : Action("Box Counter Rotate") {
     val cv2 = (v*.5).rotate(-a1) + dv
     val m = Movement(
         2.0, Hands.NOHANDS,
-        cv1.x, cv1.y, cv2.x, cv2.y, dv.x, dv.y,
-        0.55, 1.0, cy4, 1.0, y4)
+        Bezier(0.0,0.0,cv1.x, cv1.y, cv2.x, cv2.y, dv.x, dv.y),
+        Bezier(0.0,0.0,0.55, 0.0, 1.0, cy4, 1.0, y4))
     return Path(m)
 
   }

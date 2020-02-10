@@ -44,49 +44,23 @@ fun getHands(h:String):Int =
  * @param hands  One of the const ints above
  *     Next set of parameters are for direction of travel
  *     X and Y values for start of curve are always 0,0
- * @param cx1    X value for 1st model point
- * @param cy1    Y value for 1st model point
- * @param cx2    X value for 2nd model point
- * @param cy2    Y value for 2nd model point
- * @param x2     X value for end of curve
- * @param y2     Y value for end of curve
  *     Next set of parameters are for facing direction
  *     X and Y values for start of curve, as well as Y value for 1st model
  *     point, are all 0
- * @param cx3    X value for 1st model point
- * @param cx4    X value for 2nd model point
- * @param cy4    Y value for 2nd model point
- * @param x4     X value for end of curve
- * @param y4     Y value for end of curve
+ * @param btranslate  Bezier curve for movement
+ * @param brotate  Bezier curve for facing direction, can be same as btranslate
  * @param beats  Where to stop for a clipped movement
  */
 class Movement(private val fullbeats:Double, val hands:Int,
-               val cx1:Double, val cy1:Double, val cx2:Double, val cy2:Double, val x2:Double, val y2:Double,
-               val cx3:Double, val cx4:Double, val cy4:Double, val x4:Double, val y4:Double,
+               val btranslate: Bezier,
+               val brotate: Bezier,
+  //             val cx1:Double, val cy1:Double, val cx2:Double, val cy2:Double,
+  //      val x2:Double, val y2:Double,
+ //               val cx3:Double, val cx4:Double, val cy4:Double, val x4:Double, val y4:Double,
                val beats:Double = fullbeats) {
-
-  private val btranslate = Bezier(0.0, 0.0, cx1, cy1, cx2, cy2, x2, y2)
-  val brotate = Bezier(0.0, 0.0, cx3, 0.0, cx4, cy4, x4, y4)
 
   //  for sequencer
   var fromCall = true
-
-  /**
-   * Constructor for a movement where the dancer always faces
-   * the direction of travel, so only one Bezier curve is needed
-   * @param beats  Timing
-   * @param hands  One of the const ints above
-   *               X and Y values for start of curve are always 0, 0
-   * @param cx1    X value for 1st model point
-   * @param cy1    Y value for 1st model point
-   * @param cx2    X value for 2nd model point
-   * @param cy2    Y value for 2nd model point
-   * @param x2     X value for end of curve
-   * @param y2     Y value for end of curve
-   */
-  //  not used
-  //constructor(beats:Double, hands:Int, cx1:Double, cy1:Double, cx2:Double, cy2:Double, x2:Double, y2:Double) :
-  //    this(beats,hands,cx1,cx2,cy1,cy2,x2,y2,cx1,cx2,cy2,x2,y2,beats)
 
   /**
    * Construct a Movement from the attributes of an XML movement
@@ -95,17 +69,21 @@ class Movement(private val fullbeats:Double, val hands:Int,
   constructor(elem: TamElement) :
       this(elem.getAttribute("beats")!!.toDouble(),
           getHands(elem.getAttribute("hands") ?: ""),
-          elem.getAttribute("cx1")!!.toDouble(),
-          elem.getAttribute("cy1")!!.toDouble(),
-          elem.getAttribute("cx2")!!.toDouble(),
-          elem.getAttribute("cy2")!!.toDouble(),
-          elem.getAttribute("x2")!!.toDouble(),
-          elem.getAttribute("y2")!!.toDouble(),
-          elem.getAttribute(if (elem.hasAttribute("cx3")) "cx3" else "cx1")!!.toDouble(),
-          elem.getAttribute(if (elem.hasAttribute("cx4")) "cx4" else "cx2")!!.toDouble(),
-          elem.getAttribute(if (elem.hasAttribute("cy4")) "cy4" else "cy2")!!.toDouble(),
-          elem.getAttribute(if (elem.hasAttribute("x4")) "x4" else "x2")!!.toDouble(),
-          elem.getAttribute(if (elem.hasAttribute("y4" )) "y4" else "y2")!!.toDouble(),
+          Bezier(0.0,0.0,
+              elem.getAttribute("cx1")!!.toDouble(),
+              elem.getAttribute("cy1")!!.toDouble(),
+              elem.getAttribute("cx2")!!.toDouble(),
+              elem.getAttribute("cy2")!!.toDouble(),
+              elem.getAttribute("x2")!!.toDouble(),
+              elem.getAttribute("y2")!!.toDouble()),
+          Bezier(0.0,0.0,
+              elem.getAttribute(if (elem.hasAttribute("cx3")) "cx3" else "cx1")!!.toDouble(),
+              0.0,
+              elem.getAttribute(if (elem.hasAttribute("cx4")) "cx4" else "cx2")!!.toDouble(),
+              elem.getAttribute(if (elem.hasAttribute("cy4")) "cy4" else "cy2")!!.toDouble(),
+              elem.getAttribute(if (elem.hasAttribute("x4")) "x4" else "x2")!!
+                   .toDouble(),
+              elem.getAttribute(if (elem.hasAttribute("y4" )) "y4" else "y2")!!.toDouble()),
           elem.getAttribute("beats")!!.toDouble())
 
   /**
@@ -131,12 +109,12 @@ class Movement(private val fullbeats:Double, val hands:Int,
   /**
    * Return a new movement by changing the beats
    */
-  fun time(b:Double): Movement = Movement(b, hands, cx1, cy1, cx2, cy2, x2, y2, cx3, cx4, cy4, x4, y4, b)
+  fun time(b:Double): Movement = Movement(b, hands, btranslate, brotate, b)
 
   /**
    * Return a new movement by changing the hands
    */
-  fun useHands(h:Int): Movement = Movement(fullbeats, h, cx1, cy1, cx2, cy2, x2, y2, cx3, cx4, cy4, x4, y4, beats)
+  fun useHands(h:Int): Movement = Movement(fullbeats, h, btranslate, brotate, beats)
 
   /**
    * Return a new Movement scaled by x and y factors.
@@ -147,7 +125,7 @@ class Movement(private val fullbeats:Double, val hands:Int,
           if (y < 0 && hands == Hands.RIGHTHAND) Hands.LEFTHAND
           else if (y < 0 && hands == Hands.LEFTHAND) Hands.RIGHTHAND
           else hands, // what about GRIPLEFT, GRIPRIGHT?
-          cx1 * x, cy1 * y, cx2 * x, cy2 * y, x2 * x, y2 * y, cx3 * x, cx4 * x, cy4 * y, x4 * x, y4 * y, beats)
+          btranslate.scale(x,y), brotate.scale(x,y), beats)
 
   /**
    * Return a new Movement with the end point shifted by x and y
@@ -156,8 +134,7 @@ class Movement(private val fullbeats:Double, val hands:Int,
       if (beats < fullbeats) skewClip(x,y) else skewFull(x,y)
 
   private fun skewFull(x: Double, y: Double): Movement =
-      Movement(fullbeats, hands, cx1, cy1,
-          cx2 + x, cy2 + y, x2 + x, y2 + y, cx3, cx4, cy4, x4, y4, beats)
+      Movement(fullbeats, hands, btranslate.skew(x,y), brotate, beats)
   private fun skewClip(x: Double, y: Double): Movement {
     var vdelta = Vector(x, y)
     val vfinal = this.translate().location + vdelta
@@ -188,9 +165,9 @@ class Movement(private val fullbeats:Double, val hands:Int,
 
   fun reflect(): Movement = scale(1.0, -1.0)
 
-  fun clip(b:Double): Movement = Movement(fullbeats, hands, cx1, cy1, cx2, cy2, x2, y2, cx3, cx4, cy4, x4, y4, b)
+  fun clip(b:Double): Movement = Movement(fullbeats, hands,
+      btranslate, brotate, b)
 
-  fun isStand(): Boolean =
-      x2.isApprox(0.0) && y2.isApprox(0.0) && x4.isApprox(0.0) && y4.isApprox(0.0)
+  fun isStand(): Boolean = btranslate.isIdentity() && brotate.isIdentity()
 
 }

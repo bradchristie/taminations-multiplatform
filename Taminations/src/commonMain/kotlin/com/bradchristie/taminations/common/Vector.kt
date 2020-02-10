@@ -53,5 +53,5 @@ data class Vector(val x:Double=0.0, val y:Double=0.0) {
   fun concatenate(tx: Matrix): Vector = tx * this
   fun preConcatenate(tx: Matrix): Vector = Matrix.getTranslation(x,y).preConcatenate(tx).location
 
-  override fun toString(): String = "($x,$y)"
+  override fun toString(): String = "(${x.s},${y.s})"
 }

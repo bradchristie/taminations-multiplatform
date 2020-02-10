@@ -54,7 +54,8 @@ class BoxtheGnat : Action("Box the Gnat") {
       val hands = if (d.gender == Gender.BOY) Hands.GRIPLEFT else Hands.GRIPRIGHT
       val m = Movement(
         4.0, hands,
-        1.0, cy1, dist / 2, cy1, dist / 2 + 1, 0.0, 1.3, 1.3, y4, 0.0, y4
+        Bezier(0.0, 0.0, 1.0, cy1, dist / 2, cy1, dist / 2 + 1, 0.0),
+        Bezier(0.0, 0.0, 1.3, 0.0, 1.3, y4, 0.0, y4)
       )
       return Path(m)
     }

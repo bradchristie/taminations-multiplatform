@@ -27,6 +27,7 @@ object Gender {
   const val BOY = 1
   const val GIRL = 2
   const val PHANTOM = 3
+  const val NONE = 4   // for concepts with abstract dancers
 }
 
 //  Additional data for each dancer for use by sequencer
@@ -92,7 +93,11 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
   val data = DancerData()  // for sequencer
   var name = ""  // for sequencer
 
-  constructor(from: Dancer) : this(from.number,from.number_couple,from.gender,from.fillcolor,from.tx,
+  constructor(from: Dancer,
+              number:String=from.number,
+              number_couple:String=from.number_couple,
+              gender:Int=from.gender)
+      : this(number,number_couple,gender,from.fillcolor,from.tx,
       //  Already geometrically rotated so don't do it again
       Geometry(from.geom.geometry, 0),listOf<Movement>(),from) {
     //  For the sequencer, copy dancer data
@@ -160,6 +165,17 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
     return angleToOrigin < 0
   }
 
+  val isOnXAxis : Boolean get() {
+    return location.y isAbout 0.0
+  }
+
+  val isOnYAxis : Boolean get() {
+    return location.x isAbout 0.0
+  }
+
+  val isTidal : Boolean get() =
+    (isOnXAxis || isOnYAxis) && (isCenterLeft || isCenterRight)
+
   infix fun isInFrontOf(d2:Dancer) : Boolean =
     this != d2 && d2.angleToDancer(this).angleEquals(0.0)
 
@@ -194,6 +210,12 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
   fun animateToEnd() = animate(beats)
 
   open fun animate(beat:Double) = animateComputed(beat)
+
+  fun setStartPosition(x:Double,y:Double) {
+    val a = angleFacing
+    starttx = Matrix().postRotate(a).postTranslate(x,y)
+    tx = Matrix(starttx)
+  }
 
   fun rotateStartAngle(angle:Double) {
     starttx = starttx.preRotate(angle.toRadians)

@@ -128,6 +128,15 @@ class Path(moves:List<Movement> = listOf()) {
     return this
   }
 
+  fun skewAfterN(n:Int, x:Double, y:Double): Path {
+    if (movelist.count() <= n) {
+      movelist = movelist.take(n-1) +
+          movelist[n-1].skewFromEnd(x,y) +
+          movelist.drop(n)
+    }
+    return this
+  }
+
   fun notFromCall() : Path {
     movelist.forEach { m -> m.fromCall = false }
     return this

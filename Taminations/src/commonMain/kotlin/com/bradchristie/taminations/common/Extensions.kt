@@ -101,7 +101,7 @@ val Float.i:Int get() = this.toInt()
 val Float.d:Double get() = this.toDouble()
 val Double.i:Int get() = this.toInt()
 val Double.f:Float get() = this.toFloat()
-val Double.s:String get() = this.toString()
+val Double.s:String get() = ((this*1000.0).round / 1000.0).toString()
 val Int.f:Float get() = this.toFloat()
 val Int.d:Double get() = this.toDouble()
 val Int.s:String get() = this.toString()
@@ -115,6 +115,8 @@ val String.r:Regex get() = this.toRegex()
 val String.ri:Regex get() = this.toRegex(kotlin.text.RegexOption.IGNORE_CASE)
 val String.w get() = this.replace(Regex("\\W"),"")
 val String.lc get() = this.toLowerCase()
+//  For using "in" with when expressions
+operator fun Regex.contains(s:String):Boolean = s.matches(this)
 
 //  Other functions
 val Double.sign:Int get() = if (this < 0.0) -1 else if (this > 0.0) 1 else 0

@@ -1088,6 +1088,17 @@ Bend the Line
 Pass Thru 
 Wheel and Deal 
 Centers Pass Thru 
+Allemande Left""",
+
+      "As Couples" to
+"""Heads Star Thru and Spread 
+As Couples Left Square Chain Thru to a Wave  
+As Couples Switch the Wave and Roll 
+As Couples Reverse Dixie Style to a Wave 
+As Couples Alter the Wave 
+As Couples Recycle 
+Star Thru 
+Leaders Trade 
 Allemande Left"""
 
   )

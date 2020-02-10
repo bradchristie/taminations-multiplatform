@@ -90,7 +90,8 @@ class CallContext {
         "b1/separate",
         "c1/anything_the_windmill",
         "c1/anything_to_a_wave",
-        "c1/tagging_calls_back_to_a_wave"
+        "c1/tagging_calls_back_to_a_wave",
+        "plus/grand_swing_thru"
         )
 
     var numfiles = 0
@@ -288,6 +289,10 @@ class CallContext {
     ctx.extend = extend
     ctx.applyCall(calltext.last())
     return this
+  }
+
+  fun animate(beat:Double) {
+    dancers.forEach { it.animate(beat) }
   }
 
 
@@ -922,8 +927,8 @@ class CallContext {
 
   //  Return true if dancers are all on one axis
   //  Could be tidal or could be e.g. dancers all facing center
-  private fun isOnXAxis():Boolean = dancers.all { it.location.y.isApprox(0.0) }
-  private fun isOnYAxis():Boolean = dancers.all { it.location.x.isApprox(0.0) }
+  private fun isOnXAxis():Boolean = dancers.all { it.isOnXAxis }
+  private fun isOnYAxis():Boolean = dancers.all { it.isOnYAxis }
   fun isOnAxis():Boolean = isOnXAxis() || isOnYAxis()
 
   //  Return true if dancers are in any type of 2x4 formation

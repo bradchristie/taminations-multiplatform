@@ -68,7 +68,7 @@ class AnimationView : Canvas() {
       Color.GRAY,
       Color.GREEN,
       Color.MAGENTA,
-      Color.ORANGE,
+      ORANGE,
       Color.RED,
       Color.WHITE,
       Color.YELLOW
@@ -715,8 +715,7 @@ class AnimationView : Canvas() {
         val x = fd.attr("x").d
         val y = fd.attr("y").d
         val angle = fd.attr("angle").d
-        val gender = fd.attr("gender")
-        val g = when (gender) {
+        val g = when (fd.attr("gender")) {
           "girl" -> Gender.GIRL
           "phantom" -> Gender.PHANTOM
           else -> Gender.BOY

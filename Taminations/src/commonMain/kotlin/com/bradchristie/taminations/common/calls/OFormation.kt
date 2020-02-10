@@ -50,7 +50,7 @@ class OFormation(norm:String,name:String) : Action(norm,name) {
     //  Merge the slide in adjustment into the start of the call
     inner.forEach { d ->
       if (d.path.movelist.count() > 1) {
-        val dy = d.path.movelist.first().y2
+        val dy = d.path.movelist.first().btranslate.endPoint.y
         d.path.shift()
         d.path.skewFirst(0.0,dy)
       }
