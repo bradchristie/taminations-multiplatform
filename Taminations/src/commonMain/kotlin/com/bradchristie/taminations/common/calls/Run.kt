@@ -42,18 +42,18 @@ class Run(norm:String, name:String) : Action(norm,name) {
         if (norm == "runleft")
           d2 = ctx.dancerToLeft(d)
         if (d2 == null)
-          throw CallError("Dancer ${d.number} has nobody to Run around")
+          throw CallError("Dancer $d has nobody to Run around")
         //  But special case of t-bones, could be the dancer on the other side,
         //  check if another dancer is running around this dancer's "partner"
         //  also check if partner is also active
         val d3 = d2.data.partner
         if (d2.data.active)
           d2 = (if (d2 isRightOf d) ctx.dancerToLeft(d) else ctx.dancerToRight(d))
-            ?: throw CallError("Dancer ${d.number} has nobody to Run around")
+            ?: throw CallError("Dancer $d has nobody to Run around")
         else if (d != d3 && d3!=null && d3.data.active) {
           d2 = (if (d3 isRightOf d)
             ctx.dancerToRight(d) else ctx.dancerToLeft(d))
-              ?: throw CallError("Dancer ${d.number} has nobody to Run around")
+              ?: throw CallError("Dancer $d has nobody to Run around")
         }
         if (d2.data.active)
           throw CallError("Dancers cannot Run around each other ($d around $d2).")

@@ -1118,6 +1118,39 @@ Boys Run
 Circulate 
 Ferris Wheel 
 Centers Square Thru 3 
+Allemande Left""",
+
+      "Catch" to
+"""Heads Lead Right 
+Catch 2 
+Boys Run 
+Left Catch 3 
+In-Roll Circulate 
+Boys Run 
+Wheel and Deal 
+Centers Pass Thru 
+Allemande Left""",
+
+      "Split Catch" to
+"""Heads Right and Left Thru 
+Left Split Catch 3 
+Boys Run 
+Circulate 
+Wheel and Deal 
+Ends Quarter In 
+Split Catch 4 
+Coordinate 
+Bend the Line 
+Star Thru 
+Double Pass Thru 
+Right Roll to a Wave 
+Quarter Thru 
+Boys Run 
+Bend the Line 
+Star Thru 
+Pass Thru 
+Centers Reverse Swap Around 
+Ends Trade 
 Allemande Left"""
 
   )

@@ -26,14 +26,16 @@ import com.bradchristie.taminations.common.LevelObject
 class Catch(norm:String,name:String) : Action(norm,name)  {
 
   override val level = LevelObject("c2")
-  override val requires = listOf("b1/square_thru","b2/trade","c1/step_and_fold")
+  override val requires = listOf("b1/square_thru","b2/trade","c1/step_and_fold") +
+      SquareThru("","").requires
 
 
   override fun perform(ctx: CallContext, i: Int) {
-    val dir = if (norm.startsWith("left")) "Left" else ""
+    val dir = if (norm.contains("left")) "Left" else ""
+    val split = if (norm.contains("split")) "Split" else ""
     val count = norm.takeLast(1).toIntOrNull() ?:
       throw CallError("Catch how much?")
-    ctx.applyCalls("$dir Square Thru $count to a Wave",
+    ctx.applyCalls("$dir $split Square Thru $count to a Wave",
                    "Centers Trade","Step and Fold")
   }
 

@@ -91,7 +91,8 @@ class CallContext {
         "c1/anything_the_windmill",
         "c1/anything_to_a_wave",
         "c1/tagging_calls_back_to_a_wave",
-        "plus/grand_swing_thru"
+        "plus/grand_swing_thru",
+        "c2/anything_and_circle"
         )
 
     var numfiles = 0

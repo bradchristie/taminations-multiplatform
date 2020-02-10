@@ -210,7 +210,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "(left|right)rolltoawave".r -> RollToaWave(callnorm,callname)
         in "(left|right)rollto".r -> RollTo(callnorm,callname)
         in "(and)?spread".r ->  Spread(callnorm,callname)
-        in "(left)?catch(1|2|3|4)".r -> Catch(callnorm,callname)
+        in "(left)?(split)?catch(1|2|3|4)".r -> Catch(callnorm,callname)
         in "butterfly.*".r -> Butterfly(callnorm,callname)
         in "o.*".r -> if (callname.toLowerCase().matches("o .+".r))
             OFormation(callnorm,callname) else null

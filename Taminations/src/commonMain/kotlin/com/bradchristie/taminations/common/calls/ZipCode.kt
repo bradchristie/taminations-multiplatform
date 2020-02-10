@@ -26,7 +26,7 @@ import com.bradchristie.taminations.common.LevelObject
 
 class ZipCode(norm:String, name:String) : Action(norm,name) {
 
-  override val level = LevelObject("c1")
+  override val level = LevelObject("c2")
   override val requires = listOf("b1/face","b2/run","b1/pass_thru","a1/ends_bend")
 
 
