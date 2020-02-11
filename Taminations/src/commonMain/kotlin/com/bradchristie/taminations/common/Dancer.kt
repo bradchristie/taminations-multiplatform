@@ -213,7 +213,7 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
 
   fun setStartPosition(x:Double,y:Double) {
     val a = angleFacing
-    starttx = Matrix().postRotate(a).postTranslate(x,y)
+    starttx = Matrix.getTranslation(x,y) * Matrix.getRotation(a)
     tx = Matrix(starttx)
   }
 

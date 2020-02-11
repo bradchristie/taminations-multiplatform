@@ -54,9 +54,6 @@ fun getHands(h:String):Int =
 class Movement(private val fullbeats:Double, val hands:Int,
                val btranslate: Bezier,
                val brotate: Bezier,
-  //             val cx1:Double, val cy1:Double, val cx2:Double, val cy2:Double,
-  //      val x2:Double, val y2:Double,
- //               val cx3:Double, val cx4:Double, val cy4:Double, val x4:Double, val y4:Double,
                val beats:Double = fullbeats) {
 
   //  for sequencer
