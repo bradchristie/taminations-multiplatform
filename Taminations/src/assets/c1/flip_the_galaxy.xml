@@ -55,4 +55,39 @@
       <move select="Run Left" />
     </path>
   </tam>
+
+  <tam title="Flip the Galaxy"
+       from="Facing Galaxy, Right-Hand Centers"
+       formation="Galaxy Facing RH Box">
+    <path>
+      <move select="Lead Right" beats="3" scaleX="2" />
+    </path>
+    <path>
+      <move select="Flip Left" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleY="2" />
+    </path>
+    <path>
+      <move select="Flip Left" scaleY="1.05"/>
+    </path>
+  </tam>
+
+  <tam title="Flip the Galaxy"
+       from="Facing Galaxy, Left-Hand Centers"
+       formation="Galaxy Facing LH Box">
+    <path>
+      <move select="Extend Right" beats="3" scaleY="2" />
+    </path>
+    <path>
+      <move select="Flip Right" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="3" scaleX="2" />
+    </path>
+    <path>
+      <move select="Flip Right" scaleY="1.05"/>
+    </path>
+  </tam>
+
 </tamination>
