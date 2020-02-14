@@ -63,4 +63,37 @@
       <move select="Quarter Left" offsetX="1" offsetY="-1" />
     </path>
   </tam>
+
+  <tam title="Chisel Thru" from="Tidal Wave"
+       formation="Tidal Wave RH BGGB" parts="3;2.5">
+    <path>
+      <move select="Lead Right" beats="3" scaleX="3" scaleY="2.5" />
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Lead Right" scaleY=".5" />
+      <move select="Extend Left" />
+      <move select="Quarter Right" offsetX="1" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="3" scaleX="3" scaleY="1.5" />
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Quarter Left" offsetX="1" offsetY="-.5" />
+      <move select="Forward" />
+      <move select="Quarter Left" offsetX="1" offsetY="-1" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="3" scaleY=".5" />
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Quarter Left" offsetX="1" offsetY="-.5" />
+      <move select="Forward" />
+      <move select="Quarter Left" offsetX="1" offsetY="-1" />
+    </path>
+    <path>
+      <move select="Quarter Left" beats="3" offsetX="1" offsetY="-.5" />
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Lead Right" scaleY=".5" />
+      <move select="Extend Left" />
+      <move select="Quarter Right" offsetX="1" />
+    </path>
+  </tam>
+
 </tamination>
