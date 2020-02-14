@@ -253,6 +253,38 @@
     </path>
   </tam>
 
+  <tam title="All 8 Step and Fold" group=" "
+       formation="Thar LH Boys">
+    <path>
+      <move select="Forward 3"/>
+    </path>
+    <path>
+      <move select="Run Right" offsetX="3"/>
+    </path>
+    <path>
+      <move select="Forward 3"/>
+    </path>
+    <path>
+      <move select="Run Right" offsetX="3"/>
+    </path>
+  </tam>
+
+  <tam title="All 8 Step and Fold" group=" " display="none"
+       formation="Thar RH Boys">
+    <path>
+      <move select="Forward 3"/>
+    </path>
+    <path>
+      <move select="Run Left" offsetX="3"/>
+    </path>
+    <path>
+      <move select="Forward 3"/>
+    </path>
+    <path>
+      <move select="Run Left" offsetX="3"/>
+    </path>
+  </tam>
+
   <tam title="As Couples Step and Fold" group=" "
        from="Tidal Two-Faced Line" formation="Two-Faced Tidal Line RH">
     <path>

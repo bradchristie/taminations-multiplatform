@@ -1082,10 +1082,6 @@
            xref-link="c1/alter_the_wave"
            xref-title="All 8 Alter the Wave"/>
 
-  <tamxref title="All 8 (C-1) Weave" group="All 8 (C-1)"
-           xref-link="c1/anything_and_weave"
-           xref-title="All 8 Weave"/>
-
   <tamxref title="All 8 (C-1) Box Recycle" group="All 8 (C-1)"
            xref-link="c1/box_split_recycle"
            xref-title="All 8 Box Recycle"/>
@@ -1126,6 +1122,11 @@
            xref-link="c1/shakedown"
            xref-title="All 8 Shakedown"/>
 
+  <tamxref title="All 8 (C-1) Step and Fold" group="All 8 (C-1)"
+           xref-link="c1/step_and_fold"
+           xref-title="All 8 Step and Fold"
+           xref-formation="Thar LH Boys"/>
+
   <tamxref title="All 8 (C-1) Switch the Line" group="All 8 (C-1)"
            xref-link="c1/switch_the_line"
            xref-title="All 8 Switch the Line"
@@ -1134,6 +1135,10 @@
   <tamxref title="All 8 (C-1) Vertical Tag Back to a Wave" group="All 8 (C-1)"
            xref-link="c1/tagging_calls_back_to_a_wave"
            xref-title="All 8 Vertical Tag Back to a Wave"/>
+
+  <tamxref title="All 8 (C-1) Weave" group="All 8 (C-1)"
+           xref-link="c1/anything_and_weave"
+           xref-title="All 8 Weave"/>
 
   <tamxref title="All 8 (C-1) Wheel Fan Thru" group="All 8 (C-1)"
            xref-link="c1/wheel_fan_thru"
