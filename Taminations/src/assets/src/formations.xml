@@ -186,6 +186,16 @@
     <dancer gender="girl" x="0" y="1" angle="180"/>
   </formation>
 
+  <formation name="Single 3/4 Tag">
+    <dancer gender="boy" x="-3" y="0" angle="180"/>
+    <dancer gender="girl" x="0" y="1" angle="0"/>
+  </formation>
+
+  <formation name="Single Left 3/4 Tag">
+    <dancer gender="boy" x="-3" y="0" angle="180"/>
+    <dancer gender="girl" x="0" y="1" angle="180"/>
+  </formation>
+
   <formation name="Tandem Girls Lead">
     <dancer gender="boy" x="-3" y="0" angle="0"/>
     <dancer gender="girl" x="-1" y="0" angle="0"/>

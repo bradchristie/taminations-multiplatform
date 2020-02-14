@@ -1151,6 +1151,31 @@ Star Thru
 Pass Thru 
 Centers Reverse Swap Around 
 Ends Trade 
+Allemande Left""",
+
+      "Vertical Tag" to
+"""Heads Lead Right 
+Veer Left 
+Vertical 1/4 Tag 
+Extend 
+Boys Run 
+Vertical 1/2 Tag 
+Girls Run 
+Vertical 3/4 Tag 
+Clover and Hinge 
+Girls Walk and Dodge 
+Star Thru 
+Bend the Line 
+Vertical Left 1/4 Tag 
+Chain Reaction 
+Vertical Left 1/4 Tag 
+Extend 
+Reverse Explode 
+Vertical Left 1/4 Tag 
+Extend 
+Girls Run 
+Wheel and Deal 
+Centers Pass Thru 
 Allemande Left"""
 
   )

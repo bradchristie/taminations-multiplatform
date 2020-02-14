@@ -119,6 +119,13 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
     animateComputed(-2.0)
   }
 
+  override fun equals(other: Any?): Boolean {
+    if (other is Dancer) {
+      return other.number == number
+    }
+    return false
+  }
+
   override fun compareTo(other: Dancer): Int = number.compareTo(other.number)
 
   override fun toString() = number
@@ -171,6 +178,10 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
 
   val isOnYAxis : Boolean get() {
     return location.x isAbout 0.0
+  }
+
+  val isOnAxis : Boolean get() {
+    return isOnXAxis || isOnYAxis
   }
 
   val isTidal : Boolean get() =

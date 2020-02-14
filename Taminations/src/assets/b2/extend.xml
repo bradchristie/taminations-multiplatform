@@ -60,6 +60,44 @@
     </path>
   </tam>
 
+  <tam title="Extend" from="Right-Hand Box"
+       formation="Box RH" difficulty="2">
+    <path>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="2"/>
+    </path>
+  </tam>
+
+  <tam title="Extend" from="Left-Hand Box"
+       formation="Box LH" difficulty="2">
+    <path>
+      <move select="Extend Left" beats="2"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+    </path>
+  </tam>
+
+  <tam title="Extend" from="Single 3/4 Tag"
+       formation="Single 3/4 Tag" difficulty="2">
+    <path>
+    </path>
+    <path>
+      <move select="Extend Right" beats="2"/>
+    </path>
+  </tam>
+
+  <tam title="Extend" from="Single Left 3/4 Tag"
+       formation="Single Left 3/4 Tag" difficulty="2">
+    <path>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2"/>
+    </path>
+  </tam>
+
   <tam title="Extend"
        from="Right-Hand 1/4 Tag"
        formation="Quarter Tag"
@@ -157,6 +195,22 @@
     </path>
     <path>
       <move select="Extend Right" beats="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Forward" beats="2" />
+    </path>
+  </tam>
+
+  <tam title="Extend"
+       from="Left-Hand 3/4 Tag"
+       formation="3/4 Tag LH"
+       difficulty="2">
+    <path>
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleY="2" />
     </path>
     <path>
       <move select="Forward" beats="2" />

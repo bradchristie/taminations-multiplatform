@@ -92,7 +92,8 @@ class CallContext {
         "c1/anything_to_a_wave",
         "c1/tagging_calls_back_to_a_wave",
         "plus/grand_swing_thru",
-        "c2/anything_and_circle"
+        "c2/anything_and_circle",
+        "b1/star"
         )
 
     var numfiles = 0
@@ -998,12 +999,26 @@ class CallContext {
     }
   }
 
-  //  Find the range of the dancers current position
-  //  For now we assume the dancers are centered
-  //  and return a vector to the max 1st quadrant rectangle point
-  //  not currently used
-  //fun bounds():Vector3D =
-  //    dancers.map { it.location }.reduce { v1, v2 -> Vector3D(v1.x max v2.x, v1.y max v2.y) }
+  //  This is useful for calls that depend on re-defining dancer types
+  //  for subgroups, e.g. "Centers Zoom"
+  fun analyzeActives() {
+    //  If all dancers are active then the usual call to analyze() will suffice
+    if (actives.count() != dancers.count()) {
+      val ctx2 = CallContext(this, actives)
+      ctx2.analyze()
+      actives.forEach { d ->
+        val d2 = ctx2.dancers.first { it == d }
+        d.data.beau = d2.data.beau
+        d.data.belle = d2.data.belle
+        d.data.leader = d2.data.leader
+        d.data.trailer = d2.data.trailer
+        d.data.center = d2.data.center
+        d.data.end = d2.data.end
+        d.data.partner = dancers.firstOrNull { it == d2.data.partner }
+      }
+    }
+
+  }
 
   fun analyze() {
     dancers.forEach { d ->

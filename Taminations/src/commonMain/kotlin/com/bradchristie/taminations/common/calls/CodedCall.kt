@@ -202,10 +202,6 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "while.+".r -> While(callnorm,callname)
         in "(inside|outside|inpoint|outpoint|tandembased|wavebased)?trianglecirculate".r ->
           TriangleCirculate(callnorm,callname)
-        //  Anything Chain Thru should not match Square Chain Thru, others?
-        //  cannot use negative look-behind in Javascript, so..
-        in ".*chainthru".r ->
-          if (callnorm in ".*squarechainthru".r) null else AnythingChainThru(callnorm,callname)
         in "minibusybut.*".r -> MiniBusyBut(callnorm,callname)
         in "(left|right)rolltoawave".r -> RollToaWave(callnorm,callname)
         in "(left|right)rollto".r -> RollTo(callnorm,callname)
@@ -217,7 +213,13 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "zipcode\\d".r -> ZipCode(callnorm,callname)
         in "twistand.*".r -> TwistAnything(callnorm,callname)
         in "ascouples.*".r -> AsCouples(callnorm,callname)
+        in "tandem.*".r -> Tandem(callnorm,callname)
         in "(12|34)?crazy.*".r -> Crazy(callnorm,callname)
+        in "(left)?vertical(left)?(14|12|34)?tag".r -> VerticalTag(callnorm,callname)
+        //  Anything Chain Thru should not match Square Chain Thru, others?
+        //  cannot use negative look-behind in Javascript, so..
+        in ".*chainthru".r ->
+          if (callnorm in ".*squarechainthru".r) null else AnythingChainThru(callnorm,callname)
         else -> null
       }
     }
