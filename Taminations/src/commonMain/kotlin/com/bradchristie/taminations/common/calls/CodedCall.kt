@@ -215,6 +215,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "ascouples.*".r -> AsCouples(callnorm,callname)
         in "tandem.*".r -> Tandem(callnorm,callname)
         in "(12|34)?crazy.*".r -> Crazy(callnorm,callname)
+        in "(left)?verticaltagback(toawave)?".r -> VerticalTagBack(callnorm,callname)
         in "(left)?vertical(left)?(14|12|34)?tag".r -> VerticalTag(callnorm,callname)
         //  Anything Chain Thru should not match Square Chain Thru, others?
         //  cannot use negative look-behind in Javascript, so..
