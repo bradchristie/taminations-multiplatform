@@ -33,7 +33,6 @@
     </formation>
     <path numbers="8 1" couples="2 4">
       <move select="Hinge Right" beats="2" scaleX=".5" hands="gripright"/>
-      <move select="Stand" beats="4" hands="none"/>
     </path>
     <path numbers="7 2" couples="2 4">
       <move select="Hinge Right" beats="2" scaleX=".5" hands="gripright"/>
@@ -51,21 +50,20 @@
 
   <tam title="Grand Quarter Thru" from="Right-Hand Columns of 6">
     <formation>
-      <dancer gender="girl" x="1" y="-2" angle="270"/>
+      <dancer gender="girl" x="1" y="-3" angle="270"/>
       <dancer gender="boy" x="1" y="0" angle="270"/>
-      <dancer gender="girl" x="1" y="2" angle="270"/>
+      <dancer gender="girl" x="1" y="3" angle="270"/>
     </formation>
     <path numbers="6 1">
-      <move select="Hinge Right" beats="2" scaleX=".5" hands="gripright"/>
-      <move select="Stand" beats="4" hands="none"/>
+      <move select="Hinge Right" beats="2" scaleX=".75" hands="gripright"/>
     </path>
     <path numbers="5 2">
-      <move select="Hinge Right" beats="2" scaleX=".5" hands="gripright"/>
-      <move select="Swing Left" beats="4" scaleX=".75" scaleY=".5" hands="gripleft"/>
+      <move select="Hinge Right" beats="2" scaleX=".75" hands="gripright"/>
+      <move select="Swing Left" beats="4" scaleX=".75" scaleY=".75" hands="gripleft"/>
     </path>
     <path numbers="4 3">
-      <move select="Hinge Right" beats="2" scaleX=".5" hands="gripright"/>
-      <move select="Swing Left" beats="4" scaleX=".75" scaleY=".5" hands="gripleft"/>
+      <move select="Hinge Right" beats="2" scaleX=".75" hands="gripright"/>
+      <move select="Swing Left" beats="4" scaleX=".75" scaleY=".75" hands="gripleft"/>
     </path>
   </tam>
 
@@ -87,7 +85,25 @@
     </path>
     <path>
       <move select="Hinge Left" beats="2" scaleX=".5" hands="gripleft"/>
-      <move select="Stand" beats="4" hands="none"/>
+    </path>
+  </tam>
+
+  <tam title="Left Grand Quarter Thru" from="Left-Hand Columns of 6">
+    <formation>
+      <dancer gender="girl" x="1" y="-3" angle="90"/>
+      <dancer gender="boy" x="1" y="0" angle="90"/>
+      <dancer gender="girl" x="1" y="3" angle="90"/>
+    </formation>
+    <path>
+      <move select="Hinge Left" beats="2" scaleX=".75" hands="gripleft"/>
+      <move select="Swing Right" beats="4" scaleX=".75" scaleY=".75" hands="gripright"/>
+    </path>
+    <path>
+      <move select="Hinge Left" beats="2" scaleX=".75" hands="gripleft"/>
+      <move select="Swing Right" beats="4" scaleX=".75" scaleY=".75" hands="gripright"/>
+    </path>
+    <path>
+      <move select="Hinge Left" beats="2" scaleX=".75" hands="gripleft"/>
     </path>
   </tam>
 

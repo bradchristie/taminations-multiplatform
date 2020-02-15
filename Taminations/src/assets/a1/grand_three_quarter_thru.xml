@@ -44,7 +44,28 @@
     <path>
       <move select="Hinge Right" hands="gripright" scaleX=".5" />
       <move select="Swing Right" hands="gripright" scaleX=".75" scaleY=".5" />
-      <move select="Stand" beats="4" hands="none"/>
+    </path>
+  </tam>
+
+  <tam title="Grand 3/4 Thru" from="Right-Hand Columns of 6">
+    <formation>
+      <dancer gender="girl" x="1" y="-3" angle="270"/>
+      <dancer gender="boy" x="1" y="0" angle="270"/>
+      <dancer gender="girl" x="1" y="3" angle="270"/>
+    </formation>
+    <path>
+      <move select="Hinge Right" scaleX=".75" hands="gripright"/>
+      <move select="Swing Right" scaleX=".75" scaleY=".75" hands="right"/>
+      <move select="Swing Left" scaleX=".75" scaleY=".75" hands="gripleft"/>
+    </path>
+    <path>
+      <move select="Hinge Right" scaleX=".75" hands="gripright"/>
+      <move select="Swing Right" scaleX=".75" scaleY=".75" hands="right"/>
+      <move select="Swing Left" scaleX=".75" scaleY=".75" hands="gripleft"/>
+    </path>
+    <path>
+      <move select="Hinge Right" scaleX=".75" hands="gripright"/>
+      <move select="Swing Right" scaleX=".75" scaleY=".75" hands="right"/>
     </path>
   </tam>
 
@@ -55,7 +76,6 @@
     <path>
       <move select="Hinge Left" hands="gripleft" scaleX=".5" />
       <move select="Swing Left" hands="gripleft" scaleX=".75" scaleY=".5" />
-      <move select="Stand" beats="4" hands="none"/>
     </path>
     <path>
       <move select="Hinge Left" hands="gripleft" scaleX=".5" />
@@ -73,5 +93,28 @@
       <move select="Swing Right" scaleX=".75" scaleY=".5" hands="gripright"/>
     </path>
   </tam>
+
+  <tam title="Left Grand 3/4 Thru" from="Left-Hand Columns of 6" parts="4.5">
+    <formation>
+      <dancer gender="girl" x="1" y="-3" angle="90"/>
+      <dancer gender="boy" x="1" y="0" angle="90"/>
+      <dancer gender="girl" x="1" y="3" angle="90"/>
+    </formation>
+    <path>
+      <move select="Hinge Left" beats="2" scaleX=".75" hands="gripleft"/>
+      <move select="Swing Left" scaleX=".75" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Hinge Left" beats="2" scaleX=".75" hands="gripleft"/>
+      <move select="Swing Left" scaleX=".75" scaleY=".75"/>
+      <move select="Swing Right" beats="4" scaleX=".75" scaleY=".75" hands="gripright"/>
+    </path>
+    <path>
+      <move select="Hinge Left" beats="2" scaleX=".75" hands="gripleft"/>
+      <move select="Swing Left" scaleX=".75" scaleY=".75"/>
+      <move select="Swing Right" beats="4" scaleX=".75" scaleY=".75" hands="gripright"/>
+    </path>
+  </tam>
+
 
 </tamination>
