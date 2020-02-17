@@ -156,7 +156,9 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "toawave" to { ToAWave() },
         "kickoff" to { KickOff() },
         "singlecrossandwheel" to { SingleCrossAndWheel() },
-        "crossandwheel" to { CrossAndWheel() }
+        "crossandwheel" to { CrossAndWheel() },
+        "crosstradeandwheel" to { CrossTradeAndWheel() },
+        "grandcrosstradeandwheel" to { GrandCrossTradeAndWheel() }
     )
 
     //  More complex calls where the text is needed either to select
