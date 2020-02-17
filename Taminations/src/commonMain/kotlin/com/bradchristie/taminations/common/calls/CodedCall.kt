@@ -154,7 +154,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "zagzag" to { ZigZag("zagzag","Zag Zag") },
         "zing" to { Zing() },
         "toawave" to { ToAWave() },
-        "kickoff" to { KickOff() }
+        "kickoff" to { KickOff() },
+        "singlecrossandwheel" to { SingleCrossAndWheel() }
     )
 
     //  More complex calls where the text is needed either to select
@@ -217,6 +218,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "(12|34)?crazy.*".r -> Crazy(callnorm,callname)
         in "(left)?verticaltagback(toawave)?".r -> VerticalTagBack(callnorm,callname)
         in "(left)?vertical(left)?(14|12|34)?tag".r -> VerticalTag(callnorm,callname)
+        in "adjustto.*".r -> Adjust(callnorm,callname)
         //  Anything Chain Thru should not match Square Chain Thru, others?
         //  cannot use negative look-behind in Javascript, so..
         in ".*chainthru".r ->
