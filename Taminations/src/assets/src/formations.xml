@@ -355,39 +355,11 @@
     <dancer gender="boy" x="-1.5" y="-3" angle="180"/>
   </formation>
 
-  <formation name="Column RH GBGB">
-    <dancer gender="girl" x="-3" y="-1" angle="180"/>
-    <dancer gender="boy" x="-1" y="-1" angle="180"/>
-    <dancer gender="girl" x="1" y="-1" angle="180"/>
-    <dancer gender="boy" x="3" y="-1" angle="180"/>
-  </formation>
-
-  <formation name="Column LH GBGB">
-    <dancer gender="boy" x="-3" y="-1" angle="0"/>
-    <dancer gender="girl" x="-1" y="-1" angle="0"/>
-    <dancer gender="boy" x="1" y="-1" angle="0"/>
-    <dancer gender="girl" x="3" y="-1" angle="0"/>
-  </formation>
-
   <formation name="Z RH GBBG">
     <dancer gender="girl" x="-4" y="1" angle="0"/>
     <dancer gender="boy" x="-2.5" y="1" angle="0"/>
     <dancer gender="boy" x="-2.5" y="-1" angle="180"/>
     <dancer gender="girl" x="-1" y="-1" angle="180"/>
-  </formation>
-
-  <formation name="Magic Column RH">
-    <dancer gender="girl" x="-3" y="-1" angle="0"/>
-    <dancer gender="boy" x="-1" y="-1" angle="180"/>
-    <dancer gender="girl" x="1" y="-1" angle="180"/>
-    <dancer gender="boy" x="3" y="-1" angle="0"/>
-  </formation>
-
-  <formation name="Magic Column LH">
-    <dancer gender="girl" x="-3" y="-1" angle="180"/>
-    <dancer gender="boy" x="-1" y="-1" angle="0"/>
-    <dancer gender="girl" x="1" y="-1" angle="0"/>
-    <dancer gender="boy" x="3" y="-1" angle="180"/>
   </formation>
 
   <formation name="Right-Hand Zs">
@@ -848,6 +820,7 @@
     <dancer gender="boy" x="0" y="-1" angle="180"/>
   </formation>
 
+  <!-- Column-like formations -->
   <formation name="Double Pass Thru">
     <dancer gender="boy" x="-3" y="1" angle="0"/>
     <dancer gender="girl" x="-3" y="-1" angle="0"/>
@@ -882,6 +855,91 @@
     <dancer gender="girl" x="-1" y="-1" angle="0"/>
     <dancer gender="boy" x="-1" y="1" angle="0"/>
   </formation>
+
+  <formation name="Column RH GBGB">
+    <dancer gender="girl" x="-3" y="-1" angle="180"/>
+    <dancer gender="boy" x="-1" y="-1" angle="180"/>
+    <dancer gender="girl" x="1" y="-1" angle="180"/>
+    <dancer gender="boy" x="3" y="-1" angle="180"/>
+  </formation>
+
+  <formation name="Column LH GBGB">
+    <dancer gender="boy" x="-3" y="-1" angle="0"/>
+    <dancer gender="girl" x="-1" y="-1" angle="0"/>
+    <dancer gender="boy" x="1" y="-1" angle="0"/>
+    <dancer gender="girl" x="3" y="-1" angle="0"/>
+  </formation>
+
+  <formation name="Magic Column RH">
+    <dancer gender="girl" x="-3" y="-1" angle="0"/>
+    <dancer gender="boy" x="-1" y="-1" angle="180"/>
+    <dancer gender="girl" x="1" y="-1" angle="180"/>
+    <dancer gender="boy" x="3" y="-1" angle="0"/>
+  </formation>
+
+  <formation name="Magic Column LH">
+    <dancer gender="girl" x="-3" y="-1" angle="180"/>
+    <dancer gender="boy" x="-1" y="-1" angle="0"/>
+    <dancer gender="girl" x="1" y="-1" angle="0"/>
+    <dancer gender="boy" x="3" y="-1" angle="180"/>
+  </formation>
+
+  <formation name="Mixed Columns RH Ends In">
+    <dancer gender="boy" x="-3" y="1" angle="0"/>
+    <dancer gender="girl" x="-3" y="-1" angle="0"/>
+    <dancer gender="boy" x="-1" y="1" angle="0"/>
+    <dancer gender="girl" x="-1" y="-1" angle="180"/>
+  </formation>
+
+  <formation name="Mixed Columns LH Ends In">
+    <dancer gender="boy" x="-3" y="1" angle="0"/>
+    <dancer gender="girl" x="-3" y="-1" angle="0"/>
+    <dancer gender="boy" x="-1" y="1" angle="180"/>
+    <dancer gender="girl" x="-1" y="-1" angle="0"/>
+  </formation>
+
+  <formation name="Mixed Columns RH Ends Out">
+    <dancer gender="boy" x="-3" y="1" angle="180"/>
+    <dancer gender="girl" x="-3" y="-1" angle="180"/>
+    <dancer gender="boy" x="-1" y="1" angle="0"/>
+    <dancer gender="girl" x="-1" y="-1" angle="180"/>
+  </formation>
+
+  <formation name="Mixed Columns LH Ends Out">
+    <dancer gender="boy" x="-3" y="1" angle="180"/>
+    <dancer gender="girl" x="-3" y="-1" angle="180"/>
+    <dancer gender="boy" x="-1" y="1" angle="180"/>
+    <dancer gender="girl" x="-1" y="-1" angle="0"/>
+  </formation>
+
+  <formation name="Mixed Columns RH Centers In">
+    <dancer gender="boy" x="-3" y="1" angle="0"/>
+    <dancer gender="girl" x="-3" y="-1" angle="180"/>
+    <dancer gender="boy" x="-1" y="1" angle="0"/>
+    <dancer gender="girl" x="-1" y="-1" angle="0"/>
+  </formation>
+
+  <formation name="Mixed Columns LH Centers In">
+    <dancer gender="boy" x="-3" y="1" angle="180"/>
+    <dancer gender="girl" x="-3" y="-1" angle="0"/>
+    <dancer gender="boy" x="-1" y="1" angle="0"/>
+    <dancer gender="girl" x="-1" y="-1" angle="0"/>
+  </formation>
+
+  <formation name="Mixed Columns RH Centers Out">
+    <dancer gender="boy" x="-3" y="1" angle="0"/>
+    <dancer gender="girl" x="-3" y="-1" angle="180"/>
+    <dancer gender="boy" x="-1" y="1" angle="180"/>
+    <dancer gender="girl" x="-1" y="-1" angle="180"/>
+  </formation>
+
+  <formation name="Mixed Columns LH Centers Out">
+    <dancer gender="boy" x="-3" y="1" angle="180"/>
+    <dancer gender="girl" x="-3" y="-1" angle="0"/>
+    <dancer gender="boy" x="-1" y="1" angle="180"/>
+    <dancer gender="girl" x="-1" y="-1" angle="180"/>
+  </formation>
+
 
   <formation name="Two-Faced Tidal Line RH">
     <dancer gender="boy" x="0" y="3.5" angle="0"/>

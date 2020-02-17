@@ -134,6 +134,193 @@
     </path>
   </tam>
 
+  <tam title="File to a Line"
+       from="Magic Columns, Right-Hand Centers"
+       formation="Magic Column RH">
+    <path>
+      <move select="Dodge Right" offsetX="1" />
+    </path>
+    <path>
+      <move select="Run Right" offsetX="1" />
+    </path>
+    <path>
+      <move select="Forward 3" />
+    </path>
+    <path>
+      <move select="Dodge Right" offsetX="-1" />
+    </path>
+  </tam>
+
+  <tam title="File to a Line"
+       from="Magic Columns, Left-Hand Centers"
+       formation="Magic Column LH">
+    <path>
+      <move select="Dodge Left" offsetX="-1" />
+    </path>
+    <path>
+      <move select="Forward 3" />
+    </path>
+    <path>
+      <move select="Run Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Dodge Left" offsetX="1" />
+    </path>
+  </tam>
+
+  <tam title="File to a Line"
+       from="Mixed Columns #1" display="none"
+       formation="Mixed Columns RH Ends In">
+    <path>
+      <move select="Dodge Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Dodge Right" offsetX="1" />
+    </path>
+    <path>
+      <move select="Forward 3" />
+    </path>
+    <path>
+      <move select="Run Right" offsetX="1" />
+    </path>
+  </tam>
+
+  <tam title="File to a Line"
+       from="Mixed Columns #2" display="none"
+       formation="Mixed Columns LH Ends In">
+    <path>
+      <move select="Dodge Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Dodge Right" offsetX="1" />
+    </path>
+    <path>
+      <move select="Run Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Forward 3" />
+    </path>
+  </tam>
+
+  <tam title="File to a Line"
+       from="Mixed Columns #3" display="none"
+       formation="Mixed Columns RH Ends Out">
+    <path>
+      <move select="Dodge Right" offsetX="-1" />
+    </path>
+    <path>
+      <move select="Dodge Left" offsetX="-1" />
+    </path>
+    <path>
+      <move select="Forward 3" />
+    </path>
+    <path>
+      <move select="Run Right" offsetX="1" />
+    </path>
+  </tam>
+
+  <tam title="File to a Line"
+       from="Mixed Columns #4" display="none"
+       formation="Mixed Columns LH Ends Out">
+    <path>
+      <move select="Dodge Right" offsetX="-1" />
+    </path>
+    <path>
+      <move select="Dodge Left" offsetX="-1" />
+    </path>
+    <path>
+      <move select="Run Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Forward 3" />
+    </path>
+  </tam>
+
+  <tam title="File to a Line"
+       from="Mixed Columns #5" display="none"
+       formation="Mixed Columns RH Centers In">
+    <path>
+      <move select="Dodge Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Dodge Left" offsetX="-1" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" scaleY=".5"/>
+      <move select="Run Right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" scaleY=".5"/>
+      <move select="Flip Left" offsetX="1"/>
+    </path>
+  </tam>
+
+  <tam title="File to a Line"
+       from="Mixed Columns #6" display="none"
+       formation="Mixed Columns LH Centers In">
+    <path>
+      <move select="Dodge Right" offsetX="-1" />
+    </path>
+    <path>
+      <move select="Dodge Right" offsetX="1" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" scaleY=".5"/>
+      <move select="Run Right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" scaleY=".5"/>
+      <move select="Flip Left" offsetX="1"/>
+    </path>
+  </tam>
+
+  <tam title="File to a Line"
+       from="Mixed Columns #7" display="none"
+       formation="Mixed Columns RH Centers Out">
+    <path>
+      <move select="Dodge Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Dodge Left" offsetX="-1" />
+    </path>
+    <path>
+      <move select="Flip Left"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Right"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="File to a Line"
+       from="Mixed Columns #8" display="none"
+       formation="Mixed Columns LH Centers Out">
+    <path>
+      <move select="Dodge Right" offsetX="-1" />
+    </path>
+    <path>
+      <move select="Dodge Right" offsetX="1" />
+    </path>
+    <path>
+      <move select="Flip Left"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Right"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+  </tam>
+
+
   <tam title="Magic Column File to a Line" group=" ">
     <formation>
       <dancer gender="boy" y="3" x="1" angle="90"/>
