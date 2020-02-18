@@ -95,8 +95,7 @@
 
   <tam title="Follow Thru"
        from="Left-Hand Waves"
-       formation="Ocean Waves LH BGBG"
-       fractions="" >
+       formation="Ocean Waves LH BGBG">
     <path>
       <move select="Lead Left" beats="2" />
     </path>
@@ -113,8 +112,7 @@
 
   <tam title="Follow Thru"
        from="Right-Hand Columns"
-       formation="Column RH GBGB"
-       fractions="" >
+       formation="Column RH GBGB">
     <path>
       <move select="Lead Right" beats="2" scaleX=".5" />
     </path>
@@ -131,8 +129,7 @@
 
   <tam title="Follow Thru"
        from="Left-Hand Columns"
-       formation="Column LH GBGB"
-       fractions="" >
+       formation="Column LH GBGB">
     <path>
       <move select="Lead Left" beats="2" scaleX="1.5" />
     </path>
@@ -149,8 +146,7 @@
 
   <tam title="Follow Thru"
        from="Quarter Tag"
-       formation="Quarter Tag"
-       fractions="" >
+       formation="Quarter Tag">
     <path>
       <move select="Extend Left" />
       <move select="Quarter Right" hands="right" offsetX="1" />
@@ -167,9 +163,26 @@
   </tam>
 
   <tam title="Follow Thru"
+       from="Left-Hand Quarter Tag"
+       formation="Quarter Tag LH">
+    <path>
+      <move select="Lead Left" hands="left" beats="2" scaleX="2" />
+    </path>
+    <path>
+      <move select="Extend Right" />
+      <move select="Quarter Left" hands="left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Lead Left" hands="left" beats="2" scaleX="3" />
+    </path>
+    <path>
+      <move select="Lead Left" hands="left" beats="2" scaleX="3" />
+    </path>
+  </tam>
+
+  <tam title="Follow Thru"
        from="T-Bones"
-       formation="T-Bone DLDL"
-       fractions="" >
+       formation="T-Bone DLDL">
     <path>
       <move select="Lead Left" beats="2" scaleX="2" />
     </path>
