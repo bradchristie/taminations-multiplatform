@@ -112,7 +112,7 @@ val String.i:Int get() = if (this.isBlank()) 0 else this.toInt()
 val String.f:Float get() = this.toFloat()
 val String.d:Double get() = this.toDouble()
 val String.r:Regex get() = this.toRegex()
-val String.ri:Regex get() = this.toRegex(kotlin.text.RegexOption.IGNORE_CASE)
+val String.ri:Regex get() = this.toRegex(RegexOption.IGNORE_CASE)
 val String.w get() = this.replace(Regex("\\W"),"")
 val String.lc get() = this.toLowerCase()
 //  For using "in" with when expressions

@@ -1176,6 +1176,39 @@ Extend
 Girls Run 
 Wheel and Deal 
 Centers Pass Thru 
+Allemande Left""",
+
+      "Adjust" to
+"""Heads Pass the Ocean 
+Extend 
+Hinge 
+Scoot Chain Thru Boys to a Wave 
+Adjust to 1/4 Tag 
+Facing Dancers Pass Thru 
+Chain Reaction 
+Centers Pass the Ocean 
+Flip the Diamond 
+Circulate 
+Bend the Line 
+Reverse Flutterwheel 
+Star Thru 
+Cloverleaf 
+Centers Pass Thru 
+Star Thru 
+Pass Thru 
+Wheel and Deal 
+Centers Pass Thru 
+Right and Left Thru 
+Allemande Left""",
+
+      "Bend the Line" to
+"""Heads Pass the Ocean 
+Extend 
+Circulate 1.5 
+Boys Run 
+Bend the Line 
+Centers Star Thru 
+Centers Pass Thru 
 Allemande Left"""
 
   )

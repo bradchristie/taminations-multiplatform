@@ -46,7 +46,7 @@ class Matrix(val m11:Double=1.0, val m21:Double=0.0, val m31:Double=0.0,
   constructor(m: Matrix) : this(m.m11,m.m21,m.m31,m.m12,m.m22,m.m32)
 
   override fun toString(): String {
-    return "[$m11, $m12, $m21, $m22, $m31, $m32]"
+    return "[${m11.s}, ${m12.s}, ${m21.s}, ${m22.s}, ${m31.s}, ${m32.s}]"
   }
 
   //  Compute and return this * m
@@ -98,14 +98,15 @@ class Matrix(val m11:Double=1.0, val m21:Double=0.0, val m31:Double=0.0,
   }
 
   //  If a rotation matrix is close to a 90 degree angle,snap to it
-  private val Double.snapDouble: Double get() = when {
-    this.isApprox(0.0) -> 0.0
-    this.isApprox(1.0) -> 1.0
-    this.isApprox(-1.0) -> -1.0
+  private fun Double.snapDouble(delta:Double): Double = when {
+    this.isApprox(0.0,delta) -> 0.0
+    this.isApprox(1.0,delta) -> 1.0
+    this.isApprox(-1.0,delta) -> -1.0
     else -> this
   }
-  fun snapTo90(): Matrix = Matrix(m11.snapDouble,m21.snapDouble,m31,
-                                  m12.snapDouble,m22.snapDouble,m32)
+  fun snapTo90(delta:Double=0.1): Matrix =
+      Matrix(m11.snapDouble(delta),m21.snapDouble(delta),m31,
+             m12.snapDouble(delta),m22.snapDouble(delta),m32)
 
   //  SVD simple and fast for 2x2 arrays
   //  for matching 2d formations

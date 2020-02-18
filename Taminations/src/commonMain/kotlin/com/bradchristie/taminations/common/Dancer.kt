@@ -126,6 +126,9 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
     return false
   }
 
+  override fun hashCode(): Int {
+    return number.hashCode()
+  }
   override fun compareTo(other: Dancer): Int = number.compareTo(other.number)
 
   override fun toString() = number
@@ -284,6 +287,5 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
     }
 
   }
-
 
 }

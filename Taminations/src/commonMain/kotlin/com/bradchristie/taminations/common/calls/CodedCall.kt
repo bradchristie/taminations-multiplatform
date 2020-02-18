@@ -159,7 +159,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "crossandwheel" to { CrossAndWheel() },
         "crosstradeandwheel" to { CrossTradeAndWheel() },
         "grandcrosstradeandwheel" to { GrandCrossTradeAndWheel() },
-        "singlecrosstradeandwheel" to { SingleCrossTradeAndWheel() }
+        "singlecrosstradeandwheel" to { SingleCrossTradeAndWheel() },
+        "bendtheline" to { BendTheLine() }
     )
 
     //  More complex calls where the text is needed either to select

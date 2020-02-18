@@ -93,7 +93,9 @@ class CallContext {
         "c1/tagging_calls_back_to_a_wave",
         "plus/grand_swing_thru",
         "c2/anything_and_circle",
-        "b1/star"
+        "b1/star",
+        "b2/alamo_style",
+        "c2/once_removed_concept"
         )
 
     var numfiles = 0
@@ -458,7 +460,8 @@ class CallContext {
     var transform:Matrix,
     var offsets:Array<Vector>
   )
-  fun computeFormationOffsets(ctx2: CallContext, mapping:IntArray):FormationMatchResult {
+  fun computeFormationOffsets(ctx2: CallContext, mapping:IntArray,
+                              delta:Double=0.1):FormationMatchResult {
     var dvbest = emptyArray<Vector>()
     //  We don't know how the XML formation needs to be turned to overlap
     //  the current formation.  So do an RMS fit to find the best match.
@@ -474,7 +477,7 @@ class CallContext {
     }
     val (u,_,v) = Matrix(bxa[0][0], bxa[1][0], 0.0, bxa[0][1], bxa[1][1], 0.0).svd22()
     val ut = u.transpose()
-    val rotmat = v.preConcatenate(ut).snapTo90()
+    val rotmat = v.preConcatenate(ut).snapTo90(delta)
     //  Now rotate the formation and compute any remaining
     //  differences in position
     actives.forEachIndexed { j,d2 ->
@@ -528,14 +531,15 @@ class CallContext {
   //  Returns a mapping from ctx1 to ctx2
   //  or null if no mapping.
   fun matchFormations(ctx2: CallContext,
-                              sexy:Boolean=false,  // don't match girls with boys
-                              fuzzy:Boolean=false,  // dancers can be somewhat offset
-                              rotate:Boolean=false,  // opposite facing dancers match
-                              handholds: Boolean=true,  // dancers holding hands
-                                                        // don't match dancers not
+                      sexy:Boolean=false,  // don't match girls with boys
+                      fuzzy:Boolean=false,  // dancers can be somewhat offset
+                      rotate:Boolean=false,  // opposite facing dancers match
+                      handholds: Boolean=true,  // dancers holding hands
+                                                // don't match dancers not
                       //  For calls specific to Heads or Sides
                       //  set headsmatchsides to false
-                              headsmatchsides:Boolean=true): IntArray? {
+                      headsmatchsides:Boolean=true,
+                      maxError:Double=1.9): IntArray? {
     if (dancers.count() != ctx2.dancers.count())
       return null
     //  Find mapping using DFS
@@ -567,6 +571,11 @@ class CallContext {
           dancers[mapindex+1].rotateStartAngle(180.0)
           rotated[mapindex] = true
         } else {
+          if (rotated[mapindex]) {
+            //  Restore to original
+            dancers[mapindex].rotateStartAngle(180.0)
+            dancers[mapindex+1].rotateStartAngle(180.0)
+          }
           rotated[mapindex] = false
           mapindex -= 2
         }
@@ -579,7 +588,7 @@ class CallContext {
           val matchResult = computeFormationOffsets(ctx2,mapping)
           //  Don't match if some dancers are too far from their mapped location
           val maxOffset = matchResult.offsets.maxBy { it.length }!!
-          if (maxOffset.length < 1.9) {
+          if (maxOffset.length < maxError) {
             val totOffset = matchResult.offsets.fold(0.0) { s, v -> s + v.length }
             if (bestmapping == null || totOffset < bestOffset) {
               bestmapping = mapping.copyOf()
@@ -707,7 +716,8 @@ class CallContext {
       "T-Bone UURL",
       "T-Bone RLUU",
       //  There are also 8 possible 3x1 t-bones not listed here
-      "Static Square"
+      "Static Square",
+      "Alamo Wave"
   )
   private val twoCoupleFormations = listOf(
       "Facing Couples Compact",
@@ -755,18 +765,24 @@ class CallContext {
           )
       }
     }
-    if (bestMapping != null) {
-      dancers.forEachIndexed { i,d ->
-        if (bestMapping!!.offsets[i].length > 0.1) {
-          //  Get the last movement
-          val m = if (d.path.movelist.count() > 0) d.path.pop() else TamUtils.getMove("Stand").notFromCall().pop()
-          //  Transform the offset to the dancer's angle
-          d.animateToEnd()
-          val vd = bestMapping!!.offsets[i].rotate(-d.tx.angle)
-          //  Apply it
-          d.path.add(m.skew(-vd.x,-vd.y))
-          d.animateToEnd()
-        }
+    if (bestMapping != null)
+      adjustToFormationMatch(bestMapping!!)
+  }
+
+  fun adjustToFormationMatch(match:BestMapping) {
+    dancers.forEachIndexed { i,d ->
+      if (match.offsets[i].length > 0.01) {
+        //  Get the last movement
+        val m = if (d.path.movelist.count() > 0)
+          d.path.pop()
+        else
+          TamUtils.getMove("Stand").notFromCall().pop()
+        //  Transform the offset to the dancer's angle
+        d.animateToEnd()
+        val vd = match.offsets[i].rotate(-d.tx.angle)
+        //  Apply it
+        d.path.add(m.skew(-vd.x,-vd.y))
+        d.animateToEnd()
       }
     }
   }
