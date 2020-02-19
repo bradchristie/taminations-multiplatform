@@ -99,7 +99,7 @@ class Tandem(norm:String,name:String) : Action(norm,name) {
       val d1 = ctx.dancers.firstOrNull { it.number == sd.number && it.data.leader }
       val d2 = d1?.let { ctx.dancerInBack(it) }
       if (d1 != null && d2 != null) {  // should always be true
-        //  Compute movement for each couple dancer for each movement
+        //  Compute movement for each tandem dancer for each movement
         //  based on the single dancer
         var sdbeat = 0.0
         sd.path.movelist.forEachIndexed { i,m ->
@@ -113,7 +113,6 @@ class Tandem(norm:String,name:String) : Action(norm,name) {
             val dist = d1.distanceTo(d2)/2.0
             val start = if (i == 0)
                             tandemDancerOffset(sd, isLeader, dist).length
-                           // d1.distanceTo(d2) / 2.0
                         else 0.5
             singlectx.animate(sdbeat + m.beats)
             val end = if (i == sd.path.movelist.count() - 1)

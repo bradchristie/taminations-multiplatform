@@ -1033,7 +1033,6 @@ class CallContext {
         d.data.partner = dancers.firstOrNull { it == d2.data.partner }
       }
     }
-
   }
 
   fun analyze() {
