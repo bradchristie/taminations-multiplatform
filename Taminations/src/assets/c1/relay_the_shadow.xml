@@ -87,4 +87,42 @@
       <move select="Forward 2" />
     </path>
   </tam>
+
+  <tam title="Relay the Shadow" display="none"
+       from="Normal Lines"
+       formation="Normal Lines"
+       parts="5;4.5" >
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
+      <move select="Swing Left" hands="gripleft" scaleX=".5" scaleY=".5" />
+      <move select="Hinge Left" scaleY=".5" />
+      <move select="Lead Right" />
+      <move select="Lead Right" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
+      <move select="Swing Left" hands="gripleft" scaleX=".5" scaleY=".5" />
+      <move select="Hinge Left" scaleY=".5" />
+      <move select="Hinge Right" beats="4" scaleX="3" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
+      <move select="Swing Left" hands="gripleft" scaleX=".5" scaleY=".5" />
+      <move select="Hinge Left" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Hinge Left" />
+      <move select="Forward 2" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3.5" />
+      <move select="Hinge Right" beats="4" scaleX="3" />
+    </path>
+  </tam>
+
 </tamination>
