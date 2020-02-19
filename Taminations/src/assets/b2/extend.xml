@@ -98,6 +98,15 @@
     </path>
   </tam>
 
+  <tam title="Extend" from="Single Double Pass Thru"
+       formation="Single Double Pass Thru" difficulty="2">
+    <path>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2"/>
+    </path>
+  </tam>
+
   <tam title="Extend"
        from="Right-Hand 1/4 Tag"
        formation="Quarter Tag"
