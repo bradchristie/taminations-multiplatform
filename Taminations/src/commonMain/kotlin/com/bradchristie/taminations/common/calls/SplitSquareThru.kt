@@ -19,10 +19,7 @@ package com.bradchristie.taminations.common.calls
 
 */
 
-import com.bradchristie.taminations.common.CallContext
-import com.bradchristie.taminations.common.CallError
-import com.bradchristie.taminations.common.LevelObject
-import com.bradchristie.taminations.common.r
+import com.bradchristie.taminations.common.*
 
 class SplitSquareThru(norm: String, name: String) : Action(norm, name) {
 
@@ -54,7 +51,7 @@ class HeadsStart(norm: String, name: String) : Action(norm, name) {
       ctx.applyCalls("Heads Start")
     else
       ctx.applyCalls("Sides Start")
-    ctx.applyCalls(norm.replace("(head|side)start(a)?".r,""))
+    ctx.applyCalls(name.replace("(head|side)(s)?\\s+start(a)?\\s+".ri,""))
   }
 
 }
