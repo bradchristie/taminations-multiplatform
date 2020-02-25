@@ -22,7 +22,7 @@
 -->
 <tamination title="Split Counter Rotate">
 
-  <tam title="Split Counter Rotate" from="Tidal Wave" formation="Tidal Wave RH BGGB">
+  <tam title="Split Counter Rotate" from="Right-Hand Tidal Wave" formation="Tidal Wave RH BGGB">
     <path numbers="8 1">
       <move select="Lead Right" beats="3" scaleX="3" scaleY="1.5"/>
     </path>
@@ -37,7 +37,22 @@
     </path>
   </tam>
 
-  <tam title="Split Counter Rotate" from="Twin Diamonds"
+  <tam title="Split Counter Rotate" from="Left-Hand Tidal Wave" formation="Tidal Wave LH BGGB">
+    <path>
+      <move select="Lead Left" beats="3" scaleX="3" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Hinge Right" beats="3" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Hinge Right" beats="3" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Lead Left" beats="3" scaleX="3" scaleY="1.5"/>
+    </path>
+  </tam>
+
+  <tam title="Split Counter Rotate" from="Right-Hand Diamonds"
        formation="Diamonds RH Girl Points">
     <path>
       <move select="Hinge Right" beats="3" offsetY="1"/>
@@ -53,7 +68,55 @@
     </path>
   </tam>
 
-  <tam title="Split Counter Rotate" from="Point-to-Point Diamonds"
+  <tam title="Split Counter Rotate" from="Left-Hand Diamonds"
+       formation="Diamonds LH Girl Points">
+    <path>
+      <move select="Hinge Left" beats="3" offsetY="-1"/>
+    </path>
+    <path>
+      <move select="Lead Left" beats="3" scaleX="2" scaleY="3" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Hinge Left" beats="3" offsetY="1"/>
+    </path>
+    <path>
+      <move select="Lead Left" beats="3" scaleX="2" scaleY="3" offsetX="-1"/>
+    </path>
+  </tam>
+
+  <tam title="Split Counter Rotate" from="Facing Diamonds, Right-Hand Centers"
+       formation="Diamonds Facing Girl Points">
+    <path>
+      <move select="Hinge Right" beats="3" offsetY="1"/>
+    </path>
+    <path>
+      <move select="Lead Left" beats="3" scaleX="2" scaleY="3" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Hinge Right" beats="3" offsetY="-1"/>
+    </path>
+    <path>
+      <move select="Lead Left" beats="3" scaleX="2" scaleY="3" offsetX="-1"/>
+    </path>
+  </tam>
+
+  <tam title="Split Counter Rotate" from="Facing Diamonds, Left-Hand Centers"
+       formation="Diamonds Facing LH Girl Points">
+    <path>
+      <move select="Hinge Left" beats="3" offsetY="-1"/>
+    </path>
+    <path>
+      <move select="Lead Right" beats="3" scaleX="2" scaleY="3" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Hinge Left" beats="3" offsetY="1"/>
+    </path>
+    <path>
+      <move select="Lead Right" beats="3" scaleX="2" scaleY="3" offsetX="1"/>
+    </path>
+  </tam>
+
+  <tam title="Split Counter Rotate" from="Right-Hand Point-to-Point Diamonds"
        formation="Diamonds RH PTP Girl Points">
     <path numbers="2 7">
       <move select="Hinge Right" beats="3" offsetX="1"/>
@@ -65,6 +128,56 @@
       <move select="Hinge Right" beats="3" offsetX="-1"/>
     </path>
     <path numbers="6 3">
+      <move select="Lead Right" beats="3" scaleX="3" scaleY="2" offsetY="-1"/>
+    </path>
+  </tam>
+
+  <tam title="Split Counter Rotate" from="Left-Hand Point-to-Point Diamonds"
+       formation="Diamonds LH PTP Girl Points">
+    <path>
+      <move select="Hinge Left" beats="3" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Lead Left" beats="3" scaleX="3" scaleY="2" offsetY="-1"/>
+    </path>
+    <path>
+      <move select="Hinge Left" beats="3" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Lead Left" beats="3" scaleX="3" scaleY="2" offsetY="1"/>
+    </path>
+  </tam>
+
+  <tam title="Split Counter Rotate"
+       from="Facing Point-to-Point Diamonds, Right-Hand Centers"
+       formation="Diamonds Facing PTP">
+    <path>
+      <move select="Hinge Right" beats="3" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Lead Left" beats="3" scaleX="3" scaleY="2" offsetY="-1"/>
+    </path>
+    <path>
+      <move select="Hinge Right" beats="3" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Lead Left" beats="3" scaleX="3" scaleY="2" offsetY="1"/>
+    </path>
+  </tam>
+
+  <tam title="Split Counter Rotate"
+       from="Facing Point-to-Point Diamonds, Left-Hand Centers"
+       formation="Diamonds Facing LH PTP">
+    <path>
+      <move select="Hinge Left" beats="3" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Lead Right" beats="3" scaleX="3" scaleY="2" offsetY="1"/>
+    </path>
+    <path>
+      <move select="Hinge Left" beats="3" offsetX="1"/>
+    </path>
+    <path>
       <move select="Lead Right" beats="3" scaleX="3" scaleY="2" offsetY="-1"/>
     </path>
   </tam>
