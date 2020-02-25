@@ -89,6 +89,8 @@ class Tandem(norm:String,name:String) : Action(norm,name) {
       dsingle.setStartPosition(newpos.x,newpos.y)
       dsingle
     }
+    if (dancers.count() != ctx.dancers.count()/2)
+      throw CallError("Unable to group all dancers in Tandems")
     val singlectx = CallContext(dancers.toTypedArray())
 
     //  Perform the Tandem call
