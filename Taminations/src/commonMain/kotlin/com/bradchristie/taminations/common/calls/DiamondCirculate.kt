@@ -26,6 +26,8 @@ import kotlin.math.sin
 
 class DiamondCirculate : Action("Diamond Circulate") {
 
+  override val level = LevelObject("plus")
+
   override fun perform(ctx: CallContext, i: Int) {
     if (ctx.actives.count() != 4)
       throw CallError("Unable to calculate Diamond Circulate")

@@ -1035,6 +1035,22 @@ Centers Pass the Ocean
 Clover and Pass Thru 
 Allemande Left""",
 
+      "Pass Thru 2" to
+"""Side Ladies Chain 
+Sides Dixie Style to a Wave 
+Heads Half Sashay 
+Boys Pass Thru 
+Centers Crossfire 
+Facing Dancers Pass Thru 
+Right Roll to a Wave 
+Extend 
+Boys Pass Thru 
+Horseshoe Turn 
+Star Thru 
+Ferris Wheel 
+Centers Square Thru 3 
+Allemande Left""",
+
       "To A Wave" to
 """Heads Square Chain Thru to a Wave 
 Extend 
