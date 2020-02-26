@@ -1209,6 +1209,34 @@ Boys Run
 Bend the Line 
 Centers Star Thru 
 Centers Pass Thru 
+Allemande Left""",
+
+      "Diamond Circulate" to
+"""Sides Pass the Ocean 
+Extend 
+Hinge 
+Acey Deucey Once and a Half 
+Grand Swing Thru 
+Girls Diamond Circulate 
+Center 4 Diamond Circulate 
+Boys Diamond Circulate 
+Girls Mix 
+Half Grand Swing Thru 
+Girls Turn Back 
+Heads Diamond Circulate 
+Boys Turn Back 
+Girls Flip the Diamond 
+Heads Diamond Circulate 
+Sides Diamond Circulate 
+Boys Recycle 
+Girls Hinge 
+Boys Pass Thru 
+Boys Chase Right 
+Circulate 
+Boys Run 
+Centers Pass Thru 
+Veer Left 
+Wheel and Deal 
 Allemande Left"""
 
   )
