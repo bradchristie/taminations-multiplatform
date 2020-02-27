@@ -744,27 +744,25 @@ Right and Left Thru
 Allemande Left""",
 
       "ZigZag" to
-"""Sides Star Thru and Spread
-Touch a Quarter
-Zig Zig
-Left Touch a Quarter
-Zag Zag
-Pass Thru
-Wheel and Deal
-Zig
-Girls Run
-Boys Touch a Quarter
-Zag
-Zag Zig
-Zig
-Zig Zag
-Boys 1/4 In
-Heads Slide Thru
-Bend the Line
-Brace Thru
-Pass Thru
-Wheel and Deal
-Centers Pass Thru
+"""Sides Star Thru and Spread 
+Touch a Quarter 
+Zig Zig 
+Left Touch a Quarter 
+Zag Zag 
+Pass Thru 
+Wheel and Deal 
+Zig 
+Girls Run 
+Boys Touch a Quarter 
+Zag 
+Zag Zig 
+Zig 
+Zig Zag 
+Boys Face Out 
+Heads Slide Thru 
+Centers Chase Right 
+Ferris Wheel 
+Centers Cross Trail Thru 
 Allemande Left""",
 
       "Zoom" to

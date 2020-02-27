@@ -1048,7 +1048,7 @@ class CallContext {
       d.data.verycenter = false
     }
     var istidal = false
-    dancers.forEach { d1 ->
+    dancers.sortedBy { -it.location.length }.forEach { d1 ->
       var bestleft: Dancer? = null
       var bestright: Dancer? = null
       var leftcount = 0
@@ -1076,13 +1076,15 @@ class CallContext {
       }
       //  Use the results of the counts to assign belle/beau/leader/trailer
       //  and partner
-      if (leftcount % 2 == 1 && rightcount % 2 == 0 &&
-          d1.distanceTo(bestleft!!) < 3) {
+      val bestleftMismatch = bestleft != null && bestleft!!.data.partner != null && bestleft!!.data.partner != d1
+      val bestRightMismatch = bestright != null && bestright!!.data.partner != null && bestright!!.data.partner != d1
+      if (leftcount % 2 == 1 && rightcount % 2 == 0 && !bestleftMismatch &&
+          d1.distanceTo(bestleft!!) < 3 || (bestleft != null && bestRightMismatch)) {
         d1.data.partner = bestleft
         d1.data.belle = true
       }
-      else if (rightcount % 2 == 1 && leftcount % 2 == 0 &&
-          d1.distanceTo(bestright!!) < 3) {
+      else if (rightcount % 2 == 1 && leftcount % 2 == 0 && !bestRightMismatch &&
+          d1.distanceTo(bestright!!) < 3 || (bestright != null && bestleftMismatch)) {
         d1.data.partner = bestright
         d1.data.beau = true
       }

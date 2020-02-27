@@ -24,13 +24,14 @@
 
 
 
-  <tam title="Reverse Cross and Turn" from="Facing Couples" formation="Facing Couples">
+  <tam title="Reverse Cross and Turn" from="Facing Couple"
+       formation="Facing Couples Compact">
     <path>
       <move select="U-Turn Right" />
     </path>
     <path>
       <move select="Forward" />
-      <move select="Extend Left" hands="left" beats="2" scaleX="3" scaleY="2" />
+      <move select="Extend Left" hands="left" beats="2" scaleX="2" scaleY="2" />
     </path>
   </tam>
 
@@ -55,8 +56,7 @@
 
   <tam title="Reverse Cross and Turn"
        from="Eight Chain Thru"
-       formation="Eight Chain Thru"
-       fractions="" >
+       formation="Eight Chain Thru">
     <path>
       <move select="U-Turn Right" />
     </path>

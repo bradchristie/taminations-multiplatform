@@ -19,10 +19,7 @@ package com.bradchristie.taminations.common.calls
 
 */
 
-import com.bradchristie.taminations.common.CallContext
-import com.bradchristie.taminations.common.CallError
-import com.bradchristie.taminations.common.LevelObject
-import com.bradchristie.taminations.common.r
+import com.bradchristie.taminations.common.*
 
 class WheelAnd(norm:String,name:String) : Action(norm,name) {
 
@@ -34,12 +31,20 @@ class WheelAnd(norm:String,name:String) : Action(norm,name) {
     val reverse = if (wheelcall.toLowerCase().contains("reverse")) "Reverse" else ""
     //  Find the 4 dancers to Wheel
     val facingOut = ctx.dancers.filter { d -> d.isFacingOut }
-    when {
-      facingOut.containsAll(ctx.outer(4)) ->
-        ctx.applyCalls("Outer 4 $reverse Wheel While Center 4 $andcall")
-      facingOut.containsAll(ctx.center(4)) ->
-        ctx.applyCalls("Center 4 $reverse Wheel While Outer 4 Step And $andcall")
-      else -> throw CallError("Unable to find dancers to Wheel")
+    if (facingOut.containsAll(ctx.center(4)))
+      ctx.applyCalls("As Couples Step")
+    //  First we will try the usual way
+    try {
+      ctx.applyCalls("Outer 4 $reverse Wheel While Center 4 $andcall")
+    } catch (e1: CallError) {
+      //  Maybe the call applies to all 8 dancers
+      //  (although that really doesn't fit the definition)
+      try {
+        ctx.applyCalls("Outer 4 $reverse Wheel",andcall)
+      } catch (e2: CallError) {
+        //  That didn't work either, throw the original error
+        throw e1
+      }
     }
   }
 
