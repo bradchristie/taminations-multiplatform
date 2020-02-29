@@ -93,6 +93,11 @@ class Path(moves:List<Movement> = listOf()) {
     return this
   }
 
+  fun addhands(hands:Int): Path {
+    movelist = movelist.map { it.useHands(it.hands or hands) }
+    return this
+  }
+
   fun scale(x:Double, y:Double): Path {
     movelist = movelist.map { it.scale(x,y) }
     recalculate()

@@ -1251,6 +1251,26 @@ Boys Run
 Centers Pass Thru 
 Veer Left 
 Wheel and Deal 
+Allemande Left""",
+
+      "Tandem" to
+"""Sides Pass the Ocean 
+Extend 
+Tandem Left Swing Thru  
+Tandem Boys Run  
+Tandem Turn Back  
+Tandem Crossfire 
+Tandem Peel and Trail  
+Tandem Single Wheel  
+Tandem Pass Out  
+Tandem Partner Tag  
+Tandem Wheel Around  
+Tandem Pass Thru 
+Tandem Vertical Tag  
+Zig Zag 
+Recycle 
+Centers Pass Thru 
+Quarter In 
 Allemande Left"""
 
   )

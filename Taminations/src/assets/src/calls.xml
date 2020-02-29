@@ -260,7 +260,7 @@
   <call link="c2/drop_in" title="Grand Drop In / Out"/>
   <call link="c2/drop_right" title="Grand Drop Right / Left"/>
   <call audio="a1/grand_follow_your_neighbor.mp3" link="a1/grand_follow_your_neighbor"
-        title="Grand follow your neighbor"/>
+        title="Grand Follow Your Neighbor"/>
   <call link="c3a/grand_mix" title="Grand Mix"/>
   <call audio="a1/grand_quarter_thru.mp3" link="a1/grand_quarter_thru" title="Grand Quarter Thru"/>
   <call audio="a2/grand_remake.mp3" link="a2/grand_remake" title="Grand Remake"/>

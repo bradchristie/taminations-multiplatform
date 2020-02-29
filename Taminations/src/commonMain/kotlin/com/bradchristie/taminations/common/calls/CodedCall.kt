@@ -221,8 +221,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
             OFormation(callnorm,callname) else null
         in "zipcode\\d".r -> ZipCode(callnorm,callname)
         in "twistand.*".r -> TwistAnything(callnorm,callname)
-        in "ascouples.*".r -> AsCouples(callnorm,callname)
-        in "tandem.*".r -> Tandem(callnorm,callname)
+        in "ascouples.*".r -> AsCouplesConcept(callnorm,callname)
+        in "tandem.*".r -> TandemConcept(callnorm,callname)
         in "(12|34)?crazy.*".r -> Crazy(callnorm,callname)
         in "(left)?verticaltagback(toawave)?".r -> VerticalTagBack(callnorm,callname)
         in "(left)?vertical(left)?(14|12|34)?tag".r -> VerticalTag(callnorm,callname)

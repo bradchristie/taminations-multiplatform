@@ -298,6 +298,9 @@ class CallContext {
   fun animate(beat:Double) {
     dancers.forEach { it.animate(beat) }
   }
+  fun animateToEnd() {
+    dancers.forEach { it.animateToEnd() }
+  }
 
 
   /**
