@@ -809,49 +809,9 @@
            xref-title="Any Hand Remake" />
 
 
-  <tam title="Any Hand (C-1) Swing the Fractions" parts="1.5;3;4.5;3" group="Any Hand (C-1)">
-  <formation>
-    <dancer gender="boy" x="3" y="2" angle="270"/>
-    <dancer gender="girl" x="1" y="2" angle="90"/>
-    <dancer gender="boy" x="-1" y="2" angle="90"/>
-    <dancer gender="girl" x="-3" y="2" angle="270"/>
-  </formation>
-    <path>
-      <move select="Hinge Right"/>
-      <move select="Flip Left"/>
-      <move select="Hinge Right" scaleX="2" scaleY="2" offsetX=".33" offsetY=".33" />
-      <move select="Hinge Right" scaleX="2" scaleY="2" offsetX="-.33" offsetY=".33" />
-      <move select="Hinge Right" scaleX="2" scaleY="2" offsetX="-.33" offsetY="-.33" />
-      <move select="Flip Left"/>
-      <move select="Hinge Right"/>
-    </path>
-    <path>
-      <move select="Hinge Right"/>
-      <move select="Stand" beats="3"/>
-      <move select="Quarter Left" hands="right" offsetX=".33" offsetY="-.33" />
-      <move select="Quarter Left" hands="right" offsetX="-.33" offsetY="-.33" />
-      <move select="Quarter Left" hands="right" offsetX="-.33" offsetY=".33" />
-      <move select="Stand" beats="3"/>
-      <move select="Hinge Right"/>
-    </path>
-    <path>
-      <move select="Hinge Left"/>
-      <move select="Stand" beats="3"/>
-      <move select="Quarter Right" hands="left" offsetX=".33" offsetY=".33" />
-      <move select="Quarter Right" hands="left" offsetX="-.33" offsetY=".33" />
-      <move select="Quarter Right" hands="left" offsetX="-.33" offsetY="-.33" />
-      <move select="Stand" beats="3"/>
-      <move select="Hinge Left"/>
-    </path>
-    <path>
-      <move select="Hinge Left"/>
-      <move select="Run Right"/>
-      <move select="Hinge Left" scaleX="2" scaleY="2" offsetX=".33" offsetY="-.33" />
-      <move select="Hinge Left" scaleX="2" scaleY="2" offsetX="-.33" offsetY="-.33" />
-      <move select="Hinge Left" scaleX="2" scaleY="2" offsetX="-.33" offsetY=".33" />
-      <move select="Run Right"/>
-      <move select="Hinge Left"/>
-    </path>
-  </tam>
+  <tamxref title="Any Hand (C-1) Swing the Fractions" group="Any Hand (C-1)"
+           xref-link="c1/swing_the_fractions"
+           xref-title="Any Hand Swing the Fractions"
+           xref-from="Inverted Line Ends Facing In"/>
 
 </tamination>

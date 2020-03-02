@@ -185,6 +185,93 @@
     </path>
   </tam>
 
+  <tam title="Any Hand Swing the Fractions" parts="1.5;3;4.5;3"
+       from="Inverted Line Ends Facing In" group=" ">
+    <formation>
+      <dancer gender="boy" x="3" y="2" angle="270"/>
+      <dancer gender="girl" x="1" y="2" angle="90"/>
+      <dancer gender="boy" x="-1" y="2" angle="90"/>
+      <dancer gender="girl" x="-3" y="2" angle="270"/>
+    </formation>
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Flip Left"/>
+      <move select="Hinge Right" scaleX="2" scaleY="2" offsetX=".33" offsetY=".33" />
+      <move select="Hinge Right" scaleX="2" scaleY="2" offsetX="-.33" offsetY=".33" />
+      <move select="Hinge Right" scaleX="2" scaleY="2" offsetX="-.33" offsetY="-.33" />
+      <move select="Flip Left"/>
+      <move select="Hinge Right"/>
+    </path>
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Stand" beats="3"/>
+      <move select="Quarter Left" hands="right" offsetX=".33" offsetY="-.33" />
+      <move select="Quarter Left" hands="right" offsetX="-.33" offsetY="-.33" />
+      <move select="Quarter Left" hands="right" offsetX="-.33" offsetY=".33" />
+      <move select="Stand" beats="3"/>
+      <move select="Hinge Right"/>
+    </path>
+    <path>
+      <move select="Hinge Left"/>
+      <move select="Stand" beats="3"/>
+      <move select="Quarter Right" hands="left" offsetX=".33" offsetY=".33" />
+      <move select="Quarter Right" hands="left" offsetX="-.33" offsetY=".33" />
+      <move select="Quarter Right" hands="left" offsetX="-.33" offsetY="-.33" />
+      <move select="Stand" beats="3"/>
+      <move select="Hinge Left"/>
+    </path>
+    <path>
+      <move select="Hinge Left"/>
+      <move select="Run Right"/>
+      <move select="Hinge Left" scaleX="2" scaleY="2" offsetX=".33" offsetY="-.33" />
+      <move select="Hinge Left" scaleX="2" scaleY="2" offsetX="-.33" offsetY="-.33" />
+      <move select="Hinge Left" scaleX="2" scaleY="2" offsetX="-.33" offsetY=".33" />
+      <move select="Run Right"/>
+      <move select="Hinge Left"/>
+    </path>
+  </tam>
+
+  <tam title="Any Hand Swing the Fractions" parts="1.5;3;4.5;3"
+       from="Inverted Line Ends Facing Out"
+        formation="Inverted Lines Ends Facing Out" display="none">
+    <path>
+      <move select="Hinge Left"/>
+      <move select="Stand" beats="3"/>
+      <move select="Quarter Right" hands="left" offsetY=".5" />
+      <move select="Quarter Right" hands="left" offsetX="-.5" offsetY=".5" />
+      <move select="Quarter Right" hands="left" offsetX="-.5"/>
+      <move select="Run Right"/>
+      <move select="Hinge Left"/>
+    </path>
+    <path>
+      <move select="Hinge Left"/>
+      <move select="Run Right"/>
+      <move select="Hinge Left" scaleY="1.5"/>
+      <move select="Hinge Left" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Left" scaleX="1.5"/>
+      <move select="Stand" beats="3"/>
+      <move select="Hinge Left"/>
+    </path>
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Flip Left"/>
+      <move select="Hinge Right" scaleY="1.5" />
+      <move select="Hinge Right" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Right" scaleX="1.5"/>
+      <move select="Stand" beats="3"/>
+      <move select="Hinge Right"/>
+    </path>
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Stand" beats="3"/>
+      <move select="Quarter Left" hands="right" offsetY="-.5"/>
+      <move select="Quarter Left" hands="right" offsetX="-.5" offsetY="-.5" />
+      <move select="Quarter Left" hands="right" offsetX="-.5" />
+      <move select="Flip Left"/>
+      <move select="Hinge Right"/>
+    </path>
+  </tam>
+
   <tamxref title="Swing the Fractions, Replace the Second Part with Trade Circulate"
            xref-link="c1/replace"
            xref-title="Swing the Fractions, Replace the Second Part with Trade Circulate"
