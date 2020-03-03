@@ -1271,6 +1271,25 @@ Zig Zag
 Recycle 
 Centers Pass Thru 
 Quarter In 
+Allemande Left""",
+
+      "Bounce" to
+"""Heads Lead Right 
+Veer Left 
+Bounce the Ends 
+Circulate 
+Boys Run 
+Veer Right 
+Bounce the Leaders 
+Centers Pass Thru 
+Veer Left 
+Fan the Top 
+Bounce the Centers 
+Swing Thru 
+Boys Run 
+Wheel and Deal 
+Zoom 
+Centers Pass Thru 
 Allemande Left"""
 
   )

@@ -23,7 +23,7 @@ import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.CallError
 import com.bradchristie.taminations.common.LevelObject
 
-class Shazam : ActivesOnlyAction("Shazam") {
+class Shazam : Action("Shazam") {
 
   override val level = LevelObject("c2")
   override val requires = listOf("ms/hinge","plus/anything_and_roll")

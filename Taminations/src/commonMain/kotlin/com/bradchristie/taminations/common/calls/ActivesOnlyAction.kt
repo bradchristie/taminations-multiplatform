@@ -26,7 +26,7 @@ import com.bradchristie.taminations.common.CallContext
 //  often makes it easier to figure out how to perform the call.
 abstract class ActivesOnlyAction(norm:String,name:String=norm) : Action(norm,name) {
 
-  override fun perform(ctx: CallContext, i: Int) {
+  final override fun perform(ctx: CallContext, i: Int) {
     if (ctx.actives.count() < ctx.dancers.count()) {
       val ctx2 = CallContext(ctx,ctx.actives)
       ctx2.analyze()
