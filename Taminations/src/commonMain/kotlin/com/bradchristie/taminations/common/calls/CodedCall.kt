@@ -163,7 +163,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "bendtheline" to { BendTheLine() },
         "diamondcirculate" to { DiamondCirculate() },
         "everyone" to { Everyone("everyone","Everyone") },
-        "everybody" to { Everyone("everybody","Everybody") }
+        "everybody" to { Everyone("everybody","Everybody") },
+        "shazam" to { Shazam() }
     )
 
     //  More complex calls where the text is needed either to select
@@ -223,6 +224,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "twistand.*".r -> TwistAnything(callnorm,callname)
         in "ascouples.*".r -> AsCouplesConcept(callnorm,callname)
         in "tandem.*".r -> TandemConcept(callnorm,callname)
+        in "siamese.*".r -> SiameseConcept(callnorm,callname)
         in "(12|34)?crazy.*".r -> Crazy(callnorm,callname)
         in "(left)?verticaltagback(toawave)?".r -> VerticalTagBack(callnorm,callname)
         in "(left)?vertical(left)?(14|12|34)?tag".r -> VerticalTag(callnorm,callname)
