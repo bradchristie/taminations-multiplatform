@@ -95,7 +95,7 @@
   </tam>
 
   <tam title="Step and Flip"
-       from="Tidal Lines">
+       from="Tidal Line">
     <formation name="Tidal Line RH">
       <dancer gender="boy" x="0" y="3.5" angle="0"/>
       <dancer gender="girl" x="0" y="2.5" angle="0"/>
@@ -113,6 +113,57 @@
     </path>
     <path>
       <move select="Extend Right" hands="left" beats="3" scaleX="3" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Step and Flip"
+       from="Tidal Line LH"
+       formation="Tidal Line LH" display="none">
+    <path>
+      <move select="Extend Right" hands="left" beats="3" scaleX="3" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Flip Left"  offsetY="-1.5" />
+    </path>
+    <path>
+      <move select="Flip Right"  offsetY="1.5" />
+    </path>
+    <path>
+      <move select="Extend Left" hands="right" beats="3" scaleX="3" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Step and Flip"
+       from="Tidal Inverted Line"
+       formation="Tidal Inverted Line RH">
+    <path>
+      <move select="Flip Right"  offsetY="1.5" />
+    </path>
+    <path>
+      <move select="Extend Right" hands="left" beats="3" scaleX="3" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" hands="right" beats="3" scaleX="3" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Flip Left"  offsetY="-1.5" />
+    </path>
+  </tam>
+
+  <tam title="Step and Flip"
+       from="Tidal Inverted Line LH"
+       formation="Tidal Inverted Line LH" display="none">
+    <path>
+      <move select="Flip Left"  offsetY="-1.5" />
+    </path>
+    <path>
+      <move select="Extend Left" hands="right" beats="3" scaleX="3" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" hands="left" beats="3" scaleX="3" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Flip Right"  offsetY="1.5" />
     </path>
   </tam>
 
