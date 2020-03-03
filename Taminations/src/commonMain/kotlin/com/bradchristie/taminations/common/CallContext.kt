@@ -95,7 +95,8 @@ class CallContext {
         "c2/anything_and_circle",
         "b1/star",
         "b2/alamo_style",
-        "c2/once_removed_concept"
+        "c2/once_removed_concept",
+        "c1/split_square_thru_variations"
         )
 
     var numfiles = 0
