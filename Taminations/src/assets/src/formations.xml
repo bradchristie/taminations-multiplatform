@@ -1089,15 +1089,15 @@
   </formation>
 
   <formation name="I-Beam">
-    <dancer gender="boy" x="-1" y="-3" angle="90"/>
-    <dancer gender="girl" x="1" y="-3" angle="90"/>
+    <dancer gender="boy" x="-1" y="-3.5" angle="90"/>
+    <dancer gender="girl" x="1" y="-3.5" angle="90"/>
     <dancer gender="boy" x="0" y="-2" angle="180"/>
     <dancer gender="girl" x="0" y="-.67" angle="0"/>
   </formation>
 
   <formation name="H-Beam">
-    <dancer gender="boy" x="-1" y="-3" angle="0"/>
-    <dancer gender="girl" x="1" y="-3" angle="180"/>
+    <dancer gender="boy" x="-1" y="-3.5" angle="0"/>
+    <dancer gender="girl" x="1" y="-3.5" angle="180"/>
     <dancer gender="boy" x="0" y="-2" angle="180"/>
     <dancer gender="girl" x="0" y="-.67" angle="0"/>
   </formation>
@@ -1517,6 +1517,28 @@
     <dancer gender="boy" x="0" y="-3.5" angle="0"/>
     <dancer gender="girl" x="0" y="-.5" angle="0"/>
     <dancer gender="boy" x="0" y="-1.5" angle="0"/>
+  </formation>
+
+  <!-- Siamese formations -->
+  <formation name="Siamese Box 1">
+    <dancer gender="boy" x="-2" y="3" angle="0"/>
+    <dancer gender="girl" x="-2" y="1" angle="0"/>
+    <dancer gender="boy" x="-3" y="-2" angle="0"/>
+    <dancer gender="girl" x="-1" y="-2" angle="0"/>
+  </formation>
+
+  <formation name="Siamese Box 2">
+    <dancer gender="boy" x="-2" y="-3" angle="0"/>
+    <dancer gender="girl" x="-2" y="-1" angle="0"/>
+    <dancer gender="boy" x="-3" y="2" angle="0"/>
+    <dancer gender="girl" x="-1" y="2" angle="0"/>
+  </formation>
+
+  <formation name="Siamese Wave">
+    <dancer gender="boy" x="0" y="3.5" angle="0"/>
+    <dancer gender="girl" x="0" y="2.5" angle="0"/>
+    <dancer gender="boy" x="-1" y="1" angle="0"/>
+    <dancer gender="girl" x="1" y="1" angle="0"/>
   </formation>
 
 </formations>

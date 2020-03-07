@@ -1290,6 +1290,35 @@ Boys Run
 Wheel and Deal 
 Zoom 
 Centers Pass Thru 
+Allemande Left""",
+
+      "Siamese" to
+"""Heads Lead Right 
+Veer Left 
+Fan the Top 
+Girls Trade 
+Sides Single Wheel 
+Sides Turn Back 
+Siamese Swing Thru  
+Siamese Swing Thru  
+Siamese Recycle  
+Siamese Pass Thru  
+Siamese Chase Right  
+Siamese Cross  
+Siamese Right Roll to a Wave  
+Siamese Centers Hinge 
+Siamese Diamond Circulate 
+Siamese Flip the Diamond 
+Siamese Wheel and Deal 
+Siamese Right and Left Thru 
+Siamese Touch 1/4 
+Sides Half Zoom 
+Hinge and Roll 
+Face Out 
+Wheel and Deal 
+Zoom 
+Centers Swap Around 
+Heads Half Sashay 
 Allemande Left"""
 
   )

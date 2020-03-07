@@ -720,8 +720,13 @@ class CallContext {
       "T-Bone UURL",
       "T-Bone RLUU",
       //  There are also 8 possible 3x1 t-bones not listed here
-      "Static Square"
-      //"Alamo Wave"
+      "Static Square",
+          //"Alamo Wave"
+      //  Siamese formations
+      "Siamese Box 1",
+      "Siamese Box 2",
+      //  One wave is H-Beam, above
+      "Siamese Wave"
   )
   private val twoCoupleFormations = listOf(
       "Facing Couples Compact",

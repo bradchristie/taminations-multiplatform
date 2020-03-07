@@ -50,6 +50,34 @@
     </path>
   </tam>
 
+  <tam title="Scoot Back" from="Single Quarter Tag"
+       formation="Single Quarter Tag" difficulty="2">
+    <path>
+      <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".75"/>
+      <move select="Swing Right" scaleX=".75" scaleY=".75" />
+      <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Forward" beats="1.5" scaleX="1.5" offsetY="-.25"/>
+      <move select="Swing Right" scaleX=".75" scaleY=".75" />
+      <move select="Forward" beats="1.5" scaleX="1.5" offsetY=".25"/>
+    </path>
+  </tam>
+
+  <tam title="Scoot Back" from="Left-Hand Single Quarter Tag"
+       formation="Single Left Quarter Tag" difficulty="3">
+    <path>
+      <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".75"/>
+      <move select="Swing Left" scaleX=".75" scaleY=".75" />
+      <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Forward" beats="1.5" scaleX="1.5" offsetY=".25"/>
+      <move select="Swing Left" scaleX=".75" scaleY=".75" />
+      <move select="Forward" beats="1.5" scaleX="1.5" offsetY="-.25"/>
+    </path>
+  </tam>
+
   <tam title="Scoot Back" from="Right-Hand T-Bone" display="none">
     <formation>
       <dancer gender="boy" x="-1.0" y="1" angle="0" />
@@ -299,4 +327,5 @@
       <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5" />
     </path>
   </tam>
+
 </tamination>
