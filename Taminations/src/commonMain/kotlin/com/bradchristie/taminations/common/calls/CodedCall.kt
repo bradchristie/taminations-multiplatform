@@ -164,7 +164,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "diamondcirculate" to { DiamondCirculate() },
         "everyone" to { Everyone("everyone","Everyone") },
         "everybody" to { Everyone("everybody","Everybody") },
-        "shazam" to { Shazam() }
+        "shazam" to { Shazam() },
+        "counterrotate" to { CounterRotate() }
     )
 
     //  More complex calls where the text is needed either to select

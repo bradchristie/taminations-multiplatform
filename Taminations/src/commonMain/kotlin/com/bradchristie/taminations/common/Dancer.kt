@@ -44,6 +44,12 @@ data class DancerData(
     var actionBeats:Double = 0.0  // needed for moves that analyze previous action, like Roll
 )
 
+//  Dancer Space is a coordinate system where the dancer
+//  is at (0,0) and looking down the X axis.
+//  Convert a point from world space to dancer space
+//  based on the dancer's current location.
+fun Vector.ds(d:Dancer) : Vector = d.tx.inverse() * this
+
 /**
  *     Constructor for a new dancer
  * @param number    Number to show when Number display is on
