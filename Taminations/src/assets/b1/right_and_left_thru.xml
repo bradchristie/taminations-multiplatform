@@ -220,6 +220,36 @@
     </path>
   </tam>
 
+  <tam title="Right and Left Thru and a Quarter More" group=" " display="none"
+       from="Eight Chain Thru"
+       formation="Eight Chain Thru"
+       parts="2" difficulty="1">
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Beau Wheel" scaleX=".5" />
+      <move select="BackHinge Right" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Belle Wheel" scaleX=".5" />
+      <move select="Hinge Left" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Beau Wheel" scaleX=".67" />
+      <move select="BackHinge Right" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Belle Wheel" scaleX=".67" />
+      <move select="Hinge Left" scaleX=".5"/>
+    </path>
+  </tam>
+
   <tam title="Centers Right and Left Thru, Full Turn" group=" "
        formation="Double Pass Thru" parts="3" difficulty="2">
     <path/>
