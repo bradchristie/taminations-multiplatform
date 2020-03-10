@@ -38,7 +38,9 @@ class Half : Action("Half") {
       //  For XML calls there should be an explicit number of parts
       if (call is XMLCall) {
         //  Figure out how many beats are in half the call
-        val parts = (call as XMLCall).xelem.attr("parts")
+        //  Calls could have either "parts" or "fractions"
+        val parts = (call as XMLCall).xelem.attr("parts") +
+                    (call as XMLCall).xelem.attr("fractions")
         if (parts.isNotEmpty()) {
           val partnums = parts.split(";")
           halfbeats = partnums.slice(0 until (partnums.count() + 1) / 2).map { it.d }.sum()
