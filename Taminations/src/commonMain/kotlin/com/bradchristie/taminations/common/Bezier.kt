@@ -59,6 +59,7 @@ class Bezier(private val x1:Double, private val y1:Double,
   //  Compute X, Y values for a specific t value
   private fun xt(t:Double):Double = x1 + t*(cx + t*(bx + t*ax))
   private fun yt(t:Double):Double = y1 + t*(cy + t*(by + t*ay))
+  private fun pt(t:Double):Vector = Vector(xt(t),yt(t))
   //  Compute dx, dy values for a specific t value
   private fun dxt(t:Double):Double = cx + t*(2.0*bx + t*3.0*ax)
   private fun dyt(t:Double):Double = cy + t*(2.0*by + t*3.0*ay)
@@ -102,5 +103,15 @@ class Bezier(private val x1:Double, private val y1:Double,
 
   fun skew(x:Double, y:Double) : Bezier =
       Bezier(x1,y1,ctrlx1,ctrly1,ctrlx2+x,ctrly2+y,x2+x,y2+y)
+
+  fun clip(fraction:Double) : Bezier {
+    if (fraction <= 0.0 || fraction > 1.0)
+      throw Error("Invalid Bezier clip fraction")
+    val p1 = pt(0.0)
+    val p2 = pt(fraction / 3.0)
+    val p3 = pt(fraction * 2.0 / 3.0)
+    val p4 = pt(fraction)
+    return fromPoints(p1,p2,p3,p4)
+  }
 
 }

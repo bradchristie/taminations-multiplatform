@@ -40,7 +40,7 @@ fun getHands(h:String):Int =
  *   of travel.  Two Bezier curves are used, one for travel and one for
  *   facing direction.
  *
- * @param fullbeats  Timing
+ * @param beats  Timing
  * @param hands  One of the const ints above
  *     Next set of parameters are for direction of travel
  *     X and Y values for start of curve are always 0,0
@@ -51,10 +51,9 @@ fun getHands(h:String):Int =
  * @param brotate  Bezier curve for facing direction, can be same as btranslate
  * @param beats  Where to stop for a clipped movement
  */
-class Movement(private val fullbeats:Double, val hands:Int,
+class Movement(val beats:Double, val hands:Int,
                val btranslate: Bezier,
-               val brotate: Bezier,
-               val beats:Double = fullbeats) {
+               val brotate: Bezier) {
 
   //  for sequencer
   var fromCall = true
@@ -80,8 +79,7 @@ class Movement(private val fullbeats:Double, val hands:Int,
               elem.getAttribute(if (elem.hasAttribute("cy4")) "cy4" else "cy2")!!.toDouble(),
               elem.getAttribute(if (elem.hasAttribute("x4")) "x4" else "x2")!!
                    .toDouble(),
-              elem.getAttribute(if (elem.hasAttribute("y4" )) "y4" else "y2")!!.toDouble()),
-          elem.getAttribute("beats")!!.toDouble())
+              elem.getAttribute(if (elem.hasAttribute("y4" )) "y4" else "y2")!!.toDouble()))
 
   /**
    * Return a matrix for the translation part of this movement at time t
@@ -89,8 +87,8 @@ class Movement(private val fullbeats:Double, val hands:Int,
    * @return   Matrix for using with canvas
    */
   fun translate(t:Double = beats): Matrix {
-    val tt = min(max(0.0,t),fullbeats)
-    return btranslate.translate(tt/fullbeats)
+    val tt = min(max(0.0,t),beats)
+    return btranslate.translate(tt/beats)
   }
 
   /**
@@ -99,59 +97,41 @@ class Movement(private val fullbeats:Double, val hands:Int,
    * @return   Matrix for using with canvas
    */
   fun rotate(t:Double = beats): Matrix {
-    val tt = min(max(0.0,t),fullbeats)
-    return brotate.rotate(tt / fullbeats)
+    val tt = min(max(0.0,t),beats)
+    return brotate.rotate(tt / beats)
   }
 
   /**
    * Return a new movement by changing the beats
    */
-  fun time(b:Double): Movement = Movement(b, hands, btranslate, brotate, b)
+  fun time(b:Double): Movement = Movement(b, hands, btranslate, brotate)
 
   /**
    * Return a new movement by changing the hands
    */
-  fun useHands(h:Int): Movement = Movement(fullbeats, h, btranslate, brotate, beats)
+  fun useHands(h:Int): Movement = Movement(beats, h, btranslate, brotate)
 
   /**
    * Return a new Movement scaled by x and y factors.
    * If y is negative hands are also switched.
    */
   fun scale(x: Double, y: Double): Movement =
-      Movement(fullbeats,
+      Movement(beats,
           if (y < 0 && hands == Hands.RIGHTHAND) Hands.LEFTHAND
           else if (y < 0 && hands == Hands.LEFTHAND) Hands.RIGHTHAND
           else hands, // what about GRIPLEFT, GRIPRIGHT?
-          btranslate.scale(x,y), brotate.scale(x,y), beats)
+          btranslate.scale(x,y), brotate.scale(x,y))
 
   /**
    * Return a new Movement with the end point shifted by x and y
+   * Coords are dancer space at dancer's start position
    */
   fun skew(x: Double, y: Double): Movement =
-      if (beats < fullbeats) skewClip(x,y) else skewFull(x,y)
-
-  private fun skewFull(x: Double, y: Double): Movement =
-      Movement(fullbeats, hands, btranslate.skew(x,y), brotate, beats)
-  private fun skewClip(x: Double, y: Double): Movement {
-    var vdelta = Vector(x, y)
-    val vfinal = this.translate().location + vdelta
-    var m = this
-    var maxiter = 100
-    do {
-      // Shift the end point by the current difference
-      m = m.skewFull(vdelta.x, vdelta.y)
-      // See how that affects the clip point
-      val loc = m.translate().location
-      vdelta = vfinal - loc
-      maxiter -= 1
-    } while (vdelta.length > 0.001 && maxiter > 0)
-    //  If timed out, return original rather than something that
-    //  might put the dancers in outer space
-    return if (maxiter > 0) m else this
-  }
+      Movement(beats, hands, btranslate.skew(x,y), brotate)
 
   /**
    * Skew a movement based on an  adjustment to the final position
+   * Coords are dancer space at dancer's final position
    */
   fun skewFromEnd(x: Double, y: Double): Movement {
     val a = rotate().angle
@@ -159,11 +139,14 @@ class Movement(private val fullbeats:Double, val hands:Int,
     return skew(v.x,v.y)
   }
 
-
   fun reflect(): Movement = scale(1.0, -1.0)
 
-  fun clip(b:Double): Movement = Movement(fullbeats, hands,
-      btranslate, brotate, b)
+  fun clip(b:Double): Movement {
+    if (b <= 0.0 || b > beats)
+      throw Error("Invalid clip beats")
+    val fraction = b / beats
+    return Movement(b,hands,btranslate.clip(fraction),brotate.clip(fraction))
+  }
 
   fun isStand(): Boolean = btranslate.isIdentity() && brotate.isIdentity()
 
