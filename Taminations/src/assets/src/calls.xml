@@ -151,7 +151,7 @@
   <call link="c1/cross_extend" title="Cross Extend"/>
   <call link="c3b/cross_flip_the_line" title="Cross Flip The Line"/>
   <call audio="ms/cross_fold.mp3" languages="lang-ja" link="ms/fold" title="Cross Fold"/>
-  <call link="c2/cross_invert_the_column" title="Cross Invert the Column 1/4, 1/2, 3/4, Full"/>
+  <call link="c2/cross_invert_the_column" title="Cross Invert the Column"/>
   <call link="c2/cross_kick_off" title="Cross Kick Off"/>
   <call link="c3b/cross_lockit" title="Cross Lockit"/>
   <call audio="a1/cross_over_circulate.mp3" link="a1/cross_over_circulate" title="Cross Over Circulate"/>
@@ -297,7 +297,7 @@
   <call link="c3a/interlocked_scoot_back" title="Interlocked Scoot Back"/>
   <call link="c2/interlocked_triangle_formation" title="Interlocked Triangle Formation"/>
   <call link="c1/interrupt" title="Interrupt"/>
-  <call link="c2/invert_the_column" title="Invert the Column 1/4, 1/2, 3/4, Full"/>
+  <call link="c2/invert_the_column" title="Invert the Column"/>
 
   <call link="c3a/jay_concept" title="Jay Concept"/>
   <call link="c1/jaywalk" title="Jaywalk"/>
