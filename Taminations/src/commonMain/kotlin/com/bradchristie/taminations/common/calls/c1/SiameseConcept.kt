@@ -34,7 +34,8 @@ class SiameseConcept(callnorm:String,callname:String) : FourDancerConcept(callno
   override fun dancerGroups(ctx: CallContext): List<List<Dancer>> {
     //  First find couples
     couples = ctx.dancers.filter { d ->
-      d.data.beau && (d.data.partner?.data?.belle ?: false) }
+      d.data.beau && (d.data.partner?.data?.belle ?: false) &&
+          (d.data.partner?.data?.partner == d) }
         .map { d -> listOf(d, d.data.partner!!) }
     //  Remaining dancers are tandems
     tandems = ctx.dancers.filter { d ->
