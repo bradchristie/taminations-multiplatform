@@ -21,6 +21,153 @@
 -->
 <tamination title="Transfer and Anything">
 
+
+  <tam title="Transfer and" from="Right-Hand Columns"
+       formation="Column RH GBGB">
+    <path>
+      <move select="Run Right" beats="4" scaleY="2.5" />
+      <move select="Forward 3" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Run Right" beats="4" scaleY="2.5" />
+      <move select="Forward" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+    </path>
+  </tam>
+
+  <tam title="Transfer and" from="Left-Hand Columns"
+       formation="Column LH GBGB">
+    <path>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Run Left" beats="4" scaleY="2.5" />
+      <move select="Forward" />
+      <move select="Lead Left" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleY="2.5" />
+      <move select="Forward 3" />
+      <move select="Lead Left" />
+    </path>
+  </tam>
+
+  <tam title="Transfer and" from="T-Bones 1">
+    <formation>
+      <dancer gender="girl" x="-1" y="3" angle="90"/>
+      <dancer gender="boy" x="-1" y="1" angle="90"/>
+      <dancer gender="girl" x="-1" y="-1" angle="0"/>
+      <dancer gender="boy" x="-1" y="-3" angle="0"/>
+    </formation>
+    <path>
+      <move select="Run Right" beats="4" scaleY="2.5" />
+      <move select="Forward 3" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Run Right" beats="4" scaleY="2.5" />
+      <move select="Forward" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward" beats="3" hands="right"/>
+    </path>
+    <path>
+      <move select="Forward" beats="3" hands="left"/>
+    </path>
+  </tam>
+
+  <tam title="Transfer and" from="T-Bones 2">
+    <formation>
+      <dancer gender="girl" x="1" y="3" angle="90"/>
+      <dancer gender="boy" x="1" y="1" angle="90"/>
+      <dancer gender="girl" x="-1" y="1" angle="0"/>
+      <dancer gender="boy" x="-1" y="3" angle="0"/>
+    </formation>
+    <path>
+      <move select="Run Left" beats="4" scaleY="2.5" />
+      <move select="Forward 3" />
+      <move select="Lead Left" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Run Left" beats="4" scaleY="2.5" />
+      <move select="Forward" />
+      <move select="Lead Left" />
+    </path>
+    <path>
+      <move select="Forward" beats="3" hands="right"/>
+    </path>
+    <path>
+      <move select="Forward" beats="3" hands="left"/>
+    </path>
+  </tam>
+
+  <tam title="Transfer and" from="T-Bones 3">
+    <formation>
+      <dancer gender="girl" x="-1" y="3" angle="90"/>
+      <dancer gender="boy" x="-1" y="1" angle="90"/>
+      <dancer gender="girl" x="-1" y="-1" angle="90"/>
+      <dancer gender="boy" x="-1" y="-3" angle="0"/>
+    </formation>
+    <path>
+      <move select="Run Right" beats="4" scaleY="2.5" />
+      <move select="Forward 3" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Run Right" beats="4" scaleY="2.5" />
+      <move select="Forward" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward" beats="3"/>
+    </path>
+    <path>
+      <move select="Forward" beats="3"/>
+    </path>
+  </tam>
+
+  <tam title="Transfer and" from="T-Bones 4">
+    <formation>
+      <dancer gender="girl" x="1" y="3" angle="90"/>
+      <dancer gender="boy" x="1" y="1" angle="90"/>
+      <dancer gender="girl" x="-1" y="1" angle="270"/>
+      <dancer gender="boy" x="-1" y="3" angle="0"/>
+    </formation>
+    <path>
+      <move select="Run Left" beats="4" scaleY="2.5" />
+      <move select="Forward 3" />
+      <move select="Lead Left" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Run Left" beats="4" scaleY="2.5" />
+      <move select="Forward" />
+      <move select="Lead Left" />
+    </path>
+    <path>
+      <move select="Forward" beats="3"/>
+    </path>
+    <path>
+      <move select="Forward" beats="3"/>
+    </path>
+  </tam>
+
   <tam title="Transfer and Box Circulate Twice" group="Transfer and"
        formation="Column RH GBGB">
     <path>

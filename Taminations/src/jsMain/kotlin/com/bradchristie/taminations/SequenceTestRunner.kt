@@ -1319,6 +1319,28 @@ Wheel and Deal
 Zoom 
 Centers Swap Around 
 Heads Half Sashay 
+Allemande Left""",
+
+      "Transfer And" to
+"""Sides Pair Off 
+Star Thru 
+Left Touch a Quarter 
+Transfer and Walk and Dodge 
+Centers Run and Roll 
+Double Pass Thru 
+Belles Run 
+Transfer and Follow Your Neighbor 
+Extend 
+Split Counter Rotate 
+Head Boys Face In 
+Transfer and Flip the Diamond 
+Centers Girls Run 
+Extend 
+Boys Run 
+Acey Deucey 
+Circulate 
+Ferris Wheel 
+Centers Square Thru 3 
 Allemande Left"""
 
   )

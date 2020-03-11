@@ -232,6 +232,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "adjustto.*".r -> Adjust(callnorm,callname)
         in "bouncethe.*".r -> Bounce(callnorm,callname)
         in "(left)?tagback(toawave)?".r -> TagBack(callnorm,callname)
+        in "transferand(.+)".r -> TransferAnd(callnorm,callname)
         //  Anything Chain Thru should not match Square Chain Thru, others?
         //  cannot use negative look-behind in Javascript, so..
         in ".*chainthru".r ->
