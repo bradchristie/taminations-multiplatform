@@ -58,6 +58,11 @@ class Jaywalk : Action("Jaywalk") {
       ?: throw CallError("Cannot find dancer to Jaywalk with $d")
     //   Calculate Jay path
     val v = d.vectorToDancer(d2)
+    val da = d.angleFacing - d2.angleFacing
+    if (da isAround PI/2.0)
+      return TamUtils.getMove("Lead Left Passing").scale(v.x,v.y)
+    else if (da isAround PI*3.0/2.0)
+      return TamUtils.getMove("Lead Right Passing").scale(v.x,-v.y)
     return if (v.y > 0) {
       //   Pass right shoulders
       TamUtils.getMove("Extend Left")
