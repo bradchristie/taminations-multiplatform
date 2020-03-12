@@ -248,6 +248,18 @@
     <movement hands="none" beats="1.5" cx1="0.55" cy1="0" cx2="1" cy2="0.45" x2="1" y2="1" />
   </path>
 
+  <!-- Lead Left, passing right shoulders with another dancer -->
+  <path name="Lead Left Passing">
+    <movement hands="none" beats="1.5" cx1="0.3" cy1="0.434" cx2="0.566" cy2="0.7" x2="1" y2="1"
+               cx3="0.55" cx4="1" cy4="0.45" x4="1" y4="1"/>
+  </path>
+
+  <!-- Lead Right passing right shoulders -->
+  <path name="Lead Right Passing">
+    <movement hands="none" beats="1.5" cx1="0.8" cy1="0.25" cx2="1.344" cy2="-0.2" x2="1" y2="-1"
+              cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1"/>
+  </path>
+
   <!-- Move one unit forward and one unit right, ending facing right -->
   <path name="Lead Right">
     <move select="Lead Left" reflect="-1" />
