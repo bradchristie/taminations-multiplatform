@@ -485,10 +485,16 @@
     <movement hands="none" beats="2" cx1=".5" cy1="0.75" cx2="0.25" cy2="1.75" x2="-0.5" y2="2.5"
                                    cx3="0.55" cx4="1" cy4="0.45" x4="1" y4="1" />
   </path>
+  <path name="Counter Rotate Right -0.5 -2.5">
+    <move select="Counter Rotate Left -0.5 2.5" reflect="-1"/>
+  </path>
 
   <path name="Counter Rotate Left 2.5 -0.5">
     <movement hands="none" beats="2" cx1=".5" cy1="-0.75" cx2="1.75" cy2="-1" x2="2.5" y2="-0.5"
                                    cx3="0.55" cx4="1" cy4="0.45" x4="1" y4="1" />
+  </path>
+  <path name="Counter Rotate Right 2.5 0.5">
+    <move select="Counter Rotate Left 2.5 -0.5" reflect="-1"/>
   </path>
 
   <path name="Counter Rotate Right 1.5 3.5">
