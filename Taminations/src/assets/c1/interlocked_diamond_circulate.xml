@@ -106,12 +106,10 @@
        from="Right-Hand Point-to-Point Interlocked Diamonds"
        formation="Interlocked Diamonds RH PTP Girl Points">
     <path numbers="2 7">
-      <move select="Forward 3" />
-      <move select="Hinge Right" />
+      <move select="Lead Right" beats="4" scaleX="4"/>
     </path>
     <path numbers="5 4">
-      <move select="Hinge Right" />
-      <move select="Forward 3" />
+      <move select="Lead Right" beats="3" scaleY="4"/>
     </path>
     <path numbers="8 1">
       <move select="Lead Right" beats="3" scaleX="2" />
@@ -128,12 +126,10 @@
       <move select="Lead Left" beats="3" scaleX="2" />
     </path>
     <path>
-      <move select="Hinge Left" />
-      <move select="Forward 3" />
+      <move select="Lead Left" beats="3" scaleY="4"/>
     </path>
     <path>
-      <move select="Forward 3" />
-      <move select="Hinge Left" />
+      <move select="Lead Left" beats="4" scaleX="4"/>
     </path>
     <path>
       <move select="Lead Left" beats="3" scaleY="2" />
