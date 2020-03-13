@@ -197,6 +197,40 @@
     </path>
   </tam>
 
+  <tam title="Grand Follow Thru"
+       from="Right-Hand Columns"
+       formation="Column RH GBGB">
+    <path>
+      <move select="Lead Right" beats="2" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="2" scaleX="1.5" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="2" scaleX="1.5" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="2" scaleX="1.5" />
+    </path>
+  </tam>
+
+  <tam title="Grand Follow Thru"
+       from="Left-Hand Columns"
+       formation="Column LH GBGB">
+    <path>
+      <move select="Lead Left" beats="2" scaleX="1.5" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="2" scaleX="1.5" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="2" scaleX="1.5" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="2" scaleX=".5" />
+    </path>
+  </tam>
+
   <tam title="All 8 Follow Thru" from="Squared Mini-Waves" formation="Static MiniWaves RH" group=" ">
     <path>
       <move select="Forward 3"/>
