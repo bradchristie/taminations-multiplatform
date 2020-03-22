@@ -1,11 +1,7 @@
 package com.bradchristie.taminations.common.calls
-
-import com.bradchristie.taminations.common.CallContext
-import com.bradchristie.taminations.common.CallError
-
 /*
 
-  Taminations Square Dance Animations for Web Browsers
+  Taminations Square Dance Animations
   Copyright (C) 2020 Brad Christie
 
   This program is free software: you can redistribute it and/or modify
@@ -23,6 +19,9 @@ import com.bradchristie.taminations.common.CallError
 
 */
 
+import com.bradchristie.taminations.common.CallContext
+import com.bradchristie.taminations.common.CallError
+
 class Twice(norm:String,name:String) : CodedCall(norm,name) {
 
   override fun performCall(ctx: CallContext, i: Int) {
@@ -32,7 +31,7 @@ class Twice(norm:String,name:String) : CodedCall(norm,name) {
     //  Make sure everyone waits to finish the first time
     ctx.extendPaths()
     //  So just do it again
-    ctx.applyCalls(ctx.callstack.dropLast(1).map { it.name }.joinToString(" "))
+    ctx.applyCalls(ctx.callstack.dropLast(1).joinToString(" ",transform={ it.name }))
   }
 
 }

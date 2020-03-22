@@ -231,15 +231,17 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
 
   open fun animate(beat:Double) = animateComputed(beat)
 
-  fun setStartPosition(x:Double,y:Double) {
+  fun setStartPosition(pos:Vector):Dancer {
     val a = angleFacing
-    starttx = Matrix.getTranslation(x,y) * Matrix.getRotation(a)
+    starttx = Matrix.getTranslation(pos.x,pos.y) * Matrix.getRotation(a)
     tx = Matrix(starttx)
+    return this
   }
 
-  fun rotateStartAngle(angle:Double) {
+  fun rotateStartAngle(angle:Double): Dancer {
     starttx = starttx.preRotate(angle.toRadians)
     tx = Matrix(starttx)
+    return this
   }
 
   /**

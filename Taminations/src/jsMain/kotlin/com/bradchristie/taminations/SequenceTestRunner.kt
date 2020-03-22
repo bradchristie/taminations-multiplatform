@@ -1341,6 +1341,26 @@ Acey Deucey
 Circulate 
 Ferris Wheel 
 Centers Square Thru 3 
+Allemande Left""",
+
+      "Phantom" to
+"""Heads Star Thru and Spread 
+Boys Bend the Line 
+Phantom Right and Left Thru  
+Phantom Pass the Ocean  
+Phantom Centers Run  
+Phantom Couples Circulate  
+Phantom Cast Off 3/4  
+Phantom Pass Thru  
+Phantom Left Chase  
+Phantom Left 1/4 Thru  
+Phantom Centers Trade 
+Girls Hinge 
+Recycle 
+Star Thru 
+Girls Circulate 
+Ferris Wheel 
+Centers Reverse Swap Around 
 Allemande Left"""
 
   )

@@ -511,6 +511,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
             callnorm,
             callname
         )
+        in "phantom(.+)".r -> PhantomConcept(callnorm,callname)
+        in "concentric(.+)".r -> ConcentricConcept(callnorm,callname)
         //  Anything Chain Thru should not match Square Chain Thru, others?
         //  cannot use negative look-behind in Javascript, so..
         in ".*chainthru".r ->

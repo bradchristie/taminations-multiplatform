@@ -42,14 +42,8 @@ fun getHands(h:String):Int =
  *
  * @param beats  Timing
  * @param hands  One of the const ints above
- *     Next set of parameters are for direction of travel
- *     X and Y values for start of curve are always 0,0
- *     Next set of parameters are for facing direction
- *     X and Y values for start of curve, as well as Y value for 1st model
- *     point, are all 0
  * @param btranslate  Bezier curve for movement
  * @param brotate  Bezier curve for facing direction, can be same as btranslate
- * @param beats  Where to stop for a clipped movement
  */
 class Movement(val beats:Double, val hands:Int,
                val btranslate: Bezier,

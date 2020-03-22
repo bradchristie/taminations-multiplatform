@@ -25,6 +25,8 @@ fun angleAngleDiff(a1:Double,a2:Double): Double = ((a1-a2 + PI*3) % (PI*2)) - PI
 
 data class Vector(val x:Double=0.0, val y:Double=0.0) {
 
+  //  So we don't have to type decimal points all the time
+  constructor(x:Int, y:Int) : this(x.d,y.d)
   //  Add another vector
   operator fun plus(v2: Vector): Vector = Vector(x + v2.x, y + v2.y)
   //  Subtract another vector
@@ -52,6 +54,9 @@ data class Vector(val x:Double=0.0, val y:Double=0.0) {
 
   fun concatenate(tx: Matrix): Vector = tx * this
   fun preConcatenate(tx: Matrix): Vector = Matrix.getTranslation(x,y).preConcatenate(tx).location
+
+  fun isApprox(v2:Vector, delta:Double=0.1) =
+      x.isApprox(v2.x,delta) && y.isApprox(v2.y,delta)
 
   override fun toString(): String = "(${x.s},${y.s})"
 }

@@ -66,7 +66,7 @@ abstract class FourDancerConcept(norm:String,name:String=norm) : Action(norm,nam
       val dsingle = Dancer(group.first(), gender = g, number_couple = nc)
       //  Set the location for the concept dancer
       val newpos = startPosition(group)
-      dsingle.setStartPosition(newpos.x,newpos.y)
+      dsingle.setStartPosition(newpos)
       dsingle
     }
 

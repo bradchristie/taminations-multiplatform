@@ -54,7 +54,8 @@ class TandemConcept(callnorm:String,callname:String) : FourDancerConcept(callnor
       d2.location
   }
 
-  override fun computeLocation(d: Dancer, m: Movement, beat: Double, groupIndex: Int): Vector {
+  override fun computeLocation(cd: Dancer,
+                               m: Movement, beat: Double, groupIndex: Int): Vector {
     //  Position tandem dancers 0.5 units in front and behind concept dancer
     val offset = 0.5
     val isLeader = groupIndex == 0

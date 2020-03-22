@@ -138,7 +138,8 @@ class CallContext {
         line.minced().forEach { name ->
           //  Load any animation files that match
           val norm = TamUtils.normalizeCall(name)
-          val callitems = TamUtils.callmap[norm] ?: listOf<TamUtils.CallListDatum>()
+          val noCalls:List<TamUtils.CallListDatum> = listOf()
+          val callitems = TamUtils.callmap[norm] ?: noCalls
           val callfiles = callitems.map { it.link }
           callfiles.forEach {
             loadOneFile(it,allFilesLoaded)
@@ -198,7 +199,7 @@ class CallContext {
       //  diagonal opposite.  Required for mapping.
       listOf(
           Dancer(numberArray[i * 2], coupleArray[i * 2],
-              genderMap[element.attr("gender")]!!,
+              genderMap[element.attr("gender")] ?: error("Invalid gender"),
               Color.WHITE, // color not important, these are never displayed
               Matrix()
                   .preTranslate(element.attr("x").d, element.attr("y").d)
@@ -294,6 +295,15 @@ class CallContext {
     ctx.extend = extend
     ctx.applyCall(calltext.last())
     return this
+  }
+  private fun checkCalls(vararg calltext:String):Boolean {
+    val testctx = CallContext(this)
+    return try {
+      testctx.applyCalls(*calltext)
+      true
+    } catch (err:CallError) {
+      false
+    }
   }
 
   fun animate(beat:Double) {
@@ -400,7 +410,7 @@ class CallContext {
           TamUtils.normalizeCall(tam.attr("title")) == callnorm
       }.forEach { tam ->
         //  Calls that are gender-specific, e.g. Star Thru,
-        //  are specifically flagged in the XML
+        //  are specifically flagged in XML
         val sexy = tam.attr("sequencer").contains("gender-specific")
         //  Make sure we don't mismatch heads and sides
         //  on calls that specifically refer to them
@@ -422,7 +432,7 @@ class CallContext {
       if (xmlCall != null) {
         if (xmlCall!!.name in listOf(
                 "Allemande Left",
-                //  "Dixie Grand",
+                "Dixie Grand",
                 "Right and Left Grand"
             )
         ) {
@@ -688,10 +698,7 @@ class CallContext {
         level = c.level
     }
     callstack.forEachIndexed{ i,c -> c.postProcess(this,i) }
- //   if (snap)
- //     matchStandardFormation()
-  //  if (extend)
-      extendPaths()
+    extendPaths()
   }
 
   //  See if the current dancer positions resemble a standard formation
@@ -725,6 +732,9 @@ class CallContext {
       //  Siamese formations
       "Siamese Box 1",
       "Siamese Box 2",
+      //  Phantom formations
+      "Phantom Snap Formation 1",
+      "Phantom Snap Formation 2",
       //  One wave is H-Beam, above
       "Siamese Wave"
   )
@@ -795,6 +805,39 @@ class CallContext {
       }
     }
   }
+
+  //  Rotate phantoms until a match is found
+  //  for a given call
+  //  Phantoms must be in diagonally opposite pairs
+  //  which are rotated together
+  //  as this is required for XML mapping to work
+  fun rotatePhantoms(call:String):Boolean {
+    val phantoms = dancers.filter { it.gender == Gender.PHANTOM }
+    var mapindex = 0
+    while (mapindex < ( 1 shl (phantoms.count()/2))) {
+      if (mapindex > 0) {
+        //  Flip one phantom selected with a Gray sequence
+        //  https://en.wikipedia.org/wiki/Gray_code
+        var nextp = 0
+        var gray = 1
+        while (gray and mapindex == 0) {
+          nextp += 1
+          gray = gray shl 1
+        }
+        phantoms[nextp * 2].rotateStartAngle(180.0)
+        phantoms[nextp * 2 + 1].rotateStartAngle(180.0)
+      }
+      if (checkCalls(call)) {
+        //  Good rotation found
+        //  Return with phantoms in current rotation
+        return true
+      }
+      //  This rotation does not work
+      mapindex += 1
+    }
+    return false
+  }
+
 
   //  Return max number of beats among all the dancers
   fun maxBeats() = dancers.fold(0.0) { v,d -> v max d.path.beats }
@@ -938,7 +981,7 @@ class CallContext {
       isLines() &&
       dancers.all { d -> isInCouple(d) } &&
       dancers.asSequence().filter { d -> d.data.leader }.count() == 4 &&
-      dancers.asSequence().filter { d -> d.data.leader }.count() == 4
+      dancers.asSequence().filter { d -> d.data.trailer }.count() == 4
 
   //  Return true if dancers are at squared set positions
   fun isSquare():Boolean = dancers.all { d ->
@@ -1009,7 +1052,6 @@ class CallContext {
     val maxb = maxBeats()
     //  add that number as needed by using the "Stand" move
     dancers.forEach { d ->
-      // d.data.actionBeats = d.path.beats  now set in postProcess
       val b = maxb - d.path.beats
       if (b > 0)
         d.path.add(TamUtils.getMove("Stand").changebeats(b).notFromCall())
