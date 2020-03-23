@@ -1361,6 +1361,27 @@ Star Thru
 Girls Circulate 
 Ferris Wheel 
 Centers Reverse Swap Around 
+Allemande Left""",
+
+      "Center 6 Circulate" to
+"""Heads Lead Right 
+Star Thru 
+Touch a Quarter 
+Circulate 1.5 
+Center 6 Circulate 
+Center 6 Circulate 1.5 
+Outer 4 Bend the Line 
+Face In 
+Left Touch a Quarter 
+Circulate 1.5 
+Center 6 Circulate 1.5 
+Center 4 Hinge 
+Very Centers Run 
+Wheel and Deal 
+Circulate 
+Turn and Deal 
+Center 4 Right Roll to a Wave 
+Center 4 Step Thru 
 Allemande Left"""
 
   )

@@ -286,6 +286,8 @@ class SequencerModel(private val seqView: SequencerLayout,
       cctx.checkForCollisions()
       cctx.extendPaths()
       cctx.matchStandardFormation()
+      if (cctx.isCollision())
+        throw CallError("Unable to calculate valid animation.")
       cctx.appendToSource()
       seqView.animationView.recalculate()
       val newbeats = seqView.animationView.movingBeats
