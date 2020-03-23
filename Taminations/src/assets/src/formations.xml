@@ -1173,6 +1173,34 @@
     <dancer gender="girl" x="-1" y="-1" angle="0"/>
   </formation>
 
+  <formation name="Galaxy 5">
+    <dancer gender="boy" x="-1" y="-1" angle="180"/>
+    <dancer gender="girl" x="-3" y="0" angle="90"/>
+    <dancer gender="boy" x="-1" y="1" angle="180"/>
+    <dancer gender="girl" x="0" y="3.1" angle="0"/>
+  </formation>
+
+  <formation name="Galaxy 6">
+    <dancer gender="boy" x="-1" y="-1" angle="0"/>
+    <dancer gender="girl" x="-3" y="0" angle="90"/>
+    <dancer gender="boy" x="-1" y="1" angle="0"/>
+    <dancer gender="girl" x="0" y="3.1" angle="0"/>
+  </formation>
+
+  <formation name="Galaxy 7">
+    <dancer gender="boy" x="-1" y="-1" angle="180"/>
+    <dancer gender="girl" x="-3" y="0" angle="270"/>
+    <dancer gender="boy" x="-1" y="1" angle="180"/>
+    <dancer gender="girl" x="0" y="3.1" angle="180"/>
+  </formation>
+
+  <formation name="Galaxy 8">
+    <dancer gender="boy" x="-1" y="-1" angle="0"/>
+    <dancer gender="girl" x="-3" y="0" angle="270"/>
+    <dancer gender="boy" x="-1" y="1" angle="0"/>
+    <dancer gender="girl" x="0" y="3.1" angle="180"/>
+  </formation>
+
   <formation name="Blocks Facing Out">
     <dancer gender="girl" x="-3" y="1" angle="180"/>
     <dancer gender="boy" x="-3" y="-3" angle="180"/>
