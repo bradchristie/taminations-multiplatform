@@ -40,7 +40,8 @@ class SiameseConcept(callnorm:String,callname:String) : FourDancerConcept(callno
     //  Remaining dancers are tandems
     tandems = ctx.dancers.filter { d ->
       val d2 = ctx.dancerInBack(d)
-      d2!=null && couples.flatten().none { it in listOf(d,d2) } }
+      d2!=null && ctx.dancersInBack(d).count().rem(2) == 1
+          && couples.flatten().none { it in listOf(d,d2) } }
         .map { d -> listOf(d,ctx.dancerInBack(d)!!) }
     //  Better be all the dancers
     if ((couples+tandems).flatten().count() == ctx.dancers.count() )

@@ -712,6 +712,7 @@ class CallContext {
       "Tidal Wave of 6",
       "I-Beam",
       "H-Beam",
+      "I-Column",
       "Diamonds RH Girl Points",
       "Diamonds RH PTP Girl Points",
       "Hourglass RH BP",
