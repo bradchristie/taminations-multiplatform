@@ -74,7 +74,7 @@ data class Handhold(val dancer1: Dancer, val dancer2: Dancer,
         var h2 = 0
         var ah1 = 0.0
         var ah2 = 0.0
-        val afactor1 = 0.2
+        val afactor1 = 0.8
         val afactor2 = if (geometry == Geometry.BIGON) 0.6 else 1.0
 
         //  Dancer 1
