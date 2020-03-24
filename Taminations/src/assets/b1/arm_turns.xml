@@ -22,6 +22,56 @@
 -->
 <tamination title="Arm Turns">
 
+  <tam title="Turn Partner by the Right" group=" ">
+    <formation>
+      <dancer gender="boy" x="-3" y="1" angle="270"/>
+      <dancer gender="girl" x="-3" y="-1" angle="90"/>
+      <dancer gender="boy" x="-1" y="-3" angle="0"/>
+      <dancer gender="girl" x="1" y="-3" angle="180"/>
+    </formation>
+    <path>
+      <move select="Extend Left" scaleY=".75"/>
+      <move select="Swing Right" beats="4" scaleX=".75" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".75"/>
+      <move select="Swing Right" beats="4" scaleX=".75" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".75"/>
+      <move select="Swing Right" beats="4" scaleX=".75" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".75"/>
+      <move select="Swing Right" beats="4" scaleX=".75" scaleY=".75"/>
+    </path>
+  </tam>
+
+  <tam title="Turn Partner by the Left" group=" ">
+    <formation>
+      <dancer gender="boy" x="-3" y="1" angle="270"/>
+      <dancer gender="girl" x="-3" y="-1" angle="90"/>
+      <dancer gender="boy" x="-1" y="-3" angle="0"/>
+      <dancer gender="girl" x="1" y="-3" angle="180"/>
+    </formation>
+    <path>
+      <move select="Extend Right" scaleY=".75"/>
+      <move select="Swing Left" beats="4" scaleX=".75" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Extend Right" scaleY=".75"/>
+      <move select="Swing Left" beats="4" scaleX=".75" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Extend Right" scaleY=".75"/>
+      <move select="Swing Left" beats="4" scaleX=".75" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Extend Right" scaleY=".75"/>
+      <move select="Swing Left" beats="4" scaleX=".75" scaleY=".75"/>
+    </path>
+  </tam>
+
   <tam title="Left Arm Turn 3/4" group=" "
        formation="Ocean Waves LH BGBG">
     <path>
