@@ -24,7 +24,7 @@
 
   <tam title="Heads Rotate"
        from="Static Square"
-       formation="Static Square" parts="2">
+       formation="Static Square" parts="2" group=" ">
     <path numbers="1 8">
       <move select="Lead Right" hands="right" beats="2" scaleY="2" />
       <move select="Lead Left" hands="right" beats="3" scaleX="2" scaleY="2" />
@@ -40,4 +40,66 @@
       <move select="Forward 2" hands="left" />
     </path>
   </tam>
+
+  <tam title="Sides Rotate"
+       from="Static Square"
+       formation="Static Square" parts="2" group=" ">
+    <path>
+      <move select="Forward 2" hands="right" />
+    </path>
+    <path>
+      <move select="Forward 2" hands="left" />
+    </path>
+    <path>
+      <move select="Lead Right" hands="right" beats="2" scaleY="2" />
+      <move select="Lead Left" hands="right" beats="3" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Quarter Right" hands="left" beats="2" />
+      <move select="Lead Left" hands="left" beats="3" scaleX="3.5" scaleY="3" />
+    </path>
+  </tam>
+
+  <tam title="Heads Rotate 1/2"
+       from="Static Square"
+       formation="Static Square" parts="2" group=" ">
+    <path>
+      <move select="Lead Right" hands="right" beats="2" scaleY="2" />
+      <move select="Lead Left" hands="right" beats="3" scaleX="2" scaleY="2" />
+      <move select="Lead Left" hands="right" beats="4" scaleX="2.5" scaleY="3" />
+    </path>
+    <path>
+      <move select="Quarter Right" hands="left" beats="2" />
+      <move select="Lead Left" hands="left" beats="3" scaleX="3.5" scaleY="3" />
+      <move select="Lead Left" hands="left" beats="4" scaleX="3.5" scaleY="4.5" />
+    </path>
+    <path>
+      <move select="Forward 2" hands="right" />
+    </path>
+    <path>
+      <move select="Forward 2" hands="left" />
+    </path>
+  </tam>
+
+  <tam title="Sides Rotate 1/2"
+       from="Static Square"
+       formation="Static Square" parts="2" group=" ">
+    <path>
+      <move select="Forward 2" hands="right" />
+    </path>
+    <path>
+      <move select="Forward 2" hands="left" />
+    </path>
+    <path>
+      <move select="Lead Right" hands="right" beats="2" scaleY="2" />
+      <move select="Lead Left" hands="right" beats="3" scaleX="2" scaleY="2" />
+      <move select="Lead Left" hands="right" beats="4" scaleX="2.5" scaleY="3" />
+    </path>
+    <path>
+      <move select="Quarter Right" hands="left" beats="2" />
+      <move select="Lead Left" hands="left" beats="3" scaleX="3.5" scaleY="3" />
+      <move select="Lead Left" hands="left" beats="4" scaleX="3.5" scaleY="4.5" />
+    </path>
+  </tam>
+
 </tamination>
