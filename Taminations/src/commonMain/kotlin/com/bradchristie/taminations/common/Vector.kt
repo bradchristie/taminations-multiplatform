@@ -37,7 +37,7 @@ data class Vector(val x:Double=0.0, val y:Double=0.0) {
   operator fun times(s:Double) = scale(s,s)
   //  Compute vector length
   val length:Double get() = sqrt(x*x + y*y)
-  //  Angle off the X-axiz
+  //  Angle off the X-axis
   val angle:Double get() = atan2(y,x)
   //  Rotate by a given angle
   fun rotate(angle2:Double): Vector {

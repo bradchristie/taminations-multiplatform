@@ -28,6 +28,7 @@ import com.bradchristie.taminations.common.calls.b1.*
 import com.bradchristie.taminations.common.calls.b2.*
 import com.bradchristie.taminations.common.calls.c1.*
 import com.bradchristie.taminations.common.calls.c2.*
+import com.bradchristie.taminations.common.calls.c3a.SnapTheLock
 import com.bradchristie.taminations.common.calls.ms.*
 import com.bradchristie.taminations.common.calls.plus.*
 
@@ -348,7 +349,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "everyone" to { Everyone("everyone","Everyone") },
         "everybody" to { Everyone("everybody","Everybody") },
         "shazam" to { Shazam() },
-        "counterrotate" to { CounterRotate() }
+        "counterrotate" to { CounterRotate() },
+        "snapthelock" to { SnapTheLock() }
     )
 
     //  More complex calls where the text is needed either to select
