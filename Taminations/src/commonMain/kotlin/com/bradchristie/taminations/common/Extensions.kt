@@ -137,6 +137,9 @@ fun Double.angleDiff(a2:Double):Double =
     ((((this-a2) % (PI*2)) + (PI*3)) % (PI*2)) - PI
 fun Double.angleEquals(a2:Double) = this.angleDiff(a2).isApprox(0.0)
 infix fun Double.isAround(a2:Double):Boolean = this.angleEquals(a2)
+//  Less than and not equal to
+fun Double.isLessThan(a2:Double,delta:Double=0.1):Boolean =
+    this < a2 && !this.isApprox(a2,delta)
 //  These can be used as functions or operators: a.min(b) or a min b
 infix fun Int.min(i:Int) = min(this,i)
 infix fun Int.max(i:Int) = max(this,i)

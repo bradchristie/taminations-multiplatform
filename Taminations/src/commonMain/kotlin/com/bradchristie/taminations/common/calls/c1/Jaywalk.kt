@@ -38,7 +38,7 @@ class Jaywalk : Action("Jaywalk") {
       val a1 = d.angleToDancer(d2)
       val a2 = d2.angleToDancer(d)
       //  Dancers must approx. face each other
-      if (a1.abs < PI/2 && a2.abs < PI/2) {
+      if (a1.abs.isLessThan(PI/2) && a2.abs.isLessThan(PI/2)) {
         val dist = d.distanceTo(d2)
         if (dist.isApprox(bestDistance)) {
           bestDancer = null
