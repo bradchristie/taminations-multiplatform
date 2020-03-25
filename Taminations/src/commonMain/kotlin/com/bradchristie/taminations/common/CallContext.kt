@@ -714,7 +714,6 @@ class CallContext {
       "Tidal Wave of 6",
       "I-Beam",
       "H-Beam",
-      "I-Column",
       "Diamonds RH Girl Points",
       "Diamonds RH PTP Girl Points",
       "Hourglass RH BP",
@@ -732,6 +731,8 @@ class CallContext {
       //  There are also 8 possible 3x1 t-bones not listed here
       "Static Square",
           //"Alamo Wave"
+      "Right-Hand Zs",
+      "Left-Hand Zs",
       //  Siamese formations
       "Siamese Box 1",
       "Siamese Box 2",
@@ -739,7 +740,8 @@ class CallContext {
       "Phantom Snap Formation 1",
       "Phantom Snap Formation 2",
       //  One wave is H-Beam, above
-      "Siamese Wave"
+      "Siamese Wave",
+      "I-Column"
   )
   private val twoCoupleFormations = listOf(
       "Facing Couples Compact",
@@ -772,13 +774,14 @@ class CallContext {
       val mapping = ctx1.matchFormations(ctx2,sexy=false,fuzzy=true,rotate=true,handholds=false)
       if (mapping != null) {
         //  If it does, get the offsets
-        val matchResult = ctx1.computeFormationOffsets(ctx2,mapping)
+        val matchResult = ctx1.computeFormationOffsets(ctx2, mapping)
         //  If the match is at some odd angle (not a multiple of 90 degrees)
         //  then consider it bogus
-        val angsnap = matchResult.transform.angle/(PI/4)
-        val totOffset = matchResult.offsets.fold(0.0) { s,v -> s+v.length }
+        val angsnap = matchResult.transform.angle / (PI / 4)
+        val totOffset = matchResult.offsets.fold(0.0) { s, v -> s + v.length }
+        //     System.log("$f totOffset = $totOffset")
         //  Favor formations closer to the top of the list
-        if (angsnap.isApproxInt() && (bestMapping==null || totOffset+0.2 < bestMapping!!.totOffset))
+        if (angsnap.isApproxInt() && (bestMapping == null || totOffset + 0.2 < bestMapping!!.totOffset))
           bestMapping = BestMapping(
               f,  // only used for debugging
               mapping,
@@ -1168,13 +1171,15 @@ class CallContext {
     val dorder = dancers.sortedBy{d -> d.location.length}
     //  The 2 dancers closest to the center
     //  are centers (4 dancers) or very centers (8 dancers)
-    if (!dorder[1].location.length.isApprox(dorder[2].location.length)) {
-      if (dancers.count() == 4) {
-        dorder.first().data.center = true
-        dorder[1].data.center = true
-      } else {
-        dorder.first().data.verycenter = true
-        dorder[1].data.verycenter = true
+    if (dancers.count() > 2) {
+      if (!dorder[1].location.length.isApprox(dorder[2].location.length)) {
+        if (dancers.count() == 4) {
+          dorder.first().data.center = true
+          dorder[1].data.center = true
+        } else {
+          dorder.first().data.verycenter = true
+          dorder[1].data.verycenter = true
+        }
       }
     }
     // If tidal, then the next 4 dancers are centers
