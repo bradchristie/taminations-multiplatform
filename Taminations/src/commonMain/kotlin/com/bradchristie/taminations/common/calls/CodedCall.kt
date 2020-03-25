@@ -350,7 +350,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "everybody" to { Everyone("everybody","Everybody") },
         "shazam" to { Shazam() },
         "counterrotate" to { CounterRotate() },
-        "snapthelock" to { SnapTheLock() }
+        "snapthelock" to { SnapTheLock() },
+        "castoff34" to { CastOffThreeQuarters() }
     )
 
     //  More complex calls where the text is needed either to select
@@ -514,6 +515,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
             callname
         )
         in "phantom(.+)".r -> PhantomConcept(callnorm,callname)
+        in "relocate(.+)".r -> Relocate(callnorm,callname)
         // not ready yet   in "concentric(.+)".r -> ConcentricConcept(callnorm,callname)
         //  Anything Chain Thru should not match Square Chain Thru, others?
         //  cannot use negative look-behind in Javascript, so..
