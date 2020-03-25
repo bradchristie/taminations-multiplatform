@@ -189,6 +189,8 @@ class SequencerModel(private val seqView: SequencerLayout,
       { error -> showError(error) })
 
   init {
+    //  Force pre-load of selected calls
+    CallContext.loadCalls(listOf()) {  }
     startSequence()
     callsView.textInput.returnAction {
       val call = callsView.textInput.text
@@ -352,7 +354,7 @@ class SequencerModel(private val seqView: SequencerLayout,
   //  Replace any abbreviations
   private fun String.getAbbrevs() = split(Regex("\\s+"))
       .joinToString(" ") {
-    it -> Storage["abbrev "+it.toLowerCase()] ?: it
+        Storage["abbrev "+it.toLowerCase()] ?: it
   }
 
   fun loadOneCall(call:String) {

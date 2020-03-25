@@ -34,13 +34,14 @@ class CallContext {
   companion object {
 
     //  XML files that have been loaded
-    val loadedXML = mutableMapOf<String,TamDocument>()
+    val loadedXML = mutableMapOf<String, TamDocument>()
 
     //  Index into files for specific calls
     //  Supplements looking up calls in TamUtils.calldata
     //  Keys are normalized call name
     //  Values are file names
-    val callindex = mutableMapOf<String,MutableList<String>>()
+    val callindex = mutableMapOf<String, MutableList<String>>()
+
     //  Initialize callindex with calls in theses files
     val callindexinitfiles = arrayOf(
         "c1/block_formation",
@@ -97,7 +98,7 @@ class CallContext {
         "b2/alamo_style",
         "c2/once_removed_concept",
         "c1/split_square_thru_variations"
-        )
+    )
 
     var numfiles = 0
 
@@ -112,10 +113,10 @@ class CallContext {
         numfiles += 1
         System.getXMLAsset(link) { doc ->
           //  Add all the calls to the index
-          doc.evalXPath("/tamination/tam").asSequence().filter { tam -> tam.attr("sequencer")!="no" }.forEach { tam ->
+          doc.evalXPath("/tamination/tam").asSequence().filter { tam -> tam.attr("sequencer") != "no" }.forEach { tam ->
             if (tam.hasAttribute("xref-link")) {
               //  Look up an xref
-              loadOneFile(tam.attr("xref-link"),allFilesLoaded)
+              loadOneFile(tam.attr("xref-link"), allFilesLoaded)
             } else {
               val norm = TamUtils.normalizeCall(tam.attr("title"))
               if (!callindex.containsKey(norm))
@@ -131,21 +132,22 @@ class CallContext {
         }
       }
     }
-     //  Load all XML files that might be used to interpret a call
-    fun loadCalls(calltext:List<String>, allFilesLoaded:()->Unit) {
+
+    //  Load all XML files that might be used to interpret a call
+    fun loadCalls(calltext: List<String>, allFilesLoaded: () -> Unit) {
       numfiles += 100  // make sure all possibilities are checked
       calltext.forEach { line ->
         line.minced().forEach { name ->
           //  Load any animation files that match
           val norm = TamUtils.normalizeCall(name)
-          val noCalls:List<TamUtils.CallListDatum> = listOf()
+          val noCalls: List<TamUtils.CallListDatum> = listOf()
           val callitems = TamUtils.callmap[norm] ?: noCalls
           val callfiles = callitems.map { it.link }
           callfiles.forEach {
-            loadOneFile(it,allFilesLoaded)
+            loadOneFile(it, allFilesLoaded)
           }
           //  Check for coded calls that require xml files
-          CodedCall.getCodedCall(name)?.requires?.forEach { loadOneFile(it,allFilesLoaded) }
+          CodedCall.getCodedCall(name)?.requires?.forEach { loadOneFile(it, allFilesLoaded) }
         }
       }
       //  All possibilities checked - remove cap
