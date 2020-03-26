@@ -20,9 +20,9 @@ package com.bradchristie.taminations.common.calls.b2
 */
 
 import com.bradchristie.taminations.common.*
-import com.bradchristie.taminations.common.calls.Action
+import com.bradchristie.taminations.common.calls.ActivesOnlyAction
 
-class BoxtheGnat : Action("Box the Gnat") {
+class BoxtheGnat : ActivesOnlyAction("Box the Gnat") {
 
   override val level = LevelObject("b2")
 

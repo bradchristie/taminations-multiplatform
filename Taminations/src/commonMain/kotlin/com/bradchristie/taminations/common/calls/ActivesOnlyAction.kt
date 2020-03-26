@@ -31,6 +31,7 @@ abstract class ActivesOnlyAction(norm:String,name:String=norm) : Action(norm,nam
       val ctx2 = CallContext(ctx,ctx.actives)
       ctx2.analyze()
       super.perform(ctx2, i)
+      ctx2.appendToSource()
     } else
       super.perform(ctx, i)
   }
