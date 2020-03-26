@@ -514,37 +514,28 @@
     </path>
   </tam>
 
-  <tam title="All 8 Turn and Deal"
-       from="Thar"
-       formation="Thar RH Boys">
-    <path>
-      <move select="U-Turn Right" beats="4" offsetX="3" offsetY="-2" />
-    </path>
-    <path>
-      <move select="U-Turn Left" beats="4" offsetX="-3" offsetY="2" />
-    </path>
-    <path>
-      <move select="U-Turn Right" beats="4" offsetX="3" offsetY="-2" />
-    </path>
-    <path>
-      <move select="U-Turn Left" beats="4" offsetX="-3" offsetY="2" />
-    </path>
-  </tam>
+  <tamxref title="All 8 Turn and Deal"
+           from="Thar"
+           xref-link="a2/all_4_all_8"
+           xref-title="All 8 (A-1) Turn and Deal"
+           xref-formation="Thar RH Boys"/>
 
-  <tam title="All 8 Turn and Deal"
-       from="Wrong Way Thar"
-       formation="Thar LH Boys">
-    <path>
-      <move select="U-Turn Left" beats="4" offsetX="-3" offsetY="2" />
-    </path>
-    <path>
-      <move select="U-Turn Right" beats="4" offsetX="3" offsetY="-2" />
-    </path>
-    <path>
-      <move select="U-Turn Left" beats="4" offsetX="-3" offsetY="2" />
-    </path>
-    <path>
-      <move select="U-Turn Right" beats="4" offsetX="3" offsetY="-2" />
-    </path>
-  </tam>
+  <tamxref title="All 8 Turn and Deal"
+           from="Wrong Way Thar"
+           xref-link="a2/all_4_all_8"
+           xref-title="All 8 (A-1) Turn and Deal"
+           xref-formation="Thar LH Boys"/>
+
+  <tamxref title="All 8 Turn and Deal"
+           from="Star Promenade"
+           xref-link="a2/all_4_all_8"
+           xref-title="All 8 (A-1) Turn and Deal"
+           xref-formation="Star Promenade"/>
+
+  <tamxref title="All 8 Turn and Deal"
+           from="Reverse Star Promenade"
+           xref-link="a2/all_4_all_8"
+           xref-title="All 8 (A-1) Turn and Deal"
+           xref-formation="Reverse Star Promenade"/>
+
 </tamination>

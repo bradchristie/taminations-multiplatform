@@ -1002,15 +1002,77 @@
            xref-link="a1/three_quarter_thru"
            xref-title="All 8 3/4 Thru"/>
 
-  <tamxref title="All 8 (A-1) Turn and Deal (from thar)" group="All 8 (A-1)"
-           xref-link="a1/turn_and_deal"
-           xref-title="All 8 Turn and Deal"
-           xref-from="Thar"/>
+  <tam title="All 8 (A-1) Turn and Deal" display="none"
+       group="All 8 (A-1)"
+       from="Thar"
+       formation="Thar RH Boys">
+    <path>
+      <move select="U-Turn Right" beats="4" offsetX="3" offsetY="-2" />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="4" offsetX="-3" offsetY="2" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" offsetX="3" offsetY="-2" />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="4" offsetX="-3" offsetY="2" />
+    </path>
+  </tam>
 
-  <tamxref title="All 8 (A-1) Turn and Deal (from wrong-way thar)" group="All 8 (A-1)"
-           xref-link="a1/turn_and_deal"
-           xref-title="All 8 Turn and Deal"
-           xref-from="Wrong Way Thar"/>
+  <tam title="All 8 (A-1) Turn and Deal" display="none"
+       group="All 8 (A-1)"
+       from="Wrong Way Thar"
+       formation="Thar LH Boys">
+    <path>
+      <move select="U-Turn Left" beats="4" offsetX="-3" offsetY="2" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" offsetX="3" offsetY="-2" />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="4" offsetX="-3" offsetY="2" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" offsetX="3" offsetY="-2" />
+    </path>
+  </tam>
+
+  <tam title="All 8 (A-1) Turn and Deal" display="none"
+       group="All 8 (A-1)"
+       from="Star Promenade"
+       formation="Star Promenade">
+    <path>
+      <move select="U-Turn Left" beats="4" offsetX="3" offsetY="2" />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="4" offsetX="3" offsetY="2" />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="4" offsetX="3" offsetY="2" />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="4" offsetX="3" offsetY="2" />
+    </path>
+  </tam>
+
+  <tam title="All 8 (A-1) Turn and Deal"
+       group="All 8 (A-1)"
+       from="Reverse Star Promenade"
+       formation="Reverse Star Promenade">
+    <path>
+      <move select="U-Turn Right" beats="4" offsetX="3" offsetY="-2" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" offsetX="3" offsetY="-2" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" offsetX="3" offsetY="-2" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" offsetX="3" offsetY="-2" />
+    </path>
+  </tam>
 
   <tamxref title="All 8 (A-1) Wheel Thru" group="All 8 (A-1)"
            xref-link="a1/wheel_thru"
