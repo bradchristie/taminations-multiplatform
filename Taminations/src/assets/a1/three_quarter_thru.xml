@@ -214,29 +214,8 @@
     </path>
   </tam>
 
-  <tam title="All 8 3/4 Thru"
-       from="Static Mini-Waves"
-       formation="Static MiniWaves RH"
-       parts="4.5" group=" ">
-    <path>
-      <move select="Swing Right"/>
-      <move select="Quarter Right" hands="right" offsetY="-1"/>
-    </path>
-    <path>
-      <move select="Swing Right"/>
-      <move select="Hinge Right" offsetX="1" />
-      <move select="Swing Left" />
-    </path>
-    <path>
-      <move select="Swing Right"/>
-      <move select="Quarter Right" hands="right" offsetY="-1"/>
-    </path>
-    <path>
-      <move select="Swing Right"/>
-      <move select="Hinge Right" offsetX="1" />
-      <move select="Swing Left" />
-    </path>
-  </tam>
-
+  <tamxref title="All 8 3/4 Thru" group=" "
+           xref-link="a2/all_4_all_8"
+           xref-title="All 8 (A-1) 3/4 Thru"/>
 
 </tamination>

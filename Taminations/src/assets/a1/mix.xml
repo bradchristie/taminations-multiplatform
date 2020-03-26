@@ -480,54 +480,10 @@
     </path>
   </tam>
 
-  <tam title="All 8 Mix"
-       from="Thar"
-       formation="Thar LH Boys"
-       parts="4.5" group=" ">
-    <path>
-      <move select="Hinge Left" />
-      <move select="Lead Left" beats="3" scaleX="3" />
-    </path>
-    <path>
-      <move select="Stand" beats="1.5" />
-      <move select="Dodge Right" />
-      <move select="Swing Right" />
-    </path>
-    <path>
-      <move select="Hinge Left" />
-      <move select="Lead Left" beats="3" scaleX="3" />
-    </path>
-    <path>
-      <move select="Stand" beats="1.5" />
-      <move select="Dodge Right" />
-      <move select="Swing Right" />
-    </path>
-  </tam>
-
-  <tam title="All 8 Mix"
-       from="Thar"
-       formation="Thar RH Boys"
-       parts="4.5" group=" " display="none">
-    <path>
-      <move select="Hinge Right" />
-      <move select="Lead Right" beats="3" scaleX="3" />
-    </path>
-    <path>
-      <move select="Stand" beats="1.5" />
-      <move select="Dodge Left" />
-      <move select="Swing Left" />
-    </path>
-    <path>
-      <move select="Hinge Right" />
-      <move select="Lead Right" beats="3" scaleX="3" />
-    </path>
-    <path>
-      <move select="Stand" beats="1.5" />
-      <move select="Dodge Left" />
-      <move select="Swing Left" />
-    </path>
-  </tam>
-
+  <tamxref title="All 8 Mix" group=" "
+           xref-link="a2/all_4_all_8"
+           xref-title="All 8 (A-1) Mix"
+           xref-formation="Thar RH Boys"/>
 
   <tam title="As Couples Mix"
        from="Two-Faced Tidal Line"

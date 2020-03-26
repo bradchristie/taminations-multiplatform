@@ -172,24 +172,9 @@
     </path>
   </tam>
 
-  <tam title="All 4 Couples Quarter Out" formation="Squared Set" group=" ">
-    <path>
-      <move select="Extend Left" beats="3" scaleY="2" />
-      <move select="Quarter Left" offsetX="1"/>
-    </path>
-    <path>
-      <move select="Extend Right" beats="3" scaleX="2"/>
-      <move select="Quarter Right" offsetY="-1"/>
-    </path>
-    <path>
-      <move select="Extend Left" beats="3" scaleY="2" />
-      <move select="Quarter Left" offsetX="1"/>
-    </path>
-    <path>
-      <move select="Extend Right" beats="3" scaleX="2"/>
-      <move select="Quarter Right" offsetY="-1"/>
-    </path>
-  </tam>
+  <tamxref title="All 4 Couples Quarter Out" group=" "
+           xref-link="a2/all_4_all_8"
+           xref-title="All 4 Couples (A-1) Quarter Out"/>
 
   <tam title="As Couples Quarter Out"
        from="Lines"

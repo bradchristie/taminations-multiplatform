@@ -109,32 +109,6 @@
     </path>
   </tam>
 
-  <tam title="All 4 Couples Cross Trail Thru" group=" "
-       formation="Static Square">
-    <path>
-      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
-      <move select="Forward" />
-      <move select="Lead Right" />
-      <move select="Lead Left" beats="3" scaleX="3" scaleY="2" />
-    </path>
-    <path>
-      <move select="Extend Right" beats="3" scaleX="3" />
-      <move select="Forward 2" />
-      <move select="Extend Left" beats="2" scaleY="3" />
-    </path>
-    <path>
-      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
-      <move select="Forward" />
-      <move select="Lead Right" />
-      <move select="Lead Left" beats="3" scaleX="3" scaleY="2" />
-    </path>
-    <path>
-      <move select="Extend Right" beats="3" scaleX="3" />
-      <move select="Forward 2" />
-      <move select="Extend Left" beats="2" scaleY="3" />
-    </path>
-  </tam>
-
   <tam title="As Couples Cross Trail Thru"
        from="Lines"
        formation="Normal Lines"
@@ -158,5 +132,9 @@
       <move select="Extend Left" hands="gripleft" beats="2" scaleX="2" scaleY="2.5" />
     </path>
   </tam>
+
+  <tamxref title="All 4 Couples Cross Trail Thru" group=" "
+           xref-link="a2/all_4_all_8"
+           xref-title="All 4 Couples (A-1) Cross Trail Thru"/>
 
 </tamination>

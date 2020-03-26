@@ -926,81 +926,564 @@
     </path>
   </tam>
 
-  <tamxref title="All 4 Couples (A-1) Cross Trail Thru" group="All 4 Couples (A-1)"
-           xref-link="a1/cross_trail_thru"
-           xref-title="All 4 Couples Cross Trail Thru"/>
+  <tam title="All 4 Couples (A-1) Cross Trail Thru" group="All 4 Couples (A-1)"
+       formation="Static Square">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Forward" />
+      <move select="Lead Right" />
+      <move select="Lead Left" beats="3" scaleX="3" scaleY="2" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3" />
+      <move select="Forward 2" />
+      <move select="Extend Left" beats="2" scaleY="3" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Forward" />
+      <move select="Lead Right" />
+      <move select="Lead Left" beats="3" scaleX="3" scaleY="2" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3" />
+      <move select="Forward 2" />
+      <move select="Extend Left" beats="2" scaleY="3" />
+    </path>
+  </tam>
 
-  <tamxref title="All 4 Couples (A-1) Double Star Thru" group="All 4 Couples (A-1)"
-           xref-link="a1/double_star_thru"
-           xref-title="All 4 Couples Double Star Thru"/>
+  <tam title="All 4 Couples (A-1) Double Star Thru"
+       formation="Static Square" group="All 4 Couples (A-1)"
+       sequencer="gender-specific">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Forward" />
+      <move select="Lead Right" />
+      <move select="Extend Left" beats="2" scaleX="2"/>
+      <move select="Lead Left"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3" />
+      <move select="Forward 2" />
+      <move select="Lead Left" scaleY="2"/>
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Forward" />
+      <move select="Lead Right" />
+      <move select="Extend Left" beats="2" scaleX="2"/>
+      <move select="Lead Left"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3" />
+      <move select="Forward 2" />
+      <move select="Lead Left" scaleY="2"/>
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+  </tam>
 
-  <tamxref title="All 4 Couples (A-1) Pair Off" group="All 4 Couples (A-1)"
-           xref-link="a1/pair_off"
-           xref-title="All 4 Couples Pair Off"/>
+  <tam title="All 4 Couples (A-1) Pair Off"
+       from="Static Square"
+       formation="Static Square"
+       group="All 4 Couples (A-1)" >
+    <path>
+      <move select="Eighth Left" beats=".5" />
+      <move select="Forward" beats="3" scaleX="2.828" scaleY="2.828" />
+      <move select="Eighth Left" beats=".5" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="4" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Eighth Left" beats=".5" />
+      <move select="Forward" beats="3" scaleX="2.828" scaleY="2.828" />
+      <move select="Eighth Left" beats=".5" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="4" scaleX="2" scaleY="2" />
+    </path>
+  </tam>
 
-  <tamxref title="All 4 Couples (A-1) Pass In" group="All 4 Couples (A-1)"
-           xref-link="a1/pass_in"
-           xref-title="All 4 Couples Pass In"/>
+  <tam title="All 4 Couples (A-1) Pass In" from="Static Square"
+       formation="Static Square" group="All 4 Couples (A-1)">
+    <path>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY="3" />
+      <move select="Forward" />
+      <move select="Lead Right"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="4" scaleX="3" scaleY="2"/>
+      <move select="Quarter Left" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY="3" />
+      <move select="Forward" />
+      <move select="Lead Right"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="4" scaleX="3" scaleY="2"/>
+      <move select="Quarter Left" offsetX="1"/>
+    </path>
+  </tam>
 
-  <tamxref title="All 4 Couples (A-1) Pass Out" group="All 4 Couples (A-1)"
-           xref-link="a1/pass_out"
-           xref-title="All 4 Couples Pass Out"/>
+  <tam title="All 4 Couples (A-1) Pass Out" from="Static Square"
+       formation="Static Square" group="All 4 Couples (A-1)">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Forward" />
+      <move select="Quarter Left" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3"/>
+      <move select="Lead Right"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Forward" />
+      <move select="Quarter Left" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3"/>
+      <move select="Lead Right"/>
+    </path>
+  </tam>
 
-  <tamxref title="All 4 Couples (A-1) Pass the Sea" group="All 4 Couples (A-1)"
-           xref-link="a1/pass_the_sea"
-           xref-title="All 4 Couples Pass the Sea"/>
+  <tam title="All 4 Couples (A-1) Pass the Sea"
+       group="All 4 Couples (A-1)"
+       from="Static Square"
+       formation="Static Square">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Forward" />
+      <move select="Lead Right" beats="3" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3"/>
+      <move select="Forward"/>
+      <move select="Lead Left" beats="2" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Forward" />
+      <move select="Lead Right" beats="3" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3"/>
+      <move select="Forward"/>
+      <move select="Lead Left" beats="2" scaleX="2" scaleY="2"/>
+    </path>
+  </tam>
 
-  <tamxref title="All 4 Couples (A-1) Quarter In" group="All 4 Couples (A-1)"
-           xref-link="a1/quarter_in"
-           xref-title="All 4 Couples Quarter In"/>
+  <tam title="All 4 Couples (A-1) Quarter In"
+       formation="Squared Set"
+       group="All 4 Couples (A-1)">
+    <path>
+      <move select="Extend Left" beats="3" scaleY="2" />
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="2"/>
+      <move select="Quarter Left" offsetY="-1"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleY="2" />
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="2"/>
+      <move select="Quarter Left" offsetY="-1"/>
+    </path>
+  </tam>
 
-  <tamxref title="All 4 Couples (A-1) Quarter Out" group="All 4 Couples (A-1)"
-           xref-link="a1/quarter_out"
-           xref-title="All 4 Couples Quarter Out"/>
+  <tam title="All 4 Couples (A-1) Quarter Out"
+       formation="Squared Set"
+       group="All 4 Couples (A-1)">
+    <path>
+      <move select="Extend Left" beats="3" scaleY="2" />
+      <move select="Quarter Left" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="2"/>
+      <move select="Quarter Right" offsetY="-1"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleY="2" />
+      <move select="Quarter Left" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="2"/>
+      <move select="Quarter Right" offsetY="-1"/>
+    </path>
+  </tam>
 
-  <tamxref title="All 4 Couples (A-1) Square Chain Thru" group="All 4 Couples (A-1)"
-           xref-link="a1/square_chain_thru"
-           xref-title="All 4 Couples Square Chain Thru"/>
+  <tam title="All 4 Couples (A-1) Square Chain Thru" group="All 4 Couples (A-1)"
+       from="Static Square"
+       formation="Static Square"
+       parts="6.5;3;3" >
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Forward" />
+      <move select="Lead Right" beats="3.5" scaleY="3" />
+      <move select="Swing Left" />
+      <move select="Stand" beats="3" />
+      <move select="Swing Left" />
+      <move select="Forward 3" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3" />
+      <move select="Forward 2" />
+      <move select="Lead Left" scaleY="2" />
+      <move select="Swing Left" />
+      <move select="Swing Right" />
+      <move select="Swing Left" />
+      <move select="Extend Left" beats="3" scaleX="3" scaleY="2" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Forward" />
+      <move select="Lead Right" beats="3.5" scaleY="3" />
+      <move select="Swing Left" />
+      <move select="Stand" beats="3" />
+      <move select="Swing Left" />
+      <move select="Forward 3" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3" />
+      <move select="Forward 2" />
+      <move select="Lead Left" scaleY="2" />
+      <move select="Swing Left" />
+      <move select="Swing Right" />
+      <move select="Swing Left" />
+      <move select="Extend Left" beats="3" scaleX="3" scaleY="2" />
+    </path>
+  </tam>
 
-  <tamxref title="All 8 (A-1) Left Roll to a Wave" group="All 8 (A-1)"
-           xref-link="a1/left_roll_to_a_wave"
-           xref-title="All 8 Left Roll to a Wave"/>
+  <tam title="All 8 (A-1) Left Roll to a Wave"
+       from="Couples Facing Out"
+       formation="Static Facing Out" group="All 8 (A-1)">
+    <path>
+      <move select="Run Left" beats="4" offsetX="-3" />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="4" offsetX="-3" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" offsetX="-3" />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="4" offsetX="-3" />
+    </path>
+  </tam>
 
-  <tamxref title="All 8 (A-1) Left Wheel Thru" group="All 8 (A-1)"
-           xref-link="a1/left_wheel_thru"
-           xref-title="All 8 Left Wheel Thru"/>
+  <tam title="All 8 (A-1) Left Roll to a Wave" display="none"
+       formation="Static MiniWaves RH" group="All 8 (A-1)">
+    <path>
+      <move select="Forward 3" beats="4"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="4" offsetX="-3" />
+    </path>
+    <path>
+      <move select="Forward 3" beats="4"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="4" offsetX="-3" />
+    </path>
+  </tam>
 
-  <tamxref title="All 8 (A-1) Lockit" group="All 8 (A-1)"
-           xref-link="a1/lock_it"
-           xref-title="All 8 Lockit"/>
+  <tam title="All 8 (A-1) Left Roll to a Wave" display="none"
+       formation="Static MiniWaves LH" group="All 8 (A-1)">
+    <path>
+      <move select="U-Turn Left" beats="4" offsetX="-3" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="4" scaleX="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="4" offsetX="-3" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="4" scaleX="3" scaleY="2"/>
+    </path>
+  </tam>
 
-  <tamxref title="All 8 (A-1) Mix" group="All 8 (A-1)"
-           xref-link="a1/mix"
-           xref-title="All 8 Mix"/>
+  <tam title="All 8 (A-1) Left Wheel Thru"
+       from="Static Square"
+       formation="Static Square"
+       group="All 8 (A-1)" >
+    <path>
+      <move select="Lead Left" beats="7.5" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Forward 3" />
+      <move select="Hinge Left" />
+      <move select="Forward 3" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="7.5" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Forward 3" />
+      <move select="Hinge Left" />
+      <move select="Forward 3" />
+    </path>
+  </tam>
 
-  <tamxref title="All 8 (A-1) Quarter Thru" group="All 8 (A-1)"
-           xref-link="a1/quarter_thru"
-           xref-title="All 8 Quarter Thru"/>
+  <tam title="All 8 (A-1) Lockit" from="Right-Hand Thar"
+       formation="Thar LH Boys" group="All 8 (A-1)">
+    <path>
+      <move select="Hinge Left" beats="6" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="6" scaleX="3" scaleY="3" />
+    </path>
+    <path>
+      <move select="Hinge Left" beats="6" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="6" scaleX="3" scaleY="3" />
+    </path>
+  </tam>
 
-  <tamxref title="All 8 (A-1) Reverse Swap Around" group="All 8 (A-1)"
-           xref-link="a1/reverse_swap_around"
-           xref-title="All 8 Reverse Swap Around"/>
+  <tam title="All 8 (A-1) Lockit" from="Right-Hand Thar" display="none"
+       formation="Thar RH Boys" group="All 8 (A-1)">
+    <path>
+      <move select="Hinge Right" beats="6" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="6" scaleX="3" scaleY="3" />
+    </path>
+    <path>
+      <move select="Hinge Right" beats="6" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="6" scaleX="3" scaleY="3" />
+    </path>
+  </tam>
 
-  <tamxref title="All 8 (A-1) Right Roll to a Wave" group="All 8 (A-1)"
-           xref-link="a1/right_roll_to_a_wave"
-           xref-title="All 8 Right Roll to a Wave"/>
+  <tam title="All 8 (A-1) Mix"
+       from="Thar"
+       formation="Thar LH Boys"
+       parts="4.5" group="All 8 (A-1)">
+    <path>
+      <move select="Hinge Left" />
+      <move select="Lead Left" beats="3" scaleX="3" />
+    </path>
+    <path>
+      <move select="Stand" beats="1.5" />
+      <move select="Dodge Right" />
+      <move select="Swing Right" />
+    </path>
+    <path>
+      <move select="Hinge Left" />
+      <move select="Lead Left" beats="3" scaleX="3" />
+    </path>
+    <path>
+      <move select="Stand" beats="1.5" />
+      <move select="Dodge Right" />
+      <move select="Swing Right" />
+    </path>
+  </tam>
 
-  <tamxref title="All 8 (A-1) Scoot and Dodge" group="All 8 (A-1)"
-           xref-link="a1/scoot_and_dodge"
-           xref-title="All 8 Scoot and Dodge"/>
+  <tam title="All 8 (A-1) Mix"
+       from="Thar"
+       formation="Thar RH Boys"
+       parts="4.5" group="All 8 (A-1)" display="none">
+    <path>
+      <move select="Hinge Right" />
+      <move select="Lead Right" beats="3" scaleX="3" />
+    </path>
+    <path>
+      <move select="Stand" beats="1.5" />
+      <move select="Dodge Left" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Hinge Right" />
+      <move select="Lead Right" beats="3" scaleX="3" />
+    </path>
+    <path>
+      <move select="Stand" beats="1.5" />
+      <move select="Dodge Left" />
+      <move select="Swing Left" />
+    </path>
+  </tam>
 
-  <tamxref title="All 8 (A-1) Swap Around" group="All 8 (A-1)"
-           xref-link="a1/swap_around"
-           xref-title="All 8 Swap Around"/>
+  <tam title="All 8 (A-1) Quarter Thru" group="All 8 (A-1)"
+       formation="Static MiniWaves RH"
+       fractions="1.5" >
+    <path>
+      <move select="Hinge Right" offsetX="1" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Quarter Right" hands="right" offsetY="-1"/>
+    </path>
+    <path>
+      <move select="Hinge Right" offsetX="1" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Quarter Right" hands="right" offsetY="-1"/>
+    </path>
+  </tam>
 
-  <tamxref title="All 8 (A-1) 3/4 Thru" group="All 8 (A-1)"
-           xref-link="a1/three_quarter_thru"
-           xref-title="All 8 3/4 Thru"/>
+  <tam title="All 8 (A-1) Reverse Swap Around"
+       from="Static Square"
+       formation="Static Square"
+       fractions="3" group="All 8 (A-1)">
+    <path>
+      <move select="Forward 6" />
+    </path>
+    <path>
+      <move select="Flip Left" beats="6" />
+    </path>
+    <path>
+      <move select="Forward 6" />
+    </path>
+    <path>
+      <move select="Flip Left" beats="6" />
+    </path>
+  </tam>
+
+  <tam title="All 8 (A-1) Right Roll to a Wave"
+       from="Couples Facing Out"
+       formation="Static Facing Out"
+       group="All 8 (A-1)">
+    <path>
+      <move select="U-Turn Right" beats="4" offsetX="-3" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" offsetX="-3" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" offsetX="-3" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" offsetX="-3" />
+    </path>
+  </tam>
+
+  <tam title="All 8 (A-1) Right Roll to a Wave" display="none"
+       formation="Static MiniWaves RH"
+       group="All 8 (A-1)">
+    <path>
+      <move select="Extend Left" beats="4" scaleX="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" offsetX="-3" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="4" scaleX="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" offsetX="-3" />
+    </path>
+  </tam>
+
+  <tam title="All 8 (A-1) Right Roll to a Wave" display="none"
+       formation="Static MiniWaves LH"
+       group="All 8 (A-1)">
+    <path>
+      <move select="Run Right" beats="4" offsetX="-3" />
+    </path>
+    <path>
+      <move select="Forward 3" beats="4"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4" offsetX="-3" />
+    </path>
+    <path>
+      <move select="Forward 3" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="All 8 (A-1) Scoot and Dodge"
+       from="Static Mini-Waves"
+       formation="Static MiniWaves RH"
+       group="All 8 (A-1)" >
+    <path>
+      <move select="Forward 3" />
+      <move select="Swing Right" />
+      <move select="Forward 3" />
+    </path>
+    <path>
+      <move select="Dodge Right" />
+    </path>
+    <path>
+      <move select="Forward 3" />
+      <move select="Swing Right" />
+      <move select="Forward 3" />
+    </path>
+    <path>
+      <move select="Dodge Right" />
+    </path>
+  </tam>
+
+  <tam title="All 8 (A-1) Scoot and Dodge" display="none"
+       from="Static Mini-Waves"
+       formation="Static MiniWaves LH"
+       group="All 8 (A-1)" >
+    <path>
+      <move select="Dodge Left" />
+    </path>
+    <path>
+      <move select="Forward 3" />
+      <move select="Swing Left" />
+      <move select="Forward 3" />
+    </path>
+    <path>
+      <move select="Dodge Left" />
+    </path>
+    <path>
+      <move select="Forward 3" />
+      <move select="Swing Left" />
+      <move select="Forward 3" />
+    </path>
+  </tam>
+
+  <tam title="All 8 (A-1) Swap Around"
+       from="Static Square"
+       formation="Static Square"
+       fractions="3" group="All 8 (A-1)">
+    <path>
+      <move select="Flip Right" beats="6" />
+    </path>
+    <path>
+      <move select="Forward 6" />
+    </path>
+    <path>
+      <move select="Flip Right" beats="6" />
+    </path>
+    <path>
+      <move select="Forward 6" />
+    </path>
+  </tam>
+
+  <tam title="All 8 (A-1) 3/4 Thru"
+       from="Static Mini-Waves"
+       formation="Static MiniWaves RH"
+       parts="4.5" group="All 8 (A-1)">
+    <path>
+      <move select="Swing Right"/>
+      <move select="Quarter Right" hands="right" offsetY="-1"/>
+    </path>
+    <path>
+      <move select="Swing Right"/>
+      <move select="Hinge Right" offsetX="1" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Swing Right"/>
+      <move select="Quarter Right" hands="right" offsetY="-1"/>
+    </path>
+    <path>
+      <move select="Swing Right"/>
+      <move select="Hinge Right" offsetX="1" />
+      <move select="Swing Left" />
+    </path>
+  </tam>
 
   <tam title="All 8 (A-1) Turn and Deal" display="none"
        group="All 8 (A-1)"
@@ -1074,9 +1557,27 @@
     </path>
   </tam>
 
-  <tamxref title="All 8 (A-1) Wheel Thru" group="All 8 (A-1)"
-           xref-link="a1/wheel_thru"
-           xref-title="All 8 Wheel Thru"/>
+  <tam title="All 8 (A-1) Wheel Thru"
+       group="All 8 (A-1)"
+       from="Static Square"
+       formation="Static Square">
+    <path>
+      <move select="Forward 3" />
+      <move select="Hinge Right" />
+      <move select="Forward 3" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="7.5" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Forward 3" />
+      <move select="Hinge Right" />
+      <move select="Forward 3" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="7.5" scaleX="2" scaleY="2" />
+    </path>
+  </tam>
 
   <tamxref title="All 8 (A-2) Box Transfer" group="All 8 (A-2)"
            xref-link="a2/box_transfer"

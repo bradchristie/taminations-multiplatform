@@ -309,20 +309,9 @@
     </path>
   </tam>
 
-  <tam title="All 8 Left Roll to a Wave"
-       from="Couples Facing Out"
-       formation="Static Facing Out">
-    <path>
-      <move select="Run Left" beats="4" offsetX="-3" />
-    </path>
-    <path>
-      <move select="U-Turn Left" beats="4" offsetX="-3" />
-    </path>
-    <path>
-      <move select="Run Left" beats="4" offsetX="-3" />
-    </path>
-    <path>
-      <move select="U-Turn Left" beats="4" offsetX="-3" />
-    </path>
-  </tam>
+  <tamxref title="All 8 Left Roll to a Wave" group=" "
+           xref-link="a2/all_4_all_8"
+           xref-title="All 8 (A-1) Left Roll to a Wave"
+           xref-formation="Static Facing Out"/>
+
 </tamination>

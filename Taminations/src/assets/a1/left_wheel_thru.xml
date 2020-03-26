@@ -115,25 +115,8 @@
     </path>
   </tam>
 
-  <tam title="All 8 Left Wheel Thru"
-       from="Static Square"
-       formation="Static Square"
-       group=" " >
-    <path>
-      <move select="Lead Left" beats="7.5" scaleX="2" scaleY="2" />
-    </path>
-    <path>
-      <move select="Forward 3" />
-      <move select="Hinge Left" />
-      <move select="Forward 3" />
-    </path>
-    <path>
-      <move select="Lead Left" beats="7.5" scaleX="2" scaleY="2" />
-    </path>
-    <path>
-      <move select="Forward 3" />
-      <move select="Hinge Left" />
-      <move select="Forward 3" />
-    </path>
-  </tam>
+  <tamxref title="All 8 Left Wheel Thru" group=" "
+           xref-link="a2/all_4_all_8"
+           xref-title="All 8 (A-1) Left Wheel Thru"/>
+
 </tamination>

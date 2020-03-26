@@ -133,26 +133,8 @@
     </path>
   </tam>
 
-  <tam title="All 4 Couples Pass In" from="Static Square"
-       formation="Static Square" group=" ">
-    <path>
-      <move select="Extend Left" beats="3" scaleX="2" scaleY="3" />
-      <move select="Forward" />
-      <move select="Lead Right"/>
-    </path>
-    <path>
-      <move select="Extend Right" beats="4" scaleX="3" scaleY="2"/>
-      <move select="Quarter Left" offsetX="1"/>
-    </path>
-    <path>
-      <move select="Extend Left" beats="3" scaleX="2" scaleY="3" />
-      <move select="Forward" />
-      <move select="Lead Right"/>
-    </path>
-    <path>
-      <move select="Extend Right" beats="4" scaleX="3" scaleY="2"/>
-      <move select="Quarter Left" offsetX="1"/>
-    </path>
-  </tam>
+  <tamxref title="All 4 Couples Pass In" group=" "
+           xref-link="a2/all_4_all_8"
+           xref-title="All 4 Couples (A-1) Pass In"/>
 
 </tamination>

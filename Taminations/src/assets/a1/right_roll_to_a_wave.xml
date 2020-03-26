@@ -291,8 +291,7 @@
 
   <tam title="As Couples Right Roll to a Wave"
        from="Lines Facing Out"
-       formation="Lines Facing Out"
-       fractions="" >
+       formation="Lines Facing Out">
     <path>
       <move select="Beau Wheel" reflect="-1" hands="gripleft" offsetX="-2" offsetY="-1.5" />
     </path>
@@ -309,8 +308,7 @@
 
   <tam title="As Couples Right Roll to a Wave"
        from="Two-Faced Lines"
-       formation="Two-Faced Lines LH"
-       fractions="" >
+       formation="Two-Faced Lines LH">
     <path>
       <move select="Beau Wheel" reflect="-1" hands="gripleft" offsetX="-2" offsetY="-1.5" />
     </path>
@@ -325,21 +323,9 @@
     </path>
   </tam>
 
-  <tam title="All 8 Right Roll to a Wave"
-       from="Couples Facing Out"
-       formation="Static Facing Out"
-       fractions="" >
-    <path>
-      <move select="U-Turn Right" beats="4" offsetX="-3" />
-    </path>
-    <path>
-      <move select="Run Right" beats="4" offsetX="-3" />
-    </path>
-    <path>
-      <move select="U-Turn Right" beats="4" offsetX="-3" />
-    </path>
-    <path>
-      <move select="Run Right" beats="4" offsetX="-3" />
-    </path>
-  </tam>
+  <tamxref title="All 8 Right Roll to a Wave" group=" "
+           xref-link="a2/all_4_all_8"
+           xref-from="Couples Facing Out"
+           xref-title="All 8 (A-1) Right Roll to a Wave"/>
+
 </tamination>

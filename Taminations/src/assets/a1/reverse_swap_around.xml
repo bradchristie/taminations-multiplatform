@@ -100,21 +100,8 @@
     </path>
   </tam>
 
-  <tam title="All 8 Reverse Swap Around"
-       from="Static Square"
-       formation="Static Square"
-       fractions="3" group=" ">
-    <path>
-      <move select="Forward 6" />
-    </path>
-    <path>
-      <move select="Flip Left" beats="6" />
-    </path>
-    <path>
-      <move select="Forward 6" />
-    </path>
-    <path>
-      <move select="Flip Left" beats="6" />
-    </path>
-  </tam>
+  <tamxref title="All 8 Reverse Swap Around" group=" "
+           xref-link="a2/all_4_all_8"
+           xref-title="All 8 (A-1) Reverse Swap Around"/>
+
 </tamination>

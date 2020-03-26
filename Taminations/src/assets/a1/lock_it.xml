@@ -175,19 +175,9 @@
     </path>
   </tam>
 
-  <tam title="All 8 Lockit" from="Right-Hand Thar"
-    formation="Thar LH Boys" group=" ">
-    <path>
-      <move select="Hinge Left" beats="6" />
-    </path>
-    <path>
-      <move select="Lead Right" beats="6" scaleX="3" scaleY="3" />
-    </path>
-    <path>
-      <move select="Hinge Left" beats="6" />
-    </path>
-    <path>
-      <move select="Lead Right" beats="6" scaleX="3" scaleY="3" />
-    </path>
-  </tam>
+  <tamxref title="All 8 Lockit" group=" "
+           xref-link="a2/all_4_all_8"
+           xref-title="All 8 (A-1) Lockit"
+           xref-formation="Thar LH Boys"/>
+
 </tamination>

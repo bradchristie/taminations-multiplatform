@@ -216,22 +216,8 @@
     </path>
   </tam>
 
-  <tam title="All 8 Quarter Thru" group=" "
-       formation="Static MiniWaves RH"
-       fractions="1.5" >
-    <path>
-      <move select="Hinge Right" offsetX="1" />
-      <move select="Swing Left" />
-    </path>
-    <path>
-      <move select="Quarter Right" hands="right" offsetY="-1"/>
-    </path>
-    <path>
-      <move select="Hinge Right" offsetX="1" />
-      <move select="Swing Left" />
-    </path>
-    <path>
-      <move select="Quarter Right" hands="right" offsetY="-1"/>
-    </path>
-  </tam>
+  <tamxref title="All 8 Quarter Thru" group=" "
+           xref-link="a2/all_4_all_8"
+           xref-title="All 8 (A-1) Quarter Thru"/>
+
 </tamination>

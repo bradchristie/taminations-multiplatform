@@ -245,45 +245,8 @@
     </path>
   </tam>
 
-  <tam title="All 4 Couples Square Chain Thru" group=" "
-       from="Static Square"
-       formation="Static Square"
-       parts="6.5;3;3" >
-    <path>
-      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
-      <move select="Forward" />
-      <move select="Lead Right" beats="3.5" scaleY="3" />
-      <move select="Swing Left" />
-      <move select="Stand" beats="3" />
-      <move select="Swing Left" />
-      <move select="Forward 3" />
-    </path>
-    <path>
-      <move select="Extend Right" beats="3" scaleX="3" />
-      <move select="Forward 2" />
-      <move select="Lead Left" scaleY="2" />
-      <move select="Swing Left" />
-      <move select="Swing Right" />
-      <move select="Swing Left" />
-      <move select="Extend Left" beats="3" scaleX="3" scaleY="2" />
-    </path>
-    <path>
-      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
-      <move select="Forward" />
-      <move select="Lead Right" beats="3.5" scaleY="3" />
-      <move select="Swing Left" />
-      <move select="Stand" beats="3" />
-      <move select="Swing Left" />
-      <move select="Forward 3" />
-    </path>
-    <path>
-      <move select="Extend Right" beats="3" scaleX="3" />
-      <move select="Forward 2" />
-      <move select="Lead Left" scaleY="2" />
-      <move select="Swing Left" />
-      <move select="Swing Right" />
-      <move select="Swing Left" />
-      <move select="Extend Left" beats="3" scaleX="3" scaleY="2" />
-    </path>
-  </tam>
+  <tamxref title="All 4 Couples Square Chain Thru" group=" "
+           xref-link="a2/all_4_all_8"
+           xref-title="All 4 Couples (A-1) Square Chain Thru"/>
+
 </tamination>

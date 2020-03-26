@@ -121,25 +121,8 @@
     </path>
   </tam>
 
-  <tam title="All 4 Couples Pair Off"
-       from="Static Square"
-       formation="Static Square"
-       group=" " >
-    <path>
-      <move select="Eighth Left" beats=".5" />
-      <move select="Forward" beats="3" scaleX="2.828" scaleY="2.828" />
-      <move select="Eighth Left" beats=".5" />
-    </path>
-    <path>
-      <move select="Lead Right" beats="4" scaleX="2" scaleY="2" />
-    </path>
-    <path>
-      <move select="Eighth Left" beats=".5" />
-      <move select="Forward" beats="3" scaleX="2.828" scaleY="2.828" />
-      <move select="Eighth Left" beats=".5" />
-    </path>
-    <path>
-      <move select="Lead Right" beats="4" scaleX="2" scaleY="2" />
-    </path>
-  </tam>
+  <tamxref title="All 4 Couples Pair Off" group=" "
+           xref-link="a2/all_4_all_8"
+           xref-title="All 4 Couples (A-1) Pair Off"/>
+
 </tamination>
