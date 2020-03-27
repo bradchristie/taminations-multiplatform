@@ -315,13 +315,19 @@ class CallContext {
     dancers.forEach { it.animateToEnd() }
   }
 
+  private fun cleanupCall(calltext: String): String {
+    //  Clean up any whitespace
+    return calltext.replace("\\s+".r," ")
+        //  Make sure Trade Circulate is not read as Trade and Circulate
+        .replace("trade circulate".ri,"tradecirculate")
+  }
 
   /**
    * This is the main loop for interpreting a call
    * @param calltxt  One complete call, lower case, words separated by single spaces
    */
   fun interpretCall(calltxt:String): CallContext {
-    var calltext = calltxt.replace(Regex("\\s+")," ")
+    var calltext = cleanupCall(calltxt)
     var err: CallError = CallNotFoundError(calltxt)
     //  Clear out any previous paths from incomplete parsing
     dancers.forEach { it.path = Path() }
