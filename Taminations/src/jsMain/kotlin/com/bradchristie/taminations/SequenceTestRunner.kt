@@ -1382,6 +1382,24 @@ Circulate
 Turn and Deal 
 Center 4 Right Roll to a Wave 
 Center 4 Step Thru 
+Allemande Left""",
+
+      "Little" to
+"""Sides Pass the Ocean 
+Little Outsides Out 
+Centers Hinge 
+Little Points As You Are 
+Quarter Tag 
+In Little 
+3/4 Tag the Line 
+Boys Run 
+Very Centers Turn Back 
+Little 
+Tag the Line Face In 
+Touch a Quarter 
+Boys Run 
+Trade 
+Centers Pass Thru 
 Allemande Left"""
 
   )

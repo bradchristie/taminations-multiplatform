@@ -395,10 +395,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
              complexCallMaker[callnorm]?.invoke(callnorm,callname) ?:
         //  More complex cases need to be parsed by a regex
              when (callnorm) {
-        in "(cross)?cloverand(\\w.*)".r -> CloverAnd(
-            callnorm,
-            callname
-        )
+        in "(cross)?cloverand(\\w.*)".r -> CloverAnd(callnorm, callname)
         //  Be careful not to parse Wheel and Deal and Roll as
         //  Wheel and (Deal and Roll)
         in "(reverse)?wheeland(?!deal)(\\w.*)".r -> WheelAnd(
@@ -418,10 +415,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
             callname
         )
         //  Head Boy Walk Head Girl Dodge etc
-        in "${specifier}${specifier}walk(and)?${specifier}${specifier}dodge".r -> WalkandDodge(
-            callnorm,
-            callname
-        )
+        in "${specifier}${specifier}walk(and)?${specifier}${specifier}dodge".r -> WalkandDodge(callnorm, callname)
         in "(left)?spinthewindmill(left|right|in|out|forward)".r -> SpinTheWindmill(
             callnorm,
             callname
@@ -442,83 +436,43 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
           //  Don't want to match Sides Star Thru e.g.
           if (callname.toLowerCase() in ".*\\bstart\\b.*".r)
             HeadsStart(callnorm, callname) else null
-        in "circleby.*".r -> CircleBy(
-            callnorm,
-            callname
-        )
+        in "circleby.*".r -> CircleBy(callnorm, callname)
         in "while.+".r -> While(callnorm,callname)
         in "(inside|outside|inpoint|outpoint|tandembased|wavebased)?trianglecirculate".r ->
           TriangleCirculate(callnorm, callname)
-        in "minibusybut.*".r -> MiniBusyBut(
-            callnorm,
-            callname
-        )
-        in "(left|right)rolltoawave".r -> RollToaWave(
-            callnorm,
-            callname
-        )
-        in "(left|right)rollto".r -> RollTo(
-            callnorm,
-            callname
-        )
-        in "(and)?spread".r -> Spread(
-            callnorm,
-            callname
-        )
-        in "(left)?(split)?catch(1|2|3|4)".r -> Catch(
-            callnorm,
-            callname
-        )
-        in "butterfly.*".r -> Butterfly(
-            callnorm,
-            callname
-        )
-        in "o.*".r -> if (callname.toLowerCase().matches("o .+".r))
-          OFormation(callnorm, callname) else null
+        in "minibusybut.*".r -> MiniBusyBut(callnorm, callname)
+        in "(left|right)rolltoawave".r -> RollToaWave(callnorm, callname)
+        in "(left|right)rollto".r -> RollTo(callnorm, callname)
+        in "(and)?spread".r -> Spread(callnorm, callname)
+        in "(left)?(split)?catch(1|2|3|4)".r -> Catch(callnorm, callname)
+        in "butterfly.*".r -> Butterfly(callnorm, callname)
         in "zipcode\\d".r -> ZipCode(callnorm, callname)
-        in "twistand.*".r -> TwistAnything(
-            callnorm,
-            callname
-        )
-        in "ascouples.*".r -> AsCouplesConcept(
-            callnorm,
-            callname
-        )
-        in "tandem.*".r -> TandemConcept(
-            callnorm,
-            callname
-        )
-        in "siamese.*".r -> SiameseConcept(
-            callnorm,
-            callname
-        )
-        in "(12|34)?crazy.*".r -> Crazy(
-            callnorm,
-            callname
-        )
+        in "twistand.*".r -> TwistAnything(callnorm, callname)
+        in "ascouples.*".r -> AsCouplesConcept(callnorm, callname)
+        in "tandem.*".r -> TandemConcept(callnorm, callname)
+        in "siamese.*".r -> SiameseConcept(callnorm, callname)
+        in "(12|34)?crazy.*".r -> Crazy(callnorm, callname)
         in "(left)?verticaltagback(toawave)?".r -> VerticalTagBack(
             callnorm,
             callname
         )
-        in "(left)?vertical(left)?(14|12|34)?tag".r -> VerticalTag(
-            callnorm,
-            callname
-        )
+        in "(left)?vertical(left)?(14|12|34)?tag".r -> VerticalTag(callnorm,callname)
         in "adjustto.*".r -> Adjust(callnorm,callname)
         in "bouncethe.*".r -> Bounce(callnorm, callname)
         in "(left)?tagback(toawave)?".r -> TagBack(
             callnorm,
             callname
         )
-        in "transferand(.+)".r -> TransferAnd(
-            callnorm,
-            callname
-        )
+        in "transferand(.+)".r -> TransferAnd(callnorm, callname)
         in "phantom(.+)".r -> PhantomConcept(callnorm,callname)
         in "relocate(.+)".r -> Relocate(callnorm,callname)
+        in "(outside|point)?(out|in|left|right|(go)?(forward|asyouare))?little".r -> Little(callnorm,callname)
+        in "little(outside|point)(in|out|left|right|(go)?(forward|asyouare))?".r -> Little(callnorm,callname)
         // not ready yet   in "concentric(.+)".r -> ConcentricConcept(callnorm,callname)
         //  Anything Chain Thru should not match Square Chain Thru, others?
         //  cannot use negative look-behind in Javascript, so..
+        in "o.*".r -> if (callname.toLowerCase().matches("o .+".r))
+                 OFormation(callnorm, callname) else null
         in ".*chainthru".r ->
           if (callnorm in ".*squarechainthru".r) null else AnythingChainThru(
               callnorm,

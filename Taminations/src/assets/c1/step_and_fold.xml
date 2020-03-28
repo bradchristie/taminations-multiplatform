@@ -26,10 +26,10 @@
        from="Right-Hand Wave"
        formation="Wave RH" >
     <path numbers="1 4">
-      <move select="Run Right" offsetX="2" />
+      <move select="Run Right" offsetX="1.5" />
     </path>
     <path numbers="2 3">
-      <move select="Forward 2" />
+      <move select="Forward" beats="2" scaleX="1.5" />
     </path>
   </tam>
 
@@ -37,10 +37,10 @@
        from="Left-Hand Wave"
        formation="Wave LH" >
     <path>
-      <move select="Run Left" offsetX="2" />
+      <move select="Run Left" offsetX="1.5" />
     </path>
     <path>
-      <move select="Forward 2" />
+      <move select="Forward" beats="2" scaleX="1.5" />
     </path>
   </tam>
 
@@ -51,6 +51,17 @@
       <move select="Run Right" offsetX="1" />
     </path>
     <path numbers="4 1">
+      <move select="Forward" />
+    </path>
+  </tam>
+
+  <tam title="Step and Fold"
+       from="Left-Hand Diamond"
+       formation="Diamond LH" >
+    <path>
+      <move select="Run Left" offsetX="1" />
+    </path>
+    <path>
       <move select="Forward" />
     </path>
   </tam>

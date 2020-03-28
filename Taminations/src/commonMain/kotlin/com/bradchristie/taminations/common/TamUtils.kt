@@ -275,7 +275,7 @@ object TamUtils {
           //  'Column' of Magic Column is optional
           .replace("magic (?!column)(?!o)(?!expand)".r,"magic column ")
           //  Use singular form
-          .replace("\\b(boy|girl|beau|belle|center|end|point|head|side)s\\b".r,"$1")
+          .replace("\\b(boy|girl|beau|belle|center|end|point|head|(out)?side)s\\b".r,"$1")
           //  Misc other variations
           .replace("\\bswap(\\s+around)?\\b".r,"swap")
           .replace("\\bmen\\b".r,"boy")
