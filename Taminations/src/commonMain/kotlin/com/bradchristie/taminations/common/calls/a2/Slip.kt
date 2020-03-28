@@ -20,6 +20,7 @@ package com.bradchristie.taminations.common.calls.a2
 */
 
 import com.bradchristie.taminations.common.CallContext
+import com.bradchristie.taminations.common.CallError
 import com.bradchristie.taminations.common.LevelObject
 import com.bradchristie.taminations.common.calls.Action
 
@@ -28,7 +29,22 @@ class Slip : Action("Slip") {
   override val level = LevelObject("a2")
 
   override fun perform(ctx: CallContext, i:Int) {
-    ctx.applyCalls("Centers Trade")
+    //  If single wave in center, then very centers trade
+    val ctx4 = CallContext(ctx,ctx.center(4))
+    ctx4.analyze()
+    val isInWave = ctx4.dancers.all { ctx4.isInWave(it)}
+    if (ctx4.dancers.all { ctx4.isInWave(it)} && !ctx.isTidal())
+      ctx.applyCalls("Very Centers Trade")
+
+    else {
+      //  Otherwise, all centers trade
+      //  Check that it's not a partner trade
+      val ctxc = CallContext(ctx,ctx.dancers.filter { it.data.center })
+      ctxc.analyze()
+      if (!ctxc.dancers.all { ctxc.isInWave(it) })
+        throw CallError("Centers must be in a mini-wave.")
+      ctx.applyCalls("Centers Trade")
+    }
   }
 
 }

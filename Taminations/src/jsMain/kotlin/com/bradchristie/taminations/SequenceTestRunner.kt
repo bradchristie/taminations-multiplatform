@@ -1400,6 +1400,20 @@ Touch a Quarter
 Boys Run 
 Trade 
 Centers Pass Thru 
+Allemande Left""",
+
+      "Slip" to
+"""Sides Pass the Ocean 
+Slip 
+Extend 
+Slip 
+Boys Run 
+Slip 
+Bend the Line
+Star Thru 
+Pass to the Center 
+Centers Flutterwheel 
+Centers Pass Thru 
 Allemande Left"""
 
   )
