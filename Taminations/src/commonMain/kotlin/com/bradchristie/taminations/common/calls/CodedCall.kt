@@ -196,6 +196,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "slideout" to { Slide("slideout","Slide Out") },
         "slidethru" to { SlideThru() },
         "slip" to { Slip() },
+        "slither" to { Slither() },
+        "swing" to { Swing() },
         "squeeze" to { Squeeze() },
         "squeezethehourglass" to { SqueezeTheHourglass() },
         "squeezethegalaxy" to { SqueezeTheGalaxy() },

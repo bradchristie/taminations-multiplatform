@@ -19,22 +19,18 @@ package com.bradchristie.taminations.common.calls.a2
 
 */
 
-import com.bradchristie.taminations.common.CallContext
-import com.bradchristie.taminations.common.CallError
-import com.bradchristie.taminations.common.LevelObject
+import com.bradchristie.taminations.common.*
 import com.bradchristie.taminations.common.calls.Action
 
-class Slip : Action("Slip") {
+class Slither : Action("Slither") {
 
   override val level = LevelObject("a2")
-  override val requires = listOf("b2/trade")
 
   override fun perform(ctx: CallContext, i:Int) {
     //  If single wave in center, then very centers trade
     val ctx4 = CallContext(ctx,ctx.center(4))
-    ctx4.analyze()
     if (ctx4.isLines() && !ctx.isTidal())
-      ctx.applyCalls("Very Centers Trade")
+      ctx.dancers.filter { !it.data.verycenter }.forEach { it.data.active = false }
 
     else {
       //  Otherwise, all centers trade
@@ -42,8 +38,18 @@ class Slip : Action("Slip") {
       val ctxc = CallContext(ctx,ctx.dancers.filter { it.data.center })
       if (!ctxc.isWaves())
         throw CallError("Centers must be in a mini-wave.")
-      ctx.applyCalls("Centers Trade")
+      ctx.dancers.filter { !it.data.verycenter }.forEach { it.data.active = false }
     }
+    super.perform(ctx, i)
+  }
+
+  override fun performOne(d: Dancer, ctx: CallContext): Path {
+    if (ctx.dancerToRight(d)?.data?.active == true)
+      return TamUtils.getMove("BackSashay Right").scale(2.0,1.0)
+    else if (ctx.dancerToLeft(d)?.data?.active == true)
+      return TamUtils.getMove("BackSashay Left").scale(2.0,1.0)
+    else
+      throw CallError("Unable to calculate Sither.")
   }
 
 }

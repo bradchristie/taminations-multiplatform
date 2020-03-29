@@ -46,7 +46,7 @@ class Spread(norm: String, name: String) : Action(norm, name) {
     var spreader: Action? =  null
     when {
       ctx.actives.count() == ctx.dancers.count() / 2 ->
-        spreader = if (CallContext(ctx,ctx.actives).isLine())
+        spreader = if (CallContext(ctx,ctx.actives).isLines())
           Case2()  //  Case 2: Active dancers in line or wave spread among themselves
         else
           Case1()  //  Case 1: Active dancers spread and let in the others

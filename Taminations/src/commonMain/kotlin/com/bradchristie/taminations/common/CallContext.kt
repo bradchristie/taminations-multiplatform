@@ -965,22 +965,28 @@ class CallContext {
       dancers.all { d -> d.data.partner != null && (d.data.leader || d.data.trailer) }
 */
 
-  //  Return true if this is 4 dancers in a line
-  fun isLine():Boolean =
-      //  Must have 4 dancers
-      dancers.count() == 4 &&
-          //  Each dancer must have right or left shoulder to origin
-          dancers.all { d -> angle(d).abs.isApprox(PI / 2) } &&
-         //  All dancers must either be on the y axis
-           (dancers.all { d -> d.location.x.isApprox(0.0) } ||
-         //  or on the x axis
-           dancers.all {d -> d.location.y.isApprox(0.0) })
-
   //  Return true if 8 dancers are in 2 general lines of 4 dancers each
+  //  Also works for 4 dancers in 1 line
   fun isLines():Boolean =
     dancers.all {
       d -> dancersToRight(d).count() + dancersToLeft(d).count() == 3
     }
+
+  fun isWaves():Boolean = dancers.all { d ->
+    val dr = dancerToRight(d)?.let {
+      if (d.distanceTo(it) <= 2.0) it else null
+    }
+    val dl = dancerToLeft(d)?.let {
+      if (d.distanceTo(it) <= 2.0) it else null
+    }
+    if (dr==null && dl==null)
+      return false
+    if (dr != null && !isInWave(d,dr))
+      return false
+    if (dl != null && !isInWave(d,dl))
+      return false
+    return true
+  }
 
   //  Return true if 8 dancers are in 2 general columns of 4 dancers each
   fun isColumns():Boolean =
