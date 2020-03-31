@@ -63,4 +63,131 @@
       <move select="U-Turn Left" beats="4" offsetX="3" offsetY="2" />
     </path>
   </tam>
+
+  <tam title="Swing and Circle 1/4"
+       from="Right-Hand 3/4 Tag"
+       formation="3/4 Tag">
+    <path>
+      <move select="Stand" beats="3" hands="right" />
+      <move select="Run Right" beats="4" offsetX="-3"/>
+    </path>
+    <path>
+      <move select="Stand" beats="3" hands="left" />
+      <move select="Flip Right" beats="4" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Swing Left" beats="4" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="U-Turn Right" beats="4" offsetX="3" offsetY="-2" />
+    </path>
+  </tam>
+
+  <tam title="Swing and Circle 1/4"
+       from="Left-Hand 3/4 Tag"
+       formation="3/4 Tag LH">
+    <path>
+      <move select="Stand" beats="3" hands="right" />
+      <move select="Flip Left" beats="4" />
+    </path>
+    <path>
+      <move select="Stand" beats="3" hands="left" />
+      <move select="Run Left" beats="4" offsetX="-3"/>
+    </path>
+    <path>
+      <move select="Swing Left" />
+      <move select="Swing Right" beats="4" />
+    </path>
+    <path>
+      <move select="Swing Left" />
+      <move select="U-Turn Left" beats="4" offsetX="3" offsetY="2" />
+    </path>
+  </tam>
+
+  <tam title="Swing and Circle 1/4"
+       from="Right-Hand Quarter Waves"
+       formation="Mixed Quarter Tag #1">
+    <path>
+      <move select="Stand" beats="3" hands="right" />
+      <move select="Extend Left" beats="4" scaleX="3" scaleY="2" />
+    </path>
+    <path>
+      <move select="Stand" beats="3" hands="left" />
+      <move select="Flip Right" beats="4" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Swing Left" beats="4" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="U-Turn Right" beats="4" offsetX="3" offsetY="-2" />
+    </path>
+  </tam>
+
+  <tam title="Swing and Circle 1/4"
+       from="Left-Hand Quarter Waves"
+       formation="Mixed Quarter Tag #6">
+    <path>
+      <move select="Stand" beats="3" hands="right" />
+      <move select="Flip Left" beats="4" />
+    </path>
+    <path>
+      <move select="Stand" beats="3" hands="left" />
+      <move select="Extend Right" beats="4" scaleX="3" scaleY="2" />
+    </path>
+    <path>
+      <move select="Swing Left" />
+      <move select="Swing Right" beats="4" />
+    </path>
+    <path>
+      <move select="Swing Left" />
+      <move select="U-Turn Left" beats="4" offsetX="3" offsetY="2" />
+    </path>
+  </tam>
+
+  <tam title="Swing and Circle 1/4"
+       from="Right-Hand Diamonds"
+       formation="Diamonds RH Girl Points">
+    <path>
+      <move select="Swing Right" />
+      <move select="Swing Left" beats="4" />
+    </path>
+    <path>
+      <move select="Stand" beats="3" hands="left" />
+      <move select="Quarter Right" beats="4" offsetX="3"/>
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="U-Turn Right" beats="4" offsetX="3" offsetY="-2" />
+    </path>
+    <path>
+      <move select="Stand" beats="3" hands="right" />
+      <move select="Lead Right" beats="4" scaleY="3" />
+    </path>
+  </tam>
+
+  <tam title="Swing and Circle 1/4"
+       from="Left-Hand Diamonds"
+       formation="Diamonds LH Girl Points">
+    <path>
+      <move select="Swing Left" />
+      <move select="Swing Right" beats="4" />
+    </path>
+    <path>
+      <move select="Stand" beats="3" hands="left" />
+      <move select="Lead Left" beats="4" scaleY="3" />
+    </path>
+    <path>
+      <move select="Swing Left" />
+      <move select="U-Turn Left" beats="4" offsetX="3" offsetY="2" />
+    </path>
+    <path>
+      <move select="Stand" beats="3" hands="right" />
+      <move select="Quarter Left" beats="4" offsetX="3"/>
+    </path>
+  </tam>
+
 </tamination>

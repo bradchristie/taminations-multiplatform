@@ -27,12 +27,12 @@
     <path>
       <move select="Lead Left" hands="left" beats="3" scaleX="2" scaleY="3" />
       <move select="Lead Left" hands="left" beats="3" scaleX="2" scaleY="2" />
-      <move select="Lead Left" hands="left" beats="3" scaleX="3" />
+      <move select="Lead Left" hands="gripleft" beats="3" scaleX="3" />
     </path>
     <path>
       <move select="Lead Left" hands="right" beats="3" />
       <move select="Lead Left" hands="right" beats="3" />
-      <move select="Quarter Left" hands="right" beats="3" offsetX="1" />
+      <move select="Quarter Left" hands="gripright" beats="3" offsetX="1" />
     </path>
   </tam>
 
@@ -41,12 +41,12 @@
     <path>
       <move select="Lead Right" hands="left" beats="3" />
       <move select="Lead Right" hands="left" beats="3" />
-      <move select="Quarter Right" hands="left" beats="3" offsetX="1" />
+      <move select="Quarter Right" hands="gripleft" beats="3" offsetX="1" />
     </path>
     <path>
       <move select="Lead Right" hands="right" beats="3" scaleX="2" scaleY="3" />
       <move select="Lead Right" hands="right" beats="3" scaleX="2" scaleY="2" />
-      <move select="Lead Right" hands="right" beats="3" scaleX="3" />
+      <move select="Lead Right" hands="gripright" beats="3" scaleX="3" />
     </path>
   </tam>
 
