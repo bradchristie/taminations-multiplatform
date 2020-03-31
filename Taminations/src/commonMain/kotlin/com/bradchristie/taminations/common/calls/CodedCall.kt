@@ -190,23 +190,19 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "runleft" to { Run("runleft", "Run Left") },
         "scootandramble" to { ScootAndRamble() },
         "separate" to { Separate() },
-        "slideleft" to { Slide("slideleft","Slide Left") },
-        "slideright" to { Slide("slideright","Slide Right") },
-        "slidein" to { Slide("slidein","Slide In") },
-        "slideout" to { Slide("slideout","Slide Out") },
+        "slideleft" to { SlideDir("slideleft","Slide Left") },
+        "slideright" to { SlideDir("slideright","Slide Right") },
+        "slidein" to { SlideDir("slidein","Slide In") },
+        "slideout" to { SlideDir("slideout","Slide Out") },
         "slidethru" to { SlideThru() },
         "slip" to { Slip() },
-        "slither" to { Slither() },
+        "slide" to { Slide() },
         "swing" to { Swing() },
+        "slither" to { Slither() },
         "squeeze" to { Squeeze() },
         "squeezethehourglass" to { SqueezeTheHourglass() },
         "squeezethegalaxy" to { SqueezeTheGalaxy() },
-        "starthru" to {
-          StarThru(
-              "starthru",
-              "Star Thru"
-          )
-        },
+        "starthru" to { StarThru("starthru","Star Thru") },
         "steptoacompactwave" to {
           StepToACompactWave(
               "",
@@ -466,6 +462,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
             callname
         )
         in "transferand(.+)".r -> TransferAnd(callnorm, callname)
+        in "(left)?turnanddeal".r -> TurnAndDeal(callnorm, callname)
         in "phantom(.+)".r -> PhantomConcept(callnorm,callname)
         in "relocate(.+)".r -> Relocate(callnorm,callname)
         in "(outside|point)?(out|in|left|right|(go)?(forward|asyouare))?little".r -> Little(callnorm,callname)
