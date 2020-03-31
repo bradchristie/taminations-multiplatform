@@ -1430,6 +1430,29 @@ Star Thru
 Touch a Quarter 
 Circulate 
 Boys Run 
+Allemande Left""",
+
+      "Truck" to
+"""Heads Star Thru and Spread 
+Touch a Quarter 
+Circulate 
+Boys Truck 
+"O" Circulate  
+"O" Circulate  
+Girls Truck 
+Coordinate 
+Bend the Line and Roll 
+Circulate 
+Boys Reverse Truck 
+O Circulate Twice 
+Girls Reverse Truck 
+Cross 
+Trade By 
+Touch a Quarter 
+In-Roll Circulate 
+Boys Run 
+Ferris Wheel 
+Centers Pass Thru 
 Allemande Left"""
 
   )
