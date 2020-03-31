@@ -23,7 +23,7 @@ import com.bradchristie.taminations.common.*
 
 //  This class is for manually moving dancers left or right,
 //  not the A-2 call Slide
-class Slide(norm:String, name:String) : Action(norm,name) {
+class SlideDir(norm:String, name:String) : Action(norm,name) {
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
     val dir = when (norm) {

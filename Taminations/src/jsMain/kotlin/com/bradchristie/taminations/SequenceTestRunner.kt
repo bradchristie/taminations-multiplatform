@@ -1414,6 +1414,22 @@ Star Thru
 Pass to the Center 
 Centers Flutterwheel 
 Centers Pass Thru 
+Allemande Left""",
+
+      "Turn and Deal" to
+"""Heads Pass the Ocean 
+Extend 
+Fan the Top 
+Head Boys Turn Back 
+Turn and Deal 
+Left Turn and Deal 
+Head Boys Cross 
+Boys Run 
+Centers Pass Thru 
+Star Thru 
+Touch a Quarter 
+Circulate 
+Boys Run 
 Allemande Left"""
 
   )

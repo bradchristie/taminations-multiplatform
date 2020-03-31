@@ -22,36 +22,34 @@ package com.bradchristie.taminations.common.calls.a2
 import com.bradchristie.taminations.common.*
 import com.bradchristie.taminations.common.calls.Action
 
-class Slither : Action("Slither") {
+class Slide : Action("Slide") {
 
   override val level = LevelObject("a2")
 
-  override fun perform(ctx: CallContext, i:Int) {
-    //  If single wave in center, then very centers trade
+  override fun perform(ctx: CallContext, i: Int) {
+    //  If single wave in center, just those 4 Slide
     val ctx4 = CallContext(ctx,ctx.center(4))
-    if (ctx4.isLines() && !ctx.isTidal())
-      ctx.dancers.filter { !it.data.verycenter }.forEach { it.data.active = false }
-
-    else {
-      //  Otherwise, all centers trade
-      //  Check that it's not a partner trade
-      val ctxc = CallContext(ctx,ctx.dancers.filter { it.data.center })
-      if (!ctxc.isWaves())
-        throw CallError("Centers must be in a mini-wave.")
-      ctx.dancers.filter { !it.data.center }.forEach { it.data.active = false }
+    if (ctx.dancers.count() > 4 &&
+        ctx4.isLines() && ctx4.isWaves() && !ctx.isTidal()) {
+      ctx4.analyze()
+      ctx4.applyCalls("Slide").appendToSource()
     }
-    super.perform(ctx, i)
+    else if (ctx.isWaves())
+      super.perform(ctx, i)
+    else
+      throw CallError("Dancers must be in mini-waves to Swing")
   }
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
-    if (ctx.dancerToRight(d)?.data?.active == true)
-      return TamUtils.getMove("BackSashay Right")
-          .scale(1.0,d.distanceTo(ctx.dancerToRight(d)!!)/2.0)
-    else if (ctx.dancerToLeft(d)?.data?.active == true)
-      return TamUtils.getMove("BackSashay Left")
-          .scale(1.0,d.distanceTo(ctx.dancerToLeft(d)!!)/2.0)
+    val d2 = d.data.partner
+      ?: throw CallError("Unable to calculate Slide.")
+    val dist = d.distanceTo(d2)
+    if (d.data.beau)
+      return TamUtils.getMove("BackSashay Right").scale(1.0,dist/2.0)
+    else if (d.data.belle)
+      return TamUtils.getMove("BackSashay Left").scale(1.0,dist/2.0)
     else
-      throw CallError("Unable to calculate Sither.")
+      throw CallError("Unable to calculate Slide.")
   }
 
 }

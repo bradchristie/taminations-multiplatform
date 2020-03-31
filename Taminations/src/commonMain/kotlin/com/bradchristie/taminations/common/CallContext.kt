@@ -1040,6 +1040,16 @@ class CallContext {
         ((xCount==4 && yCount==0) || (xCount==0 && yCount==4))
   }
 
+  //  Direction dancer would turn to Tag the Line
+  fun tagDirection(d:Dancer): String {
+    if (dancerToRight(d)?.data?.center == true)
+      return "Right"
+    else if (dancerToLeft(d)?.data?.center == true)
+      return "Left"
+    else
+      return ""
+  }
+
   //  Are two dancers on the same spot ?
   fun isCollision():Boolean = dancers.any { d ->
     dancers.any { d2 ->

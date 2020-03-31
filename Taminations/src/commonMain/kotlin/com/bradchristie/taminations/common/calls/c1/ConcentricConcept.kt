@@ -19,9 +19,61 @@ package com.bradchristie.taminations.common.calls.c1
 
 */
 
+/*
+    4-dancer calls that Concentric can use
+    B-1
+       Bend the Line
+       Chain Down the Line
+       Dosado (?)
+       Ladies Chain
+       Lead Right/Left
+       Pass Thru
+       Right and Left Thru
+       Box Circulate
+       Square Thru
+       Star Thru
+       Veer Left/Right
+
+     B-2
+       Extend
+       Flutterwheel
+       Pass the Ocean
+       Sweep a Quarter
+       Swing Thru
+       Touch a Quarter
+       Wheel and Deal
+       Zoom
+
+     Mainstream
+       Cast Off 3/4
+       Dixie Style to a Wave
+       1/4 1/2 3/4 Full Tag the Line
+       Recycle
+       Scoot Back
+       Slide Thru
+       Spin the Top
+       Turn Thru
+       Walk and Dodge
+
+     Plus
+       Chase Right
+       Crossfire
+       Cut/Flip the Diamond
+       Diamond Circulate
+       Explode the Wave
+       Fan the Top
+       Follow Your Neighbor
+       Linear Cycle
+       Peel Off
+       Peel the Top
+       Single Circle to a Wave
+       Trade the Wave
+
+
+ */
+
 import com.bradchristie.taminations.common.*
 import com.bradchristie.taminations.common.calls.FourDancerConcept
-import com.bradchristie.taminations.platform.System
 
 class ConcentricConcept(callnorm:String,callname:String) : FourDancerConcept(callnorm,callname) {
 
@@ -44,12 +96,12 @@ class ConcentricConcept(callnorm:String,callname:String) : FourDancerConcept(cal
       Vector(loc.x, loc.y-2.0*loc.y.sign)
   }
 
-  override fun computeLocation(cd: Dancer,
+  override fun computeLocation(d: Dancer,
                                m: Movement, beat: Double, groupIndex: Int): Vector {
     //  Extend the dancer's current position by 2 units
-    val loc = cd.location
+    val loc = d.location
     val factor = (loc.length + 2.0) / loc.length
-    val v =  cd.location * factor
+    val v =  d.location * factor
     //System.log("$sd ${beat.s} $loc $v ${v.ds(sd)}")
     return v
   }
