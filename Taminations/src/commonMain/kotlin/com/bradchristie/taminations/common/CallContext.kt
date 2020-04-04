@@ -235,9 +235,6 @@ class CallContext {
   //  Get the active dancers, e.g. for "Boys Trade" the boys are active
   val actives:List<Dancer> get() = dancers.filter { it.data.active }
 
-  //  For convenience, methods forwarded to the companion object
-  fun angle(d1: Dancer):Double = d1.angleToOrigin
-
   /**
    * Append the result of processing this CallContext to it source.
    * The CallContext must have been previously cloned from the source.

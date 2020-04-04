@@ -306,7 +306,7 @@
     </path>
   </tam>
 
-  <tam title="(From columns) Concentric Pass Thru" group="(From columns) Concentric"
+  <tam title="(From columns) Concentric xxPass Thru" group="(From columns) Concentric"
        formation="Double Pass Thru">
     <path>
       <move select="Extend Left" beats="3" scaleX="3" scaleY="2" />

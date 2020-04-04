@@ -28,7 +28,7 @@ class Zing : Action("Zing") {
   override val level = LevelObject("c1")
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
-    val a = ctx.angle(d)
+    val a = d.angleToOrigin
     val c1 = if (a < 0) "Run Left" else "Run Right"
     val c2 = if (a < 0) "Lead Left" else "Lead Right"
     val c3 = if (a < 0) "Quarter Right" else "Quarter Left"

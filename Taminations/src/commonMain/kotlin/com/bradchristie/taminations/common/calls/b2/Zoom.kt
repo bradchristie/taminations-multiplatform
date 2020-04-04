@@ -31,7 +31,7 @@ class Zoom : Action("Zoom") {
     when {
       d.data.leader -> {
         val d2 = ctx.dancerInBack(d) ?: throw CallError("Dancer $d cannot Zoom")
-        val a = ctx.angle(d)
+        val a = d.angleToOrigin
         val c = if (a < 0) "Run Left" else "Run Right"
         if (!d2.data.active)
           throw CallError("Trailer of dancer $d is not active")

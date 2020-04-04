@@ -56,7 +56,7 @@ class SiameseConcept(callnorm:String,callname:String) : FourDancerConcept(callno
   }
 
   override fun computeLocation(d: Dancer,
-                               m: Movement, beat: Double, groupIndex: Int): Vector {
+                               m: Movement, mi:Int, beat: Double, groupIndex: Int): Vector {
     val pos = m.translate(beat).location
     val offset = 0.5
     val isFirst = groupIndex == 0

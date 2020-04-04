@@ -28,6 +28,7 @@ import com.bradchristie.taminations.common.*
 abstract class FourDancerConcept(norm:String,name:String=norm) : Action(norm,name) {
 
   protected open val conceptName = ""
+  protected val realCall get() = name.replace("$conceptName ".ri,"")
 
   //  Return list of groups of dancers
   //  List must have 4 sub-lists
@@ -40,8 +41,13 @@ abstract class FourDancerConcept(norm:String,name:String=norm) : Action(norm,nam
 
   //  Compute location for a real dancer at a specific beat
   //  given location of the concept dancer
-  protected abstract fun computeLocation(d:Dancer, m: Movement, beat:Double, groupIndex:Int) : Vector
+  protected abstract fun computeLocation(d:Dancer, m: Movement, mi:Int, beat:Double, groupIndex:Int) : Vector
 
+  //  Any analysis or processing after call is applied to concept dancers
+  //  but before application to real dancers
+  protected open fun analyzeConceptResult(conceptctx:CallContext, realctx:CallContext) { }
+
+  //  Make any changes to the final result (optional)
   protected open fun postAdjustment(ctx:CallContext,cd:Dancer, group:List<Dancer>) { }
 
   override fun perform(ctx: CallContext, i: Int) {
@@ -73,7 +79,10 @@ abstract class FourDancerConcept(norm:String,name:String=norm) : Action(norm,nam
     //  Create context for concept dancers
     val conceptctx = CallContext(singles.toTypedArray())
     //  And apply the call
-    conceptctx.applyCalls(name.replace("$conceptName ".ri,""))
+    conceptctx.applyCalls(realCall)
+    //  Hook for concept to see the result
+    conceptctx.animate(0.0)
+    analyzeConceptResult(conceptctx, ctx)
 
     //  Get the paths and apply to the original dancers
     conceptctx.dancers.forEachIndexed { ci,cd ->
@@ -86,10 +95,11 @@ abstract class FourDancerConcept(norm:String,name:String=norm) : Action(norm,nam
           conceptctx.animate(cdbeat)
           //  Get the 4 points needed to compute Bezier curve
           val p1 = if (i==0) (d.location - cd.location).rotate(-cd.angleFacing)
-                   else computeLocation(cd,m,0.0,gi)
-          val p2 = computeLocation(cd,m,m.beats / 3.0,gi) - p1
-          val p3 = computeLocation(cd,m,m.beats * 2.0 / 3.0,gi) - p1
-          val p4 = computeLocation(cd,m,m.beats,gi) - p1
+                   else computeLocation(cd,m,i,0.0,gi)
+          //val p1 = computeLocation(cd,m,i,0.0,gi)
+          val p2 = computeLocation(cd,m,i,m.beats / 3.0,gi) - p1
+          val p3 = computeLocation(cd,m,i,m.beats * 2.0 / 3.0,gi) - p1
+          val p4 = computeLocation(cd,m,i,m.beats,gi) - p1
           //  Now we can compute the Bezier
           val cb = Bezier.fromPoints(Vector(), p2, p3, p4)
           //  And use it to build the Movement

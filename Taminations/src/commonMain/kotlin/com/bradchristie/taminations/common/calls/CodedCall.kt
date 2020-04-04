@@ -469,7 +469,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "little(outside|point)(in|out|left|right|(go)?(forward|asyouare))?".r -> Little(callnorm,callname)
         in "(reverse)?truck".r -> Truck(callnorm,callname)
         in "swingandcircle(12|34)?".r -> SwingAndCircle(callnorm,callname)
-        // not ready yet   in "concentric(.+)".r -> ConcentricConcept(callnorm,callname)
+        in "concentric(.+)".r -> ConcentricConcept(callnorm,callname)
         //  Anything Chain Thru should not match Square Chain Thru, others?
         //  cannot use negative look-behind in Javascript, so..
         in "o.*".r -> if (callname.toLowerCase().matches("o .+".r))

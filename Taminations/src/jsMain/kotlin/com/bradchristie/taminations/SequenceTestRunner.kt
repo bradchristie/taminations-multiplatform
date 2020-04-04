@@ -1453,6 +1453,30 @@ In-Roll Circulate
 Boys Run 
 Ferris Wheel 
 Centers Pass Thru 
+Allemande Left""",
+
+      "Concentric" to
+"""Heads Pass the Ocean 
+Extend 
+Circulate 1.5 
+ Concentric Flip the Diamond 
+Concentric Left Swing Thru 
+Concentric Recycle 
+Double Pass Thru 
+Concentric Left Chase 
+Concentric Walk and Dodge 
+Concentric Right Roll to a Wave 
+Concentric Mix 
+Concentric Explode the Wave 
+Concentric Chase Right 
+Concentric Walk and Dodge 
+Bend the Line 
+Touch a Quarter 
+Circulate 
+Boys Run 
+Centers Pass Thru 
+Right and Left Thru 
+Pass Thru 
 Allemande Left"""
 
   )

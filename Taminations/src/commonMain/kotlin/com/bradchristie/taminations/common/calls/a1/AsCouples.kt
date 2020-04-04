@@ -55,7 +55,7 @@ class AsCouplesConcept(callnorm:String,callname:String) : FourDancerConcept(call
   }
 
   override fun computeLocation(d:Dancer,
-                               m: Movement, beat: Double, groupIndex: Int): Vector {
+                               m: Movement, mi:Int, beat: Double, groupIndex: Int): Vector {
     //  Position tandem dancers 0.5 units left and right of the concept dancer
     val pos = m.translate(beat).location
     val offset = 0.5
