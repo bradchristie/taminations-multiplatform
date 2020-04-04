@@ -22,7 +22,7 @@
 -->
 <tamination title="Rotary Spin">
 
-  <tam title="Rotary Spin" group=" "
+  <tam title="Rotary Spin"
        from="Eight Chain Thru"
        parts="2" >
      <formation>
@@ -52,6 +52,29 @@
       <move select="Extend Right" scaleY=".5" />
       <move select="Belle Wheel" beats="4" />
       <move select="Quarter Left" offsetY="-1" />
+    </path>
+  </tam>
+
+  <tam title="Rotary Spin"
+       from="Right-Hand Waves" formation="Ocean Waves RH BGGB"
+       parts="2" >
+    <path>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY="2" />
+      <move select="Cast Left" />
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+      <move select="Belle Wheel" beats="4" />
+      <move select="Quarter Left" offsetY="-1" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY="2" />
+      <move select="Cast Left" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2"/>
+      <move select="Beau Wheel" beats="4" />
+      <move select="Quarter Left" offsetY="1" />
     </path>
   </tam>
 
