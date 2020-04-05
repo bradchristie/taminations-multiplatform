@@ -169,7 +169,7 @@
   <!--  Move one unit forward and one unit left,
         holding onto another dancer to the left  -->
   <path name="Hinge Left">
-    <movement hands="left" beats="1.5" cx1="0.55" cy1="0" cx2="1" cy2="0.45" x2="1" y2="1" />
+    <movement hands="gripleft" beats="1.5" cx1="0.55" cy1="0" cx2="1" cy2="0.45" x2="1" y2="1" />
   </path>
 
   <!--  Move one unit forward and one unit right,
@@ -181,7 +181,7 @@
   <!-- Move one unit backward and one unit left, ending facing right,
        holding another dancer with the left hand -->
   <path name="BackHinge Left">
-    <movement hands="left" beats="1.5" cx1="-0.55" cy1="0" cx2="-1" cy2="0.45" x2="-1" y2="1"
+    <movement hands="gripleft" beats="1.5" cx1="-0.55" cy1="0" cx2="-1" cy2="0.45" x2="-1" y2="1"
                                        cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
   </path>
 
@@ -193,7 +193,7 @@
 
   <!-- Do half of a Hinge Left, which is just 45 degrees -->
   <path name="HalfHinge Left">
-    <movement hands="left" beats="0.75" cx1="0.265" cy1="0" cx2="0.52" cy2="0.105" x2="0.707" y2="0.293" />
+    <movement hands="gripleft" beats="0.75" cx1="0.265" cy1="0" cx2="0.52" cy2="0.105" x2="0.707" y2="0.293" />
   </path>
 
   <!-- Do half of a Hinge Right -->
@@ -203,7 +203,7 @@
 
   <!-- Do half of a BackHinge Left -->
   <path name="HalfBackHinge Left">
-    <movement hands="left" beats="0.75" cx1="-0.265" cy1="0" cx2="-0.52" cy2="0.105" x2="-0.707" y2="0.293"
+    <movement hands="gripleft" beats="0.75" cx1="-0.265" cy1="0" cx2="-0.52" cy2="0.105" x2="-0.707" y2="0.293"
                                         cx3="0.265" cx4="0.52" cy4="-0.105" x4="0.707" y4="-0.293" />
   </path>
 
@@ -722,7 +722,7 @@
   </path>
 
   <path name="Swing Left">
-    <move select="Run Left" hands="left" />
+    <move select="Run Left" hands="gripleft" />
   </path>
 
   <path name="Swing Right">

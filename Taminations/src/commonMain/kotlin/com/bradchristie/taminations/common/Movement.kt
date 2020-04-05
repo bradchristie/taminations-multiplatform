@@ -113,7 +113,9 @@ class Movement(val beats:Double, val hands:Int,
       Movement(beats,
           if (y < 0 && hands == Hands.RIGHTHAND) Hands.LEFTHAND
           else if (y < 0 && hands == Hands.LEFTHAND) Hands.RIGHTHAND
-          else hands, // what about GRIPLEFT, GRIPRIGHT?
+          else if (y < 0 && hands == Hands.GRIPRIGHT) Hands.GRIPLEFT
+          else if (y < 0 && hands == Hands.GRIPLEFT) Hands.GRIPRIGHT
+          else hands,
           btranslate.scale(x,y), brotate.scale(x,y))
 
   /**

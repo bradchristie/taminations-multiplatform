@@ -37,6 +37,22 @@
     </path>
   </tam>
 
+  <tam title="Dixie Diamond" from="Tandem"
+       formation="Tandem Girls Lead">
+    <path>
+      <move select="Stand" beats="2" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Hinge Left" scaleY=".5" />
+      <move select="Hinge Right"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" />
+      <move select="Hinge Left" scaleY=".5" />
+      <move select="U-Turn Left"/>
+    </path>
+  </tam>
+
   <tam title="Dixie Diamond"
        from="Lines"
        formation="Normal Lines"
