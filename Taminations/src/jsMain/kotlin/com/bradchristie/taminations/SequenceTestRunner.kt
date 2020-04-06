@@ -1437,8 +1437,8 @@ Allemande Left""",
 Touch a Quarter 
 Circulate 
 Boys Truck 
-"O" Circulate  
-"O" Circulate  
+O Circulate  
+O Circulate  
 Girls Truck 
 Coordinate 
 Bend the Line and Roll 
@@ -1459,7 +1459,7 @@ Allemande Left""",
 """Heads Pass the Ocean 
 Extend 
 Circulate 1.5 
- Concentric Flip the Diamond 
+Concentric Flip the Diamond 
 Concentric Left Swing Thru 
 Concentric Recycle 
 Double Pass Thru 
