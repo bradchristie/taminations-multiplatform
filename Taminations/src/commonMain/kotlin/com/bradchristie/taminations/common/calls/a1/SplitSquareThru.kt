@@ -27,20 +27,33 @@ class SplitSquareThru(norm: String, name: String) : Action(norm, name) {
   override val level = LevelObject("a1")
   override val requires = listOf("b1/pass_thru","a1/quarter_in",
       "b1/square_thru","b1/face",
-      "b2/ocean_wave","plus/explode_the_wave","b1/step_thru")
+      "b2/ocean_wave","plus/explode_the_wave","c1/reverse_explode","b1/step_thru")
 
   override fun perform(ctx: CallContext, i: Int) {
     if (ctx.actives.count() < 8)
       throw CallError("Use Heads Start or Sides Start Split Square Thru")
     val (left,right) = if (norm.startsWith("left")) Pair("","Left") else Pair("Left","")
     val count = norm.takeLast(1).toIntOrNull() ?: 4
-    //  If the centers start, they need to face out to work with the ends
-    //  Otherwise they will face in to work with the other dancers
-    val face = if (ctx.actives.all {
-          d -> d.data.center || (ctx.dancerFacing(d) == null)
-        }) "Out" else "In"
-    ctx.applyCalls("Facing Dancers $right Pass Thru and Face $face",
-                   "$left Square Thru ${count-1}")
+    //  Might start from waves or mini-waves
+    val waveDancers = ctx.dancers.filter { ctx.isInWave(it) }
+    if (waveDancers.count() == 4) {
+      val explode = if (ctx.center(4).all { it in waveDancers })
+        "Center 4 Reverse Explode" else "Outer 4 Explode"
+      //  Check that we are starting with the wave handhold
+      if (left == "Left" && !waveDancers.all { it.data.beau })
+        throw CallError("Dancers must start with left hand")
+      if (left == "" && !waveDancers.all { it.data.belle })
+        throw CallError("Dancers must start with right hand")
+      ctx.applyCalls(explode,"$left Square Thru ${count - 1}")
+    } else {
+      //  If the centers start, they need to face out to work with the ends
+      //  Otherwise they will face in to work with the other dancers
+      val face = if (ctx.actives.all { d ->
+            d.data.center || (ctx.dancerFacing(d) == null)
+          }) "Out" else "In"
+      ctx.applyCalls("Facing Dancers $right Pass Thru and Face $face",
+                     "$left Square Thru ${count - 1}")
+    }
   }
 
 }

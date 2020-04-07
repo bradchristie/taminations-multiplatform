@@ -796,6 +796,19 @@ Wheel and Deal
 Centers Pass Thru
 Allemande Left""",
 
+      "Split Square Thru 2" to
+"""Sides Pass the Ocean 
+Centers Lockit 
+Split Square Thru 2 
+Trade By and Roll 
+Outer 4 Left Touch 
+Left Split Square Thru 3 
+Cast Off Three Quarters 
+Pass Thru 
+Bend the Line 
+Star Thru 
+Allemande Left""",
+
       "Left Split Square Thru" to
 """Sides Start Left Split Square Thru
 Right Roll to a Wave

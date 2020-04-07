@@ -22,8 +22,6 @@
 -->
 <tamination title="Single Cross and Wheel">
 
-
-
   <tam title="Single Cross and Wheel" from="Right-Hand Box"
        formation="Box RH" parts="1.5">
     <path>
@@ -45,6 +43,30 @@
     <path>
       <move select="Hinge Left"/>
       <move select="Forward 2" beats="3"/>
+    </path>
+  </tam>
+
+  <tam title="Single Cross and Wheel" from="Facing Couples"
+       formation="Facing Couples" parts="1.5">
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+    <path>
+      <move select="Quarter Left" offsetX="-1" offsetY="1"/>
+      <move select="Run Right" beats="3" offsetX="2"/>
+    </path>
+  </tam>
+
+  <tam title="Single Cross and Wheel" from="Couples Facing Out"
+       formation="Couples Facing Out" parts="1.5">
+    <path>
+      <move select="Quarter Left" offsetX="-1" offsetY="1"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Run Right" beats="3" offsetX="2"/>
     </path>
   </tam>
 
