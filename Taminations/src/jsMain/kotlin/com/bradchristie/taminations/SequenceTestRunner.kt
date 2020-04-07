@@ -1477,6 +1477,27 @@ Boys Run
 Centers Pass Thru 
 Right and Left Thru 
 Pass Thru 
+Allemande Left""",
+
+      "Checkpoint" to
+"""Heads Pass the Ocean 
+Extend 
+Swing Thru 
+Fan the Top 
+Boys Hinge 
+Checkpoint Walk and Dodge By Explode the Wave  
+Hinge 
+Checkpoint Ah So by Swing Thru 
+Centers Lockit 
+Centers Mix 
+Checkpoint Trade By Triangle Circulate 
+Girls Hinge 
+Checkpoint Recycle By Explode the Wave 
+Centers Run and Roll 
+Face Out 
+Bend the Line 
+Star Thru 
+Pass Thru 
 Allemande Left"""
 
   )

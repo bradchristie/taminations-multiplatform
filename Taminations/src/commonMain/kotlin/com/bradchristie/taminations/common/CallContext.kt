@@ -162,6 +162,8 @@ class CallContext {
   var level = LevelObject.find("b1")
   var callstack = mutableListOf<Call>()
   var dancers = listOf<Dancer>()
+  var groups = mutableListOf<MutableList<Dancer>>()
+  val groupstr:String get() = groups.joinToString(separator = "") { it.count().toString() }
   private var source: CallContext? = null
   private var snap = true
   private var extend = true
@@ -1186,8 +1188,17 @@ class CallContext {
       }
     }
     //  Analyze for centers and very centers
-    //  Sort dancers by distance from center
+    //  Sort and group dancers by distance from center
     val dorder = dancers.sortedBy{d -> d.location.length}
+    groups.clear()
+    var dist = 0.0
+    dorder.forEach { d ->
+      if (d.location.length.isGreaterThan(dist))
+        groups.add(mutableListOf())
+      groups.last().add(d)
+      dist = d.location.length
+    }
+
     //  The 2 dancers closest to the center
     //  are centers (4 dancers) or very centers (8 dancers)
     if (dancers.count() > 2) {

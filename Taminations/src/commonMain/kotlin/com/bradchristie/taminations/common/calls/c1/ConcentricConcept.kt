@@ -74,16 +74,17 @@ package com.bradchristie.taminations.common.calls.c1
 
 import com.bradchristie.taminations.common.*
 import com.bradchristie.taminations.common.calls.FourDancerConcept
-//import com.bradchristie.taminations.platform.System
 import kotlin.math.PI
+import kotlin.math.min
 import kotlin.math.sign
 
 class ConcentricConcept(callnorm:String,callname:String) : FourDancerConcept(callnorm,callname) {
 
   override val conceptName = "Concentric"
   override val level = LevelObject("c1")
-  val dancerLocations:HashMap<String,MutableList<Vector>> = hashMapOf()
-  val dancerShifts:HashMap<String,MutableList<Vector>> = hashMapOf()
+  private val dancerLocations:HashMap<String,MutableList<Vector>> = hashMapOf()
+  private val dancerShifts:HashMap<String,MutableList<Vector>> = hashMapOf()
+  private var mindist = 10.0
 
   override fun dancerGroups(ctx: CallContext): List<List<Dancer>> {
     return ctx.actives.map { d -> listOf(d) }
@@ -94,10 +95,11 @@ class ConcentricConcept(callnorm:String,callname:String) : FourDancerConcept(cal
   //  This just shifts it in 2 units along the long axis
   override fun startPosition(group: List<Dancer>): Vector {
     val loc = group.first().location
+    val shift = min(2.0,mindist-0.5)
     return if (loc.x.abs > loc.y.abs)
-      Vector(loc.x - (2.0*loc.x.sign), loc.y)
+      Vector(loc.x - (shift*loc.x.sign), loc.y)
     else
-      Vector(loc.x, loc.y - (2.0*loc.y.sign))
+      Vector(loc.x, loc.y - (shift*loc.y.sign))
   }
 
   override fun analyzeConceptResult(conceptctx: CallContext, realctx:CallContext) {
@@ -224,7 +226,10 @@ class ConcentricConcept(callnorm:String,callname:String) : FourDancerConcept(cal
     when {
       ctx.actives.count() == 8 -> ctx.applyCalls("Center 4 $realCall While Outer 4 $name")
       ctx.dancers.count() == 8 -> CallContext(ctx,ctx.actives).applyCalls(name).appendToSource()
-      else -> super.perform(ctx, i)
+      else -> {
+        mindist = ctx.dancers.fold(10.0) { x,d -> min(x,d.location.length) }
+        super.perform(ctx, i)
+      }
     }
   }
 
