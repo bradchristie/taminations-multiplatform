@@ -174,9 +174,11 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
     return !a.isApprox(PI / 2) && a > PI / 2
   }
 
+  //  Dancer turns to the left to look at center of the square
   val isCenterLeft : Boolean get() {
     return angleToOrigin > 0
   }
+  //  Dancer turns to the right to look at center of the square
   val isCenterRight : Boolean get() {
     return angleToOrigin < 0
   }
