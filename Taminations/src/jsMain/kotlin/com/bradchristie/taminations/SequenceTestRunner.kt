@@ -1498,6 +1498,28 @@ Face Out
 Bend the Line 
 Star Thru 
 Pass Thru 
+Allemande Left""",
+
+      "Peel to a Diamond" to
+"""Heads Lead Right 
+Veer Left 
+Peel to a Diamond 
+Very Centers Hinge 
+Checkpoint Box Counter Rotate By Flip the Diamond 
+Center 6 Circulate 
+Boys Run 
+As Couples Extend 
+Bend the Line 
+Pass the Ocean 
+Boys Quarter In 
+Peel to a Diamond 
+Crossfire 
+Circulate 
+Girls Run 
+Bend the Line 
+Star Thru 
+Right and Left Thru 
+Pass Thru 
 Allemande Left"""
 
   )
