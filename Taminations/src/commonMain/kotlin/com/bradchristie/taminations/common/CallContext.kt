@@ -51,6 +51,7 @@ class CallContext {
         "c1/cross_your_neighbor",
         "c2/criss_cross_your_neighbor",
         "plus/explode_the_wave",
+        "a1/explode_the_line",
         "b1/sashay",
         "b1/ladies_chain",
         "a1/any_hand_concept",
