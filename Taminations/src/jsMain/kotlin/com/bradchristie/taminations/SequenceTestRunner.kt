@@ -1533,6 +1533,27 @@ Bend the Line
 Star Thru 
 Right and Left Thru 
 Pass Thru 
+Allemande Left""",
+
+      "Wheel Around" to
+"""Heads Square Thru 4 
+Dixie Style to a Wave 
+Boys Trade 
+Left Swing Thru 
+Girls Run 
+Wheel Around 
+Wheel and Deal 
+Pass Thru 
+Centers Wheel Around 
+Centers Run 
+Boys Wheel Around 
+Circulate 
+Bend the Line 
+Pass Thru 
+Bend the Line 
+Star Thru 
+Zoom 
+Ends Trade 
 Allemande Left"""
 
   )

@@ -21,17 +21,16 @@ package com.bradchristie.taminations.common.calls.b2
 
 import com.bradchristie.taminations.common.*
 import com.bradchristie.taminations.common.calls.Action
+import com.bradchristie.taminations.common.calls.ActivesOnlyAction
 
-class WheelAround(norm:String,name:String) : Action(norm,name) {
+class WheelAround(norm:String,name:String) : ActivesOnlyAction(norm,name) {
 
   override val level = LevelObject("b2")
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
-    val d2 = listOfNotNull(d.data.partner,ctx.dancerToRight(d),ctx.dancerToLeft(d))
-      .firstOrNull { ctx.isInCouple(d,it) }
-      ?: throw CallError("Dancer $d is not part of a Facing Couple")
-    if (!d2.data.active)
-      throw CallError("Dancer $d must Wheel Around with partner")
+    val d2 = d.data.partner
+      ?: throw CallError("Dancer $d must Wheel Around with partner")
+    val dist = d.distanceTo(d2)
     val move =
         if (norm.startsWith("reverse")) {
           if (d2 isRightOf d)
@@ -44,8 +43,7 @@ class WheelAround(norm:String,name:String) : Action(norm,name) {
           else
             "Belle Wheel"
         }
-
-    return TamUtils.getMove(move)
+    return TamUtils.getMove(move).scale(dist/2.0,dist/2.0)
   }
 
 }
