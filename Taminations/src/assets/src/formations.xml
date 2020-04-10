@@ -1173,7 +1173,16 @@
     <dancer gender="girl" x="0" y="3.1" angle="0"/>
   </formation>
 
-  <formation name="Facing Blocks">
+  <!-- Block diagonal lower left to upper right  -->
+  <formation name="Facing Blocks Right">
+    <dancer gender="boy" x="-3" y="3" angle="0"/>
+    <dancer gender="girl" x="-3" y="-1" angle="0"/>
+    <dancer gender="boy" x="-1" y="1" angle="0"/>
+    <dancer gender="girl" x="-1" y="-3" angle="0"/>
+  </formation>
+
+  <!-- Block diagonal lower right to upper left  -->
+  <formation name="Facing Blocks Left">
     <dancer gender="boy" x="-3" y="1" angle="0"/>
     <dancer gender="girl" x="-3" y="-3" angle="0"/>
     <dancer gender="boy" x="-1" y="3" angle="0"/>

@@ -742,6 +742,9 @@ class CallContext {
       //  Siamese formations
       "Siamese Box 1",
       "Siamese Box 2",
+      //  Blocks
+      "Facing Blocks Right",
+      "Facing Blocks Left",
       //  Phantom formations
       "Phantom Snap Formation 1",
       "Phantom Snap Formation 2",
@@ -785,9 +788,8 @@ class CallContext {
         //  then consider it bogus
         val angsnap = matchResult.transform.angle / (PI / 4)
         val totOffset = matchResult.offsets.fold(0.0) { s, v -> s + v.length }
-        //     System.log("$f totOffset = $totOffset")
         //  Favor formations closer to the top of the list
-        if (angsnap.isApproxInt() && (bestMapping == null || totOffset + 0.2 < bestMapping!!.totOffset))
+        if (totOffset < 9.0 && angsnap.isApproxInt() && (bestMapping == null || totOffset + 0.2 < bestMapping!!.totOffset))
           bestMapping = BestMapping(
               f,  // only used for debugging
               mapping,

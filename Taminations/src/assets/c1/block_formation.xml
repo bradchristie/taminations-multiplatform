@@ -66,7 +66,7 @@
 
   <tam title="In Your Block Pass Thru" group="In Your Block"
        from=""
-       formation="Facing Blocks"
+       formation="Facing Blocks Left"
        fractions="" >
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
@@ -88,7 +88,7 @@
 
   <tam title="In Your Block Partner Tag" group="In Your Block"
        from=""
-       formation="Facing Blocks"
+       formation="Facing Blocks Left"
        fractions="" >
     <path>
       <move select="Lead Right" beats="2" scaleX=".5" scaleY="2" />
@@ -128,7 +128,7 @@
 
   <tam title="In Your Block Slide Thru" group="In Your Block"
        from=""
-       formation="Facing Blocks"
+       formation="Facing Blocks Left"
        fractions="" >
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
@@ -234,7 +234,7 @@
 
   <tam title="In Your Block Square Thru" group="In Your Block"
        from=""
-       formation="Facing Blocks"
+       formation="Facing Blocks Left"
        fractions="4;4;4" >
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
@@ -280,7 +280,7 @@
 
   <tam title="In Your Block Touch a Quarter" group="In Your Block"
        from=""
-       formation="Facing Blocks"
+       formation="Facing Blocks Right"
        fractions="" >
     <path>
       <move select="Extend Left"  beats="2" scaleX="2" scaleY=".5" />
@@ -322,7 +322,7 @@
 
   <tam title="In Your Block Wheel Thru" group="In Your Block"
        from=""
-       formation="Facing Blocks"
+       formation="Facing Blocks Left"
        fractions="" >
     <path>
       <move select="Lead Right" beats="4" scaleX="4" scaleY="4" />

@@ -23,7 +23,7 @@
 <tamination title="Stagger Concept">
 
   <tam title="Stagger Double Pass Thru" group="Stagger"
-       from="" formation="Facing Blocks">
+       from="" formation="Facing Blocks Left">
   <path numbers="1 8">
     <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
     <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
