@@ -803,6 +803,7 @@ class CallContext {
   }
 
   fun adjustToFormationMatch(match:BestMapping) {
+    dancers.forEach { d -> d.data.active = true }
     dancers.forEachIndexed { i,d ->
       if (match.offsets[i].length > 0.01) {
         //  Get the last movement
@@ -818,6 +819,21 @@ class CallContext {
         d.animateToEnd()
       }
     }
+  }
+
+  fun adjustToFormation(fname:String) : Boolean {
+    //  Work on a copy with all dancers active, mapping only uses active dancers
+    val ctx1 = CallContext(this)
+    val ctx2 = CallContext(TamUtils.getFormation(fname))
+    val mapping = ctx1.matchFormations(ctx2,sexy=false,fuzzy=true,rotate=true,handholds=false, maxError = 2.9)
+    if (mapping != null) {
+      //  If it does, get the offsets
+      val matchResult = ctx1.computeFormationOffsets(ctx2, mapping, delta = 0.5)
+      val totOffset = matchResult.offsets.fold(0.0) { s, v -> s + v.length }
+      adjustToFormationMatch(BestMapping(fname,mapping,matchResult.offsets,totOffset))
+      return true
+    }
+    return false
   }
 
   //  Rotate phantoms until a match is found
@@ -1044,12 +1060,11 @@ class CallContext {
 
   //  Direction dancer would turn to Tag the Line
   fun tagDirection(d:Dancer): String {
-    if (dancerToRight(d)?.data?.center == true)
-      return "Right"
-    else if (dancerToLeft(d)?.data?.center == true)
-      return "Left"
-    else
-      return ""
+    return when {
+      dancerToRight(d)?.data?.center == true -> "Right"
+      dancerToLeft(d)?.data?.center == true -> "Left"
+      else -> ""
+    }
   }
 
   //  Are two dancers on the same spot ?

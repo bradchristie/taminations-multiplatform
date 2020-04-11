@@ -474,6 +474,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "stretch(.+)".r -> StretchConcept(callnorm,callname)
         in "checkpoint(.+)by(.*)".r -> CheckpointConcept(callnorm,callname)
         in "(left|right|in|out)loop(1|2|3)".r -> Loop(callnorm,callname)
+        in "stagger(.+)".r -> StaggerConcept(callnorm,callname)
         //  Anything Chain Thru should not match Square Chain Thru, others?
         //  cannot use negative look-behind in Javascript, so..
         in "o.*".r -> if (callname.toLowerCase().matches("o .+".r))

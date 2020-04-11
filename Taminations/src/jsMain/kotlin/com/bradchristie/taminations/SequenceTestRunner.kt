@@ -1554,6 +1554,28 @@ Bend the Line
 Star Thru 
 Zoom 
 Ends Trade 
+Allemande Left""",
+
+      "Stagger" to
+"""Sides Star Thru 
+Centers Pass Thru 
+Boys Truck 
+Stagger Pass Thru  
+Stagger Chase Right  
+Stagger Split Counter Rotate 
+Stagger Trade By 
+Stagger Square Thru 2 
+Stagger Cloverleaf 
+Stagger Centers Pass Thru 
+Stagger Chain the Square 
+Stagger Circulate 
+Stagger Boys Run 
+Stagger Centers Pass Thru 
+Girls Reverse Truck 
+Star Thru 
+Pass Thru 
+Wheel and Deal 
+Centers Pass Thru 
 Allemande Left"""
 
   )
