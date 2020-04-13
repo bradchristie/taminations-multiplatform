@@ -20,17 +20,25 @@ package com.bradchristie.taminations.common.calls.c2
 */
 
 import com.bradchristie.taminations.common.CallContext
+import com.bradchristie.taminations.common.CallError
 import com.bradchristie.taminations.common.LevelObject
 import com.bradchristie.taminations.common.calls.Action
 
-class PeelToADiamond : Action("Peel to a Diamond") {
+class TagYourNeighbor(norm:String,name:String) : Action(norm,name)  {
 
   override val level = LevelObject("c2")
+  override val requires = listOf("ms/fraction_tag","plus/follow_your_neighbor",
+                  "c1/cross_your_neighbor","c2/criss_cross_your_neighbor")
 
   override fun perform(ctx: CallContext, i: Int) {
-    val trailers = ctx.dancers.filter { it.data.trailer }
-    ctx.applyCalls("Half Zoom")
-    CallContext(ctx,trailers).applyCalls("Hinge").appendToSource()
+    val left = if (norm.startsWith("left")) "Left" else ""
+    val basecall = when (norm.replace("left","")) {
+      "tagyourneighbor" -> "Follow Your Neighbor"
+      "tagyourcrossneighbor" -> "Cross Your Neighbor"
+      "tagyourcrisscrossneighbor" -> "Criss Cross Your Neighbor"
+      else -> throw CallError("Tag what?")  // should not happen
+    }
+    ctx.applyCalls("$left Half Tag",basecall)
   }
 
 }
