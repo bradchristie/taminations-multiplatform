@@ -35,4 +35,5 @@ class TurnAndDeal(norm:String,name:String) : Action(norm,name) {
     return TamUtils.getMove("U-Turn $dir")
         .skew(sign*(if (norm.startsWith("left")) amount else -amount),dist*sign)
   }
+
 }

@@ -49,7 +49,7 @@ abstract class ModifedFormationConcept(norm:String, name:String=norm) : Action(n
     val adjusted = ctx.dancers.filter { d -> d.path.movelist.isNotEmpty() }
 
     //  Perform the call
-    val callName = name.replace(conceptName.ri,"")
+    val callName = name.replaceFirst(conceptName.ri,"")
     ctx.applyCalls(callName)
     //  Merge the slide in adjustment into the start of the call
     ctx.dancers.forEach { d ->
