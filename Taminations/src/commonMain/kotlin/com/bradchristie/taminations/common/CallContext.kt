@@ -719,7 +719,7 @@ class CallContext {
       "Tidal Line RH",
       "Tidal Wave of 6",
       "I-Beam",
-      "H-Beam",
+   //   "H-Beam",
       "Diamonds RH Girl Points",
       "Diamonds RH PTP Girl Points",
       "Hourglass RH BP",
@@ -728,29 +728,18 @@ class CallContext {
       "O RH",
       "Thar RH Boys",
       "Sausage RH",
-  //    "T-Bone URRD",
-  //    "T-Bone RUUL",
-  //    "T-Bone DLDL",
-  //    "T-Bone RDRD",
-  //    "T-Bone UURL",
-  //    "T-Bone RLUU",
-      //  There are also 8 possible 3x1 t-bones not listed here
       "Static Square",
           //"Alamo Wave"
       "Right-Hand Zs",
       "Left-Hand Zs",
       //  Siamese formations
+      //  This also covers C-1 Phantom formations
       "Siamese Box 1",
       "Siamese Box 2",
       //  Blocks
       "Facing Blocks Right",
       "Facing Blocks Left",
-      //  Phantom formations
-      "Phantom Snap Formation 1",
-      "Phantom Snap Formation 2",
-      //  One wave is H-Beam, above
       "Siamese Wave",
-      "I-Column",
       "Concentric Diamonds RH"
   )
   private val twoCoupleFormations = listOf(
@@ -760,8 +749,7 @@ class CallContext {
       "Diamond RH",
       "Single Eight Chain Thru",
       "Single Quarter Tag",
-      "Square RH",
-      "Square LH"
+      "Square RH"
   )
   @Suppress("ArrayInDataClass")
   data class BestMapping(

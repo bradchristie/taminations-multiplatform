@@ -47,6 +47,27 @@
     </path>
   </tam>
 
+  <tam title="Magic Column Circulate (6 dancers)"
+       group="(Right-Hand Centers)"
+       fractions="2" >
+    <formation>
+      <dancer gender="boy" x="-2" y="-1" angle="0"/>
+      <dancer gender="boy" x="0" y="-1" angle="180"/>
+      <dancer gender="girl" x="2" y="-1" angle="0"/>
+    </formation>
+    <path>
+      <move select="Forward" beats="2" />
+      <move select="Extend Left" beats="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+      <move select="Forward" beats="2" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" />
+    </path>
+  </tam>
+
   <tam title="Magic Column Coordinate" group="(Right-Hand Centers)" fractions="6;3">
     <formation>
       <dancer gender="girl" y="1" x="-1" angle="90"/>
@@ -163,6 +184,26 @@
     </path>
   </tam>
 
+  <tam title="Magic Column Circulate (6 dancers)"
+       group="(Left-Hand Centers)"
+       fractions="2" >
+    <formation>
+      <dancer gender="boy" x="-2" y="-1" angle="180"/>
+      <dancer gender="boy" x="0" y="-1" angle="0"/>
+      <dancer gender="girl" x="2" y="-1" angle="180"/>
+    </formation>
+    <path>
+      <move select="Run Right" beats="4" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleY="2" />
+      <move select="Forward" beats="2" />
+    </path>
+    <path>
+      <move select="Forward" beats="2" />
+      <move select="Extend Right" beats="2" scaleY="2" />
+    </path>
+  </tam>
 
   <tam title="Magic Column Coordinate" group="(Left-Hand Centers)" fractions="6;3">
     <formation>
