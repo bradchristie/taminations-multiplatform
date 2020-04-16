@@ -42,7 +42,7 @@ actual class TextInput: View() {
     style.height = "100%"
     style.fontSize = "18px"
     onkeydown = { event ->
-      val code = (event as KeyboardEvent).keyCode
+      val code = event.keyCode
       if (code == 13)
         onReturn()
     }

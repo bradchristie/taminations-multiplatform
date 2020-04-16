@@ -31,7 +31,7 @@ class SqueezeTheHourglass : Action("Squeeze the Hourglass") {
   override fun perform(ctx: CallContext, i: Int) {
     //  Match to any hourglass
     val hourglass = CallContext(TamUtils.getFormation("Hourglass RH BP"))
-    val mm = hourglass.matchFormations(ctx,rotate = true) ?:
+    val mm = hourglass.matchFormations(ctx,rotate = 180) ?:
       throw CallError("Not an Hourglass formation")
     //  All but two of the dancers squeeze
     ctx.dancers[mm[2]].data.active = false

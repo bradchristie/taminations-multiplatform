@@ -25,7 +25,7 @@
   <tam title="Touch a Quarter"
        from="Facing Couples"
        formation="Facing Couples"
-       fractions="" difficulty="1">
+       difficulty="1" sequencer="no">
     <path>
       <move select="Extend Left" scaleX="2" />
       <move select="Quarter Right" hands="right" beats="1" offsetX="1" />
@@ -39,7 +39,7 @@
   <tam title="Touch a Quarter"
        from="Lines"
        formation="Normal Lines"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Extend Left" scaleX="2" scaleY=".5" />
       <move select="Hinge Right" scaleY=".5" beats="1" hands="gripright"/>
@@ -61,7 +61,7 @@
   <tam title="Touch a Quarter"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Extend Left" />
       <move select="Quarter Right" hands="right" offsetX="1" />
@@ -83,7 +83,7 @@
   <tam title="Left Touch a Quarter"
        from="Facing Couples"
        formation="Facing Couples"
-       fractions="" difficulty="2">
+       difficulty="2" sequencer="no">
     <path>
       <move select="Extend Right" scaleX="2" scaleY=".5" />
       <move select="Hinge Left" beats="1" scaleY="1.5" />
@@ -97,7 +97,7 @@
   <tam title="Left Touch a Quarter"
        from="Lines"
        formation="Normal Lines"
-       fractions="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Extend Right" scaleX="2" scaleY=".5" />
       <move select="Hinge Left" scaleY=".5" beats="1" hands="gripleft"/>
@@ -119,7 +119,7 @@
   <tam title="Left Touch a Quarter"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       fractions="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Forward" />
       <move select="Hinge Left" />
@@ -141,7 +141,7 @@
   <tam title="Touch a Half"
        from="Facing Couples"
        formation="Facing Couples"
-       fractions="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Extend Left" beats="3" scaleX="2" scaleY="2" />
       <move select="Swing Right" />

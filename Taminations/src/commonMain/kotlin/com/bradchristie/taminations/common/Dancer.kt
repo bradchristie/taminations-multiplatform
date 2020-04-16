@@ -50,6 +50,16 @@ data class DancerData(
 //  based on the dancer's current location.
 fun Vector.ds(d:Dancer) : Vector = d.tx.inverse() * this
 
+
+//  Take a list of dancers in any order, re-order
+//  in pairs of diagonal opposites
+fun List<Dancer>.inOrder():List<Dancer> =
+    this.filter { it.location.x.isGreaterThan(0.0) ||
+        (it.location.x.isAbout(0.0) && it.location.y.isGreaterThan(0.0)) }
+        .map { d -> listOf(d,this.first { it.location == -d.location } ) }
+        .flatten()
+
+
 /**
  *     Constructor for a new dancer
  * @param number    Number to show when Number display is on

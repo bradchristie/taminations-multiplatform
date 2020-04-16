@@ -425,7 +425,7 @@ class CallContext {
         val headsmatchsides = !tam.attr("title").contains("Heads?|Sides?".r)
         //  Try to match the formation to the current dancer positions
         val ctx2 = CallContext(tam)
-        val mm = ctx1.matchFormations(ctx2, sexy=sexy, fuzzy=fuzzy, handholds = false,
+        val mm = ctx1.matchFormations(ctx2, sexy=sexy, fuzzy=fuzzy, handholds = !fuzzy,
             headsmatchsides=headsmatchsides)
         if (mm != null) {
           val matchResult = ctx1.computeFormationOffsets(ctx2, mm)
@@ -555,7 +555,7 @@ class CallContext {
   fun matchFormations(ctx2: CallContext,
                       sexy:Boolean=false,  // don't match girls with boys
                       fuzzy:Boolean=false,  // dancers can be somewhat offset
-                      rotate:Boolean=false,  // opposite facing dancers match
+                      rotate:Int=0,  // rotate dancers by 90s or 180 degrees to match
                       handholds: Boolean=true,  // dancers holding hands
                                                 // don't match dancers not
                       //  For calls specific to Heads or Sides
@@ -568,7 +568,7 @@ class CallContext {
     val mapping = IntArray(dancers.count()) { -1 }
     var bestmapping:IntArray? = null
     var bestOffset = 0.0
-    val rotated = BooleanArray(dancers.count()) { false }
+    val rotated = IntArray(dancers.count()) { 0 }
     var mapindex = 0
     while (mapindex >= 0 && mapindex < dancers.count()) {
       var nextmapping = mapping[mapindex] + 1
@@ -588,17 +588,17 @@ class CallContext {
         mapping[mapindex] = -1
         mapping[mapindex + 1] = -1
         //  If requested, try rotating this dancer
-        if (rotate && !rotated[mapindex]) {
-          dancers[mapindex].rotateStartAngle(180.0)
-          dancers[mapindex+1].rotateStartAngle(180.0)
-          rotated[mapindex] = true
+        if (rotate > 0 && rotated[mapindex] + rotate < 360) {
+          dancers[mapindex].rotateStartAngle(rotate.d)
+          dancers[mapindex+1].rotateStartAngle(rotate.d)
+          rotated[mapindex] += rotate
         } else {
-          if (rotated[mapindex]) {
+          if (rotated[mapindex]+rotate == 360) {
             //  Restore to original
-            dancers[mapindex].rotateStartAngle(180.0)
-            dancers[mapindex+1].rotateStartAngle(180.0)
+            dancers[mapindex].rotateStartAngle(rotate.d)
+            dancers[mapindex+1].rotateStartAngle(rotate.d)
           }
-          rotated[mapindex] = false
+          rotated[mapindex] = 0
           mapindex -= 2
         }
       } else {
@@ -728,12 +728,12 @@ class CallContext {
       "O RH",
       "Thar RH Boys",
       "Sausage RH",
-      "T-Bone URRD",
-      "T-Bone RUUL",
-      "T-Bone DLDL",
-      "T-Bone RDRD",
-      "T-Bone UURL",
-      "T-Bone RLUU",
+  //    "T-Bone URRD",
+  //    "T-Bone RUUL",
+  //    "T-Bone DLDL",
+  //    "T-Bone RDRD",
+  //    "T-Bone UURL",
+  //    "T-Bone RLUU",
       //  There are also 8 possible 3x1 t-bones not listed here
       "Static Square",
           //"Alamo Wave"
@@ -750,7 +750,8 @@ class CallContext {
       "Phantom Snap Formation 2",
       //  One wave is H-Beam, above
       "Siamese Wave",
-      "I-Column"
+      "I-Column",
+      "Concentric Diamonds RH"
   )
   private val twoCoupleFormations = listOf(
       "Facing Couples Compact",
@@ -780,22 +781,27 @@ class CallContext {
     formations.forEach { f ->
       val ctx2 = CallContext(TamUtils.getFormation(f))
       //  See if this formation matches
-      val mapping = ctx1.matchFormations(ctx2,sexy=false,fuzzy=true,rotate=true,handholds=false)
+      val rot = if (f.contains("Lines")) 180 else 90
+      val mapping = ctx1.matchFormations(ctx2,sexy=false,fuzzy=true,rotate=rot,handholds=false)
       if (mapping != null) {
         //  If it does, get the offsets
         val matchResult = ctx1.computeFormationOffsets(ctx2, mapping)
         //  If the match is at some odd angle (not a multiple of 90 degrees)
         //  then consider it bogus
-        val angsnap = matchResult.transform.angle / (PI / 4)
+        val angsnap = matchResult.transform.angle / (PI / 2)
         val totOffset = matchResult.offsets.fold(0.0) { s, v -> s + v.length }
         //  Favor formations closer to the top of the list
-        if (totOffset < 9.0 && angsnap.isApproxInt() && (bestMapping == null || totOffset + 0.2 < bestMapping!!.totOffset))
-          bestMapping = BestMapping(
-              f,  // only used for debugging
-              mapping,
-              matchResult.offsets,
-              totOffset
-          )
+        //  Especially favor lines
+        val favoring = if (bestMapping?.name?.contains("Line") == true) 2.0 else 1.0
+        if (totOffset < 9.0 && angsnap.isApproxInt(delta = 0.05)) {
+          if (bestMapping == null || totOffset*favoring + 0.2 < bestMapping!!.totOffset)
+            bestMapping = BestMapping(
+                f,  // only used for debugging
+                mapping,
+                matchResult.offsets,
+                totOffset
+            )
+        }
       }
     }
     if (bestMapping != null)
@@ -821,11 +827,11 @@ class CallContext {
     }
   }
 
-  fun adjustToFormation(fname:String) : Boolean {
-    //  Work on a copy with all dancers active, mapping only uses active dancers
+  fun adjustToFormation(fname:String,rotate:Int=180) : Boolean {
+    //  Work on a copy with all dancers active, mapping only uses active dancers???
     val ctx1 = CallContext(this)
     val ctx2 = CallContext(TamUtils.getFormation(fname))
-    val mapping = ctx1.matchFormations(ctx2,sexy=false,fuzzy=true,rotate=true,handholds=false, maxError = 2.9)
+    val mapping = ctx1.matchFormations(ctx2,sexy=false,fuzzy=true,rotate=rotate,handholds=false, maxError = 2.9)
     if (mapping != null) {
       //  If it does, get the offsets
       val matchResult = ctx1.computeFormationOffsets(ctx2, mapping, delta = 0.5)
@@ -934,7 +940,7 @@ class CallContext {
   private fun tryOneDiamondFormation(f:String) : List<Dancer> {
     val ctx2 = CallContext(TamUtils.getFormation(f))
     val points = mutableListOf<Dancer>()
-    matchFormations(ctx2, rotate = true)?.let { mapping ->
+    matchFormations(ctx2, rotate = 180)?.let { mapping ->
       dancers.forEachIndexed { i, d ->
         if (ctx2.dancers[mapping[i]].gender == Gender.GIRL)
           points.add(d)

@@ -36,6 +36,8 @@ data class Vector(val x:Double=0.0, val y:Double=0.0) {
   fun scale(sx:Double,sy:Double): Vector = Vector(x * sx, y * sy)
   operator fun times(s:Double) = scale(s,s)
   //  Compute vector length
+  override fun equals(other:Any?): Boolean =
+      if (other is Vector) x.isAbout(other.x) && y.isAbout(other.y) else false
   val length:Double get() = sqrt(x*x + y*y)
   //  Angle off the X-axis
   val angle:Double get() = atan2(y,x)
@@ -49,7 +51,7 @@ data class Vector(val x:Double=0.0, val y:Double=0.0) {
   //  in the range of -pi to pi
   fun angleDiff(v: Vector):Double = angleAngleDiff(v.angle, angle)
   fun vectorTo(v: Vector): Vector = Vector(v.x - x, v.y - y)
-  //  Return Z-coord of the cross product between two vectors
+  //  Return Z-coordinate of the cross product between two vectors
   fun crossZ(v: Vector) = x * v.y - y * v.x
 
   fun concatenate(tx: Matrix): Vector = tx * this
@@ -59,4 +61,9 @@ data class Vector(val x:Double=0.0, val y:Double=0.0) {
       x.isApprox(v2.x,delta) && y.isApprox(v2.y,delta)
 
   override fun toString(): String = "(${x.s},${y.s})"
+  override fun hashCode(): Int {
+    var result = x.hashCode()
+    result = 31 * result + y.hashCode()
+    return result
+  }
 }

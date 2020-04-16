@@ -89,7 +89,7 @@ class TriangleCirculate(norm: String, name: String) : Action(norm, name) {
         } else {
           //  No points, maybe a sausage
           val sausage = CallContext(TamUtils.getFormation("Sausage RH"))
-          if (ctx.matchFormations(sausage,rotate = true) != null) {
+          if (ctx.matchFormations(sausage,rotate = 180) != null) {
             ctx.center(2).forEach { d -> d.data.active = false }
           }
         }

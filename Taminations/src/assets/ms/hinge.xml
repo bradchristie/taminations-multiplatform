@@ -25,7 +25,7 @@
   <tam title="Hinge"
        from="Right-Hand Box"
        formation="Box RH"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Hinge Right" beats="2" />
     </path>
@@ -35,11 +35,35 @@
   </tam>
 
   <tam title="Hinge"
+       from="Right-Hand Box Compact"
+       formation="Box RH Compact"
+       difficulty="1" display="none">
+    <path>
+      <move select="Hinge Right" beats="2" />
+    </path>
+    <path>
+      <move select="Hinge Right" beats="2" scaleX=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Hinge"
        from="Left-Hand Box"
        formation="Box LH"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Hinge Left" beats="2" />
+    </path>
+    <path>
+      <move select="Hinge Left" beats="2" />
+    </path>
+  </tam>
+
+  <tam title="Hinge"
+       from="Left-Hand Box Compact"
+       formation="Box LH Compact"
+       difficulty="1" display="none">
+    <path>
+      <move select="Hinge Left" beats="2" scaleX=".5"/>
     </path>
     <path>
       <move select="Hinge Left" beats="2" />
@@ -49,7 +73,7 @@
   <tam title="Hinge"
        from="Right-Hand Wave"
        formation="Wave RH"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Hinge Right" beats="2" />
     </path>
@@ -61,7 +85,7 @@
   <tam title="Hinge"
        from="Left-Hand Wave"
        formation="Wave LH"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Hinge Left" beats="2" />
     </path>
@@ -73,7 +97,7 @@
   <tam title="Hinge"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Hinge Right" beats="2" />
     </path>
@@ -91,7 +115,7 @@
   <tam title="Hinge"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Hinge Left" beats="2" />
     </path>

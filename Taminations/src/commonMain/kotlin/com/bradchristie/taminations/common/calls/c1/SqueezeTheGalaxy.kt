@@ -31,7 +31,7 @@ class SqueezeTheGalaxy : Action("Squeeze the Galaxy") {
   override fun perform(ctx: CallContext, i: Int) {
     //  Match to any galaxy
     val galaxy = CallContext(TamUtils.getFormation("Galaxy RH GP"))
-    val mm = galaxy.matchFormations(ctx,rotate = true) ?:
+    val mm = galaxy.matchFormations(ctx,rotate = 180) ?:
       throw CallError("Not a Galaxy formation")
     //  All but two of the dancers squeeze
     ctx.dancers[mm[2]].data.active = false

@@ -40,7 +40,7 @@ class Adjust(norm:String,name:String) : Action(norm,name) {
       else -> throw CallError("Sorry, don't know how to $name from here.")
     }
     val ctx2 = CallContext(formation)
-    val mapping = ctx.matchFormations(ctx2,sexy=false,fuzzy=true,rotate=true,handholds=false, maxError = 2.0)
+    val mapping = ctx.matchFormations(ctx2,sexy=false,fuzzy=true,rotate=180,handholds=false, maxError = 2.0)
       ?: throw CallError("Unable to match formation to $fname")
     val matchResult = ctx.computeFormationOffsets(ctx2,mapping,0.3)
     val match = CallContext.BestMapping(fname,mapping,matchResult.offsets,0.0)

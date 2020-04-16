@@ -28,10 +28,11 @@ class TurnAndDeal(norm:String,name:String) : Action(norm,name) {
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
     val dir = ctx.tagDirection(d)
+    val amount = if (ctx.isTidal()) 1.5 else 1.0
     val dist = if (!ctx.isTidal()) 2.0 else
       if (d.data.center) 1.5 else 0.5
     val sign = if (dir=="Left") 1.0 else -1.0
     return TamUtils.getMove("U-Turn $dir")
-        .skew(sign*(if (norm.startsWith("left")) 1.0 else -1.0),dist*sign)
+        .skew(sign*(if (norm.startsWith("left")) amount else -amount),dist*sign)
   }
 }

@@ -20,13 +20,14 @@ package com.bradchristie.taminations.common.calls.c2
 */
 
 import com.bradchristie.taminations.common.*
-import com.bradchristie.taminations.common.calls.ModifedColumnConcept
+import com.bradchristie.taminations.common.calls.ModifedFormationConcept
 import kotlin.math.PI
 
-class StaggerConcept(norm:String,name:String=norm) : ModifedColumnConcept(norm,name) {
+class StaggerConcept(norm:String,name:String=norm) : ModifedFormationConcept(norm,name) {
 
   override val level = LevelObject.find("c2")
   override val conceptName = "Stagger"
+  override val modifiedFormationName = "Double Pass Thru"
 
   private var startFormation = ""
   override val formationName get() = startFormation
@@ -36,11 +37,11 @@ class StaggerConcept(norm:String,name:String=norm) : ModifedColumnConcept(norm,n
   override fun checkFormation(ctx:CallContext) : Boolean {
     val ctx1 = CallContext(TamUtils.getFormation("Facing Blocks Right"))
     val ctx2 = CallContext(TamUtils.getFormation("Facing Blocks Left"))
-    if (ctx.matchFormations(ctx1,sexy=false,fuzzy=true,rotate=true,handholds=false) != null) {
+    if (ctx.matchFormations(ctx1,sexy=false,fuzzy=true,rotate=180,handholds=false) != null) {
       startFormation = "Facing Blocks Right"
       return true
     }
-    if (ctx.matchFormations(ctx2,sexy=false,fuzzy=true,rotate=true,handholds=false) != null) {
+    if (ctx.matchFormations(ctx2,sexy=false,fuzzy=true,rotate=180,handholds=false) != null) {
       startFormation = "Facing Blocks Left"
       return true
     }
