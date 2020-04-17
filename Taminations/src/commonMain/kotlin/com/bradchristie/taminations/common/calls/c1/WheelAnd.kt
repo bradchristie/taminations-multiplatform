@@ -32,7 +32,8 @@ class WheelAnd(norm:String,name:String) : Action(norm,name) {
     val reverse = if (wheelcall.toLowerCase().contains("reverse")) "Reverse" else ""
     //  Find the 4 dancers to Wheel
     val facingOut = ctx.dancers.filter { d -> d.isFacingOut }
-    if (facingOut.containsAll(ctx.center(4)))
+    //  Check for t-bones, center 4 facing out, outer 4 facing their shoulders
+    if (ctx.center(4).containsAll(facingOut))
       ctx.applyCalls("As Couples Step")
     //  First we will try the usual way
     try {
