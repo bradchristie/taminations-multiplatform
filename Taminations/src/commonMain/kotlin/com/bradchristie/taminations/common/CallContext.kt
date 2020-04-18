@@ -199,7 +199,7 @@ class CallContext {
     else
       tam.children("formation").firstOrNull() ?: tam
     dancers = f.children("dancer").mapIndexed { i, element ->
-      //  TODO later this assumes square geometry
+      //  This assumes square geometry
       //  Make sure each dancer in the list is immediately followed by its
       //  diagonal opposite.  Required for mapping.
       listOf(
