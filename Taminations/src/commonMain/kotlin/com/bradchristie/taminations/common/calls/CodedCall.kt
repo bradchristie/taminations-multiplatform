@@ -191,30 +191,10 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
     //  More complex calls where the text is needed either to select
     //  the correct variation or to echo the expected name
     private val complexCallMaker:Map<String,(String,String)->CodedCall> = mapOf(
-        "head" to { norm:String,call:String ->
-          HeadsSides(
-              norm,
-              call
-          )
-        },
-        "lead" to { norm:String,call:String ->
-          Leaders(
-              norm,
-              call
-          )
-        },
-        "side" to { norm:String,call:String ->
-          HeadsSides(
-              norm,
-              call
-          )
-        },
-        "trail" to { norm:String,call:String ->
-          Trailers(
-              norm,
-              call
-          )
-        },
+        "head" to { norm:String,call:String -> HeadsSides(norm,call) },
+        "lead" to { norm:String,call:String -> Leaders(norm,call) },
+        "side" to { norm:String,call:String -> HeadsSides(norm,call) },
+        "trail" to { norm:String,call:String -> Trailers(norm,call) },
         "112" to { norm:String,call:String -> OneAndaHalf(norm,call) }
     )
 
