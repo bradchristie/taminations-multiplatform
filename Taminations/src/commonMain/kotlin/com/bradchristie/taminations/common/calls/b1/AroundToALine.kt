@@ -30,8 +30,10 @@ class AroundToALine(norm:String,name:String) : Action(norm,name) {
       ctx.matchStandardFormation()
       ctx.dancers.forEach { it.data.active = true }
       when {
-        norm.contains("1") -> ctx.applyCalls("Around One To A Line")
-        norm.contains("2") -> ctx.applyCalls("Around Two To A Line")
+        norm.contains("1andcomeintothemiddle") ->
+          ctx.applyCalls("Around One and Come Into the Middle")
+        norm.contains("1toaline") -> ctx.applyCalls("Around One To A Line")
+        norm.contains("2toaline") -> ctx.applyCalls("Around Two To A Line")
         else -> throw CallError("Go Around What?")
       }
     } else

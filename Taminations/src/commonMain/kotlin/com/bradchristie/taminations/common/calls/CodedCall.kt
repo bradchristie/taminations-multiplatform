@@ -42,18 +42,11 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "and" to { And() },
         "and14more" to { QuarterMore() },
         "androll" to { Roll("androll", "and Roll") },
-        "around1toaline" to {
-          AroundToALine(
-              "around1toaline",
-              "Around One to a Line"
-          )
-        },
-        "around2toaline" to {
-          AroundToALine(
-              "around2toaline",
-              "Around Two to a Line"
-          )
-        },
+        "around1toaline" to { AroundToALine("around1toaline","Around One to a Line") },
+        "around2toaline" to { AroundToALine("around2toaline","Around Two to a Line") },
+        "around1andcomeintothemiddle" to
+            { AroundToALine("around1andcomeintothemiddle",
+                "Around One and Come Into the Middle") },
         "roll" to { Roll("roll", "Roll") },
         "backaway" to { BackAway() },
         "beau" to { Beaus() },
@@ -75,77 +68,23 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "end" to { Ends() },
         "facein" to { FaceIn("facein", "Face In") },
         "faceout" to { FaceIn("faceout", "Face Out") },
-        "faceleft" to {
-          FaceIn(
-              "faceleft",
-              "Face Left"
-          )
-        },
-        "faceright" to {
-          FaceIn(
-              "faceright",
-              "Face Right"
-          )
-        },
+        "faceleft" to { FaceIn("faceleft","Face Left" ) },
+        "faceright" to { FaceIn("faceright","Face Right" ) },
         "facing" to { FacingDancers() },
         "fold" to { Fold() },
         "girl" to { Girls() },
         "grandleftswingthru" to {
-          GrandSwingThru(
-              "grandleftswingthru",
-              "Grand Left Swing Thru"
-          )
-        },
-        "grandswingthru" to {
-          GrandSwingThru(
-              "grandswingthru",
-              "Grand Swing Thru"
-          )
-        },
-        "_grandswingleft" to {
-          GrandSwingX(
-              "grandswingleft",
-              "Grand Swing Left"
-          )
-        },
-        "_grandswingright" to {
-          GrandSwingX(
-              "grandswingright",
-              "Grand Swing Right"
-          )
-        },
+          GrandSwingThru("grandleftswingthru","Grand Left Swing Thru") },
+        "grandswingthru" to { GrandSwingThru("grandswingthru","Grand Swing Thru") },
+        "_grandswingleft" to { GrandSwingX("grandswingleft","Grand Swing Left") },
+        "_grandswingright" to { GrandSwingX("grandswingright","Grand Swing Right") },
         "12tag" to { HalfTag("halftag", "Half Tag") },
-        "left12tag" to {
-          HalfTag(
-              "lefthalftag",
-              "Left Half Tag"
-          )
-        },
+        "left12tag" to { HalfTag("lefthalftag","Left Half Tag") },
         "hinge" to { Hinge("hinge", "Hinge") },
-        "singlehinge" to {
-          Hinge(
-              "hinge",
-              "Single Hinge"
-          )
-        },
-        "partnerhinge" to {
-          Hinge(
-              "hinge",
-              "Partner Hinge"
-          )
-        },
-        "lefthinge" to {
-          Hinge(
-              "lefthinge",
-              "Left Hinge"
-          )
-        },
-        "leftpartnerhinge" to {
-          Hinge(
-              "lefthinge",
-              "Left Partner Hinge"
-          )
-        },
+        "singlehinge" to { Hinge("hinge","Single Hinge") },
+        "partnerhinge" to { Hinge("hinge","Partner Hinge") },
+        "lefthinge" to { Hinge("lefthinge","Left Hinge") },
+        "leftpartnerhinge" to { Hinge("lefthinge","Left Partner Hinge") },
         "jaywalk" to { Jaywalk() },
         "ladies" to { Girls() },
         "12" to { Half() },
@@ -157,33 +96,13 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "partnertag" to { PartnerTag() },
         "passin" to { PassIn() },
         "passout" to { PassOut() },
-        "passthru" to {
-          PassThru(
-              "passthru",
-              "Pass Thru"
-          )
-        },
-        "leftpassthru" to {
-          PassThru(
-              "leftpassthru",
-              "Left Pass Thru"
-          )
-        },
+        "passthru" to { PassThru("passthru","Pass Thru") },
+        "leftpassthru" to { PassThru("leftpassthru","Left Pass Thru") },
         "point" to { Points() },
         "14in" to { QuarterIn("14in", "Quarter In") },
         "14out" to { QuarterIn("14out", "Quarter Out") },
-        "14tag" to {
-          QuarterTag(
-              "quartertag",
-              "Quarter Tag"
-          )
-        },
-        "left14tag" to {
-          QuarterTag(
-              "leftquartertag",
-              "Left Quarter Tag"
-          )
-        },
+        "14tag" to { QuarterTag("quartertag","Quarter Tag") },
+        "left14tag" to { QuarterTag("leftquartertag","Left Quarter Tag") },
         "ramble" to { Ramble() },
         "run" to { Run("run", "Run") },
         "runright" to { Run("runright", "Run Right") },
@@ -203,131 +122,47 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "squeezethehourglass" to { SqueezeTheHourglass() },
         "squeezethegalaxy" to { SqueezeTheGalaxy() },
         "starthru" to { StarThru("starthru","Star Thru") },
-        "steptoacompactwave" to {
-          StepToACompactWave(
-              "",
-              ""
-          )
-        },
-        "steptoacompactlefthandwave" to {
-          StepToACompactWave(
-              "left",
-              ""
-          )
-        },
+        "steptoacompactwave" to { StepToACompactWave("","") },
+        "steptoacompactlefthandwave" to { StepToACompactWave("left","") },
         //  "Left" Star Thru is only used for Double/Triple Star Thru
-        "_leftstarthru" to {
-          StarThru(
-              "leftstarthru",
-              "Left Star Thru"
-          )
-        },
+        "_leftstarthru" to { StarThru("leftstarthru","Left Star Thru") },
         "stepahead" to { Step() },
         "step" to { Step() },
         "switchtheline" to { SwitchTheLine() },
         "tagtheline" to { TagTheLine() },
         "32aceydeucey" to { ThreeByTwoAceyDeucey() },
-        "34tag" to {
-          ThreeQuartersTag(
-              "34tag",
-              "3/4 Tag the Line"
-          )
-        },
-        "34tagtheline" to {
-          ThreeQuartersTag(
-              "34tag",
-              "3/4 Tag the Line"
-          )
-        },
-        "left34tag" to {
-          ThreeQuartersTag(
-              "left34tag",
-              "Left 3/4 Tag the Line"
-          )
-        },
-        "left34tagtheline" to {
-          ThreeQuartersTag(
-              "left34tag",
-              "Left 3/4 Tag the Line"
-          )
-        },
+        "34tag" to { ThreeQuartersTag("34tag","3/4 Tag the Line") },
+        "34tagtheline" to { ThreeQuartersTag("34tag","3/4 Tag the Line") },
+        "left34tag" to { ThreeQuartersTag("left34tag","Left 3/4 Tag the Line") },
+        "left34tagtheline" to { ThreeQuartersTag("left34tag","Left 3/4 Tag the Line") },
         "touch" to { Touch("touch","Touch") },
         "lefttouch" to { Touch("lefttouch","Left Touch") },
         "trade" to { Trade() },
         "partnertrade" to { Trade() },
         "thosewhocan" to { ThoseWhoCan() },
-        "touch14" to {
-          TouchAQuarter(
-              "touch14",
-              "Touch a Quarter"
-          )
-        },
-        "lefttouch14" to {
-          TouchAQuarter(
-              "lefttouch14",
-              "Left Touch a Quarter"
-          )
-        },
+        "touch14" to { TouchAQuarter( "touch14","Touch a Quarter") },
+        "lefttouch14" to { TouchAQuarter("lefttouch14","Left Touch a Quarter") },
         "triplestarthru" to { TripleStarThru() },
         "tripletrade" to { TripleTrade() },
         "turnback" to { TurnBack() },
-        "twisttheline" to {
-          TwistAnything(
-              "twisttheline",
-              "Twist the Line"
-          )
-        },
+        "twisttheline" to { TwistAnything("twisttheline","Twist the Line") },
         "zoom" to { Zoom() },
-        "singlewheel" to {
-          SingleWheel(
-              "singlewheel",
-              "Single Wheel"
-          )
-        },
-        "leftsinglewheel" to {
-          SingleWheel(
-              "leftsinglewheel",
-              "Left Single Wheel"
-          )
-        },
+        "singlewheel" to { SingleWheel("singlewheel","Single Wheel") },
+        "leftsinglewheel" to { SingleWheel("leftsinglewheel","Left Single Wheel") },
         "squaretheset" to { SquareTheSet() },
         "sweep14" to { SweepAQuarter() },
-        "turnthru" to {
-          TurnThru(
-              "turnthru",
-              "Turn Thru"
-          )
-        },
-        "leftturnthru" to {
-          TurnThru(
-              "leftturnthru",
-              "Left Turn Thru"
-          )
-        },
+        "turnthru" to { TurnThru("turnthru","Turn Thru") },
+        "leftturnthru" to { TurnThru("leftturnthru","Left Turn Thru") },
         "twice" to { Twice("twice","Twice") },
         "gotwice" to { Twice("twice","Go Twice") },
         "verycenter" to { VeryCenters() },
         //  standard Walk and Dodge from waves, columns, etc
         //  also Centers Walk and Dodge goes through here
-        "walkanddodge" to {
-          WalkandDodge(
-              "walkanddodge",
-              "Walk and Dodge"
-          )
-        },
-        "wheelaround" to {
-          WheelAround(
-              "wheelaround",
-              "Wheel Around"
-          )
-        },
+        "walkanddodge" to { WalkandDodge("walkanddodge","Walk and Dodge") },
+        "wheelaround" to { WheelAround("wheelaround","Wheel Around") },
         "withtheflow" to { WithTheFlow() },
-        "reversewheelaround" to {
-          WheelAround(
-              "reversewheelaround",
-              "Reverse Wheel Around"
-          )
-        },
+        "reversewheelaround" to { WheelAround("reversewheelaround",
+                                              "Reverse Wheel Around") },
         "zig" to { Zig("zig", "Zig") },
         "zag" to { Zig("zag", "Zag") },
         "zigzig" to { ZigZag("zigzig", "Zig Zig") },
