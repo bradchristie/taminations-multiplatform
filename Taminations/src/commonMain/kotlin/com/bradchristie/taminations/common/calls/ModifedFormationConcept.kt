@@ -45,13 +45,14 @@ abstract class ModifedFormationConcept(norm:String, name:String=norm) : Action(n
     if (!checkFormation(ctx))
       throw CallError("Not $conceptName formation")
     //  Shift dancers into modified formation
-    ctx.adjustToFormation(modifiedFormationName)
+    if (!ctx.adjustToFormation(modifiedFormationName))
+      throw CallError("Unable to adjust $formationName to $modifiedFormationName")
     val adjusted = ctx.dancers.filter { d -> d.path.movelist.isNotEmpty() }
 
     //  Perform the call
     val callName = name.replaceFirst(conceptName.ri,"")
     ctx.applyCalls(callName)
-    //  Merge the slide in adjustment into the start of the call
+    //  Merge the initial adjustment into the start of the call
     ctx.dancers.forEach { d ->
       if (d in adjusted && d.path.movelist.count() > 1) {
         val dy = d.path.movelist.first().btranslate.endPoint.y

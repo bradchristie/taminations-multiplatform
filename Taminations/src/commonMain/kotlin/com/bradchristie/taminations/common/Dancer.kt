@@ -56,8 +56,7 @@ fun Vector.ds(d:Dancer) : Vector = d.tx.inverse() * this
 fun List<Dancer>.inOrder():List<Dancer> =
     this.filter { it.location.x.isGreaterThan(0.0) ||
         (it.location.x.isAbout(0.0) && it.location.y.isGreaterThan(0.0)) }
-        .map { d -> listOf(d,this.first { it.location == -d.location } ) }
-        .flatten()
+        .flatMap { d -> listOf(d,this.first { it.location == -d.location } ) }
 
 
 /**
