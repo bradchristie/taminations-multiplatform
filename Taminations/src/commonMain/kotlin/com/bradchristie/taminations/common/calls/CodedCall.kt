@@ -185,7 +185,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "counterrotate" to { CounterRotate() },
         "snapthelock" to { SnapTheLock() },
         "castoff34" to { CastOffThreeQuarters() },
-        "peeltoadiamond" to { PeelToADiamond() }
+        "peeltoadiamond" to { PeelToADiamond() },
+        "hocuspocus" to { HocusPocus() }
     )
 
     //  More complex calls where the text is needed either to select

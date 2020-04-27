@@ -48,8 +48,9 @@ class XMLCall(val xelem: TamElement,
       ctx3.extendPaths()
       ctx3.analyze()
     }
-    val matchResult = ctx.computeFormationOffsets(ctx2,xmlmap)
+    val matchResult = ctx.computeFormationOffsets(ctx2,xmlmap, delta = 0.2)
     xmlmap.forEachIndexed { i3, m ->
+
       val p = Path(allp[m shr 1])
       if (p.movelist.isEmpty())
         p.add(TamUtils.getMove("Stand"))

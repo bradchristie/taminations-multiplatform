@@ -124,39 +124,29 @@ class Matrix(val m11:Double=1.0, val m21:Double=0.0, val m31:Double=0.0,
       val u = Matrix()
       return Triple(u,sigma,v)
     } else {
-      val j = a.sq + b.sq
-      val k = c.sq + d.sq
-      val vc = a*c + b*d
-      //  Check to see if A^T*A is diagonal
-      if (vc.abs < epsilon) {
-        val s1 = j.sqrt
-        val s2 = if ((j-k).abs < epsilon) s1 else k.sqrt
-        val sigma = doubleArrayOf(s1,s2)
-        val v = Matrix()
-        val u = Matrix(a / s1, b / s1, 0.0,
-            c / s2, d / s2, 0.0)
-        return Triple(u,sigma,v)
-      } else {   //  Otherwise, solve quadratic for eigenvalues
-        val atanarg1 = 2 * a * c + 2 * b * d
-        val atanarg2 = a * a + b * b - c * c - d * d
-        val theta = 0.5 * atan2(atanarg1,atanarg2)
-        val u = Matrix(theta.cos, -theta.sin, 0.0,
-            theta.sin, theta.cos, 0.0)
+      val atanarg1 = 2 * a * c + 2 * b * d
+      val atanarg2 = a * a + b * b - c * c - d * d
+      val theta = 0.5 * atan2(atanarg1, atanarg2)
+      val u = Matrix(
+          theta.cos, -theta.sin, 0.0,
+          theta.sin, theta.cos, 0.0
+      )
 
-        val phi = 0.5 * atan2(2 * a * b + 2 * c * d, a.sq - b.sq + c.sq - d.sq)
-        val s11 = (a * theta.cos + c * theta.sin) * phi.cos +
-            (b * theta.cos + d * theta.sin) * phi.sin
-        val s22 = (a * theta.sin - c * theta.cos) * phi.sin +
-            (-b * theta.sin + d * theta.cos) * phi.cos
+      val phi = 0.5 * atan2(2 * a * b + 2 * c * d, a.sq - b.sq + c.sq - d.sq)
+      val s11 = (a * theta.cos + c * theta.sin) * phi.cos +
+          (b * theta.cos + d * theta.sin) * phi.sin
+      val s22 = (a * theta.sin - c * theta.cos) * phi.sin +
+          (-b * theta.sin + d * theta.cos) * phi.cos
 
-        val s1 = a.sq + b.sq + c.sq + d.sq
-        val s2 = ((a.sq + b.sq - c.sq - d.sq).sq + 4 * (a * c + b * d).sq).sqrt
-        val sigma = doubleArrayOf((s1 + s2).sqrt / 2, (s1 - s2).sqrt / 2)
+      val s1 = a.sq + b.sq + c.sq + d.sq
+      val s2 = ((a.sq + b.sq - c.sq - d.sq).sq + 4 * (a * c + b * d).sq).sqrt
+      val sigma = doubleArrayOf((s1 + s2).sqrt / 2, (s1 - s2).sqrt / 2)
 
-        val v = Matrix(s11.sign * phi.cos, -s22.sign * phi.sin, 0.0,
-            s11.sign * phi.sin, s22.sign * phi.cos, 0.0)
-        return Triple(u,sigma,v)
-      }
+      val v = Matrix(
+          s11.sign * phi.cos, -s22.sign * phi.sin, 0.0,
+          s11.sign * phi.sin, s22.sign * phi.cos, 0.0
+      )
+      return Triple(u, sigma, v)
     }
   }
 

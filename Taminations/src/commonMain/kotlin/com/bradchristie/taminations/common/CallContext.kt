@@ -428,7 +428,7 @@ class CallContext {
         val mm = ctx1.matchFormations(ctx2, sexy=sexy, fuzzy=fuzzy, handholds = !fuzzy,
             headsmatchsides=headsmatchsides)
         if (mm != null) {
-          val matchResult = ctx1.computeFormationOffsets(ctx2, mm)
+          val matchResult = ctx1.computeFormationOffsets(ctx2, mm, delta = 0.2)
           val totOffset = matchResult.offsets.fold(0.0) { s, v -> s + v.length }
           if (totOffset < bestOffset) {
             xmlCall = XMLCall(tam, mm, ctx2)
@@ -476,7 +476,8 @@ class CallContext {
       }.distinct().count() == 1
 
   //  Once a mapping of two formations is found,
-  //  this computes the difference between the two.
+  //  this finds the best rotation to fit one onto the other
+  //  and computes the difference between the two.
   @Suppress("ArrayInDataClass")
   data class FormationMatchResult(
     var transform:Matrix,
@@ -561,8 +562,9 @@ class CallContext {
                       //  For calls specific to Heads or Sides
                       //  set headsmatchsides to false
                       headsmatchsides:Boolean=true,
+                      subformation:Boolean=false,
                       maxError:Double=1.9): IntArray? {
-    if (dancers.count() != ctx2.dancers.count())
+    if (!subformation && dancers.count() != ctx2.dancers.count())
       return null
     //  Find mapping using DFS
     val mapping = IntArray(dancers.count()) { -1 }
@@ -610,7 +612,9 @@ class CallContext {
           val matchResult = computeFormationOffsets(ctx2,mapping)
           //  Don't match if some dancers are too far from their mapped location
           val maxOffset = matchResult.offsets.maxBy { it.length }!!
-          if (maxOffset.length < maxError) {
+          //  Don't match if rotation is not multiple of 90 degrees
+          val angsnap = matchResult.transform.angle / (PI / 2)
+          if (maxOffset.length < maxError && angsnap.isApproxInt(delta = 0.2)) {
             val totOffset = matchResult.offsets.fold(0.0) { s, v -> s + v.length }
             if (bestmapping == null || totOffset < bestOffset) {
               bestmapping = mapping.copyOf()
@@ -711,45 +715,46 @@ class CallContext {
 
   //  See if the current dancer positions resemble a standard formation
   //  and, if so, snap to the standard
-  private val standardFormations = listOf(
-      "Normal Lines Compact",
-      "Normal Lines",
-      "Double Pass Thru",
-      "Quarter Tag",
-      "Tidal Line RH",
-      "Tidal Wave of 6",
-      "I-Beam",
-   //   "H-Beam",
-      "Diamonds RH Girl Points",
-      "Diamonds RH PTP Girl Points",
-      "Hourglass RH BP",
-      "Galaxy RH GP",
-      "Butterfly RH",
-      "O RH",
-      "Thar RH Boys",
-      "Sausage RH",
-      "Static Square",
+  private val standardFormations = mapOf(
+      "Normal Lines Compact" to 1.0,
+      "Normal Lines" to 1.0,
+      "Double Pass Thru" to 1.0,
+      "Quarter Tag" to 1.0,
+      "Tidal Line RH" to 1.0,
+      "Tidal Wave of 6" to 2.0,
+      "I-Beam" to 2.0,
+      "Diamonds RH Girl Points" to 2.0,
+      "Diamonds RH PTP Girl Points" to 3.0,
+      "Hourglass RH BP" to 3.0,
+      "Galaxy RH GP" to 3.0,
+      "Butterfly RH" to 3.0,
+      "O RH" to 3.0,
+      "Thar RH Boys" to 3.0,
+      "Sausage RH" to 3.0,
+      "Static Square" to 2.0,
           //"Alamo Wave"
-      "Right-Hand Zs",
-      "Left-Hand Zs",
+      "Right-Hand Zs" to 2.0,
+      "Left-Hand Zs" to 2.0,
       //  Siamese formations
       //  This also covers C-1 Phantom formations
-      "Siamese Box 1",
-      "Siamese Box 2",
+      "Siamese Box 1" to 2.0,
+      "Siamese Box 2" to 2.0,
       //  Blocks
-      "Facing Blocks Right",
-      "Facing Blocks Left",
-      "Siamese Wave",
-      "Concentric Diamonds RH"
+      "Facing Blocks Right" to 2.0,
+      "Facing Blocks Left" to 2.0,
+      "Siamese Wave" to 2.0,
+      "Concentric Diamonds RH" to 2.0,
+      "Quarter Z RH" to 2.0,
+      "Quarter Z LH" to 2.0
   )
-  private val twoCoupleFormations = listOf(
-      "Facing Couples Compact",
-      "Facing Couples",
-      "Two-Faced Line RH",
-      "Diamond RH",
-      "Single Eight Chain Thru",
-      "Single Quarter Tag",
-      "Square RH"
+  private val twoCoupleFormations = mapOf(
+      "Facing Couples Compact" to 1.0,
+      "Facing Couples" to 1.0,
+      "Two-Faced Line RH" to 1.0,
+      "Diamond RH" to 1.0,
+      "Single Eight Chain Thru" to 1.0,
+      "Single Quarter Tag" to 1.0,
+      "Square RH" to 1.0
   )
   @Suppress("ArrayInDataClass")
   data class BestMapping(
@@ -767,9 +772,9 @@ class CallContext {
     var bestMapping: BestMapping? = null
     val formations = if (ctx1.dancers.count() == 4) twoCoupleFormations else standardFormations
     formations.forEach { f ->
-      val ctx2 = CallContext(TamUtils.getFormation(f))
+      val ctx2 = CallContext(TamUtils.getFormation(f.key))
       //  See if this formation matches
-      val rot = if (f.contains("Lines")) 180 else 90
+      val rot = if (f.key.contains("Lines")) 180 else 90
       val mapping = ctx1.matchFormations(ctx2,sexy=false,fuzzy=true,rotate=rot,handholds=false)
       if (mapping != null) {
         //  If it does, get the offsets
@@ -778,13 +783,14 @@ class CallContext {
         //  then consider it bogus
         val angsnap = matchResult.transform.angle / (PI / 2)
         val totOffset = matchResult.offsets.fold(0.0) { s, v -> s + v.length }
+    //    System.log("$f : $totOffset")
         //  Favor formations closer to the top of the list
         //  Especially favor lines
-        val favoring = if (bestMapping?.name?.contains("Line") == true) 2.0 else 1.0
+        val favoring = f.value
         if (totOffset < 9.0 && angsnap.isApproxInt(delta = 0.05)) {
           if (bestMapping == null || totOffset*favoring + 0.2 < bestMapping!!.totOffset)
             bestMapping = BestMapping(
-                f,  // only used for debugging
+                f.key,  // only used for debugging
                 mapping,
                 matchResult.offsets,
                 totOffset
@@ -860,6 +866,23 @@ class CallContext {
       mapindex += 1
     }
     return false
+  }
+
+  //  Use phantoms to fill in a formation starting from the dancers
+  //  in the current context
+  fun fillFormation(fname:String) : CallContext? {
+    val ctx2 = CallContext(TamUtils.getFormation(fname))
+    val mapping = matchFormations(ctx2,sexy=false,fuzzy=true,rotate=0,handholds=false, subformation = true) ?: return null
+    val matchResult = computeFormationOffsets(ctx2, mapping)
+    //var rotmat = Matrix.getRotation(-matchResult.transform.angle)
+    val unmapped = ctx2.dancers.filterIndexed { i,_ -> !mapping.contains(i) }
+    val phantoms = unmapped.map { d ->
+      val ph = Dancer("0","0",Gender.PHANTOM,Color.GRAY,
+                      d.starttx,
+                      Geometry.getGeometry(Geometry.SQUARE)[0], listOf())
+      ph
+    }
+    return CallContext(this,dancers+phantoms)
   }
 
 
@@ -944,7 +967,16 @@ class CallContext {
         tryOneDiamondFormation("Hourglass RH GP") +
         tryOneDiamondFormation("Galaxy RH GP")
 
-    //  Return true if this dancer is in a wave or mini-wave
+  //  Return pair of boxes for dancers in a 2x4 formation
+  fun boxes():Pair<List<Dancer>, List<Dancer>> {
+    if (!isTBone())
+      throw CallError("Attempt to find boxes from non 2x4 formation.")
+    val farout = outer(4).first()
+    val isX = farout.location.x.abs > farout.location.y.abs
+    return dancers.partition { if (isX) it.location.x < 0 else it.location.y < 0 }
+  }
+
+  //  Return true if this dancer is in a wave or mini-wave
   fun isInWave(d:Dancer,d2:Dancer?=d.data.partner):Boolean {
     return d2 != null && d.angleToDancer(d2) isAround d2.angleToDancer(d)
                       && d.distanceTo(d2) < 2.1
@@ -1104,6 +1136,23 @@ class CallContext {
         d.path.pop()
     }
   }
+
+  /*
+  //  Center dancers around the origin
+  //  Useful for a CallContext created from an arbitrary set of dancers
+  //  However this arbitrary set should be symmetrical (C2) about its
+  //  central point, just like a (non-asymmetric) square.
+  fun recenter() {
+    animate(0.0)
+    val maxx = dancers.map { it.location.x }.max()!!
+    val minx = dancers.map { it.location.x }.min()!!
+    val maxy = dancers.map { it.location.y }.max()!!
+    val miny = dancers.map { it.location.y }.min()!!
+    val shift = Vector((maxx + minx) / 2.0, (maxy + miny) / 2.0)
+    dancers.forEach { d ->
+      d.setStartPosition(d.location - shift)
+    }
+  }  */
 
   //  This is useful for calls that depend on re-defining dancer types
   //  for subgroups, e.g. "Centers Zoom"

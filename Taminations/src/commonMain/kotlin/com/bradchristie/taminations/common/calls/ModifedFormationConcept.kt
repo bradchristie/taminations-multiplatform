@@ -45,7 +45,8 @@ abstract class ModifedFormationConcept(norm:String, name:String=norm) : Action(n
     if (!checkFormation(ctx))
       throw CallError("Not $conceptName formation")
     //  Shift dancers into modified formation
-    if (!ctx.adjustToFormation(modifiedFormationName))
+    if (!ctx.adjustToFormation(modifiedFormationName,rotate=180) &&
+        !ctx.adjustToFormation(modifiedFormationName,rotate=90))
       throw CallError("Unable to adjust $formationName to $modifiedFormationName")
     val adjusted = ctx.dancers.filter { d -> d.path.movelist.isNotEmpty() }
 
