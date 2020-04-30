@@ -244,12 +244,37 @@ class CallContext {
    */
   fun appendToSource(): CallContext {
     dancers.forEach {
-      it.clonedFrom!!.path.add(it.path)
-      it.clonedFrom.animateToEnd()
+      it.clonedFrom?.let { clone ->
+        clone.path.add(it.path)
+        clone.animateToEnd()
+      }
     }
     if (source != null && source!!.level < level)
       source?.level = level
     return this
+  }
+
+  private fun appendTo(ctx:CallContext) : Boolean {
+    var retval = false
+    ctx.dancers.forEach { d ->
+      dancers.firstOrNull { it == d }?.let {
+        retval = retval || it.path.movelist.isNotEmpty()
+        d.path.add(it.path)
+        d.animateToEnd()
+      }
+    }
+    return retval
+  }
+
+  //  Create a new CallContext from a list of dancers
+  //  (usually a subset of this CallContext dancers).
+  //  Apply a function as a method of the new CallContext.
+  //  Then transfer any new calls from the created CallContext to this CallContext.
+  //  Return true if anything new was added.
+  fun subContext(dancers:List<Dancer>,block:CallContext.()->Unit) : Boolean {
+    val ctx = CallContext(dancers.toTypedArray())
+    ctx.block()
+    return ctx.appendTo(this)
   }
 
   //  For now this just checks for collisions in a tidal formation
@@ -774,7 +799,7 @@ class CallContext {
     formations.forEach { f ->
       val ctx2 = CallContext(TamUtils.getFormation(f.key))
       //  See if this formation matches
-      val rot = if (f.key.contains("Lines")) 180 else 90
+      val rot = if (f.key.contains("Lines") || f.key.contains("Couples")) 180 else 90
       val mapping = ctx1.matchFormations(ctx2,sexy=false,fuzzy=true,rotate=rot,handholds=false)
       if (mapping != null) {
         //  If it does, get the offsets
@@ -783,7 +808,7 @@ class CallContext {
         //  then consider it bogus
         val angsnap = matchResult.transform.angle / (PI / 2)
         val totOffset = matchResult.offsets.fold(0.0) { s, v -> s + v.length }
-    //    System.log("$f : $totOffset")
+        // System.log("$f : $totOffset")
         //  Favor formations closer to the top of the list
         //  Especially favor lines
         val favoring = f.value
@@ -871,15 +896,20 @@ class CallContext {
   //  Use phantoms to fill in a formation starting from the dancers
   //  in the current context
   fun fillFormation(fname:String) : CallContext? {
+    //  Use letters for phantom numbers so there's no way they can
+    //  match the real dancers
+    val letters = "ABCDEFGH"
+    var nextPhantom = 0
     val ctx2 = CallContext(TamUtils.getFormation(fname))
     val mapping = matchFormations(ctx2,sexy=false,fuzzy=true,rotate=0,handholds=false, subformation = true) ?: return null
     val matchResult = computeFormationOffsets(ctx2, mapping)
-    //var rotmat = Matrix.getRotation(-matchResult.transform.angle)
+    val rotmat = Matrix.getRotation(-matchResult.transform.angle)
     val unmapped = ctx2.dancers.filterIndexed { i,_ -> !mapping.contains(i) }
     val phantoms = unmapped.map { d ->
-      val ph = Dancer("0","0",Gender.PHANTOM,Color.GRAY,
-                      d.starttx,
+      val ph = Dancer(letters[nextPhantom].toString(),"0",Gender.PHANTOM,Color.GRAY,
+                      rotmat * d.starttx,
                       Geometry.getGeometry(Geometry.SQUARE)[0], listOf())
+      nextPhantom += 1
       ph
     }
     return CallContext(this,dancers+phantoms)

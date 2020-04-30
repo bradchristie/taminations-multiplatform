@@ -1576,6 +1576,23 @@ Star Thru
 Pass Thru 
 Wheel and Deal 
 Centers Pass Thru 
+Allemande Left""",
+
+      "Hocus Pocus" to
+"""Heads Touch a Quarter and Spread 
+Hocus Pocus 
+Turn Back 
+Hocus Pocus 
+Centers Trade and Roll 
+Hocus Pocus 
+Hocus Pocus 
+Centers Touch a Quarter 
+Left Quarter Thru 
+Girls Run 
+Right and Left Thru 
+Pass Thru 
+Wheel and Deal 
+Centers Square Thru 3 
 Allemande Left"""
 
   )
