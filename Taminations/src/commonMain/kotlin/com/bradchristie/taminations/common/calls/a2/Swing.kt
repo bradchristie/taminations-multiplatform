@@ -24,6 +24,7 @@ import com.bradchristie.taminations.common.CallError
 import com.bradchristie.taminations.common.LevelObject
 import com.bradchristie.taminations.common.calls.Action
 
+//  This is the A-2 call Swing
 class Swing : Action("Swing") {
 
   override val level = LevelObject("a2")
@@ -31,13 +32,17 @@ class Swing : Action("Swing") {
 
   override fun perform(ctx: CallContext, i: Int) {
     //  If single wave in center, just those 4 Swing
-    val ctx4 = CallContext(ctx,ctx.center(4))
-    if (ctx4.isLines() && ctx4.isWaves() && !ctx.isTidal())
-      ctx4.applyCalls("Trade").appendToSource()
-    else if (ctx.isWaves())
-      ctx.applyCalls("Trade")
-    else
-      throw CallError("Dancers must be in mini-waves to Swing")
+    if (!ctx.subContext(ctx.center(4)) {
+          if (ctx.dancers.count() > 4 && isLines() && isWaves() && !ctx.isTidal()) {
+            analyze()
+            applyCalls("Trade")
+          }
+        }) {
+      if (ctx.actives.all { ctx.isInWave(it) })
+        ctx.applyCalls("Trade")
+      else
+        throw CallError("Dancers must be in mini-waves to Swing")
+    }
   }
 
 }

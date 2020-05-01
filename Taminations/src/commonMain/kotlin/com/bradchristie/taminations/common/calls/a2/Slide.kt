@@ -28,28 +28,28 @@ class Slide : Action("Slide") {
 
   override fun perform(ctx: CallContext, i: Int) {
     //  If single wave in center, just those 4 Slide
-    val ctx4 = CallContext(ctx,ctx.center(4))
-    if (ctx.dancers.count() > 4 &&
-        ctx4.isLines() && ctx4.isWaves() && !ctx.isTidal()) {
-      ctx4.analyze()
-      ctx4.applyCalls("Slide").appendToSource()
+    if (!ctx.subContext(ctx.center(4)) {
+          if (ctx.dancers.count() > 4 && isLines() && isWaves() && !ctx.isTidal()) {
+            analyze()
+            applyCalls("Slide")
+          }
+        }) {
+      if (ctx.actives.all { ctx.isInWave(it) })
+        super.perform(ctx, i)
+      else
+        throw CallError("Dancers must be in mini-waves to Slide")
     }
-    else if (ctx.isWaves())
-      super.perform(ctx, i)
-    else
-      throw CallError("Dancers must be in mini-waves to Swing")
   }
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
     val d2 = d.data.partner
       ?: throw CallError("Unable to calculate Slide.")
     val dist = d.distanceTo(d2)
-    if (d.data.beau)
-      return TamUtils.getMove("BackSashay Right").scale(1.0,dist/2.0)
-    else if (d.data.belle)
-      return TamUtils.getMove("BackSashay Left").scale(1.0,dist/2.0)
-    else
-      throw CallError("Unable to calculate Slide.")
+    return when {
+      d.data.beau -> TamUtils.getMove("BackSashay Right").scale(1.0,dist/2.0)
+      d.data.belle -> TamUtils.getMove("BackSashay Left").scale(1.0,dist/2.0)
+      else -> throw CallError("Unable to calculate Slide.")
+    }
   }
 
 }

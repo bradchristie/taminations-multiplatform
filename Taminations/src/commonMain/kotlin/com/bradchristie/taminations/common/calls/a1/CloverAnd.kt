@@ -65,16 +65,17 @@ class CloverAnd(norm:String,name:String) : Action(norm,name) {
     }
     //  Make those 4 dancers Cloverleaf
     val (clovercall,andcall) = name.split("and".r,2)
-    val ctx1 = CallContext(ctx,clovers)
-    ctx1.applyCalls("$clovercall and")
-    //  "Clover and <nothing>" is stored in A-1 but is really Mainstream
-    ctx1.level = LevelObject("ms")
-    ctx1.appendToSource()
+    ctx.subContext(clovers) {
+      applyCalls("$clovercall and")
+      //  "Clover and <nothing>" is stored in A-1 but is really Mainstream
+      level = LevelObject("ms")
+    }
+
     //  And the other 4 do the next call at the same time
-    val ctx2 = CallContext(ctx,ctx.dancers.filterNot { d -> d in clovers })
-    ctx2.dancers.forEach { d -> d.data.active = true }
-    ctx2.applyCalls(andcall)
-    ctx2.appendToSource()
+    ctx.subContext(ctx.dancers.filterNot { d -> d in clovers }) {
+      dancers.forEach { d -> d.data.active = true }
+      applyCalls(andcall)
+    }
   }
 
 }

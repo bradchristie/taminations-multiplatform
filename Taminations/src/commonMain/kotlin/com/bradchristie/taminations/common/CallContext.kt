@@ -40,7 +40,7 @@ class CallContext {
     //  Supplements looking up calls in TamUtils.calldata
     //  Keys are normalized call name
     //  Values are file names
-    val callindex = mutableMapOf<String, MutableList<String>>()
+    val callindex = mutableMapOf<String, MutableSet<String>>()
 
     //  Initialize callindex with calls in theses files
     val callindexinitfiles = arrayOf(
@@ -121,7 +121,7 @@ class CallContext {
             } else {
               val norm = TamUtils.normalizeCall(tam.attr("title"))
               if (!callindex.containsKey(norm))
-                callindex[norm] = mutableListOf()
+                callindex[norm] = mutableSetOf()
               callindex[norm]!! += link
             }
           }
@@ -191,9 +191,10 @@ class CallContext {
   //  Create a context from a formation defined in XML
   //  The element passed in can be either a "tam" from
   //  an animation, or a formation
-  constructor(tam: TamElement) {
+  constructor(tam: TamElement, loadPaths:Boolean=false) {
     val numberArray = TamUtils.getNumbers(tam)
     val coupleArray = TamUtils.getCouples(tam)
+    val paths = if (loadPaths) tam.children("path") else listOf()
     val f = if (tam.hasAttribute("formation"))
       TamUtils.getFormation(tam.attr("formation"))
     else
@@ -210,7 +211,7 @@ class CallContext {
                   .preTranslate(element.attr("x").d, element.attr("y").d)
                   .preRotate(element.attr("angle").d.toRadians),
               Geometry.getGeometry(Geometry.SQUARE).first(),
-              listOf()
+              if (paths.count() > i) TamUtils.translatePath(paths[i]) else listOf()
           ),
           Dancer(numberArray[i * 2 + 1], coupleArray[i * 2 + 1],
               genderMap.getValue(element.attr("gender")),
@@ -219,9 +220,8 @@ class CallContext {
                   .preTranslate(element.attr("x").d, element.attr("y").d)
                   .preRotate(element.attr("angle").d.toRadians),
               Geometry.getGeometry(Geometry.SQUARE)[1],
-              listOf()
+              if (paths.count() > i) TamUtils.translatePath(paths[i]) else listOf()
           )
-
       )
     }.flatten()
   }
@@ -272,7 +272,7 @@ class CallContext {
   //  Then transfer any new calls from the created CallContext to this CallContext.
   //  Return true if anything new was added.
   fun subContext(dancers:List<Dancer>,block:CallContext.()->Unit) : Boolean {
-    val ctx = CallContext(dancers.toTypedArray())
+    val ctx = CallContext(dancers.inOrder().toTypedArray())
     ctx.block()
     return ctx.appendTo(this)
   }
@@ -396,6 +396,12 @@ class CallContext {
     return this
   }
 
+  fun xmlFilesForCall(norm:String) : Set<String> {
+    val callfiles1 = TamUtils.callmap[norm]?.map { it.link } ?: listOf()
+    val callfiles2 = callindex[norm] ?: mutableSetOf()
+    return callfiles2.apply { addAll(callfiles1) }
+  }
+
   //  Main routine to map a call to an animation in a Taminations XML file
   private fun matchXMLcall(calltext:String, fuzzy:Boolean=false):Boolean {
     val ctx0 = this
@@ -425,9 +431,7 @@ class CallContext {
     }
     //  Try to find a match in the xml animations
     val callnorm = TamUtils.normalizeCall(calltext)
-    val callfiles1 = TamUtils.callmap[callnorm]?.map { it.link } ?: listOf()
-    val callfiles2 = callindex[callnorm] ?: mutableListOf()
-    val callfiles = callfiles1 + callfiles2
+    val callfiles = xmlFilesForCall(callnorm)
     //  Found xml file with call, now look through each animation
     val found = callfiles.isNotEmpty()
     var bestOffset = Double.MAX_VALUE
@@ -500,14 +504,17 @@ class CallContext {
         (d.number_couple.d - ctx2.dancers[mapping[i]].number_couple.d + 4) % 4
       }.distinct().count() == 1
 
-  //  Once a mapping of two formations is found,
-  //  this finds the best rotation to fit one onto the other
-  //  and computes the difference between the two.
+  //  Using an array in a data class gives unexpected results for
+  //  equals(), so Kotlin spits out a warning.
+  //  But we never compare instances, so can ignore the warning.
   @Suppress("ArrayInDataClass")
   data class FormationMatchResult(
     var transform:Matrix,
     var offsets:Array<Vector>
   )
+  //  Once a mapping of two formations is found,
+  //  this finds the best rotation to fit one onto the other
+  //  and computes the difference between the two.
   fun computeFormationOffsets(ctx2: CallContext, mapping:IntArray,
                               delta:Double=0.1):FormationMatchResult {
     var dvbest = emptyArray<Vector>()
@@ -785,7 +792,7 @@ class CallContext {
   data class BestMapping(
       var name:String,
       var mapping:IntArray,
-      var offsets:Array<Vector>,
+      var match: FormationMatchResult,
       var totOffset:Double
   )
   fun matchStandardFormation() {
@@ -817,17 +824,18 @@ class CallContext {
             bestMapping = BestMapping(
                 f.key,  // only used for debugging
                 mapping,
-                matchResult.offsets,
+                matchResult,
                 totOffset
             )
         }
       }
     }
-    if (bestMapping != null)
-      adjustToFormationMatch(bestMapping!!)
+    bestMapping?.let {
+      adjustToFormationMatch(it.match)
+    }
   }
 
-  fun adjustToFormationMatch(match:BestMapping) {
+  fun adjustToFormationMatch(match:FormationMatchResult) {
     dancers.forEach { d -> d.data.active = true }
     dancers.forEachIndexed { i,d ->
       if (match.offsets[i].length > 0.01) {
@@ -854,8 +862,7 @@ class CallContext {
     if (mapping != null) {
       //  If it does, get the offsets
       val matchResult = ctx1.computeFormationOffsets(ctx2, mapping, delta = 0.5)
-      val totOffset = matchResult.offsets.fold(0.0) { s, v -> s + v.length }
-      adjustToFormationMatch(BestMapping(fname,mapping,matchResult.offsets,totOffset))
+      adjustToFormationMatch(matchResult)
       return true
     }
     return false

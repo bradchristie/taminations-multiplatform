@@ -48,13 +48,13 @@ class Path(moves:List<Movement> = listOf()) {
   }
 
   fun add(p: Path): Path {
-    movelist += p.movelist
+    movelist = movelist + p.movelist
     recalculate()
     return this
   }
   operator fun plus(p: Path) = add(p)
   fun add(m: Movement): Path {
-    movelist += m
+    movelist = movelist + m
     recalculate()
     return this
   }
@@ -177,11 +177,11 @@ class Path(moves:List<Movement> = listOf()) {
    * Return the current hand at a specific point in time
    */
   fun hands(b:Double):Int {
-    if (b < 0 || b > beats)
-      return Hands.BOTHHANDS
+    return if (b < 0 || b > beats)
+      Hands.BOTHHANDS
     else {
       var bv = b
-      return movelist.fold(Hands.BOTHHANDS) {
+      movelist.fold(Hands.BOTHHANDS) {
         h, m -> if (bv < 0) h else { bv -= m.beats; m.hands }
       }
     }

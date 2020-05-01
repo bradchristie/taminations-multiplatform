@@ -28,22 +28,26 @@ class BraceThru : Action("Brace Thru") {
   override val requires = listOf("b1/pass_thru","b1/courtesy_turn","b1/turn_back","b2/wheel_around")
 
   override fun perform(ctx: CallContext, i: Int) {
-    val ctx2 = CallContext(ctx,ctx.actives)
-    ctx2.applyCalls("Pass Thru")
-    ctx2.analyze()
-    for (d in ctx2.dancers) {
-      val partner = d.data.partner
-        ?: throw CallError("Dancer $d cannot Brace Thru")
-      if (d.gender == partner.gender)
-        throw CallError("Same-sex dancers cannot Brace Thru")
+    ctx.subContext(ctx.actives) {
+      applyCalls("Pass Thru")
+      analyze()
+      for (d in dancers) {
+        val partner = d.data.partner
+          ?: throw CallError("Dancer $d cannot Brace Thru")
+        if (d.gender == partner.gender)
+          throw CallError("Same-sex dancers cannot Brace Thru")
+      }
+      val normal = dancers.filter { it.data.beau xor (it.gender == Gender.GIRL) }
+      val sashay = dancers.filter { it.data.beau xor (it.gender == Gender.BOY) }
+      if (normal.count() > 0)
+        subContext(normal) {
+          applyCalls("Courtesy Turn")
+        }
+      if (sashay.count() > 0)
+        subContext(sashay) {
+          applyCalls("Turn Back")
+        }
     }
-    val normal = ctx2.dancers.filter { it.data.beau xor (it.gender==Gender.GIRL) }
-    val sashay = ctx2.dancers.filter { it.data.beau xor (it.gender==Gender.BOY) }
-    if (normal.count() > 0)
-      CallContext(ctx2,normal).applyCalls("Courtesy Turn").appendToSource()
-    if (sashay.count() > 0)
-      CallContext(ctx2,sashay).applyCalls("Turn Back").appendToSource()
-    ctx2.appendToSource()
   }
 
 }

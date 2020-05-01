@@ -217,7 +217,6 @@ class ConcentricConcept(callnorm:String,callname:String) : FourDancerConcept(cal
     val pos = m.translate(beat).location
     val shift = if (f.isGreaterThan(0.0) && f.isLessThan(1.0))
       dancerShifts[d.number]!![mi].rotate(-d.angleFacing) else Vector()
-    //System.log("    pos: $pos    vnow: $vnow   shift: $shift")
     //  And add it to the concept dancer location
     return pos + vnow + shift
   }
