@@ -213,40 +213,21 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "(cross)?cloverand(\\w.*)".r -> CloverAnd(callnorm, callname)
         //  Be careful not to parse Wheel and Deal and Roll as
         //  Wheel and (Deal and Roll)
-        in "(reverse)?wheeland(?!deal)(\\w.*)".r -> WheelAnd(
-            callnorm,
-            callname
-        )
-        in "out(er|sides?)(2|4|6)?".r -> Outsides(
-            callnorm,
-            callname
-        )
+        in "(reverse)?wheeland(?!deal)(\\w.*)".r -> WheelAnd(callnorm, callname)
+        in "out(er|sides?)(2|4|6)?".r -> Outsides(callnorm, callname)
         in "in(ner|sides?)(2|4|6)?".r -> Insides(callnorm,callname)
         in "center(2|4|6)".r -> Insides(callnorm,callname)
         //  Boys Walk Girls Dodge etc
         //  Also handles Heads Boy Walk Girl Dodge
-        in "${specifier}walk(and)?${specifier}dodge".r -> WalkandDodge(
-            callnorm,
-            callname
-        )
+        in "${specifier}walk(and)?${specifier}dodge".r ->
+          WalkandDodge(callnorm, callname)
         //  Head Boy Walk Head Girl Dodge etc
         in "${specifier}${specifier}walk(and)?${specifier}${specifier}dodge".r -> WalkandDodge(callnorm, callname)
-        in "(left)?spinthewindmill(left|right|in|out|forward)".r -> SpinTheWindmill(
-            callnorm,
-            callname
-        )
-        in "_windmill(in|out|left|right|forward)".r -> Windmillx(
-            callnorm,
-            callname
-        )
-        in "(left)?squarethru(1|2|3|4|5|6|7)?(toawave)?".r -> SquareThru(
-            callnorm,
-            callname
-        )
-        in "(left)?splitsquarethru(2|3|4|5|6|7)?".r -> SplitSquareThru(
-            callnorm,
-            callname
-        )
+        in "(left)?spinthewindmill(left|right|in|out|forward)".r ->
+          SpinTheWindmill(callnorm, callname)
+        in "_windmill(in|out|left|right|forward)".r -> Windmillx(callnorm, callname)
+        in "(left)?squarethru(1|2|3|4|5|6|7)?(toawave)?".r -> SquareThru(callnorm, callname)
+        in "(left)?splitsquarethru(2|3|4|5|6|7)?".r -> SplitSquareThru(callnorm, callname)
         in "(head|side)start.+".r ->
           //  Don't want to match Sides Star Thru e.g.
           if (callname.toLowerCase() in ".*\\bstart\\b.*".r)
@@ -267,17 +248,11 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "tandem.*".r -> TandemConcept(callnorm, callname)
         in "siamese.*".r -> SiameseConcept(callnorm, callname)
         in "(12|34)?crazy.*".r -> Crazy(callnorm, callname)
-        in "(left)?verticaltagback(toawave)?".r -> VerticalTagBack(
-            callnorm,
-            callname
-        )
+        in "(left)?verticaltagback(toawave)?".r -> VerticalTagBack(callnorm, callname)
         in "(left)?vertical(left)?(14|12|34)?tag".r -> VerticalTag(callnorm,callname)
         in "adjustto.*".r -> Adjust(callnorm,callname)
         in "bouncethe.*".r -> Bounce(callnorm, callname)
-        in "(left)?tagback(toawave)?".r -> TagBack(
-            callnorm,
-            callname
-        )
+        in "(left)?tagback(toawave)?".r -> TagBack(callnorm, callname)
         in "transferand(.+)".r -> TransferAnd(callnorm, callname)
         in "(left)?turnanddeal".r -> TurnAndDeal(callnorm, callname)
         in "phantom(.+)".r -> PhantomConcept(callnorm,callname)
@@ -294,6 +269,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "(left)?tagyour((criss)?cross)?neighbor".r -> TagYourNeighbor(callnorm,callname)
         in "castashadowcenter(go|cast)?34".r -> CastAShadow(callnorm,callname)
         in "finish.*".r -> Finish(callnorm,callname)
+        in ".*(motivate|coordinate|percolate|perkup)".r ->
+          AnythingConcept(callnorm,callname)
         else -> null
       }
         //  Other calls not easily handled by when expression
