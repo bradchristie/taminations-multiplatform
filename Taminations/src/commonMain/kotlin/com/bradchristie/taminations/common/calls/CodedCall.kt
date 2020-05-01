@@ -293,17 +293,17 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "stagger(.+)".r -> StaggerConcept(callnorm,callname)
         in "(left)?tagyour((criss)?cross)?neighbor".r -> TagYourNeighbor(callnorm,callname)
         in "castashadowcenter(go|cast)?34".r -> CastAShadow(callnorm,callname)
-        //  Anything Chain Thru should not match Square Chain Thru, others?
-        //  cannot use negative look-behind in Javascript, so..
-        in "o.*".r -> if (callname.toLowerCase().matches("o .+".r))
-                 OFormation(callnorm, callname) else null
-        in ".*chainthru".r ->
-          if (callnorm in ".*squarechainthru".r) null else AnythingChainThru(
-              callnorm,
-              callname
-          )
+        in "finish.*".r -> Finish(callnorm,callname)
         else -> null
       }
+        //  Other calls not easily handled by when expression
+      ?: if (callname.toLowerCase().matches("o .+".r))
+          OFormation(callnorm, callname) else null
+      //  Anything Chain Thru should not match Square Chain Thru, others?
+      //  cannot use negative look-behind in Javascript, so..
+      ?: if (callnorm.matches(".*chainthru".r) &&
+            !callnorm.matches(".*squarechainthru".r))
+          AnythingChainThru(callnorm,callname) else null
     }
   }
 

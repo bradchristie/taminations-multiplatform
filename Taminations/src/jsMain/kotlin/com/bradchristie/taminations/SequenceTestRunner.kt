@@ -1593,6 +1593,24 @@ Right and Left Thru
 Pass Thru 
 Wheel and Deal 
 Centers Square Thru 3 
+Allemande Left""",
+
+      "Finish" to
+"""Sides Lead Right 
+Veer Left 
+Bend the Line 
+Pass Thru 
+Finish Right and Left Thru  
+Pass the Ocean 
+Finish Motivate 
+Girls Run 
+Finish Load the Boat 
+Star Thru 
+Bend the Line 
+Right and Left Thru 
+Pass Thru 
+Wheel and Deal 
+Centers Pass Thru 
 Allemande Left"""
 
   )
