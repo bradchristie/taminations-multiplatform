@@ -19,17 +19,17 @@ package com.bradchristie.taminations.common.calls
 
 */
 
-import com.bradchristie.taminations.common.CallContext
-import com.bradchristie.taminations.common.CallError
-import com.bradchristie.taminations.common.Movement
+import com.bradchristie.taminations.common.*
 import com.bradchristie.taminations.platform.attr
-import com.bradchristie.taminations.common.d
 
-class Half : Action("Half") {
+class Fraction(norm: String, name: String) : Action(norm, name) {
 
-  var prevbeats = 0.0
-  var halfbeats = 0.0
-  var call:Call = this
+  private var prevbeats = 0.0
+  private var partbeats = 0.0
+  private var call:Call = this
+
+  private var numerator = norm[0].toString().i
+  private var denominator = norm[1].toString().i
 
   override fun perform(ctx: CallContext, i: Int) {
     if (i+1 < ctx.callstack.count()) {
@@ -37,40 +37,48 @@ class Half : Action("Half") {
       call = ctx.callstack[i + 1]
       //  For XML calls there should be an explicit number of parts
       if (call is XMLCall) {
-        //  Figure out how many beats are in half the call
+        //  Figure out how many beats are in the fractional call
         //  Calls could have either "parts" or "fractions"
         val parts = (call as XMLCall).xelem.attr("parts") +
                     (call as XMLCall).xelem.attr("fractions")
         if (parts.isNotEmpty()) {
           val partnums = parts.split(";")
-          halfbeats = partnums.slice(0 until (partnums.count() + 1) / 2).map { it.d }.sum()
+          val numParts = partnums.count() + 1
+          if (numParts.rem(denominator) != 0)
+            throw CallError("Unable to divide ${call.name} into $denominator parts.")
+          if (numerator < 1 || numerator >= denominator)
+            throw CallError("Invalid fraction.")
+          val partsToDo = numParts * numerator / denominator
+          partbeats = partnums.slice(0 until partsToDo).map { it.d }.sum()
         }
+        //  If parts is empty, will calculate fraction below
+        //  in postProcess
       }
       prevbeats = ctx.maxBeats()
     }
     else
-      throw CallError("Half of what?")
+      throw CallError("$name of what?")
   }
 
   //  Call is performed between these two methods
 
   override fun postProcess(ctx: CallContext, i: Int) {
     //  Coded calls so far do not have explicit parts
-    //  so just divide them in two
-    //  Also if an XML call does not have parts just divide beats in two
-    if (call is Action || halfbeats == 0.0) {
-      halfbeats = (ctx.maxBeats() - prevbeats) / 2.0
+    //  so just divide them by the given fraction
+    //  Also if an XML call does not have parts just divide the beats
+    if (call is Action || partbeats == 0.0) {
+      partbeats = (ctx.maxBeats() - prevbeats) * numerator / denominator
     }
 
-    //  Chop off the excess half
+    //  Chop off the excess fraction
     ctx.dancers.forEach { d ->
       var mo: Movement? = null
-      while (d.path.beats > prevbeats + halfbeats)
+      while (d.path.beats > prevbeats + partbeats)
         mo = d.path.pop()
-      //  OK if there's no movement, half of nothing is nothing
+      //  OK if there's no movement, part of nothing is nothing
       mo?.let {
-        if (d.path.beats < prevbeats + halfbeats)
-          d.path.add(mo.clip(prevbeats + halfbeats - d.path.beats))
+        if (d.path.beats < prevbeats + partbeats)
+          d.path.add(it.clip(prevbeats + partbeats - d.path.beats))
       }
     }
 

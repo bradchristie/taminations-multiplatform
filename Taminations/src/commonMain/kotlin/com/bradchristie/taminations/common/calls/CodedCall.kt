@@ -87,7 +87,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "leftpartnerhinge" to { Hinge("lefthinge","Left Partner Hinge") },
         "jaywalk" to { Jaywalk() },
         "ladies" to { Girls() },
-        "12" to { Half() },
+        "12" to { Fraction("12","Half") },
         "12sashay" to { HalfSashay() },
         "circulate" to { Circulate() },
         "all8circulate" to { Circulate() },
@@ -271,15 +271,15 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "finish.*".r -> Finish(callnorm,callname)
         in ".*(motivate|coordinate|percolate|perkup)".r ->
           AnythingConcept(callnorm,callname)
+        in "\\d\\d".r -> Fraction(callnorm,callname)
         else -> null
       }
         //  Other calls not easily handled by when expression
       ?: if (callname.toLowerCase().matches("o .+".r))
           OFormation(callnorm, callname) else null
-      //  Anything Chain Thru should not match Square Chain Thru, others?
-      //  cannot use negative look-behind in Javascript, so..
+      //  Anything Chain Thru should not match Square Chain Thru or others
       ?: if (callnorm.matches(".*chainthru".r) &&
-            !callnorm.matches(".*squarechainthru".r))
+            !callnorm.matches(".*(cross|eight|peel|scatter|spin|square|swing|tag)chainthru".r))
           AnythingChainThru(callnorm,callname) else null
     }
   }
