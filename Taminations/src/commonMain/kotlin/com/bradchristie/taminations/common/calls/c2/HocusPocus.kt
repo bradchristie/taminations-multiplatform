@@ -33,6 +33,8 @@ class HocusPocus : Action("Hocus Pocus") {
     val outer4 = CallContext(ctx,ctx.outer(4).inOrder())
     val outerO = outer4.fillFormation("O RH")
       ?: outer4.fillFormation("O LH")
+      ?: outer4.fillFormation("O Eight Chain Thru")
+      ?: outer4.fillFormation("O Trade By")
       ?: throw CallError("Cannot determine how outer dancers can circulate.")
     ctx.subContext(outerO.dancers) {
       applyCalls("O Circulate","O Circulate")

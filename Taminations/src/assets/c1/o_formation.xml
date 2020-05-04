@@ -85,6 +85,49 @@
     </path>
   </tam>
 
+  <!-- For sequencer, O Circulate from more formations -->
+  <tam title="&quot;O&quot; Circulate" group="&quot;O&quot;" display="none"
+       from="O Eight Chain Thru"
+       formation="O Eight Chain Thru"
+       fractions="1.5" >
+    <path>
+      <move select="Extend Left" beats="2" scaleY="2" />
+      <move select="Forward" />
+    </path>
+    <path>
+      <move select="Forward" />
+      <move select="Extend Right" beats="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Forward" />
+      <move select="Extend Right" beats="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleY="2" />
+      <move select="Forward" />
+    </path>
+  </tam>
+
+  <tam title="&quot;O&quot; Circulate" group="&quot;O&quot;" display="none"
+       from="O Trade By"
+       formation="O Trade By"
+       fractions="1.5" >
+    <path>
+      <move select="Run Right" />
+    </path>
+    <path>
+      <move select="Flip Left" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+  </tam>
+
   <tam title="&quot;O&quot; Cloverleaf" group="&quot;O&quot;"
        formation="O Out">
     <path>
