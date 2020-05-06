@@ -34,7 +34,7 @@ class Finish(callnorm:String,callname:String) : Action(callnorm,callname) {
     //  For now we just work with XML calls
     //  Find matching XML call
     val files = ctx.xmlFilesForCall(finishNorm)
-    files.forEach { link ->
+    val found = files.any { link ->
       CallContext.loadedXML[link]?.evalXPath("/tamination/tam")?.asSequence()
           ?.filter { tam ->
             tam.attr("sequencer")!="no" &&
@@ -61,8 +61,10 @@ class Finish(callnorm:String,callname:String) : Action(callnorm,callname) {
                 true
               } ?: false
             } ?: false
-          }
+          } != null
     }
+    if (!found)
+      throw CallError("Could not figure out how to Finish $finishCall")
   }
 
 }

@@ -38,11 +38,13 @@
       <move select="Lead Right" scaleX="3" scaleY="2" beats="2.5" />
     </path>
     <path>
-      <move select="Forward" scaleX="3" beats="3" />
+      <move select="Forward 2" />
+      <move select="Forward"/>
       <move select="Swing Right" beats="2.5" scaleX=".5"/>
     </path>
     <path>
-      <move select="Forward" scaleX="3" beats="3" />
+      <move select="Forward 2" />
+      <move select="Forward"/>
       <move select="Swing Right" beats="2.5" scaleX=".5"/>
       <move select="Extend Left" beats="2.5" scaleX="2" scaleY="2"/>
     </path>
@@ -53,12 +55,14 @@
        formation="Column LH GBGB"
        parts="2;1;2.5" difficulty="2">
     <path>
-      <move select="Forward" scaleX="3" beats="3" />
+      <move select="Forward 2" />
+      <move select="Forward"/>
       <move select="Swing Left" beats="2.5" scaleX=".5"/>
       <move select="Extend Right" beats="2.5" scaleX="2" scaleY="2"/>
     </path>
     <path>
-      <move select="Forward" scaleX="3" beats="3" />
+      <move select="Forward 2" />
+      <move select="Forward"/>
       <move select="Swing Left" beats="2.5" scaleX=".5"/>
     </path>
     <path>

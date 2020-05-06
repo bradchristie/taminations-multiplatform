@@ -30,6 +30,7 @@ import com.bradchristie.taminations.common.r
 class AnythingConcept(norm:String,name:String) : Action(norm,name) {
 
   override val level = LevelObject("c2")
+
   override val requires = listOf("a2/split_counter_rotate","c1/counter_rotate",
       "b1/circulate","a1/cross_over_circulate",
       "a2/in_roll_circulate","a2/out_roll_circulate",
