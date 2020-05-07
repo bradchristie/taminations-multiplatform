@@ -398,4 +398,384 @@
     </path>
   </tam>
 
+
+  <tam title="Left Split Square Chain the Top"
+       from="Ends Facing"
+       formation="T-Bone ULRU">
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Right" scaleX="1.5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Cast Left" scaleX=".5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Stand" />
+      <move select="Extend Left" beats="1.5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Lead Right" beats="4.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Stand" />
+      <move select="Extend Left" beats="1.5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Cast Left" scaleX=".5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Lead Right" beats="4.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Left Split Square Chain the Top"
+       from="Centers Facing"
+       formation="T-Bone RUUL">
+    <path>
+      <move select="Stand" />
+      <move select="Extend Left" beats="1.5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Lead Right" beats="4.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Stand" />
+      <move select="Extend Left" beats="1.5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Cast Left" scaleX=".5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Lead Right" beats="4.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Right" scaleX="1.5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Cast Left" scaleX=".5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Left Split Square Chain the Top"
+       from="Left Side of Line Facing"
+       formation="T-Bone RLUU">
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Lead Right" beats="4.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Right" scaleX="1.5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Cast Left" scaleX=".5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Stand" />
+      <move select="Extend Left" beats="1.5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Cast Left" scaleX=".5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Stand" />
+      <move select="Extend Left" beats="1.5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Lead Right" beats="4.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Left Split Square Chain the Top"
+       from="Right Side of Line Facing"
+       formation="T-Bone UURL">
+    <path>
+      <move select="Stand" />
+      <move select="Extend Left" beats="1.5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Cast Left" scaleX=".5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Stand" />
+      <move select="Extend Left" beats="1.5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Lead Right" beats="4.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Lead Right" beats="4.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Right" scaleX="1.5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Cast Left" scaleX=".5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+  </tam>
+
+
+
+  <tam title="Left Split Dixie Style to a Wave"
+       from="Ends Facing"
+       formation="T-Bone ULRU" parts="2.5">
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Quarter Right" offsetX="1"/>
+      <move select="Extend Left" scaleX=".75"/>
+      <move select="Quarter Right" hands="right" offsetX=".75"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Forward" scaleX=".75"/>
+      <move select="Hinge Right" scaleX="1.25"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Extend Left" scaleX=".75"/>
+      <move select="Quarter Right" hands="right" offsetX="1.25"/>
+    </path>
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Left"/>
+      <move select="Forward" scaleX=".75"/>
+      <move select="Hinge Right" scaleX=".75"/>
+    </path>
+  </tam>
+
+  <tam title="Left Split Dixie Style to a Wave"
+       from="Centers Facing"
+       formation="T-Bone RUUL" parts="2.5">
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Forward" scaleX=".75"/>
+      <move select="Hinge Right" scaleX="1.25"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Extend Left" scaleX=".75"/>
+      <move select="Quarter Right" hands="right" offsetX="1.25"/>
+    </path>
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Left"/>
+      <move select="Forward" scaleX=".75"/>
+      <move select="Hinge Right" scaleX=".75"/>
+    </path>
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Quarter Right" offsetX="1"/>
+      <move select="Extend Left" scaleX=".75"/>
+      <move select="Quarter Right" hands="right" offsetX=".75"/>
+    </path>
+  </tam>
+
+  <tam title="Left Split Dixie Style to a Wave"
+       from="Left Side of Line Facing"
+       formation="T-Bone RLUU" parts="2.5">
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Left"/>
+      <move select="Extend Left" scaleX=".75" scaleY=".5"/>
+      <move select="Hinge Right" scaleX=".75" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Quarter Right" offsetX="1"/>
+      <move select="Extend Left" scaleX=".75" scaleY=".5"/>
+      <move select="Hinge Right" scaleX=".75" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Extend Left" scaleX=".75" scaleY=".5"/>
+      <move select="Hinge Right" scaleX="1.25" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Extend Left" scaleX=".75" scaleY=".5"/>
+      <move select="Hinge Right" scaleX="1.25" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Left Split Dixie Style to a Wave"
+       from="Right Side of Line Facing"
+       formation="T-Bone UURL" parts="2.5">
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Extend Left" scaleX=".75" scaleY=".5"/>
+      <move select="Hinge Right" scaleX="1.25" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Extend Left" scaleX=".75" scaleY=".5"/>
+      <move select="Hinge Right" scaleX="1.25" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Left"/>
+      <move select="Extend Left" scaleX=".75" scaleY=".5"/>
+      <move select="Hinge Right" scaleX=".75" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Quarter Right" offsetX="1"/>
+      <move select="Extend Left" scaleX=".75" scaleY=".5"/>
+      <move select="Hinge Right" scaleX=".75" scaleY=".5"/>
+    </path>
+  </tam>
+
+
+  <tam title="Left Split Dixie Diamond"
+       from="Ends Facing"
+       formation="T-Bone ULRU" parts="5">
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Quarter Right" offsetX="1"/>
+      <move select="Extend Left" scaleX=".75"/>
+      <move select="Quarter Right" hands="right" offsetX=".75"/>
+      <move select="Hinge Left"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Forward" scaleX=".75"/>
+      <move select="Hinge Right" scaleX="1.25"/>
+      <move select="U-Turn Right"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Extend Left" scaleX=".75"/>
+      <move select="Quarter Right" hands="right" offsetX="1.25"/>
+      <move select="U-Turn Right"/>
+    </path>
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Left"/>
+      <move select="Forward" scaleX=".75"/>
+      <move select="Hinge Right" scaleX=".75"/>
+      <move select="Hinge Left"/>
+    </path>
+  </tam>
+
+  <tam title="Left Split Dixie Diamond"
+       from="Centers Facing"
+       formation="T-Bone RUUL" parts="5">
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Forward" scaleX=".75"/>
+      <move select="Hinge Right" scaleX="1.25"/>
+      <move select="Hinge Left"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Extend Left" scaleX=".75"/>
+      <move select="Quarter Right" hands="right" offsetX="1.25"/>
+      <move select="Hinge Left"/>
+    </path>
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Left"/>
+      <move select="Forward" scaleX=".75"/>
+      <move select="Hinge Right" scaleX=".75"/>
+      <move select="U-Turn Right"/>
+    </path>
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Quarter Right" offsetX="1"/>
+      <move select="Extend Left" scaleX=".75"/>
+      <move select="Quarter Right" hands="right" offsetX=".75"/>
+      <move select="U-Turn Right"/>
+    </path>
+  </tam>
+
+  <tam title="Left Split Dixie Sashay"
+       from="Ends Facing"
+       formation="T-Bone ULRU" parts="2.5">
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Quarter Right" offsetX="1"/>
+      <move select="Extend Left" scaleX=".75"/>
+      <move select="Forward 2" scaleX="0.875" />
+      <move select="Hinge Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Forward" scaleX=".75"/>
+      <move select="Lead Right" scaleX="1.25" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Extend Left" scaleX=".75"/>
+      <move select="Lead Right" hands="right" scaleY=".5" scaleX="1.25"/>
+    </path>
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Left"/>
+      <move select="Forward"/>
+      <move select="Forward 2" scaleX=".75"/>
+      <move select="Hinge Right" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Left Split Dixie Sashay"
+       from="Centers Facing"
+       formation="T-Bone RUUL" parts="2.5">
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Forward" scaleX=".75"/>
+      <move select="Forward 2" scaleX="1.125" />
+      <move select="Hinge Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2.5"/>
+      <move select="Extend Left" scaleX=".75"/>
+      <move select="Forward 2" scaleX="1.125" />
+      <move select="Hinge Right" hands="right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Left"/>
+      <move select="Forward" scaleX=".75"/>
+      <move select="Lead Right" scaleX=".75" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Quarter Right" offsetX="1"/>
+      <move select="Extend Left" scaleX=".75"/>
+      <move select="Lead Right" hands="right" scaleX=".75" scaleY=".5"/>
+    </path>
+  </tam>
+
 </tamination>
