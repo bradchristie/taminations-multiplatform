@@ -98,7 +98,8 @@ class CallContext {
         "b1/star",
         "b2/alamo_style",
         "c2/once_removed_concept",
-        "c1/split_square_thru_variations"
+        "c1/split_square_thru_variations",
+        "c2/unwrap"
     )
 
     var numfiles = 0
@@ -1225,35 +1226,18 @@ class CallContext {
     }
     var istidal = false
     dancers.sortedBy { -it.location.length }.forEach { d1 ->
-      var bestleft: Dancer? = null
-      var bestright: Dancer? = null
-      var leftcount = 0
-      var rightcount = 0
-      var frontcount = 0
-      var backcount = 0
-      dancers.filter { it != d1 }.forEach { d2 ->
-        //  Count dancers to the left and right,
-        //  and find the closest on each side
-        if (d2 isRightOf d1) {
-          rightcount += + 1
-          if (bestright == null || d1.distanceTo(d2) < d1.distanceTo(bestright!!))
-            bestright = d2
-        }
-        else if (d2 isLeftOf d1) {
-          leftcount += 1
-          if (bestleft == null || d1.distanceTo(d2) < d1.distanceTo(bestleft!!))
-            bestleft = d2
-        }
-        //  Also count dancers in front and in back
-        else if (d2 isInFrontOf d1)
-          frontcount += 1
-        else if (d2 isInBackOf d1)
-          backcount += 1
-      }
+      val bestleft = dancerToLeft(d1)
+      val bestright = dancerToRight(d1)
+      val leftcount = dancersToLeft(d1).count()
+      val rightcount = dancersToRight(d1).count()
+      val frontcount = dancersInFront(d1).count()
+      val backcount = dancersInBack(d1).count()
       //  Use the results of the counts to assign belle/beau/leader/trailer
       //  and partner
-      val bestleftMismatch = bestleft != null && bestleft!!.data.partner != null && bestleft!!.data.partner != d1
-      val bestRightMismatch = bestright != null && bestright!!.data.partner != null && bestright!!.data.partner != d1
+      val bestleftMismatch = bestleft != null &&
+          !isInWave(d1,bestleft) && !isInCouple(d1,bestleft)
+      val bestRightMismatch = bestright != null &&
+          !isInWave(d1,bestright) && !isInCouple(d1,bestright)
       if (leftcount % 2 == 1 && rightcount % 2 == 0 && !bestleftMismatch &&
           d1.distanceTo(bestleft!!) < 3 || (bestleft != null && bestRightMismatch)) {
         d1.data.partner = bestleft

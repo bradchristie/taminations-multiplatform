@@ -37,12 +37,27 @@ class Run(norm:String, name:String) : Action(norm,name) {
         //  Find dancer to run around
         //  Usually it's the partner
         var d2 = d.data.partner
+        val dleft = ctx.dancerToLeft(d)
+        val dright = ctx.dancerToRight(d)
+        //  If that fails, look around
+        if (d2 == null || d.data.active) {
+          val leftcount = ctx.dancersToLeft(d).count()
+          val rightcount = ctx.dancersToRight(d).count()
+          if (dleft == null || dleft.data.active)
+            d2 = dright
+          else if (dright == null || dright.data.active)
+            d2 = dleft
+          else if (leftcount % 2 == 1 && rightcount % 2 == 0)
+            d2 = dleft
+          else if (rightcount % 2 == 1 && leftcount % 2 == 0)
+            d2 = dright
+        }
         //  If a direction was given, look there
         if (norm == "runright")
-          d2 = ctx.dancerToRight(d)
+          d2 = dright
         if (norm == "runleft")
-          d2 = ctx.dancerToLeft(d)
-        if (d2 == null)
+          d2 = dleft
+        if (d2 == null || d2.data.active)
           throw CallError("Dancer $d has nobody to Run around")
         //  But special case of t-bones, could be the dancer on the other side,
         //  check if another dancer is running around this dancer's "partner"
