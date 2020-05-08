@@ -29,7 +29,8 @@ class Touch(norm:String,name:String) : Action(norm,name) {
       ?: return ctx.dancerCannotPerform(d,name)
     val dist = d.distanceTo(d2)
     val dir = if (norm.startsWith("left")) "Right" else "Left"
-    return TamUtils.getMove("Extend $dir").scale(dist/2,1.0)
+    //  Touch to handhold in between wide and narrow
+    return TamUtils.getMove("Extend $dir").scale(dist/2,0.75)
   }
 
 }
