@@ -24,7 +24,7 @@
 
   <tam title="Dosado"
        from="Facing Couples"
-       formation="Facing Couples">
+       formation="Facing Couples" difficulty="1">
     <path>
       <move select="Extend Left" scaleX="2" scaleY=".5" />
       <move select="Extend Right" scaleY=".5" />
@@ -41,7 +41,7 @@
 
   <tam title="Dosado"
        from="Normal Lines"
-       formation="Normal Lines">
+       formation="Normal Lines" difficulty="2">
     <path>
       <move select="Extend Left" scaleX="2" scaleY=".5" />
       <move select="Extend Right" scaleY=".5" />
@@ -70,7 +70,7 @@
 
   <tam title="Dosado"
        from="Eight Chain Thru"
-       formation="Eight Chain Thru">
+       formation="Eight Chain Thru" difficulty="1">
     <path>
       <move select="Extend Left" scaleY=".5" />
       <move select="Extend Right" scaleY=".5" />
@@ -96,4 +96,90 @@
       <move select="Retreat Left" scaleY=".5" />
     </path>
   </tam>
+
+  <tam title="Dosado to a Wave"
+       from="Facing Couples"
+       formation="Facing Couples" difficulty="2">
+    <path>
+      <move select="Extend Left" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Retreat Right" scaleY=".5" />
+      <move select="Retreat Left" scaleY=".5" />
+      <move select="Extend Left" beats="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Retreat Right" scaleY=".5" />
+      <move select="Retreat Left" scaleY=".5" />
+      <move select="Forward" beats="2"/>
+    </path>
+  </tam>
+
+  <tam title="Dosado to a Wave"
+       from="Normal Lines"
+       formation="Normal Lines" difficulty="3">
+    <path>
+      <move select="Extend Left" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Retreat Right" scaleY=".5" />
+      <move select="Retreat Left" scaleY=".5" />
+      <move select="Extend Left" beats="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Retreat Right" scaleY=".5" />
+      <move select="Retreat Left" scaleY=".5" />
+      <move select="Extend Left" beats="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Retreat Right" scaleY=".5" />
+      <move select="Retreat Left" scaleY=".5" />
+      <move select="Extend Left" beats="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Retreat Right" scaleY=".5" />
+      <move select="Retreat Left" scaleY=".5" />
+      <move select="Extend Left" beats="2" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Dosado to a Wave"
+       from="Eight Chain Thru"
+       formation="Eight Chain Thru" difficulty="2">
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Retreat Right" scaleY=".5" />
+      <move select="Retreat Left" scaleY=".5" />
+      <move select="Extend Left" beats="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Retreat Right" scaleY=".5" />
+      <move select="Retreat Left" scaleY=".5" />
+      <move select="Forward" beats="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Retreat Right" scaleY=".5" />
+      <move select="Retreat Left" scaleY=".5" />
+      <move select="Extend Left" beats="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Retreat Right" scaleY=".5" />
+      <move select="Retreat Left" scaleY=".5" />
+      <move select="Forward" beats="2"/>
+    </path>
+  </tam>
+
 </tamination>
