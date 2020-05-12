@@ -20,8 +20,8 @@ android {
     applicationId 'com.bradchristie.taminationsapp'
     minSdkVersion 16
     targetSdkVersion 28
-    versionCode 119
-    versionName '1.5.54'  //  Also update sw.js and of course about.html
+    versionCode 120
+    versionName '1.5.55'  //  Also update sw.js and of course about.html
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
   buildTypes {
