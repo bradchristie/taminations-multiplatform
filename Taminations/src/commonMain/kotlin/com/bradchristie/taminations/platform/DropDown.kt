@@ -31,3 +31,14 @@ expect class DropDown(title:String) : TextView {
   fun selectAction(action:(item:String)->Unit)
 
 }
+
+expect class DropDownMenu() : LinearLayout {
+  fun showAt(x: Int, y: Int)
+  fun addItem(
+      name: String,
+      code: View.() -> Unit = { }
+  ): View
+
+  fun selectAction(action: (item: String) -> Unit)
+
+}

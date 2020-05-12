@@ -48,3 +48,19 @@ actual class DropDown actual constructor(title:String) : TextView(title) {
   }
 
 }
+
+actual class DropDownMenu : LinearLayout(Direction.VERTICAL) {
+  actual fun showAt(x: Int, y: Int) {
+  }
+
+  actual fun addItem(
+      name: String,
+      code: View.() -> Unit
+  ): View {
+    TODO("not implemented")
+  }
+
+  actual fun selectAction(action: (item: String) -> Unit) {
+  }
+
+}

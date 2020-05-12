@@ -21,7 +21,6 @@ package com.bradchristie.taminations.common
 
 import com.bradchristie.taminations.Application
 import com.bradchristie.taminations.common.Color.Companion.FLOOR
-import com.bradchristie.taminations.common.Color.Companion.ORANGE
 import com.bradchristie.taminations.platform.*
 import kotlin.math.PI
 
@@ -68,17 +67,55 @@ class AnimationView : Canvas() {
       Color.GRAY,
       Color.GREEN,
       Color.MAGENTA,
-      ORANGE,
+      Color.ORANGE,
       Color.RED,
       Color.WHITE,
       Color.YELLOW
   )
+  private val dropDown = DropDownMenu()
 
   init {
-    touchDownAction { _,x,y ->
-      val (dx,dy) = mouse2dancer(x,y)
-      doTouch(dx,dy)
+    touchDownAction { button,x,y ->
+      dropDown.hide()
+      val (dx, dy) = mouse2dancer(x, y)
+      if (button == 0) {
+        doTouch(dx, dy)
+      }
+      if (button == 2) {
+        dancerAt(dx,dy)?.let { d ->
+          parentView?.appendView(dropDown)
+          dropDown.showAt(x, y)
+          dropDown.selectAction { name ->
+            if (name == "default") {
+              d.fixcolor = false
+              setOneColor(d)
+            } else {
+              d.fillcolor = Color(name)
+              d.fixcolor = true
+            }
+            dropDown.hide()
+            invalidate()
+          }
+        }
+      }
     }
+    dropDown.addItem("Black") {
+      backgroundColor = Color.BLACK
+      textColor = Color.WHITE
+    }
+    dropDown.addItem("Blue") {
+      backgroundColor = Color.BLUE
+      textColor = Color.WHITE
+    }
+    dropDown.addItem("Cyan") { backgroundColor = Color.CYAN }
+    dropDown.addItem("Gray") { backgroundColor = Color.GRAY }
+    dropDown.addItem("Green") { backgroundColor = Color.GREEN }
+    dropDown.addItem("Magenta") { backgroundColor = Color.MAGENTA }
+    dropDown.addItem("Orange") { backgroundColor = Color.ORANGE }
+    dropDown.addItem("Red") { backgroundColor = Color.RED }
+    dropDown.addItem("White") { backgroundColor = Color.WHITE }
+    dropDown.addItem("Yellow") { backgroundColor = Color.YELLOW }
+    dropDown.addItem("default")
   }
 
   private fun setInteractiveDancerControls() {
@@ -261,14 +298,19 @@ class AnimationView : Canvas() {
     "1-4" -> setNumbers(Dancer.NUMBERS_COUPLES)
     else -> setNumbers(Dancer.NUMBERS_OFF)
   }
+  private fun setOneColor(d:Dancer) {
+    val usercolor = Setting("Couple ${d.number_couple}").s
+    if (usercolor != null)
+      d.fillcolor = Color(usercolor)
+    else
+      d.fillcolor = dancerColor[d.number_couple.i]
+
+  }
   private fun setColors(isOn:Boolean) {
-    dancers.forEach {
-      d -> d.showColor = isOn
-      val usercolor = Setting("Couple ${d.number_couple}").s
-      if (usercolor != null)
-        d.fillcolor = Color(usercolor)
-      else
-        d.fillcolor = dancerColor[d.number_couple.i]
+    dancers.forEach { d ->
+      d.showColor = isOn
+      if (!d.fixcolor)
+        setOneColor(d)
     }
     invalidate()
   }
@@ -342,15 +384,23 @@ class AnimationView : Canvas() {
     return Pair(dx,dy)
   }
 
+  //  Find dancer at floor coordinates
+  private fun dancerAt(dx:Double,dy:Double) : Dancer? {
+    return dancers.filter {
+      //  Coordinates must be on dancer
+      d -> (d.location - Vector(dx,dy)).length < 0.5
+    } .minBy {
+      //  In case of multiple hits, return the best
+      val loc = it.location
+      (loc.x - dx) * (loc.x - dx) + (loc.y - dy) * (loc.y - dy)
+    }
+
+  }
+
   //  Touching a dancer shows and hides its path
   private fun doTouch(dx:Double,dy:Double) {
-    //  Compare with dancer locations
-    val bestd = dancers.minBy  {
-      val loc = it.location
-      (loc.x-dx)*(loc.x-dx) + (loc.y-dy)*(loc.y-dy)
-    }!!
-    if ((bestd.location - Vector(dx, dy)).length < 0.5) {
-      bestd.showPath = !bestd.showPath
+    dancerAt(dx,dy)?.let { d ->
+      d.showPath = !d.showPath
       invalidate()
     }
   }
@@ -461,7 +511,7 @@ class AnimationView : Canvas() {
 
     //  Draw handholds
     val hline = DrawingStyle().apply {
-      color = ORANGE
+      color = Color.ORANGE
       lineWidth = 0.05
     }
     dancers.forEach { d ->

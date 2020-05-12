@@ -119,8 +119,9 @@ actual open class View(internal val div:HTMLElement) {
     )
   }
   actual val border = AllBorders()
-  actual inner class Borders(private val setWidth: (Int) -> Unit,
-                                 private val setColor: (Color) -> Unit) : Border(setWidth,setColor)
+  actual inner class Borders(
+      setWidth: (Int) -> Unit,
+      setColor: (Color) -> Unit) : Border(setWidth,setColor)
 
   actual val borders = Borders(
     { w -> div.style.borderWidth = w2px(w) },
@@ -205,11 +206,12 @@ actual open class View(internal val div:HTMLElement) {
     div.onclick = { clickCode() }
     div.onwheel = { event -> wheelCode(event.deltaY.i) }
     div.onmousedown = { event ->
-      touchDownCode(0,event.offsetX.i,event.offsetY.i) }
+      touchDownCode(event.button.i,event.offsetX.i,event.offsetY.i) }
     div.onmouseup = { event ->
       touchUpCode(0,event.offsetX.i,event.offsetY.i) }
     div.onmousemove = { event ->
       touchMoveCode(0,event.offsetX.i,event.offsetY.i) }
+    div.oncontextmenu = { false }
   }
 
   //  Actions

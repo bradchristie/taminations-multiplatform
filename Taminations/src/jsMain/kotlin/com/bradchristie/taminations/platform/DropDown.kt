@@ -1,4 +1,5 @@
 package com.bradchristie.taminations.platform
+
 /*
 
   Taminations Square Dance Animations for Web Browsers
@@ -25,28 +26,51 @@ package com.bradchristie.taminations.platform
 actual class DropDown actual constructor(title:String) : TextView(title) {
 
   private val layout = LinearLayout(LinearLayout.Direction.HORIZONTAL,div)
-  private val dropDown = LinearLayout(LinearLayout.Direction.VERTICAL)
-  private var selectCode:(item:String)->Unit = { _: String -> }
+  private val dropDownMenu = DropDownMenu()
 
   init {
     div.style.position = "relative"
     div.style.display = "inline-block"
-    layout.appendView(dropDown) {
-      div.style.position = "absolute"
-      div.style.zIndex = "1"
-      div.style.display = "none"
-      div.style.backgroundColor = "white"
-      div.style.border = "2px solid black"
-      div.style.boxShadow = "0px 8px 16px 0px rgba(0,0,0,0.2)"
-    }
+    layout.appendView(dropDownMenu)
+    dropDownMenu.hide()
+
     div.onmouseenter = {
-      dropDown.div.style.display = "block"
+      dropDownMenu.showAt(0,0)
       false
     }
     div.onmouseleave = {
-      dropDown.div.style.display = "none"
+      dropDownMenu.hide()
       false
     }
+  }
+
+  actual fun addItem(name:String, code:View.()->Unit):View {
+    return dropDownMenu.addItem(name,code)
+  }
+
+  actual fun selectAction(action:(item:String)->Unit) {
+    dropDownMenu.selectAction(action)
+  }
+
+}
+
+actual class DropDownMenu : LinearLayout(Direction.VERTICAL) {
+
+  private var selectCode:(item:String)->Unit = { _: String -> }
+
+  init {
+    div.style.position = "absolute"
+    div.style.zIndex = "1"
+    div.style.display = "block"
+    div.style.backgroundColor = "white"
+    div.style.border = "2px solid black"
+    div.style.boxShadow = "0px 8px 16px 0px rgba(0,0,0,0.2)"
+  }
+
+  actual fun showAt(x:Int, y:Int) {
+    div.style.left = "${x}px"
+    div.style.top = "${y}px"
+    show()
   }
 
   actual fun addItem(name:String, code:View.()->Unit):View {
@@ -58,7 +82,7 @@ actual class DropDown actual constructor(title:String) : TextView(title) {
         selectCode(name)
       }
     }
-    dropDown.appendView(item)
+    appendView(item)
     item.code()
     return item
   }
