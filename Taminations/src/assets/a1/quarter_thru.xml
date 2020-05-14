@@ -39,6 +39,20 @@
   </tam>
 
   <tam title="Quarter Thru"
+       from="Right-Hand Box Close"
+       formation="Box RH Close"
+       display="none"
+       parts="1.5" >
+    <path>
+      <move select="Hinge Right" scaleX=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Hinge Right" scaleX=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Quarter Thru"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
        parts="1.5" >
@@ -127,6 +141,20 @@
     <path>
       <move select="Hinge Left" />
       <move select="Swing Right" />
+    </path>
+  </tam>
+
+  <tam title="Left Quarter Thru"
+       from="Left-Hand Box Close"
+       formation="Box LH Close"
+       display="none"
+       fractions="1.5" >
+    <path>
+      <move select="Hinge Left" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Hinge Left" scaleX=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
     </path>
   </tam>
 

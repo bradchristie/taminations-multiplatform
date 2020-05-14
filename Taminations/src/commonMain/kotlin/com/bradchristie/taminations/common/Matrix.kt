@@ -39,7 +39,6 @@ class Matrix(val m11:Double=1.0, val m21:Double=0.0, val m31:Double=0.0,
     fun getRotation(angle:Double): Matrix =
         Matrix(cos(angle), -sin(angle), 0.0, sin(angle), cos(angle), 0.0)
     fun getTranslation(x:Double,y:Double): Matrix = Matrix(m31 = x, m32 = y)
-    //not used fun getScale(x:Double,y:Double):Matrix = Matrix(m11=x,m22=y)
   }
 
   //  Copy constructor
@@ -74,8 +73,6 @@ class Matrix(val m11:Double=1.0, val m21:Double=0.0, val m31:Double=0.0,
   fun postRotate(angle:Double): Matrix = getRotation(angle) * this
   fun preTranslate(x:Double,y:Double): Matrix = this * getTranslation(x, y)
   fun postTranslate(x:Double,y:Double): Matrix = getTranslation(x, y) * this
-  //not used fun preScale(x:Double,y:Double):Matrix = this * getScale(x,y)
-  //not used fun postScale(x:Double,y:Double):Matrix = getScale(x,y) * this
 
   //  This is for rotation transforms only,
   //  or when using as a 2x2 matrix (as in SVD)
@@ -123,7 +120,7 @@ class Matrix(val m11:Double=1.0, val m21:Double=0.0, val m31:Double=0.0,
       val sigma = doubleArrayOf(a.abs,d.abs)
       val u = Matrix()
       return Triple(u,sigma,v)
-    } else {
+    } else {  //  Otherwise, solve quadratic for eigenvalues
       val atanarg1 = 2 * a * c + 2 * b * d
       val atanarg2 = a * a + b * b - c * c - d * d
       val theta = 0.5 * atan2(atanarg1, atanarg2)
