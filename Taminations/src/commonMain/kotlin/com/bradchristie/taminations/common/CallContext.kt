@@ -820,7 +820,10 @@ class CallContext {
         //  Favor formations closer to the top of the list
         //  Especially favor lines
         val favoring = f.value
-        if (totOffset < 9.0 && angsnap.isApproxInt(delta = 0.05)) {
+        //  Special hack to favor lines over boxes
+        val speciaHack =
+            (bestMapping?.name?.startsWith("Normal Lines") ?: false &&  f.key == "Double Pass Thru")
+        if (totOffset < 9.0 && angsnap.isApproxInt(delta = 0.05) && !speciaHack) {
           if (bestMapping == null || totOffset*favoring + 0.2 < bestMapping!!.totOffset)
             bestMapping = BestMapping(
                 f.key,  // only used for debugging

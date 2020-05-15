@@ -186,7 +186,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "snapthelock" to { SnapTheLock() },
         "castoff34" to { CastOffThreeQuarters() },
         "peeltoadiamond" to { PeelToADiamond() },
-        "hocuspocus" to { HocusPocus() }
+        "hocuspocus" to { HocusPocus() },
+        "explode" to { Explode() }
     )
 
     //  More complex calls where the text is needed either to select

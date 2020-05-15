@@ -1624,6 +1624,23 @@ Belles Run
 Split Counter Perk Up 
 Ferris Wheel 
 Centers Square Thru 3 
+Allemande Left""",
+
+      "Explode" to
+"""Heads Lead Right 
+Veer Left 
+Sides Hinge 
+Sides Explode 
+Fan the Top 
+Belles Run 
+Boys Explode 
+Girls Explode the Wave 
+Pass Thru 
+Trade By 
+Star Thru 
+Boys Circulate 
+Ferris Wheel 
+Centers Pass Thru 
 Allemande Left"""
 
   )
