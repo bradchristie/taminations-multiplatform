@@ -40,6 +40,26 @@
     </path>
   </tam>
 
+  <tam title="Follow Thru" from="Right-Hand Box Close"
+       formation="Box RH Close" display="none">
+    <path>
+      <move select="Lead Right" beats="2" hands="right" scaleX="1.5" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="2" scaleX=".5" />
+    </path>
+  </tam>
+
+  <tam title="Follow Thru" from="Left-Hand Box Close"
+       formation="Box LH Close" display="none">
+    <path>
+      <move select="Lead Left" beats="2" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="2" hands="left" scaleX="1.5" />
+    </path>
+  </tam>
+
   <tam title="Follow Thru" from="Single Quarter Tag" formation="Single Quarter Tag">
     <path numbers="1 4">
       <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5"/>
