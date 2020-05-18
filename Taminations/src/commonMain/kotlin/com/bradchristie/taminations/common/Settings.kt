@@ -132,8 +132,10 @@ class SettingsView : ScrollingLinearLayout() {
         colorBar.hide()
       else
         colorBar.show()
-      textView("You can also set a single dancer color") { margin.left = 10 }
-      textView("by right-clicking on the dancer.") { margin.left = 10 }
+      if (!Application.isTouch) {
+        textView("You can also set a single dancer color") { margin.left = 10 }
+        textView("by right-clicking on the dancer.") { margin.left = 10 }
+      }
     }
   }
 
