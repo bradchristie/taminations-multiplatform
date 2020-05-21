@@ -122,9 +122,10 @@ class SequencerPage : Page() {
     }
     onMessage(Request.Action.ANIMATION_PART) { message ->
       val partnum = message["part"].i-1
-      callPage.highlightCall(partnum)
-      seqView.callText.text = if (partnum >= 0 && partnum < model.callNames.count())
-        model.callNames[partnum]
+      val listnum = model.callNum2listNum(partnum)
+      callPage.highlightCall(listnum)
+      seqView.callText.text = if (listnum >= 0 && partnum < model.callNames.count())
+        model.callNames[listnum]
       else
         ""
     }
@@ -137,7 +138,9 @@ class SequencerPage : Page() {
       model.checkStartingFormation()
     }
     onMessage(Request.Action.SEQUENCER_CURRENTCALL) { message ->
-      seqView.animationView.goToPart(message["item"].i)
+      val callnum = model.listNum2callNum(message["item"].i)
+      if (callnum >= 0)
+        seqView.animationView.goToPart(callnum)
     }
     onMessage(Request.Action.TRANSITION_COMPLETE) {
       callPage.textInput.focus()
@@ -263,17 +266,40 @@ class SequencerModel(private val seqView: SequencerLayout,
     }
   }
 
+  private fun isComment(text:String) =
+      text.trim().matches("\\W.*".r)
+
+  fun callNum2listNum(callNum:Int) : Int =
+      if (callNum < 0)
+        callNum
+      else
+        callNames.indices.filter { !isComment(callNames[it]) }[callNum]
+
+  fun listNum2callNum(listNum:Int) : Int =
+      if (listNum < 0 || isComment(callNames[listNum]))
+        -1
+      else
+        callNames.take(listNum).filter { !isComment(it) }.count()
+
   private fun insertCall(call:String) {
     if (interpretOneCall(call)) {
-      updateParts()
-      seqView.animationView.goToPart(callNames.lastIndex)
-      seqView.animationView.doPlay()
-      seqView.panelLayout.playButton.setImage(PauseShape())
+      if (!isComment(call)) {
+        updateParts()
+        seqView.animationView.goToPart(callNames.lastIndex)
+        seqView.animationView.doPlay()
+        seqView.panelLayout.playButton.setImage(PauseShape())
+      }
     } else
       callNames.removeAt(callNames.lastIndex)
   }
 
   private fun interpretOneCall(calltext:String):Boolean {
+    if (isComment(calltext)) {
+      callsView.addCall(calltext)
+      callNames.add(calltext)
+      callBeats.add(0.0)
+      return true
+    }
     //  Remove any underscores, which are reserved for internal calls only
     val calltxt = calltext.replace("_","")
     //  Add call as entered, in case parsing fails
@@ -309,8 +335,12 @@ class SequencerModel(private val seqView: SequencerLayout,
 
   //  Update parts and tics on animation panel
   private fun updateParts() {
-    if (callBeats.count() > 1) {
-      val partstr = callBeats.dropLast(1).map(Any::toString).reduce { s1, s2 -> "$s1;$s2" }
+    if (callBeats.filter { it > 0.0 }.count() > 1) {
+      val partstr = callBeats
+          .filter { it > 0.0 }
+          .dropLast(1)
+          .map(Any::toString)
+          .reduce { s1, s2 -> "$s1;$s2" }
       seqView.animationView.partsstr = partstr
     } else
       seqView.animationView.partsstr = ""
@@ -329,15 +359,18 @@ class SequencerModel(private val seqView: SequencerLayout,
   fun undoLastCall() {
     if (callNames.isNotEmpty()) {
       val lastIndex = callNames.count() - 1
+      val lastCall = callNames[lastIndex]
       callNames.removeAt(lastIndex)
       callBeats.removeAt(lastIndex)
-      val totalBeats = callBeats.sum()
-      seqView.animationView.dancers.forEach { d ->
-        while (d.path.beats > totalBeats)
-          d.path.pop()
+      if (!isComment(lastCall)) {
+        val totalBeats = callBeats.sum()
+        seqView.animationView.dancers.forEach { d ->
+          while (d.path.beats > totalBeats)
+            d.path.pop()
+        }
+        seqView.animationView.recalculate()
+        seqView.animationView.doEnd()
       }
-      seqView.animationView.recalculate()
-      seqView.animationView.doEnd()
       callsView.removeLastCall()
       updateParts()
     }

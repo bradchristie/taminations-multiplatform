@@ -26,9 +26,6 @@ import com.bradchristie.taminations.platform.*
 class SequencerCallsPage : Page() {
 
   val textInput = TextInput()
-  //private val callList = LinearLayout(LinearLayout.Direction.VERTICAL).apply {
-  //  isScrollable = true
-  //}
   private val callList = ScrollingLinearLayout()
   val errorText = TextView("")
   private var highlightedCall = -1
@@ -77,14 +74,14 @@ class SequencerCallsPage : Page() {
     }
   }
 
-  fun addCall(call:String, level: LevelObject.LevelData) {
+  fun addCall(call:String, level: LevelObject.LevelData?=null) {
     callList.selectablePanel {
       val item = callList.children.lastIndex
       clickAction {
         Application.sendMessage(Request.Action.SEQUENCER_CURRENTCALL,
             "item" to "$item")
       }
-      backgroundColor = level.color
+      backgroundColor = level?.color ?: Color.WHITE
       weight = 0
       textView(call) {
         textSize = 18
@@ -94,7 +91,7 @@ class SequencerCallsPage : Page() {
         margin.right = 12
         margin.left = 4
       }
-      textView(level.name) {
+      textView(level?.name ?: "") {
         textSize = 12
         weight = 0
       }
