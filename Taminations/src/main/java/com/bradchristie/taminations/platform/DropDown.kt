@@ -57,7 +57,7 @@ actual class DropDownMenu : LinearLayout(Direction.VERTICAL) {
       name: String,
       code: View.() -> Unit
   ): View {
-    TODO("not implemented")
+    return View()
   }
 
   actual fun selectAction(action: (item: String) -> Unit) {
