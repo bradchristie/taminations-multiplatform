@@ -99,6 +99,7 @@ expect open class View() {
   fun touchDownAction(code:(Int,Int,Int)->Unit)
   fun touchMoveAction(code:(Int,Int,Int)->Unit)
   fun touchUpAction(code:(Int,Int,Int)->Unit)
+  fun longPressAction(code:(Int,Int)->Unit)
   fun keyDownAction(code:((Int)->Unit)?)
   fun keyUpAction(code:(Int)->Unit)
   fun displayAction(code:()->Unit)

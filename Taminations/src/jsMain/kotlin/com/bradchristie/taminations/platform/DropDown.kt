@@ -35,7 +35,7 @@ actual class DropDown actual constructor(title:String) : TextView(title) {
     dropDownMenu.hide()
 
     div.onmouseenter = {
-      dropDownMenu.showAt(0,0)
+      dropDownMenu.showAt(layout,0,0)
       false
     }
     div.onmouseleave = {
@@ -67,13 +67,19 @@ actual class DropDownMenu : LinearLayout(Direction.VERTICAL) {
     div.style.boxShadow = "0px 8px 16px 0px rgba(0,0,0,0.2)"
   }
 
-  actual fun showAt(x:Int, y:Int) {
+  actual fun showAt(v:View, x:Int, y:Int) {
+    removeFromParent()
+    //  a bit of a hack here
+    //  to make it work both for dancer position in Canvas
+    //  and DropDown in Settings
+    val parent = v as? ViewGroup ?: v.parentView
+    parent?.appendView(this)
     div.style.left = "${x}px"
     div.style.top = "${y}px"
     show()
   }
 
-  actual fun addItem(name:String, code:View.()->Unit):View {
+  actual fun addItem(name:String, code:ViewGroup.()->Unit):View {
     val item = SelectablePanel().apply {
       textView(name) {
         margins = 4

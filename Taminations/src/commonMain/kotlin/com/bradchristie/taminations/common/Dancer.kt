@@ -84,7 +84,6 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
   }
 
   open val drawColor get() = fillcolor.darker()
-  var fixcolor = false;
   var showNumber = NUMBERS_OFF
   var showColor = true
   var showShape = true

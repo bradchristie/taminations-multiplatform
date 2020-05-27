@@ -78,34 +78,27 @@ class AnimationView : Canvas() {
     touchDownAction { button,x,y ->
       dropDown.hide()
       val (dx, dy) = mouse2dancer(x, y)
+      //  Primary touch - show dancer path
       if (button == 0) {
         doTouch(dx, dy)
       }
+      //  Secondary touch - set dancer color
       if (button == 2) {
-        dancerAt(dx,dy)?.let { d ->
-          parentView?.appendView(dropDown)
-          dropDown.showAt(x, y)
-          dropDown.selectAction { name ->
-            if (name == "default") {
-              d.fixcolor = false
-              setOneColor(d)
-            } else {
-              d.fillcolor = Color(name)
-              d.fixcolor = true
-            }
-            dropDown.hide()
-            invalidate()
-          }
-        }
+        doDropDown(x,y)
       }
     }
+    longPressAction { x,y ->
+      System.log("long press at $x $y")
+      doDropDown(x,y)
+    }
+
     dropDown.addItem("Black") {
       backgroundColor = Color.BLACK
-      textColor = Color.WHITE
+      children[0].textColor = Color.WHITE
     }
     dropDown.addItem("Blue") {
       backgroundColor = Color.BLUE
-      textColor = Color.WHITE
+      children[0].textColor = Color.WHITE
     }
     dropDown.addItem("Cyan") { backgroundColor = Color.CYAN }
     dropDown.addItem("Gray") { backgroundColor = Color.GRAY }
@@ -116,6 +109,20 @@ class AnimationView : Canvas() {
     dropDown.addItem("White") { backgroundColor = Color.WHITE }
     dropDown.addItem("Yellow") { backgroundColor = Color.YELLOW }
     dropDown.addItem("default")
+  }
+
+  private fun doDropDown(x:Int,y:Int) {
+    val (dx, dy) = mouse2dancer(x, y)
+    dancerAt(dx,dy)?.let { d ->
+      dropDown.showAt(this, x, y)
+      dropDown.selectAction { name ->
+        System.log("Changing color to $name")
+        Setting("Dancer $d").s = name
+        setOneColor(d)
+        dropDown.hide()
+        invalidate()
+      }
+    }
   }
 
   private fun setInteractiveDancerControls() {
@@ -299,18 +306,19 @@ class AnimationView : Canvas() {
     else -> setNumbers(Dancer.NUMBERS_OFF)
   }
   private fun setOneColor(d:Dancer) {
+    val onecolor = Setting("Dancer $d").s ?: "default"
     val usercolor = Setting("Couple ${d.number_couple}").s
-    if (usercolor != null)
-      d.fillcolor = Color(usercolor)
-    else
-      d.fillcolor = dancerColor[d.number_couple.i]
+    d.fillcolor = when {
+      onecolor != "default" -> Color(onecolor)
+      usercolor != null -> Color(usercolor)
+      else -> dancerColor[d.number_couple.i]
+    }
 
   }
   private fun setColors(isOn:Boolean) {
     dancers.forEach { d ->
       d.showColor = isOn
-      if (!d.fixcolor)
-        setOneColor(d)
+      setOneColor(d)
     }
     invalidate()
   }

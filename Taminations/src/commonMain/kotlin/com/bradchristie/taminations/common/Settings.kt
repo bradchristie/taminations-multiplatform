@@ -102,10 +102,10 @@ class SettingsView : ScrollingLinearLayout() {
 
   private fun ViewGroup.dancerColors(withRadio:Boolean) {
     val colorBar = LinearLayout(LinearLayout.Direction.HORIZONTAL).apply {
-      dancerColorDropBox("Couple 1")
-      dancerColorDropBox("Couple 2")
-      dancerColorDropBox("Couple 3")
-      dancerColorDropBox("Couple 4")
+      dancerColorDropBox(1)
+      dancerColorDropBox(2)
+      dancerColorDropBox(3)
+      dancerColorDropBox(4)
     }
     verticalLayout {
       margin.bottom = 10
@@ -132,27 +132,28 @@ class SettingsView : ScrollingLinearLayout() {
         colorBar.hide()
       else
         colorBar.show()
-      if (!Application.isTouch) {
-        textView("You can also set a single dancer color") { margin.left = 10 }
-        textView("by right-clicking on the dancer.") { margin.left = 10 }
-      }
+      val howColor = if (Application.isTouch) "long-pressing" else "right-clicking"
+      textView("You can also set a single dancer color") { margin.left = 10 }
+      textView("by $howColor on the dancer.") { margin.left = 10 }
     }
   }
 
-  private fun colorForCouple(name:String):Color =
-      Color(Setting(name).s ?: when (name) {
-    "Couple 1" -> "red"
-    "Couple 2" -> "green"
-    "Couple 3" -> "blue"
-    "Couple 4" -> "yellow"
+  private fun colorForCouple(num:Int):Color =
+      Color(Setting("Couple $num").s ?: when (num) {
+    1 -> "red"
+    2 -> "green"
+    3 -> "blue"
+    4 -> "yellow"
     else -> "white"})
 
-  private fun ViewGroup.dancerColorDropBox(name:String) {
+  private fun ViewGroup.dancerColorDropBox(num:Int) {
     //  Not enough room for "Couple 1" ...
     //  These strings with spaces contain unicode 160 so HTML doesn't collapse them
-    dropDown("    "+name.replace("Couple ","")+"    ") {
+    dropDown("    "+num.s+"    ") {
       selectAction { item ->
-        Setting(name).s = item
+        Setting("Couple $num").s = item
+        Setting("Dancer ${num*2-1}").s = "default"
+        Setting("Dancer ${num*2}").s = "default"
         Application.sendMessage(Request.Action.SETTINGS_CHANGED)
         backgroundColor = Color(item)
         textColor = when (item) {
@@ -161,8 +162,8 @@ class SettingsView : ScrollingLinearLayout() {
         }
       }
       margin.right = 20
-      backgroundColor = colorForCouple(name)
-      textColor = when (colorForCouple(name)) {
+      backgroundColor = colorForCouple(num)
+      textColor = when (colorForCouple(num)) {
         Color.BLACK, Color.BLUE -> Color.WHITE
         else -> Color.BLACK
       }

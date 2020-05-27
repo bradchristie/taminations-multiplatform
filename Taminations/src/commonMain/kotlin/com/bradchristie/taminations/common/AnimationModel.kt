@@ -77,7 +77,7 @@ open class AnimationPage : Page() {
     }
     if (Application.isPortrait) {
       view.itemText.show()
-      view.swipeAction { direction ->
+      av.swipeAction { direction ->
         when (direction) {
           View.SwipeDirection.LEFT -> {
             if (animnum < model.tamcount-1) {

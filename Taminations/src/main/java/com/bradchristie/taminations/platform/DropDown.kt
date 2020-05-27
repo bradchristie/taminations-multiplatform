@@ -18,6 +18,7 @@ package com.bradchristie.taminations.platform
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
+import android.widget.PopupWindow
 import com.bradchristie.taminations.Taminations
 
 actual class DropDown actual constructor(title:String) : TextView(title) {
@@ -50,17 +51,42 @@ actual class DropDown actual constructor(title:String) : TextView(title) {
 }
 
 actual class DropDownMenu : LinearLayout(Direction.VERTICAL) {
-  actual fun showAt(x: Int, y: Int) {
+
+  private var selectCode:(item:String)->Unit = { _: String -> }
+  private var popup = PopupWindow()
+
+  actual fun showAt(v:View, x: Int, y: Int) {
+    popup.height = android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+    popup.width = android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+    popup.contentView = div
+    System.log("Showing popup at $x $y")
+    popup.showAtLocation(v.div,0,x,y)
   }
 
   actual fun addItem(
       name: String,
-      code: View.() -> Unit
+      code: ViewGroup.() -> Unit
   ): View {
-    return View()
+    val item = SelectablePanel().apply {
+      textView(name) {
+        margins = 4
+      }
+      clickAction {
+        selectCode(name)
+      }
+    }
+    appendView(item)
+    item.code()
+    return item
   }
 
   actual fun selectAction(action: (item: String) -> Unit) {
+    selectCode = action
+  }
+
+  override fun hide() {
+    System.log("hiding popup")
+    popup.dismiss()
   }
 
 }

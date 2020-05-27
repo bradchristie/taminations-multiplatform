@@ -33,10 +33,10 @@ expect class DropDown(title:String) : TextView {
 }
 
 expect class DropDownMenu() : LinearLayout {
-  fun showAt(x: Int, y: Int)
+  fun showAt(v:View, x: Int, y: Int)
   fun addItem(
       name: String,
-      code: View.() -> Unit = { }
+      code: ViewGroup.() -> Unit = { }
   ): View
 
   fun selectAction(action: (item: String) -> Unit)

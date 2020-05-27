@@ -19,6 +19,7 @@ package com.bradchristie.taminations.platform
 
 */
 
+import android.annotation.SuppressLint
 import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.drawable.GradientDrawable
@@ -39,9 +40,26 @@ actual open class View actual constructor() {
 
   internal open val div = android.view.View(Taminations.context).addListeners()
 
-  private inner class GestureListener : GestureDetector.SimpleOnGestureListener() {
+  private inner class DivGestureListener : GestureDetector.OnGestureListener {
 
-    override fun onDown(e: MotionEvent) = true
+    override fun onShowPress(e: MotionEvent?) {
+      System.log("onShowPress")
+    }
+
+    override fun onSingleTapUp(e: MotionEvent?): Boolean {
+      System.log("Single Tap")
+      e?.apply {
+        touchDownCode(getPointerId(actionIndex),
+                      getX(actionIndex).i,
+                      getY(actionIndex).i)
+      }
+      return true
+    }
+
+    override fun onDown(e: MotionEvent?): Boolean {
+      System.log("onDown")
+      return true
+    }
 
     override fun onFling(e1:MotionEvent, e2:MotionEvent, velX:Float, velY:Float):Boolean {
       val dx = e2.x - e1.x
@@ -61,40 +79,25 @@ actual open class View actual constructor() {
       } else
         false
     }
+
+    override fun onScroll(e1: MotionEvent?, e2: MotionEvent?, distanceX: Float, distanceY: Float): Boolean {
+      return false
+    }
+
+    override fun onLongPress(e: MotionEvent?) {
+      e?.apply {
+        System.log("long press")
+        longPressCode(x.i, y.i)
+      }
+    }
+
   }
 
 
   protected fun android.view.View.addListeners():android.view.View {
     layoutParams = android.widget.LinearLayout.LayoutParams(WRAP_CONTENT,WRAP_CONTENT)
     setOnTouchListener { _: android.view.View, event: MotionEvent ->
-      when (event.actionMasked) {
-        MotionEvent.ACTION_DOWN, MotionEvent.ACTION_POINTER_DOWN -> {
-          touchDownCode(event.getPointerId(event.actionIndex),
-              event.getX(event.actionIndex).i,
-              event.getY(event.actionIndex).i)
-          // Consume the event only if and anly if
-          // doing something with ACTION_MOVE
-          // or else swiping doesn't work
-          consumeTouch
-        }
-        MotionEvent.ACTION_MOVE -> {
-          //  Multiple move events could be sent at once,
-          //  so need to loop through
-          for (i in 0 until event.pointerCount) {
-            touchMoveCode(event.getPointerId(i),
-                event.getX(i).i,
-                event.getY(i).i)
-          }
-          false
-        }
-        MotionEvent.ACTION_UP, MotionEvent.ACTION_POINTER_UP -> {
-          touchUpCode(event.getPointerId(event.actionIndex),
-              event.getX(event.actionIndex).i,
-              event.getY(event.actionIndex).i)
-          false
-        }
-        else -> false
-      }
+      gestureDetector.onTouchEvent(event)
     }
     setOnKeyListener { _: android.view.View, keyCode:Int, event:KeyEvent ->
       when (event.action) {
@@ -127,6 +130,7 @@ actual open class View actual constructor() {
 
   //  Colors
   inner class BackgroundWithBorders : ShapeDrawable() {
+    @SuppressLint("CanvasSize")
     override fun draw(ctx: android.graphics.Canvas) {
       ctx.drawRect(Rect(0,0, ctx.width, ctx.height),backgroundPaint)
       if (border.top.w > 0) {
@@ -286,13 +290,15 @@ actual open class View actual constructor() {
   //  most are only applicable to inherited classes
   protected actual var clickCode:()->Unit = { }
   protected var touchDownCode:(Int,Int,Int)->Unit = { _: Int, _: Int, _: Int -> }
-  protected var touchUpCode:(Int,Int,Int)->Unit = { _: Int, _: Int, _: Int -> }
-  protected var touchMoveCode:(Int,Int,Int)->Unit = { _: Int, _: Int, _: Int -> }
+  private var touchUpCode:(Int, Int, Int)->Unit = { _: Int, _: Int, _: Int -> }
+  private var touchMoveCode:(Int, Int, Int)->Unit = { _: Int, _: Int, _: Int -> }
+  protected var longPressCode:(Int,Int)->Unit = { _: Int, _: Int -> }
   protected var keyDownCode:(Int)->Unit = { }
   protected var keyUpCode:(Int)->Unit = { }
   //  No wheels on Android?
   private var wheelCode:(Int)->Unit = { }
-  private var gestureDetector:GestureDetector? = null
+  private var gestureDetector:GestureDetector =
+      GestureDetector(Taminations.context,DivGestureListener())
   actual enum class SwipeDirection { UP, DOWN, LEFT, RIGHT }
   protected var swipeCode:(SwipeDirection)->Unit = { }
   private var consumeTouch = false
@@ -321,11 +327,12 @@ actual open class View actual constructor() {
   }
   actual fun keyUpAction(code:(Int)->Unit) { keyUpCode = code }
   actual fun swipeAction(code:(SwipeDirection)->Unit) {
+    System.log("swipeAction $this $gestureDetector")
     swipeCode = code
-    gestureDetector = GestureDetector(Taminations.context,GestureListener())
-    div.setOnTouchListener { _: android.view.View, event: MotionEvent ->
-      gestureDetector!!.onTouchEvent(event)
-    }
+  }
+  actual fun longPressAction(code:(Int, Int)->Unit) {
+    longPressCode = code
+    System.log("longPressAction $this $gestureDetector")
   }
   //  Scroll
   actual open fun scrollToBottom() {

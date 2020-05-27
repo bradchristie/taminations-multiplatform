@@ -255,6 +255,9 @@ actual open class View(internal val div:HTMLElement) {
       event.preventDefault()
     }
   }
+  actual fun longPressAction(code:(Int, Int)->Unit) {
+    //  not used on this platform
+  }
   actual fun displayAction(code:()->Unit) {
     displayCode = code
   }
