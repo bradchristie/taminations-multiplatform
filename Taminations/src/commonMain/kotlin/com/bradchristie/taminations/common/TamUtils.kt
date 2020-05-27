@@ -282,6 +282,7 @@ object TamUtils {
           .replace("\\bwomen\\b".r,"girl")
           .replace("\\blead(er)?(ing)?s?\\b".r,"lead")
           .replace("\\btrail(er)?(ing)?s?\\b".r,"trail")
+          .replace("\\bcentres?\\b".r,"center")
           .replace("\\b(1|3)4 tag the line\\b".r,"$14 tag")
           //  'Dixie Style' -> 'Dixie Style to a Wave'
           .replace("\\bdixie style(?! to)".r,"dixie style to a wave")
