@@ -40,6 +40,9 @@ class CrossOverCirculate : Action("Cross Over Circulate") {
         val d2 = ctx.actives.firstOrNull { dd ->
           dd.isRightOf(d) || dd.isLeftOf(d)
         } ?: throw CallError("Unable to calculate Cross Over Circulate for dancer $d")
+        //  Centers <-> Ends
+        if (!(d.data.center xor d2.data.center))
+          throw CallError("Incorrect circulate path for Cross Over Circulate")
         val move = if (d2.isRightOf(d)) "Run Right" else "Run Left"
         //  Pass right shoulders if necessary
         val xScale = if (d2.isRightOf(d) && d2.data.leader) 2.0 else 1.0
@@ -51,6 +54,9 @@ class CrossOverCirculate : Action("Cross Over Circulate") {
         val d2 = ctx.actives.firstOrNull { dd ->
           dd != d && !dd.isOpposite(d) && !dd.isLeftOf(d) && !dd.isRightOf(d)
         } ?: throw CallError("Unable to calculate Cross Over Circulate for dancer $d")
+        //  Centers <-> Ends
+        if (!(d.data.center xor d2.data.center))
+          throw CallError("Incorrect circulate path for Cross Over Circulate")
         val v = d.vectorToDancer(d2)
         //  Pass right shoulders if necessary
         return when {
