@@ -156,7 +156,9 @@
     </path>
   </tam>
 
-  <tam title="(From columns) Concentric Double Star Thru" group="(From columns) Concentric"
+  <tam title="(From columns) Concentric Double Star Thru"
+       group="(From columns) Concentric"
+       sequencer="gender-specific"
        formation="Double Pass Thru">
     <path>
       <move select="Extend Left" beats="4" scaleX="3" scaleY="3"/>
@@ -306,7 +308,7 @@
     </path>
   </tam>
 
-  <tam title="(From columns) Concentric xxPass Thru" group="(From columns) Concentric"
+  <tam title="(From columns) Concentric Pass Thru" group="(From columns) Concentric"
        formation="Double Pass Thru">
     <path>
       <move select="Extend Left" beats="3" scaleX="3" scaleY="2" />
@@ -446,7 +448,7 @@
   </tam>
 
   <tam title="(From columns) Concentric Slide Thru" group="(From columns) Concentric"
-       formation="Double Pass Thru">
+       formation="Double Pass Thru" sequencer="gender-specific">
     <path numbers="1 8">
       <move select="Extend Left" beats="3" scaleX="3" scaleY="2.5" />
       <move select="Quarter Right" beats="2" offsetX="1" offsetY="-.5" />
@@ -465,7 +467,9 @@
     </path>
   </tam>
 
-  <tam title="(From columns) Concentric Star Thru" group="(From columns) Concentric"
+  <tam title="(From columns) Concentric Star Thru"
+       group="(From columns) Concentric"
+       sequencer="gender-specific"
        formation="Double Pass Thru">
     <path numbers="1 8">
       <move select="Extend Left" beats="3" scaleX="3" scaleY="2.5" />
@@ -802,7 +806,9 @@
     </path>
   </tam>
 
-  <tam title="(From lines) Concentric Slide Thru" group="(From lines) Concentric">
+  <tam title="(From lines) Concentric Slide Thru"
+       group="(From lines) Concentric"
+       sequencer="gender-specific">
      <formation>
       <dancer gender="boy" x="-2" y="3" angle="0"/>
       <dancer gender="girl" x="-2" y="-1" angle="0"/>
@@ -828,7 +834,9 @@
     </path>
   </tam>
 
-  <tam title="(From lines) Concentric Star Thru" group="(From lines) Concentric">
+  <tam title="(From lines) Concentric Star Thru"
+       group="(From lines) Concentric"
+       sequencer="gender-specific">
      <formation>
       <dancer gender="boy" x="3" y="2" angle="270"/>
       <dancer gender="girl" x="-1" y="2" angle="270"/>
