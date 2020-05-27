@@ -20,6 +20,7 @@ package com.bradchristie.taminations.common
 */
 
 import com.bradchristie.taminations.Application
+import com.bradchristie.taminations.common.calls.CodedCall
 import com.bradchristie.taminations.platform.Page
 import com.bradchristie.taminations.common.shapes.PauseShape
 import com.bradchristie.taminations.common.shapes.PlayShape
@@ -313,7 +314,10 @@ class SequencerModel(private val seqView: SequencerLayout,
       cctx.performCall()
       cctx.checkForCollisions()
       cctx.extendPaths()
-      cctx.matchStandardFormation()
+      //  Snap to a standard formation so subsequent calls will work
+      //  But not if just one XML call, as it knows how it should end
+      if (cctx.callstack.count() > 1 || cctx.callstack[0] is CodedCall)
+        cctx.matchStandardFormation()
       if (cctx.isCollision())
         throw CallError("Unable to calculate valid animation.")
       cctx.appendToSource()
