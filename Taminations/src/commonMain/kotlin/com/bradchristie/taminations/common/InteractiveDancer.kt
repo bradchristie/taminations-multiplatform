@@ -84,7 +84,7 @@ class InteractiveDancer(number: String, number_couple: String,
           tx = tx.postTranslate(d.x, d.y)
           if (!shiftDown && secondaryMove == NOPOINT) {
             //  Rotation follow movement
-            if (primaryDirection == Vector())
+            if (primaryDirection === Vector())
               primaryDirection = d
             else {
               val dd = Vector(
