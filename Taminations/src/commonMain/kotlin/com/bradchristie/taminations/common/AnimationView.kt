@@ -88,7 +88,6 @@ class AnimationView : Canvas() {
       }
     }
     longPressAction { x,y ->
-      System.log("long press at $x $y")
       doDropDown(x,y)
     }
 
@@ -116,7 +115,6 @@ class AnimationView : Canvas() {
     dancerAt(dx,dy)?.let { d ->
       dropDown.showAt(this, x, y)
       dropDown.selectAction { name ->
-        System.log("Changing color to $name")
         Setting("Dancer $d").s = name
         setOneColor(d)
         dropDown.hide()

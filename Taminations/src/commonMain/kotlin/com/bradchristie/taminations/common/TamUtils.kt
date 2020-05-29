@@ -284,6 +284,7 @@ object TamUtils {
           .replace("\\btrail(er)?(ing)?s?\\b".r,"trail")
           .replace("\\bcentres?\\b".r,"center")
           .replace("\\b(1|3)4 tag the line\\b".r,"$14 tag")
+          .replace("\\b12 square thru\\b".r,"square thru 2")
           //  'Dixie Style' -> 'Dixie Style to a Wave'
           .replace("\\bdixie style(?! to)".r,"dixie style to a wave")
           .replace("\\bchase left\\b".r,"left chase")
