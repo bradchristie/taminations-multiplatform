@@ -75,7 +75,7 @@ class AnimationView : Canvas() {
   private val dropDown = DropDownMenu()
 
   init {
-    touchDownAction { button,x,y ->
+    touchUpAction { button,x,y ->
       dropDown.hide()
       val (dx, dy) = mouse2dancer(x, y)
       //  Primary touch - show dancer path

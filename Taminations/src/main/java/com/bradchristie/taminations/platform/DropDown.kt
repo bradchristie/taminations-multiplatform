@@ -59,8 +59,12 @@ actual class DropDownMenu : LinearLayout(Direction.VERTICAL) {
     popup.height = android.view.ViewGroup.LayoutParams.WRAP_CONTENT
     popup.width = android.view.ViewGroup.LayoutParams.WRAP_CONTENT
     popup.contentView = div
-    System.log("Showing popup at $x $y")
-    popup.showAtLocation(v.div,0,x,y)
+    //  showAtLocation wants window coordinates, not coordinates
+    //  relative to the parent view (which you might think would make sense).
+    //  So need to get the window offset and add that in.
+    val coords = IntArray(2)
+    v.div.getLocationInWindow(coords)
+    popup.showAtLocation(v.div,0,x+coords[0],y+coords[1])
   }
 
   actual fun addItem(
@@ -85,7 +89,6 @@ actual class DropDownMenu : LinearLayout(Direction.VERTICAL) {
   }
 
   override fun hide() {
-    System.log("hiding popup")
     popup.dismiss()
   }
 

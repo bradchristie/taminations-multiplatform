@@ -39,17 +39,18 @@ private const val SWIPE_VELOCITY_THRESHOLD = 100
 actual open class View actual constructor() {
 
   internal open val div = android.view.View(Taminations.context).addListeners()
+  private var didLongPress = false
 
   private inner class DivGestureListener : GestureDetector.OnGestureListener {
 
-    override fun onShowPress(e: MotionEvent?) {
-      System.log("onShowPress")
-    }
+    //  onShowPress is called on a long press before the touch up
+    override fun onShowPress(e: MotionEvent?) { }
 
+    //  This is called after a touch down + touch up
+    //  that's not a long press and does not move
     override fun onSingleTapUp(e: MotionEvent?): Boolean {
-      System.log("Single Tap")
       e?.apply {
-        touchDownCode(getPointerId(actionIndex),
+        touchUpCode(getPointerId(actionIndex),
                       getX(actionIndex).i,
                       getY(actionIndex).i)
       }
@@ -57,37 +58,57 @@ actual open class View actual constructor() {
     }
 
     override fun onDown(e: MotionEvent?): Boolean {
-      System.log("onDown")
+      e?.apply {
+        touchDownCode(getPointerId(actionIndex),
+            getX(actionIndex).i,
+            getY(actionIndex).i)
+      }
       return true
     }
 
+    //  onFling is called following any touch down followed by move
+    //  followed by touch up
     override fun onFling(e1:MotionEvent, e2:MotionEvent, velX:Float, velY:Float):Boolean {
       val dx = e2.x - e1.x
       val dy = e2.y - e1.y
-      return if (dx.abs > dy.abs && dx.abs > SWIPE_DISTANCE_THRESHOLD && velX.abs > SWIPE_VELOCITY_THRESHOLD) {
+
+      //  First see if it's a real fling
+      if (dx.abs > dy.abs && dx.abs > SWIPE_DISTANCE_THRESHOLD && velX.abs > SWIPE_VELOCITY_THRESHOLD) {
         if (dx > 0)
           swipeCode(SwipeDirection.RIGHT)
         else
           swipeCode(SwipeDirection.LEFT)
-        true
       } else if (dy.abs > dx.abs && dy.abs > SWIPE_DISTANCE_THRESHOLD && velY.abs > SWIPE_VELOCITY_THRESHOLD) {
         if (dy > 0)
           swipeCode(SwipeDirection.DOWN)
         else
           swipeCode(SwipeDirection.UP)
-        true
-      } else
-        false
+
+      } else {
+        //  Not a fling so process the touch up
+        e2.apply {
+          touchUpCode(
+              getPointerId(actionIndex),
+              getX(actionIndex).i,
+              getY(actionIndex).i
+          )
+        }
+      }
+      return true
     }
 
+    //  onScroll is called for every move after a touch down
     override fun onScroll(e1: MotionEvent?, e2: MotionEvent?, distanceX: Float, distanceY: Float): Boolean {
-      return false
+      e2?.apply {
+        touchMoveCode(actionIndex,getX(actionIndex).i,getY(actionIndex).i)
+      }
+      return true
     }
 
     override fun onLongPress(e: MotionEvent?) {
       e?.apply {
-        System.log("long press")
         longPressCode(x.i, y.i)
+        didLongPress = true
       }
     }
 
@@ -97,7 +118,41 @@ actual open class View actual constructor() {
   protected fun android.view.View.addListeners():android.view.View {
     layoutParams = android.widget.LinearLayout.LayoutParams(WRAP_CONTENT,WRAP_CONTENT)
     setOnTouchListener { _: android.view.View, event: MotionEvent ->
-      gestureDetector.onTouchEvent(event)
+        if (!gestureDetector.onTouchEvent(event)) {
+          when (event.actionMasked) {
+            MotionEvent.ACTION_DOWN, MotionEvent.ACTION_POINTER_DOWN -> {
+              touchDownCode(
+                  event.getPointerId(event.actionIndex),
+                  event.getX(event.actionIndex).i,
+                  event.getY(event.actionIndex).i
+              )
+            }
+            MotionEvent.ACTION_MOVE -> {
+              //  Multiple move events could be sent at once,
+              //  so need to loop through
+              for (i in 0 until event.pointerCount) {
+                touchMoveCode(event.getPointerId(i),
+                    event.getX(i).i,
+                    event.getY(i).i)
+              }
+            }
+            MotionEvent.ACTION_UP, MotionEvent.ACTION_POINTER_UP -> {
+              //  Long press doesn't handle the up event.
+              //  But we don't want the up event after a long press
+              //  to do anything.
+              //  So special handling to ignore it.
+              if (didLongPress)
+                didLongPress = false
+              else
+                touchUpCode(event.getPointerId(event.actionIndex),
+                    event.getX(event.actionIndex).i,
+                    event.getY(event.actionIndex).i)
+            }
+          }
+          false
+        }
+      else
+        true
     }
     setOnKeyListener { _: android.view.View, keyCode:Int, event:KeyEvent ->
       when (event.action) {
@@ -327,12 +382,10 @@ actual open class View actual constructor() {
   }
   actual fun keyUpAction(code:(Int)->Unit) { keyUpCode = code }
   actual fun swipeAction(code:(SwipeDirection)->Unit) {
-    System.log("swipeAction $this $gestureDetector")
     swipeCode = code
   }
   actual fun longPressAction(code:(Int, Int)->Unit) {
     longPressCode = code
-    System.log("longPressAction $this $gestureDetector")
   }
   //  Scroll
   actual open fun scrollToBottom() {

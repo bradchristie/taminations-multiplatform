@@ -21,6 +21,7 @@ package com.bradchristie.taminations.common
 
 import com.bradchristie.taminations.Application
 import com.bradchristie.taminations.platform.Setting
+import com.bradchristie.taminations.platform.System
 import kotlin.math.atan2
 
 class InteractiveDancer(number: String, number_couple: String,
@@ -135,6 +136,7 @@ class InteractiveDancer(number: String, number_couple: String,
     //  Figure out if touching left or right side, and remember the point
     //  Also need to remember the "id" to correlate future move events
     //  Point has already been transformed to dancer coords
+    System.log("Touch Down $id")
     if ((y < 0) xor primaryIsLeft || !Application.isTouch) {
       primaryTouch = Vector(x,y)
       primaryMove = primaryTouch
@@ -148,6 +150,7 @@ class InteractiveDancer(number: String, number_couple: String,
   }
 
   fun touchUp(id:Int,x:Double,y:Double) {
+    System.log("Touch Up $id")
     if (Setting("PracticeMousePressed").b != false || Application.isTouch)
       touchUpAction(id)
     else
