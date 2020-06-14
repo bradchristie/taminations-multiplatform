@@ -876,30 +876,39 @@ class CallContext {
   //  for a given call
   //  Phantoms must be in diagonally opposite pairs
   //  which are rotated together
+  //  unless asym is set
   //  as this is required for XML mapping to work
-  fun rotatePhantoms(call:String):Boolean {
+
+  fun rotatePhantoms(call:String, rotate:Int=180, asym:Boolean=false):Boolean {
     val phantoms = dancers.filter { it.gender == Gender.PHANTOM }
-    var mapindex = 0
-    while (mapindex < ( 1 shl (phantoms.count()/2))) {
-      if (mapindex > 0) {
-        //  Flip one phantom selected with a Gray sequence
-        //  https://en.wikipedia.org/wiki/Gray_code
-        var nextp = 0
-        var gray = 1
-        while (gray and mapindex == 0) {
-          nextp += 1
-          gray = gray shl 1
-        }
-        phantoms[nextp * 2].rotateStartAngle(180.0)
-        phantoms[nextp * 2 + 1].rotateStartAngle(180.0)
+    //  Compute number of possibilities
+    val rotnum = 360 / rotate
+    val phanum = if (asym) phantoms.count() else phantoms.count()/2
+    val topindex = rotnum.pow(phanum)
+    //  First check if it works with no rotation
+    if (checkCalls(call))
+      return true
+    //  Loop through each possibility
+    for (mapindex in 1 until topindex) {
+      //  Set rotation of each phantom
+      //  Flip one phantom selected with a Gray sequence
+      //  https://en.wikipedia.org/wiki/Gray_code
+      val p = (0 until phanum).first {
+        i -> (mapindex / rotnum.pow(i)).rem(rotnum) > 0
       }
+      if (asym)
+        phantoms[p].rotateStartAngle((rotate).d)
+      else {
+        phantoms[p * 2].rotateStartAngle((rotate).d)
+        phantoms[p * 2 + 1].rotateStartAngle((rotate).d)
+      }
+
       if (checkCalls(call)) {
         //  Good rotation found
         //  Return with phantoms in current rotation
         return true
       }
       //  This rotation does not work
-      mapindex += 1
     }
     return false
   }

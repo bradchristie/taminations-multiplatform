@@ -147,6 +147,17 @@ fun Double.isGreaterThan(a2:Double,delta:Double=0.1):Boolean =
 infix fun Int.min(i:Int) = min(this,i)
 infix fun Int.max(i:Int) = max(this,i)
 infix fun Float.max(x:Float) = max(this,x)
+
+infix fun Int.pow(i:Int) : Int =
+  when {
+    i == 0 -> 1
+    i == 1 -> { this }
+    i.rem(2) == 1 -> this.pow(i-1) * this
+    i > 2 -> { val p = this.pow(i/2); p * p }
+    i == 2 -> { this * this }
+    else -> 0 // throw error??
+  }
+
 val Int.abs:Int get() = abs(this)
 val Int.isEven:Boolean get() = this % 2 == 0
 val Int.isOdd:Boolean get() = this % 2 == 1
