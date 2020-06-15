@@ -156,7 +156,8 @@
     </path>
   </tam>
 
-  <tam title="Turn to a Line" from="Magic Columns" formation="Magic Column RH">
+  <tam title="Turn to a Line" from="Magic Columns, Right-Hand Centers"
+       formation="Magic Column RH">
     <path>
       <move select="Flip Left" offsetX="1" />
     </path>
@@ -168,6 +169,22 @@
     </path>
     <path>
       <move select="Flip Right" offsetX="-1" />
+    </path>
+  </tam>
+
+  <tam title="Turn to a Line" from="Magic Columns, Left-Hand Centers"
+       formation="Magic Column LH">
+    <path>
+      <move select="Flip Right" offsetX="-1" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="-1" />
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="1" />
     </path>
   </tam>
 
