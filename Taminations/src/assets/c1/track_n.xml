@@ -72,7 +72,7 @@
     </path>
   </tam>
 
-  <tam title="Track Two" group=" ">
+  <tam title="Track Two" group=" " sequencer="no">
     <formation>
       <dancer gender="girl" y="3" x="1" angle="90"/>
       <dancer gender="boy" y="3" x="-1" angle="90"/>
