@@ -44,7 +44,9 @@ class CircleBy(norm:String,name:String) : Action(norm,name) {
       else -> throw CallError("Circle by what?")
     }
     //  Step to a Wave
-    ctx.applyCalls("Step to a Wave")
+    //  be careful not to collide with any outer inactive dancers
+    val compact = if (ctx.dancers.count()==8 && ctx.actives.count()==4) "Compact" else ""
+    ctx.applyCalls("Step to a $compact Wave")
     //  Do the second fraction or call
     when (frac2) {
       "nothing" -> { }
