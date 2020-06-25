@@ -28,10 +28,9 @@ class Zing : Action("Zing") {
   override val level = LevelObject("c1")
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
-    val a = d.angleToOrigin
-    val c1 = if (a < 0) "Run Left" else "Run Right"
-    val c2 = if (a < 0) "Lead Left" else "Lead Right"
-    val c3 = if (a < 0) "Quarter Right" else "Quarter Left"
+    val c1 = if (d.data.beau) "Run Left" else "Run Right"
+    val c2 = if (d.data.beau) "Lead Left" else "Lead Right"
+    val c3 = if (d.data.beau) "Quarter Right" else "Quarter Left"
     when {
       d.data.leader -> {
         val d2 = ctx.dancerInBack(d) ?: throw CallError("Dancer $d cannot Zing")
