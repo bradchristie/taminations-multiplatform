@@ -208,7 +208,7 @@ actual open class View(internal val div:HTMLElement) {
     div.onmousedown = { event ->
       touchDownCode(event.button.i,event.offsetX.i,event.offsetY.i) }
     div.onmouseup = { event ->
-      touchUpCode(0,event.offsetX.i,event.offsetY.i) }
+      touchUpCode(event.button.i,event.offsetX.i,event.offsetY.i) }
     div.onmousemove = { event ->
       touchMoveCode(0,event.offsetX.i,event.offsetY.i) }
     div.oncontextmenu = { false }
