@@ -84,8 +84,6 @@
   <call link="c3b/busy_anything" title="Busy anything"/>
   <call link="c1/replace" title="But"/>
   <call link="c1/butterfly_formation" title="Butterfly Formation / Concept"/>
-  <call link="c3b/by_golly" title="By Golly"/>
-
   <call audio="b1/california_twirl.mp3" languages="lang-de lang-ja" link="b1/california_twirl"
         title="California Twirl"/>
   <call audio="a1/cast_a_shadow.mp3" link="a1/cast_a_shadow" title="Cast a Shadow"/>
