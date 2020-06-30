@@ -23,6 +23,21 @@
 <tamination title="Cloverleaf">
 
   <tam title="Cloverleaf"
+       from="Couples Facing Out"
+       formation="Couples Facing Out">
+    <path>
+      <move select="Lead Right" />
+      <move select="Lead Right" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Lead Left" />
+      <move select="Lead Left" />
+      <move select="Lead Left" />
+    </path>
+  </tam>
+
+  <tam title="Cloverleaf"
        from="Completed Double Pass Thru"
        formation="Completed Double Pass Thru">
     <path>
