@@ -85,4 +85,65 @@
       <move select="Forward 2" />
     </path>
   </tam>
+
+  <tam title="Magic 3 by 1 Transfer the Column"
+       from="Magic Columns, Right-Hand Centers"
+       formation="Magic Column RH">
+    <path>
+      <move select="Forward" beats="2" />
+      <move select="Extend Left" beats="2" scaleY="2" />
+      <move select="Forward" beats="2" />
+      <move select="Cast Right"/>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+      <move select="Forward" beats="2" />
+      <move select="Run Left" beats="6" scaleY="2" />
+      <move select="Forward" beats="2" />
+      <move select="Lead Left"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" />
+      <move select="Extend Right" beats="3" scaleX="2" scaleY="2"/>
+      <move select="Run Left" beats="6" scaleY="2" offsetX="1"/>
+      <move select="Lead Left"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="6" scaleY="2" />
+      <move select="Forward 5"/>
+      <move select="Lead Left"/>
+    </path>
+  </tam>
+
+  <tam title="Magic 3 by 1 Transfer the Column"
+       from="Magic Columns, Left-Hand Centers"
+       formation="Magic Column LH">
+    <path>
+      <move select="Run Right" beats="6" scaleY="2" />
+      <move select="Forward 5"/>
+      <move select="Lead Right"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" />
+      <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>
+      <move select="Run Right" beats="6" scaleY="2" offsetX="1"/>
+      <move select="Lead Right"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleY="2" />
+      <move select="Forward" beats="2" />
+      <move select="Run Right" beats="6" scaleY="2" />
+      <move select="Forward" beats="2" />
+      <move select="Lead Right"/>
+    </path>
+    <path>
+      <move select="Forward" beats="2" />
+      <move select="Extend Right" beats="2" scaleY="2" />
+      <move select="Forward" beats="2" />
+      <move select="Cast Left"/>
+      <move select="Forward 2"/>
+    </path>
+  </tam>
+
 </tamination>
