@@ -73,13 +73,19 @@ class WalkandDodge(norm:String,name:String) : Action(norm,name) {
         }
         if (ctx.isInCouple(d) && d.data.partner!!.isDodger)
           throw CallError("Dodgers would cross each other")
-        val dist = d.distanceTo(d.data.partner!!)
-        return getMove("Dodge $dir").scale(1.0,dist/2.0)
+        (if (dir == "Right")
+          ctx.dancerToRight(d)
+        else
+          ctx.dancerToLeft(d))?.let { d2 ->
+          val dist = d.distanceTo(d2)
+          return getMove("Dodge $dir").scale(1.0, dist / 2.0)
+        }
+        throw CallError("Unable to calculate Walk and Dodge for dancer $d")
       }
       d.isWalker -> {
         //  A Walker.  Check formation and distance.
         val d2 = ctx.dancerInFront(d)
-        if (d2 == null || ctx.dancerFacing(d) == d2 && d2.isWalker)
+        if (d2 == null || (ctx.dancerFacing(d) == d2 && d2.isWalker))
           throw CallError("Walkers cannot face each other")
         else {
           val dist = d.distanceTo(d2)
@@ -89,6 +95,5 @@ class WalkandDodge(norm:String,name:String) : Action(norm,name) {
       else -> throw CallError("Dancer $d cannot Walk or Dodge")
     }
   }
-
 
 }

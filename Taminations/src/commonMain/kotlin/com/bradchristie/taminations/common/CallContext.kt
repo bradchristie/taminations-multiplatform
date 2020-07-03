@@ -1143,12 +1143,16 @@ class CallContext {
     }
   }
 
+  //  Is there a dancer at a specific spot?
+  fun dancerAt(spot:Vector) : Dancer? =
+      dancers.firstOrNull {
+        it.location == spot
+      }
+
   //  Are two dancers on the same spot ?
   fun isCollision():Boolean = dancers.any { d ->
     dancers.any { d2 ->
-      d != d2 &&
-      d.location.x.isApprox(d2.location.x) &&
-      d.location.y.isApprox(d2.location.y)
+      d != d2 && d.location == d2.location
     }
   }
 
