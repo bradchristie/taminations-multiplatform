@@ -145,6 +145,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "triplestarthru" to { TripleStarThru() },
         "tripletrade" to { TripleTrade() },
         "turnback" to { TurnBack() },
+        "uturnback" to { TurnBack() },
         "twisttheline" to { TwistAnything("twisttheline","Twist the Line") },
         "zoom" to { Zoom() },
         "singlewheel" to { SingleWheel("singlewheel","Single Wheel") },
@@ -273,6 +274,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in ".*(motivate|coordinate|percolate|perkup)".r ->
           AnythingConcept(callnorm,callname)
         in "\\d\\d".r -> Fraction(callnorm,callname)
+        in "triplebox.*".r -> TripleBoxConcept(callnorm,callname)
         else -> null
       }
         //  Other calls not easily handled by when expression

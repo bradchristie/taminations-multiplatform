@@ -25,7 +25,7 @@ import com.bradchristie.taminations.common.Path
 import com.bradchristie.taminations.common.TamUtils
 import com.bradchristie.taminations.common.calls.Action
 
-class TurnBack : Action("Turn Back") {
+class TurnBack : Action("U-Turn Back") {
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
     return TamUtils.getMove(if (d.data.beau) "U-Turn Right" else "U-Turn Left")
