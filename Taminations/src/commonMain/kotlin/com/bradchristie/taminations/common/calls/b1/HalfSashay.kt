@@ -22,7 +22,7 @@ package com.bradchristie.taminations.common.calls.b1
 import com.bradchristie.taminations.common.*
 import com.bradchristie.taminations.common.calls.Action
 
-class HalfSashay : Action("Half Sashay") {
+class HalfSashay(norm:String,name:String) : Action(norm,name) {
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
     //  Figure out who we sashay with
@@ -33,7 +33,12 @@ class HalfSashay : Action("Half Sashay") {
       ctx.dancerToLeft(d) in ctx.actives -> ctx.dancerToLeft(d)!!
       else -> throw CallError("Dancer $d has nobody to Sashay with")
     }
-    val move = if (d2.isLeftOf(d)) "Sashay Left" else "BackSashay Right"
+    val move = when {
+      norm.startsWith("reverse") && d2.isLeftOf(d) -> "BackSashay Left"
+      norm.startsWith("reverse") -> "Sashay Right"
+      d2.isLeftOf(d) -> "Sashay Left"
+      else -> "BackSashay Right"
+    }
     val dist = d.distanceTo(d2)
 
     return TamUtils.getMove(move).scale(1.0,dist/2.0)
