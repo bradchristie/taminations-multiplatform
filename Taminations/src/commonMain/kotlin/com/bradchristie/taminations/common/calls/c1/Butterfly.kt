@@ -34,7 +34,7 @@ class Butterfly(norm:String,name:String) : ModifedFormationConcept(norm,name) {
     if (!super.reformFormation(ctx)) {
       //  That didn't work, we are too far off from a butterfly
       //  So first just concentrate on the centers
-      val centers = CallContext(ctx,ctx.center(4).inOrder())
+      val centers = CallContext(ctx,ctx.center(4))
       if (centers.adjustToFormation("Facing Couples Close",rotate = 180)) {
         //  And now use the base method to fix the outer 4
         centers.appendToSource()

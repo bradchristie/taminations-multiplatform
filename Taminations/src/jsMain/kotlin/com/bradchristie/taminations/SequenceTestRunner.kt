@@ -1641,6 +1641,26 @@ Star Thru
 Boys Circulate 
 Ferris Wheel 
 Centers Pass Thru 
+Allemande Left""",
+
+      "Triple Box" to
+"""Heads Lead Right 
+Triple Box Left Chase  
+Triple Box Walk and Dodge  
+Triple Box Right Roll to a Wave  
+Triple Wave Swing Thru  
+Triple Wave 1/4 In  
+Triple Column Pass and Roll  
+Triple Box Hinge 
+Triple Wave Recycle 
+Triple Box Pass Thru 
+Touch a Quarter 
+Quarter Thru 
+Boys Run 
+Bend the Line 
+Touch a Quarter 
+Circulate 
+Boys Run 
 Allemande Left"""
 
   )

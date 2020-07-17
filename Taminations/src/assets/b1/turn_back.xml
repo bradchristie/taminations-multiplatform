@@ -133,7 +133,7 @@
   </tam>
 
   <tam title="Boys Turn Back" from="Facing Couples"
-       formation="Facing Couples" sequencer="gender-specific">
+       formation="Facing Couples" sequencer="no">
     <path>
       <move select="U-Turn Right" />
     </path>
@@ -142,7 +142,7 @@
   </tam>
 
   <tam title="Boys Turn Back" from="Right-Hand Box"
-       sequencer="gender-specific" formation="Box RH">
+       sequencer="no" formation="Box RH">
     <path>
       <move select="U-Turn Right" />
     </path>
@@ -151,7 +151,7 @@
   </tam>
 
   <tam title="Girls Turn Back" from="Facing Couples"
-       sequencer="gender-specific" formation="Facing Couples">
+       sequencer="no" formation="Facing Couples">
     <path>
     </path>
     <path>
@@ -160,7 +160,7 @@
   </tam>
 
   <tam title="Girls Turn Back" from="Right-Hand Box"
-       sequencer="gender-specific" formation="Box RH">
+       sequencer="no" formation="Box RH">
     <path>
     </path>
     <path>

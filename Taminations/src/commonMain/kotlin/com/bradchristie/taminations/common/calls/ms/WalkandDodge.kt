@@ -35,6 +35,12 @@ class WalkandDodge(norm:String,name:String) : Action(norm,name) {
   private val Dancer.isDodger get() = this.number in dodgectx.actives.map { it.number }
 
   override fun perform(ctx: CallContext, i: Int) {
+    if (ctx.actives.count() < ctx.dancers.count()) {
+      ctx.subContext(ctx.actives) {
+        perform(this,i)
+      }
+      return
+    }
     //  Figure out who is a walker and who is a dodger.
     //  Save the results in call contexts
     walkctx = CallContext(ctx)

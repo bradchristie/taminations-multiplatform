@@ -51,13 +51,40 @@ data class DancerData(
 fun Vector.ds(d:Dancer) : Vector = d.tx.inverse() * this
 
 
-//  Take a list of dancers in any order, re-order
-//  in pairs of diagonal opposites
-fun List<Dancer>.inOrder():List<Dancer> =
-    this.filter { it.location.x.isGreaterThan(0.0) ||
-        (it.location.x.isAbout(0.0) && it.location.y.isGreaterThan(0.0)) }
-        .flatMap { d -> listOf(d,this.first { it.location == -d.location } ) }
+fun List<Dancer>.areDancersOrdered() =
+    this.count().rem(2) == 0 &&
+    this.indices.filter { it.rem(2) == 0 }.all {
+      this[it].location == -this[it+1].location
+    }
 
+//  Center a list of dancers
+//  Assumes dancers are distributed evenly around a central point
+fun List<Dancer>.center():List<Dancer> {
+  if (count() > 0) {
+    val vs = this.fold(Vector()) { v, d -> v + d.location }
+    val va = vs / count().d
+    forEach { d ->
+      d.setStartPosition(d.location - va)
+    }
+  }
+  return this
+}
+
+
+//  Take a list of dancers in any order and re-order
+//  in pairs of diagonal opposites
+//  If it fails, just return original list
+//  rather than null or crashing
+fun List<Dancer>.inOrder():List<Dancer> {
+  return try {
+    filter {
+      it.location.x.isGreaterThan(0.0) ||
+          (it.location.x.isAbout(0.0) && it.location.y.isGreaterThan(0.0))
+    }.flatMap { d -> listOf(d, this.first { it.location == -d.location }) }
+  } catch (_: Exception) {
+    this
+  }
+}
 
 /**
  *     Constructor for a new dancer
@@ -246,6 +273,11 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
     val a = angleFacing
     starttx = Matrix.getTranslation(pos.x,pos.y) * Matrix.getRotation(a)
     tx = Matrix(starttx)
+    return this
+  }
+
+  fun setStartAngle(a:Double):Dancer {
+    starttx = Matrix.getTranslation(starttx.location) * Matrix.getRotation(a)
     return this
   }
 

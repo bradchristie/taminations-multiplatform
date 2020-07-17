@@ -39,6 +39,7 @@ class Matrix(val m11:Double=1.0, val m21:Double=0.0, val m31:Double=0.0,
     fun getRotation(angle:Double): Matrix =
         Matrix(cos(angle), -sin(angle), 0.0, sin(angle), cos(angle), 0.0)
     fun getTranslation(x:Double,y:Double): Matrix = Matrix(m31 = x, m32 = y)
+    fun getTranslation(v:Vector) : Matrix = getTranslation(v.x,v.y)
   }
 
   //  Copy constructor

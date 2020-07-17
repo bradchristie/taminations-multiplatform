@@ -60,9 +60,10 @@ class PhantomConcept(norm: String, name: String) : Action(norm, name) {
     val phantomctx = CallContext(ctx,ctx.dancers+phantoms)
     //  Find good rotation
     phantomctx.analyze()
-    if (!phantomctx.rotatePhantoms(subcall))
-      throw CallError("Unable to find phantom formation for $subcall")
-    return phantomctx
+    phantomctx.rotatePhantoms(subcall)?.also {
+      return it
+    }
+    throw CallError("Unable to find phantom formation for $subcall")
   }
 
   override fun perform(ctx: CallContext, i: Int) {

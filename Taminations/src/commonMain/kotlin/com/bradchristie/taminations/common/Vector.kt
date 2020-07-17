@@ -35,6 +35,7 @@ data class Vector(val x:Double=0.0, val y:Double=0.0) {
   //  Multiply by scale factors in one or more dimensions
   fun scale(sx:Double,sy:Double): Vector = Vector(x * sx, y * sy)
   operator fun times(s:Double) = scale(s,s)
+  operator fun div(s:Double) = scale(1.0/s,1.0/s)
   //  Compute vector length
   override fun equals(other:Any?): Boolean =
       if (other is Vector) x.isAbout(other.x) && y.isAbout(other.y) else false

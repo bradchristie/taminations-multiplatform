@@ -102,6 +102,48 @@ class CallContext {
         "c2/unwrap"
     )
 
+    private val standardFormations = mapOf(
+        "Normal Lines Compact" to 1.0,
+        "Normal Lines" to 1.0,
+        "Double Pass Thru" to 1.0,
+        "Quarter Tag" to 1.0,
+        "Tidal Line RH" to 1.0,
+        "Tidal Wave of 6" to 2.0,
+        "I-Beam" to 2.0,
+        "Diamonds RH Girl Points" to 2.0,
+        "Diamonds RH PTP Girl Points" to 3.0,
+        "Hourglass RH BP" to 3.0,
+        "Galaxy RH GP" to 3.0,
+        "Butterfly RH" to 3.0,
+        "O RH" to 3.0,
+        "Thar RH Boys" to 3.0,
+        "Sausage RH" to 3.0,
+        "Static Square" to 2.0,
+        //"Alamo Wave"
+        "Right-Hand Zs" to 2.0,
+        "Left-Hand Zs" to 2.0,
+        //  Siamese formations
+        //  This also covers C-1 Phantom formations
+        "Siamese Box 1" to 2.0,
+        "Siamese Box 2" to 2.0,
+        //  Blocks
+        "Facing Blocks Right" to 2.0,
+        "Facing Blocks Left" to 2.0,
+        "Siamese Wave" to 2.0,
+        "Concentric Diamonds RH" to 2.0,
+        "Quarter Z RH" to 2.0,
+        "Quarter Z LH" to 2.0
+    )
+    private val twoCoupleFormations = mapOf(
+        "Facing Couples Compact" to 1.0,
+        "Facing Couples" to 1.0,
+        "Two-Faced Line RH" to 1.0,
+        "Diamond RH" to 1.0,
+        "Single Eight Chain Thru" to 1.0,
+        "Single Quarter Tag" to 1.0,
+        "Square RH" to 1.0
+    )
+
     var numfiles = 0
 
     init {
@@ -179,7 +221,11 @@ class CallContext {
   constructor(source: CallContext,
               sourcedancers: List<Dancer> = source.dancers,
               beat: Double = Double.MAX_VALUE) {
-    dancers = sourcedancers.map { it.animate(beat); Dancer(it) }
+    sourcedancers.forEach { it.animate(beat) }
+    dancers = if (sourcedancers.areDancersOrdered())
+      sourcedancers.map { Dancer(it) }
+    else
+      sourcedancers.map { Dancer(it) }.center().inOrder()
     this.source = source
     this.snap = source.snap
   }
@@ -244,10 +290,14 @@ class CallContext {
    * The CallContext must have been previously cloned from the source.
    */
   fun appendToSource(): CallContext {
-    dancers.forEach {
-      it.clonedFrom?.let { clone ->
-        clone.path.add(it.path)
-        clone.animateToEnd()
+    dancers.forEach { clone ->
+      clone.clonedFrom?.let { original ->
+        //  Phantoms might have been rotated in clone,
+        //  so set start angle in original to match
+        if (clone.gender == Gender.PHANTOM && original.path.movelist.isEmpty())
+          original.setStartAngle(clone.starttx.angle)
+        original.path.add(clone.path)
+        original.animateToEnd()
       }
     }
     if (source != null && source!!.level < level)
@@ -327,8 +377,7 @@ class CallContext {
   private fun checkCalls(vararg calltext:String):Boolean {
     val testctx = CallContext(this)
     return try {
-      testctx.applyCalls(*calltext)
-      true
+      !testctx.applyCalls(*calltext).isCollision()
     } catch (err:CallError) {
       false
     }
@@ -748,47 +797,7 @@ class CallContext {
 
   //  See if the current dancer positions resemble a standard formation
   //  and, if so, snap to the standard
-  private val standardFormations = mapOf(
-      "Normal Lines Compact" to 1.0,
-      "Normal Lines" to 1.0,
-      "Double Pass Thru" to 1.0,
-      "Quarter Tag" to 1.0,
-      "Tidal Line RH" to 1.0,
-      "Tidal Wave of 6" to 2.0,
-      "I-Beam" to 2.0,
-      "Diamonds RH Girl Points" to 2.0,
-      "Diamonds RH PTP Girl Points" to 3.0,
-      "Hourglass RH BP" to 3.0,
-      "Galaxy RH GP" to 3.0,
-      "Butterfly RH" to 3.0,
-      "O RH" to 3.0,
-      "Thar RH Boys" to 3.0,
-      "Sausage RH" to 3.0,
-      "Static Square" to 2.0,
-          //"Alamo Wave"
-      "Right-Hand Zs" to 2.0,
-      "Left-Hand Zs" to 2.0,
-      //  Siamese formations
-      //  This also covers C-1 Phantom formations
-      "Siamese Box 1" to 2.0,
-      "Siamese Box 2" to 2.0,
-      //  Blocks
-      "Facing Blocks Right" to 2.0,
-      "Facing Blocks Left" to 2.0,
-      "Siamese Wave" to 2.0,
-      "Concentric Diamonds RH" to 2.0,
-      "Quarter Z RH" to 2.0,
-      "Quarter Z LH" to 2.0
-  )
-  private val twoCoupleFormations = mapOf(
-      "Facing Couples Compact" to 1.0,
-      "Facing Couples" to 1.0,
-      "Two-Faced Line RH" to 1.0,
-      "Diamond RH" to 1.0,
-      "Single Eight Chain Thru" to 1.0,
-      "Single Quarter Tag" to 1.0,
-      "Square RH" to 1.0
-  )
+
   @Suppress("ArrayInDataClass")
   data class BestMapping(
       var name:String,
@@ -796,14 +805,13 @@ class CallContext {
       var match: FormationMatchResult,
       var totOffset:Double
   )
-  fun matchStandardFormation() {
+  fun matchFormationList(formations:Map<String,Double>) {
     //  Make sure newly added animations are finished
     dancers.forEach { d -> d.path.recalculate(); d.animateToEnd() }
     //  Work on a copy with all dancers active, mapping only uses active dancers
     val ctx1 = CallContext(this)
     ctx1.dancers.forEach { d -> d.data.active = true }
     var bestMapping: BestMapping? = null
-    val formations = if (ctx1.dancers.count() == 4) twoCoupleFormations else standardFormations
     formations.forEach { f ->
       val ctx2 = CallContext(TamUtils.getFormation(f.key))
       //  See if this formation matches
@@ -816,7 +824,6 @@ class CallContext {
         //  then consider it bogus
         val angsnap = matchResult.transform.angle / (PI / 2)
         val totOffset = matchResult.offsets.fold(0.0) { s, v -> s + v.length }
-        // System.log("$f : $totOffset")
         //  Favor formations closer to the top of the list
         //  Especially favor lines
         val favoring = f.value
@@ -836,6 +843,16 @@ class CallContext {
     }
     bestMapping?.let {
       adjustToFormationMatch(it.match)
+    }
+  }
+
+  fun matchStandardFormation() {
+    if (snap) {
+      val formations = if (dancers.count() == 4)
+        twoCoupleFormations
+      else
+        standardFormations
+      matchFormationList(formations)
     }
   }
 
@@ -872,45 +889,43 @@ class CallContext {
     return false
   }
 
-  //  Rotate phantoms until a match is found
-  //  for a given call
-  //  Phantoms must be in diagonally opposite pairs
-  //  which are rotated together
-  //  unless asym is set
-  //  as this is required for XML mapping to work
-
-  fun rotatePhantoms(call:String, rotate:Int=180, asym:Boolean=false):Boolean {
+  ///  Rotate phantoms until a match is found
+  ///  for a given call
+  ///  Phantoms must be in diagonally opposite pairs
+  ///  which are rotated together
+  ///  unless asym is set
+  ///  as this is required for XML mapping to work
+  fun rotatePhantoms(call:String, rotate:Int=180, asym:Boolean=false): CallContext? {
     val phantoms = dancers.filter { it.gender == Gender.PHANTOM }
     //  Compute number of possibilities
     val rotnum = 360 / rotate
     val phanum = if (asym) phantoms.count() else phantoms.count()/2
     val topindex = rotnum.pow(phanum)
-    //  First check if it works with no rotation
-    if (checkCalls(call))
-      return true
     //  Loop through each possibility
-    for (mapindex in 1 until topindex) {
+    for (mapindex in 0 until topindex) {
       //  Set rotation of each phantom
       //  Flip one phantom selected with a Gray sequence
       //  https://en.wikipedia.org/wiki/Gray_code
-      val p = (0 until phanum).first {
-        i -> (mapindex / rotnum.pow(i)).rem(rotnum) > 0
+      if (mapindex > 0) { //  mapindex == 0 is first check with no rotations
+        val p = (0 until phanum).first { i ->
+          (mapindex / rotnum.pow(i)).rem(rotnum) > 0
+        }
+        if (asym)
+          phantoms[p].rotateStartAngle((rotate).d)
+        else {
+          phantoms[p * 2].rotateStartAngle((rotate).d)
+          phantoms[p * 2 + 1].rotateStartAngle((rotate).d)
+        }
       }
-      if (asym)
-        phantoms[p].rotateStartAngle((rotate).d)
-      else {
-        phantoms[p * 2].rotateStartAngle((rotate).d)
-        phantoms[p * 2 + 1].rotateStartAngle((rotate).d)
-      }
-
-      if (checkCalls(call)) {
-        //  Good rotation found
-        //  Return with phantoms in current rotation
-        return true
+      CallContext(this,dancers).also {
+        if (it.checkCalls(call))
+          //  Good rotation found
+          //  Return with phantoms in current rotation
+          return it
       }
       //  This rotation does not work
     }
-    return false
+    return null
   }
 
   //  Use phantoms to fill in a formation starting from the dancers
@@ -1049,15 +1064,16 @@ class CallContext {
     else -> false
   }
 
-/*
   //  Return true if this is 4 dancers in a box
   fun isBox():Boolean =
       //  Must have 4 dancers
       dancers.count() == 4 &&
-      //  Each dancer must have a partner
-      //  and must be either a leader or a trailer
-      dancers.all { d -> d.data.partner != null && (d.data.leader || d.data.trailer) }
-*/
+      //  Each dancer must have one dancer at the same X coordinate
+      //  and one dancer at the same Y coordinate
+      dancers.all { d ->
+          dancers.count { d.location.x isAbout it.location.x } == 2 &&
+          dancers.count { d.location.y isAbout it.location.y } == 2
+      }
 
   //  Return true if 8 dancers are in 2 general lines of 4 dancers each
   //  Also works for 4 dancers in 1 line
@@ -1191,11 +1207,8 @@ class CallContext {
     }
   }
 
-  /*
   //  Center dancers around the origin
   //  Useful for a CallContext created from an arbitrary set of dancers
-  //  However this arbitrary set should be symmetrical (C2) about its
-  //  central point, just like a (non-asymmetric) square.
   fun recenter() {
     animate(0.0)
     val maxx = dancers.map { it.location.x }.max()!!
@@ -1206,7 +1219,7 @@ class CallContext {
     dancers.forEach { d ->
       d.setStartPosition(d.location - shift)
     }
-  }  */
+  }
 
   //  This is useful for calls that depend on re-defining dancer types
   //  for subgroups, e.g. "Centers Zoom"

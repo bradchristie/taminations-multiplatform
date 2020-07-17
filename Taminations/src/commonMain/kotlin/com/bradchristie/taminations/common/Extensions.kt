@@ -131,6 +131,7 @@ val Double.sq:Double get() = this * this
 val Double.sin:Double get() = sin(this)
 val Double.cos:Double get() = cos(this)
 val Double.toRadians:Double get() = this * PI / 180
+val Double.toDegrees:Double get() = this * 180 / PI
 fun Double.isApprox(y:Double,delta:Double=0.1):Boolean = (this-y).abs < delta
 infix fun Double.isAbout(y:Double):Boolean = this.isApprox(y)
 fun Double.isApproxInt(delta:Double=0.1):Boolean = (this-this.round).abs < delta
