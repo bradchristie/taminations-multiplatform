@@ -25,7 +25,7 @@
   <tam title="Left Pass and Roll"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       group=" " >
+       group=" " sequencer="no">
     <path>
       <move select="Extend Right" scaleY=".5" />
       <move select="Forward 2" />
@@ -58,7 +58,7 @@
     </path>
   </tam>
 
-  <tam title="Left Square Chain Thru" group=" "
+  <tam title="Left Square Chain Thru" group=" " sequencer="no"
        from="Facing Couples"
        formation="Facing Couples"
        fractions="3;3;3" >
