@@ -24,7 +24,7 @@
 
   <tam title="Cloverleaf"
        from="Couples Facing Out"
-       formation="Couples Facing Out">
+       formation="Couples Facing Out" sequencer="exact">
     <path>
       <move select="Lead Right" />
       <move select="Lead Right" />

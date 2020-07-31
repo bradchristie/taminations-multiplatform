@@ -471,7 +471,8 @@ class CallContext {
     val dc = ctx1.dancers.count()
     val ac = ctx1.actives.count()
     var perimeter = false
-    if (dc != ac) {
+    val exact = dc == ac
+    if (!exact) {
       //  Don't try to match unless the actives are together
       if (ctx1.actives.any { d ->
             ctx1.inBetween(d,ctx1.actives.first()).any { !it.data.active }
@@ -494,6 +495,8 @@ class CallContext {
       loadedXML[it]!!.evalXPath("/tamination/tam").asSequence().filter { tam -> tam.attr("sequencer")!="no" &&
           //  Check for calls that must go around the centers
           (!perimeter || tam.attr("sequencer").contains("perimeter")) &&
+          //  Check for 4-dancer calls that do not work for 8 dancers
+          (exact || !tam.attr("sequencer").contains("exact")) &&
           TamUtils.normalizeCall(tam.attr("title")) == callnorm
       }.forEach { tam ->
         //  Calls that are gender-specific, e.g. Star Thru,
