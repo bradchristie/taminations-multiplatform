@@ -15,13 +15,13 @@ apply plugin: 'maven-publish'
 android {
   signingConfigs {
   }
-  compileSdkVersion 28
+  compileSdkVersion 29
   defaultConfig {
     applicationId 'com.bradchristie.taminationsapp'
     minSdkVersion 16
-    targetSdkVersion 28
-    versionCode 124
-    versionName '1.5.59'  //  Also update sw.js and of course about.html
+    targetSdkVersion 29
+    versionCode 126
+    versionName '1.5.60'  //  Also update sw.js and of course about.html
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
   buildTypes {

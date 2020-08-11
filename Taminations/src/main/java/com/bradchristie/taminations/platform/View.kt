@@ -115,6 +115,7 @@ actual open class View actual constructor() {
   }
 
 
+  @SuppressLint("ClickableViewAccessibility")
   protected fun android.view.View.addListeners():android.view.View {
     layoutParams = android.widget.LinearLayout.LayoutParams(WRAP_CONTENT,WRAP_CONTENT)
     setOnTouchListener { _: android.view.View, event: MotionEvent ->

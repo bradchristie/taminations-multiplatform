@@ -70,14 +70,14 @@ actual object System {
   actual fun copyTextToClipboard(text:List<String>) {
     val clipboard = Taminations.context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
     val clip = ClipData.newPlainText("Square Dance Calls", text.joinToString("\n"))
-    clipboard.primaryClip = clip
+    clipboard.setPrimaryClip(clip)
   }
 
   //  Paste from clipboard.  Used by sequencer
   actual fun pasteTextFromClipboard(code:(String)->Unit) {
     val clipboard = Taminations.context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
     if (clipboard.hasPrimaryClip()) {
-      @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS") val pasteText = clipboard.primaryClip.getItemAt(0).text
+      val pasteText = clipboard.primaryClip?.getItemAt(0)?.text ?: ""
       code(pasteText.toString())
     }
   }
