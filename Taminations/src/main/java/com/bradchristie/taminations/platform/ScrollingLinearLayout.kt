@@ -43,6 +43,12 @@ actual open class ScrollingLinearLayout : ViewGroup() {
     return child
   }
 
+  override fun removeView(v: View) {
+    innerdiv.removeView(v.div)
+    children.remove(v)
+    v.parentView = null
+  }
+
   override fun clear() {
     innerdiv.removeAllViews()
     children.clear()

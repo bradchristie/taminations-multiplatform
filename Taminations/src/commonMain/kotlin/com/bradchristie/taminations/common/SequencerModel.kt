@@ -274,7 +274,12 @@ class SequencerModel(private val seqView: SequencerLayout,
       if (callNum < 0)
         callNum
       else
-        callNames.indices.filter { !isComment(callNames[it]) }[callNum]
+        callNames.indices.filter { !isComment(callNames[it]) }.let {
+          if (callNum < it.count())
+            it[callNum]
+          else
+            callNum
+        }
 
   fun listNum2callNum(listNum:Int) : Int =
       if (listNum < 0 || isComment(callNames[listNum]))

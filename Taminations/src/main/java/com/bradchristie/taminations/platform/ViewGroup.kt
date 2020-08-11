@@ -39,7 +39,7 @@ actual abstract class ViewGroup : View() {
   actual open fun<T : View> appendView(child:T, code: T.()->Unit) : T =
       appendThisView(child,code)
   actual open fun appendView(code: View.()->Unit) = appendView(View(),code)
-  actual fun removeView(v: View) {
+  actual open fun removeView(v: View) {
     v.parentView = null
     div.removeView(v.div)
     children.remove(v)
