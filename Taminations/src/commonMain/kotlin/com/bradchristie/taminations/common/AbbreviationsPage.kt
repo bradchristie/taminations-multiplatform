@@ -39,6 +39,36 @@ class AbbreviationsPage : Page() {
     onMessage(Request.Action.ABBREVIATIONS_CHANGED) {
       model.saveAbbreviations()
     }
+    onMessage(Request.Action.BUTTON_PRESS) { request ->
+      when (request["button"]) {
+        "Save" -> {
+          model.copyAbbreviationsToClipboard()
+          Alert("Sequencer").apply {
+            textView("Abbreviations copied to clipboard")
+            okAction { }
+          }
+        }
+        "Load" -> {
+          model.pasteAbbreviationsFromClipboard()
+        }
+        "Clear" -> {
+          Alert("Sequencer").apply {
+            textView("WARNING! This will erase ALL your abbreviations!")
+            okAction(true) {
+              model.clearAbbreviations()
+            }
+          }
+        }
+        "Default" -> {
+          Alert("Sequencer").apply {
+            textView("WARNING! This will REPLACE ALL your abbreviations!")
+            okAction(true) {
+              model.defaultAbbreviations()
+            }
+          }
+        }
+      }
+    }
   }
 
 }
@@ -46,12 +76,33 @@ class AbbreviationsPage : Page() {
 //  The view is just two columns of editable text boxes
 //  Pressing return in any box triggers the program to
 //  register and save changes
-class AbbreviationsView : ScrollingLinearLayout() {
+class AbbreviationsView : LinearLayout(Direction.VERTICAL) {
 
   data class AbbreviationItem(val abbr:String, val expa:String)
+  private val abbreviationList = ScrollingLinearLayout()
+  private val saveButton = Button("Save")
+  private val loadButton = Button("Load")
+  private val clearButton = Button("Clear")
+  private val resetButton = Button("Default")
+  private val buttonLayout = LinearLayout(Direction.HORIZONTAL)
+
+  init {
+    appendView(abbreviationList) {
+      weight = 1
+    }
+    appendView(buttonLayout) {
+      backgroundColor = Color.BLACK
+      weight = 0
+      listOf(saveButton,loadButton,clearButton,resetButton).forEach {
+        appendView(it)
+        it.weight = 1
+        it.margins = 4
+      }
+    }
+  }
 
   fun addItem(abbrev:String="",expansion:String="") {
-    horizontalLayout {
+    abbreviationList.horizontalLayout {
       weight = 0
       appendView(TextInput()) {
         backgroundColor = WHITE
@@ -73,18 +124,22 @@ class AbbreviationsView : ScrollingLinearLayout() {
     }
   }
 
-  val numItems:Int get() = children.count()
+  override fun clear() {
+    abbreviationList.clear()
+  }
+
+  val numItems:Int get() = abbreviationList.children.count()
 
   private fun abbrView(i:Int):TextInput =
-      (children[i] as ViewGroup).children[0] as TextInput
+      (abbreviationList.children[i] as ViewGroup).children[0] as TextInput
   private fun expaView(i:Int):TextInput =
-      (children[i] as ViewGroup).children[1] as TextInput
+      (abbreviationList.children[i] as ViewGroup).children[1] as TextInput
 
   operator fun get(i:Int):AbbreviationItem =
       AbbreviationItem(abbrView(i).text,expaView(i).text)
 
   fun clearErrors() {
-    children.forEach { child ->
+    abbreviationList.children.forEach { child ->
       (child as ViewGroup).children[0].backgroundColor = WHITE
     }
   }
@@ -142,20 +197,34 @@ class AbbreviationModel(val view:AbbreviationsView) {
         "ttl" to "Tag the Line",
         "wad" to "Walk and Dodge"
     )
-    init {
-      //  Initialize with abbrevs above if 1st time
-      if (Storage["+abbrev stored"] == null) {
-        initialAbbrev.forEach { (key, value) ->
-          Storage["abbrev $key"] = value
-        }
-        Storage["+abbrev stored"] = "true"
-      }
+  }
+
+  init {
+    //  Initialize with abbrevs above if 1st time
+    if (Storage["+abbrev stored"] == null) {
+      defaultAbbreviations()
+      Storage["+abbrev stored"] = "true"
     }
   }
 
-  fun loadAbbreviations() {
+  fun clearAbbreviations() {
+    Storage.keys.forEach {
+      if (it.matches("abbrev \\S+".r))
+        Storage.remove(it)
+    }
+    loadAbbreviations()
+  }
 
-    //  Read stored abbreviations and fill table
+  fun defaultAbbreviations() {
+    clearAbbreviations()
+    initialAbbrev.forEach { (key, value) ->
+      Storage["abbrev $key"] = value
+    }
+    loadAbbreviations()
+  }
+
+  fun loadAbbreviations() {
+    //  Read abbreviations previously stored and fill table
     view.clear()
     Storage.keys.sorted().forEach { key ->
       //  skip "*abbrev stored" and any other non-user stuff
@@ -164,7 +233,6 @@ class AbbreviationModel(val view:AbbreviationsView) {
     }
     //  Blank entry at end for writing a new abbrev
     view.addItem("","")
-
   }
 
   //  This routine is called when the user presses return
@@ -178,23 +246,46 @@ class AbbreviationModel(val view:AbbreviationsView) {
     view.clearErrors()
     //  Process all the current abbreviations
     (0 until view.numItems).forEach { i ->
-      when {
-        //  error if duplicate
-        Storage["abbrev "+view[i].abbr] != null -> view.markError(i)
-        //  error if a word used in calls
-        view[i].abbr.lc in TamUtils.words -> view.markError(i)
-        //  ok if a single non-blank string
-        view[i].abbr.matches("\\S+".r) && view[i].expa.isNotBlank() ->
-          Storage["abbrev "+view[i].abbr] = view[i].expa
-        //  otherwise (embedded spaces) error
-        view[i].abbr.isNotBlank() -> view.markError(i)
-      }
+      if (!addOneAbbreviation(view[i].abbr,view[i].expa))
+        view.markError(i)
     }
     //  Be sure we have a blank row at the bottom
     //  for adding a new abbreviation
     if (view[view.numItems-1].abbr.isNotBlank())
       view.addItem("","")
-
   }
+
+  private fun addOneAbbreviation(abbr: String, expansion: String) : Boolean {
+    return when {
+      //  error if duplicate
+      Storage["abbrev $abbr"] != null -> false
+      //  error if a word used in calls
+      abbr.lc in TamUtils.words -> false
+      //  ok if a single non-blank string
+      abbr.matches("\\S+".r) && expansion.isNotBlank() -> {
+        Storage["abbrev $abbr"] = expansion
+        true
+      }
+      //  otherwise (embedded spaces) error
+      abbr.isNotBlank() -> false
+      else -> true
+    }
+  }
+
+  fun copyAbbreviationsToClipboard() {
+    val text = Storage.keys.sorted().filter { it.matches("abbrev \\S+".r) }
+        .map { "${it.replace("abbrev ","")} ${Storage[it]}" }
+    System.copyTextToClipboard(text)
+  }
+
+  fun pasteAbbreviationsFromClipboard() {
+    System.pasteTextFromClipboard { text ->
+      text.split("\n").forEach { line ->
+        val (abbr,expan) = line.split("\\s".r,2)
+        addOneAbbreviation(abbr,expan)
+      }
+    }
+  }
+
 
 }

@@ -21,11 +21,11 @@ package com.bradchristie.taminations.common
 
 import com.bradchristie.taminations.platform.*
 
-class AnimListView : LinearLayout(LinearLayout.Direction.VERTICAL) {
+class AnimListView : LinearLayout(Direction.VERTICAL) {
 
   private val animList = ScrollingLinearLayout()
-  val keyView = LinearLayout(LinearLayout.Direction.HORIZONTAL)
-  val buttonView = LinearLayout(LinearLayout.Direction.HORIZONTAL)
+  val keyView = LinearLayout(Direction.HORIZONTAL)
+  val buttonView = LinearLayout(Direction.HORIZONTAL)
   var count = 0
 
   init {
