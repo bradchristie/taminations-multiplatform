@@ -29,6 +29,7 @@ expect open class Button(t:String) : View {
 
   var gradientColor: Color
   var text:String
+  var id:String
   override var weight: Int
 
 }

@@ -40,26 +40,33 @@ class AbbreviationsPage : Page() {
       model.saveAbbreviations()
     }
     onMessage(Request.Action.BUTTON_PRESS) { request ->
-      when (request["button"]) {
-        "Save" -> {
+      when (request["id"]) {
+        "Abbrev Copy" -> {
           model.copyAbbreviationsToClipboard()
           Alert("Sequencer").apply {
             textView("Abbreviations copied to clipboard")
             okAction { }
           }
         }
-        "Load" -> {
-          model.pasteAbbreviationsFromClipboard()
-        }
-        "Clear" -> {
+        "Abbrev Paste" -> {
           Alert("Sequencer").apply {
-            textView("WARNING! This will erase ALL your abbreviations!")
+            textView(
+                "This will MERGE abbreviations from the clipboard. " +
+                "If you want to REPLACE all your abbreviations, Clear first then Load.")
+            okAction(true) {
+              model.pasteAbbreviationsFromClipboard()
+            }
+          }
+        }
+        "Abbrev Clear" -> {
+          Alert("Sequencer").apply {
+            textView("WARNING! This will ERASE ALL your abbreviations!")
             okAction(true) {
               model.clearAbbreviations()
             }
           }
         }
-        "Default" -> {
+        "Abbrev Reset" -> {
           Alert("Sequencer").apply {
             textView("WARNING! This will REPLACE ALL your abbreviations!")
             okAction(true) {
@@ -80,10 +87,10 @@ class AbbreviationsView : LinearLayout(Direction.VERTICAL) {
 
   data class AbbreviationItem(val abbr:String, val expa:String)
   private val abbreviationList = ScrollingLinearLayout()
-  private val saveButton = Button("Save")
-  private val loadButton = Button("Load")
-  private val clearButton = Button("Clear")
-  private val resetButton = Button("Default")
+  private val saveButton = Button("Copy").apply { id = "Abbrev Copy" }
+  private val loadButton = Button("Paste").apply { id = "Abbrev Paste" }
+  private val clearButton = Button("Clear").apply { id = "Abbrev Clear" }
+  private val resetButton = Button("Reset").apply { id = "Abbrev Reset" }
   private val buttonLayout = LinearLayout(Direction.HORIZONTAL)
 
   init {
@@ -281,9 +288,11 @@ class AbbreviationModel(val view:AbbreviationsView) {
   fun pasteAbbreviationsFromClipboard() {
     System.pasteTextFromClipboard { text ->
       text.split("\n").forEach { line ->
-        val (abbr,expan) = line.split("\\s".r,2)
-        addOneAbbreviation(abbr,expan)
+        val words = line.split("\\s".r,2)
+        if (words.count() > 1)
+          addOneAbbreviation(words[0],words[1])
       }
+      loadAbbreviations()
     }
   }
 

@@ -47,6 +47,7 @@ actual open class Button actual constructor(t:String) : View() {
   actual var text:String
     get() = div.text.toString()
     set(value) { div.text = value }
+  actual var id:String = ""
 
   override val div = android.widget.Button(Taminations.context).apply {
     typeface = Typeface.DEFAULT_BOLD
@@ -76,7 +77,8 @@ actual open class Button actual constructor(t:String) : View() {
     setOnClickListener {
       clickCode()
       Application.sendMessage(Request.Action.BUTTON_PRESS,
-          "button" to text.toString())
+          "button" to text.toString(),
+          "id" to this@Button.id)
     }
   }
 

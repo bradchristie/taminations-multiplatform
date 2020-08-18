@@ -100,15 +100,15 @@ class SequencerPage : Page() {
       }
     }
     onMessage(Request.Action.BUTTON_PRESS) { request ->
-      when (request["button"]) {
-        "Help" -> doRequest(Request.Action.SEQUENCERHELP)
-        "Settings" -> doRequest(Request.Action.SEQUENCERSETTINGS)
-        "Abbrev" -> doRequest(Request.Action.ABBREVIATIONS)
-        "Calls" -> doRequest(Request.Action.SEQUENCERCALLS)
-        "Undo" -> model.undoLastCall()
-        "Reset" -> model.reset()
-        "Copy" -> model.copyCallsToClipboard()
-        "Paste" -> model.pasteCallsFromClipboard()
+      when (request["id"]) {
+        "Sequencer Help" -> doRequest(Request.Action.SEQUENCERHELP)
+        "Sequencer Settings" -> doRequest(Request.Action.SEQUENCERSETTINGS)
+        "Sequencer Abbrev" -> doRequest(Request.Action.ABBREVIATIONS)
+        "Sequencer Calls" -> doRequest(Request.Action.SEQUENCERCALLS)
+        "Sequencer Undo" -> model.undoLastCall()
+        "Sequencer Reset" -> model.reset()
+        "Sequencer Copy" -> model.copyCallsToClipboard()
+        "Sequencer Paste" -> model.pasteCallsFromClipboard()
       }
       later {
         //  For paste, keep focus in paste box

@@ -28,14 +28,14 @@ class SequencerLayout : LinearLayout(Direction.VERTICAL) {
   val panelLayout = AnimationPanelLayout()
   val beatText = TextView("")
   val callText = TextView("")
-  private val undoButton = Button("Undo")
-  private val resetButton = Button("Reset")
-  private val copyButton = Button("Copy")
-  private val pasteButton = Button("Paste")
-  private val instructionsButton = Button("Help")
-  private val settingsButton = Button("Settings")
-  private val abbrButton = Button("Abbrev")
-  private val callsButton = Button("Calls")
+  private val undoButton = Button("Undo").apply { id = "Sequencer Undo"}
+  private val resetButton = Button("Reset").apply { id = "Sequencer Reset" }
+  private val copyButton = Button("Copy").apply { id = "Sequencer Copy" }
+  private val pasteButton = Button("Paste").apply { id = "Sequencer Paste" }
+  private val instructionsButton = Button("Help").apply { id = "Sequencer Help" }
+  private val settingsButton = Button("Settings").apply { id = "Sequencer Settings" }
+  private val abbrButton = Button("Abbrev").apply { id = "Sequencer Abbrev" }
+  private val callsButton = Button("Calls").apply { id = "Sequencer Calls" }
   val editButtons = LinearLayout(Direction.HORIZONTAL)
   val pageButtons = LinearLayout(Direction.HORIZONTAL)
   init {

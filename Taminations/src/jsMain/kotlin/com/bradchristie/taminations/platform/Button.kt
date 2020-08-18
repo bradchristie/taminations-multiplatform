@@ -36,6 +36,7 @@ actual open class Button actual constructor(t:String) : View() {
   actual var text:String
     get() = textView.text
     set(t) { textView.text = t }
+  actual var id:String = ""
   //  Edge has a problem sizing buttons when text weight is 1
   //  and button weight is 0
   actual override var weight: Int
@@ -71,7 +72,8 @@ actual open class Button actual constructor(t:String) : View() {
     }
     div.onclick = { event ->
       clickCode()
-      Application.sendMessage(Request.Action.BUTTON_PRESS, "button" to text)
+      Application.sendMessage(Request.Action.BUTTON_PRESS,
+          "button" to text, "id" to id)
       event.stopPropagation()
       false
     }
