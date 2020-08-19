@@ -121,7 +121,7 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
   var hands = Hands.NOHANDS
   // Compute points of path for drawing path
   var tx = Matrix()
-  private val pathpath = DrawingPath()  //android.graphics.Path()
+  private var pathpath = DrawingPath()  //android.graphics.Path()
   val beats:Double get() = path.beats
   //  Other vars for computing handholds
   var leftdancer: Dancer? = null
@@ -149,14 +149,7 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
 
   init {
     // Compute points of path for drawing path
-    animateComputed(0.0)
-    var loc = location
-    pathpath.moveTo(loc.x,loc.y)
-    for (beat10 in 1..beats.i*10) {
-      animateComputed(beat10.d/10.0)
-      loc = location
-      pathpath.lineTo(loc.x,loc.y)
-    }
+    computePath()
     //  Restore dancer to start position
     animateComputed(-2.0)
   }
@@ -285,6 +278,19 @@ open class Dancer(val number:String, val number_couple:String, val gender:Int,
     starttx = starttx.preRotate(angle.toRadians)
     tx = Matrix(starttx)
     return this
+  }
+
+  // Compute points of path for drawing path
+  fun computePath() {
+    animateComputed(0.0)
+    var loc = location
+    pathpath = DrawingPath()
+    pathpath.moveTo(loc.x, loc.y)
+    for (beat10 in 1..beats.i * 10) {
+      animateComputed(beat10.d / 10.0)
+      loc = location
+      pathpath.lineTo(loc.x, loc.y)
+    }
   }
 
   /**

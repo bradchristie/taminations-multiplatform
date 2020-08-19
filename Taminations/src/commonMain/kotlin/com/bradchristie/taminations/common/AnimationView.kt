@@ -821,8 +821,10 @@ class AnimationView : Canvas() {
 
   fun recalculate()  {
     beats = 0.0
-    dancers.forEach {
-      d -> beats = beats max (d.beats + leadout)
+    dancers.forEach { d ->
+      d.computePath()
+      d.animate(beat)  // current position clobbered by computePath
+      beats = beats max (d.beats + leadout)
     }
   }
 
