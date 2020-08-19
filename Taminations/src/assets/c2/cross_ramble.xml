@@ -111,4 +111,38 @@
     </path>
   </tam>
 
+  <tam title="_Cross Ramble Part 1" from="3/4 Tag" formation="3/4 Tag"
+       display="no" parts="4">
+    <path>
+      <move select="Lead Left" beats="1" scaleX=".5" />
+      <move select="Lead Left" scaleX="3" scaleY="2.5" beats="3" />
+    </path>
+    <path>
+      <move select="Flip Right" beats="4" scaleY="2" offsetX="-2" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleY="2" offsetX="1" />
+    </path>
+    <path>
+      <move select="Flip Left" beats="4" offsetX="1" />
+    </path>
+  </tam>
+
+  <tam title="_Cross Ramble Part 1" from="3/4 Tag LH" formation="3/4 Tag LH"
+       display="no" parts="4">
+    <path>
+      <move select="Lead Left" beats="1" scaleX=".5" />
+      <move select="Lead Left" scaleX="3" scaleY="2.5" beats="3" />
+    </path>
+    <path>
+      <move select="Flip Right" beats="4" scaleY="2" offsetX="-2" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleY="2" offsetX="1" />
+    </path>
+    <path>
+      <move select="Flip Right" beats="4" offsetX="1" />
+    </path>
+  </tam>
+
 </tamination>
