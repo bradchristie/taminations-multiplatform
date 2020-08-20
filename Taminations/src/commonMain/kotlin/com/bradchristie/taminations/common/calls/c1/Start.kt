@@ -20,19 +20,34 @@ package com.bradchristie.taminations.common.calls.c1
 */
 
 import com.bradchristie.taminations.common.CallContext
+import com.bradchristie.taminations.common.CallError
 import com.bradchristie.taminations.common.LevelObject
 import com.bradchristie.taminations.common.calls.Action
+import com.bradchristie.taminations.common.ri
+import com.bradchristie.taminations.platform.System
 
-class Ramble : Action("Ramble") {
+class Start(norm: String, name: String) : Action(norm, name) {
 
   override val level = LevelObject("c1")
-  override val requires = listOf("a2/single_wheel","ms/slide_thru","b1/separate")
+  override val requires = listOf("b1/pass_thru","b2/trade","c1/finish")
 
   override fun perform(ctx: CallContext, i: Int) {
-    val ctx2 = CallContext(ctx,beat=0.0).noSnap().noExtend()
-    ctx2.applyCalls("Center 4 Single Wheel and Slide Thru")
-    ctx2.applyCalls("Outer 4 Separate and Slide Thru")
-    ctx2.appendToSource()
+    System.log("Start $name")
+    val finishCall = name.replace("^start\\s+".ri,"")
+    //  There has to be a subset of dancers selected to Start
+    if (ctx.actives.count() >= ctx.dancers.count())
+      throw CallError("Who is supposed to start?")
+    //  If the actives are facing, assume that the first part is Pass Thru
+    val startCall = if (ctx.actives.all {
+          ctx.dancerFacing(it)?.data?.active == true
+        })
+      "Pass Thru"
+    else
+      //  Otherwise for now we will try a Trade
+      "Trade"
+    ctx.applyCalls(startCall)
+    ctx.dancers.forEach { it.data.active = true }
+    ctx.applyCalls("Finish $finishCall")
   }
 
 }

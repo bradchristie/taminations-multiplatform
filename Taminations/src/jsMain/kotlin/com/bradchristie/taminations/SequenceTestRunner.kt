@@ -1661,7 +1661,18 @@ Bend the Line
 Touch a Quarter 
 Circulate 
 Boys Run 
-Allemande Left"""
+Allemande Left""",
+
+      "Start" to
+"""Heads Lead Right 
+Boys Cross 
+Centers U-turn Back 
+Facing Dancers Start Pass and Roll 
+Centers Trade 
+Girls Start Swing Thru 
+Circulate 
+Heads Trade 
+Right and Left Grand"""
 
   )
 

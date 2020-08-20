@@ -20,7 +20,6 @@ package com.bradchristie.taminations.common.calls
 */
 
 import com.bradchristie.taminations.common.capWords
-import com.bradchristie.taminations.common.r
 import com.bradchristie.taminations.common.TamUtils
 import com.bradchristie.taminations.common.calls.a1.*
 import com.bradchristie.taminations.common.calls.a2.*
@@ -31,6 +30,8 @@ import com.bradchristie.taminations.common.calls.c2.*
 import com.bradchristie.taminations.common.calls.c3a.SnapTheLock
 import com.bradchristie.taminations.common.calls.ms.*
 import com.bradchristie.taminations.common.calls.plus.*
+import com.bradchristie.taminations.common.r
+import com.bradchristie.taminations.common.ri
 
 abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords()) {
 
@@ -281,12 +282,15 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         else -> null
       }
         //  Other calls not easily handled by when expression
-      ?: if (callname.toLowerCase().matches("o .+".r))
+      ?: if (callname.matches("o .+".ri))
           OFormation(callnorm, callname) else null
       //  Anything Chain Thru should not match Square Chain Thru or others
       ?: if (callnorm.matches(".*chainthru".r) &&
             !callnorm.matches(".*(cross|eight|peel|scatter|spin|square|swing|tag)chainthru".r))
           AnythingChainThru(callnorm,callname) else null
+      //  Start should not match Star Thru e.g.
+      ?: if (callname.matches("start .+".ri))
+          Start(callnorm,callname) else null
     }
   }
 

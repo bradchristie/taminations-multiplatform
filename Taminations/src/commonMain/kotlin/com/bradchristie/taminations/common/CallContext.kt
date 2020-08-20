@@ -696,7 +696,7 @@ class CallContext {
           //  Rate the mapping and save if best
           val matchResult = computeFormationOffsets(ctx2,mapping)
           //  Don't match if some dancers are too far from their mapped location
-          val maxOffset = matchResult.offsets.maxBy { it.length }!!
+          val maxOffset = matchResult.offsets.maxByOrNull { it.length }!!
           //  Don't match if rotation is not multiple of 90 degrees
           val angsnap = matchResult.transform.angle / (PI / 2)
           if (maxOffset.length < maxError && angsnap.isApproxInt(delta = 0.2)) {
@@ -1214,10 +1214,10 @@ class CallContext {
   //  Useful for a CallContext created from an arbitrary set of dancers
   fun recenter() {
     animate(0.0)
-    val maxx = dancers.map { it.location.x }.max()!!
-    val minx = dancers.map { it.location.x }.min()!!
-    val maxy = dancers.map { it.location.y }.max()!!
-    val miny = dancers.map { it.location.y }.min()!!
+    val maxx = dancers.map { it.location.x }.maxOrNull() ?: 0.0
+    val minx = dancers.map { it.location.x }.minOrNull() ?: 0.0
+    val maxy = dancers.map { it.location.y }.maxOrNull() ?: 0.0
+    val miny = dancers.map { it.location.y }.minOrNull() ?: 0.0
     val shift = Vector((maxx + minx) / 2.0, (maxy + miny) / 2.0)
     dancers.forEach { d ->
       d.setStartPosition(d.location - shift)

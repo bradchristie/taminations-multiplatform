@@ -125,8 +125,8 @@ class TripleBoxConcept(norm: String, name: String)
       )
 
   override fun isXaxis(ctx: CallContext) : Boolean {
-    val maxX = ctx.dancers.map { it.location.x }.max()!!
-    val maxY = ctx.dancers.map { it.location.y }.max()!!
+    val maxX = ctx.dancers.map { it.location.x }.maxOrNull()!!
+    val maxY = ctx.dancers.map { it.location.y }.maxOrNull()!!
     return maxX > maxY
   }
 
@@ -136,16 +136,16 @@ class TripleLineConcept(norm: String, name: String)
   : TripleFormation(norm, name) {
 
   override fun majorValues(ctx: CallContext): List<Double> = listOf(
-      ctx.dancers.map { it.location.major }.min()!!,
+      ctx.dancers.map { it.location.major }.minOrNull()!!,
       0.0,
-      ctx.dancers.map { it.location.major }.max()!!
+      ctx.dancers.map { it.location.major }.maxOrNull()!!
   )
 
   override fun minorValues(ctx: CallContext): List<Double> =
       listOf(-3.0,-1.0,1.0,3.0)
 
   override fun tripleFormations(ctx: CallContext): List<CallContext> {
-    val xVal = ctx.dancers.map { it.location.major }.max()!!
+    val xVal = ctx.dancers.map { it.location.major }.maxOrNull()!!
     return listOf(
         CallContext(ctx,ctx.dancers.filter { it.location.major.isAbout(-xVal) }),
         CallContext(ctx,ctx.dancers.filter { it.location.major.isAbout(0.0) }),
