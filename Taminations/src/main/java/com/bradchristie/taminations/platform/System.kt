@@ -25,6 +25,7 @@ import android.content.Context
 import android.content.Intent
 import android.media.MediaPlayer
 import android.util.Log
+import androidx.core.content.res.ResourcesCompat
 import com.bradchristie.taminations.Application
 import com.bradchristie.taminations.Taminations
 import com.bradchristie.taminations.common.Color
@@ -94,8 +95,8 @@ actual object System {
   }
   actual fun shareButton():Button {
     val button = Button("")
-    @Suppress("DEPRECATION")
-    button.setImage(Taminations.context.resources.getDrawable(android.R.drawable.ic_menu_share))
+    button.setImage(ResourcesCompat.getDrawable(Taminations.context.resources,
+                    android.R.drawable.ic_menu_share,null)!!)
     return button
   }
 

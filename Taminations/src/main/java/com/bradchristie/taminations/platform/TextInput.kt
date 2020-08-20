@@ -26,6 +26,7 @@ import android.view.KeyEvent.KEYCODE_ENTER
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import com.bradchristie.taminations.Taminations
+import com.bradchristie.taminations.common.Color
 
 actual class TextInput : View() {
 
@@ -50,6 +51,7 @@ actual class TextInput : View() {
   //  That's not what we want, so capture the Enter event
   //  and send it to the sequencer
   init {
+    div.setBackgroundColor(Color.WHITE.a)
     div.setOnEditorActionListener { _, actionId, event ->
       if (event!!.keyCode == KEYCODE_ENTER && event.action == ACTION_UP)
         onReturn()

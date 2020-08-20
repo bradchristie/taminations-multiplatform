@@ -61,7 +61,10 @@ actual open class TextView actual constructor(private var t:String) : View() {
       }
       super.onDraw(canvas)
     }
-  }.apply { text = t }
+  }.apply {
+    text = t
+    setTextColor(Color.BLACK.a)
+  }
 
   actual var textStyle:String
     get() { throw UnsupportedOperationException() }

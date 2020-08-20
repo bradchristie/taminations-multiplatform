@@ -39,8 +39,8 @@ private const val SWIPE_VELOCITY_THRESHOLD = 100
 actual open class View actual constructor() {
 
   internal open val div = android.view.View(Taminations.context).addListeners()
-  private var didLongPress = false
 
+  private var didLongPress = false
   private inner class DivGestureListener : GestureDetector.OnGestureListener {
 
     //  onShowPress is called on a long press before the touch up

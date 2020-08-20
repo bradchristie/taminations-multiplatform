@@ -395,7 +395,7 @@ class AnimationView : Canvas() {
     return dancers.filter {
       //  Coordinates must be on dancer
       d -> (d.location - Vector(dx,dy)).length < 0.5
-    } .minBy {
+    }.minByOrNull {
       //  In case of multiple hits, return the best
       val loc = it.location
       (loc.x - dx) * (loc.x - dx) + (loc.y - dy) * (loc.y - dy)
