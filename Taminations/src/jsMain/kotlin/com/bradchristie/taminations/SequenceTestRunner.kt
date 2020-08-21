@@ -1693,6 +1693,39 @@ Pass Thru
 Wheel and Deal 
 Double Pass Thru 
 Outer 4 Trade 
+Allemande Left""",
+
+      "Individually Roll" to
+"""Heads As Couples Touch 1/4 
+As Couples Follow Your Neighbor and Individually Roll 
+Girls Pass Thru 
+Touch a Quarter 
+Boys Run 
+As Couples Hinge and Individually Roll 
+Adjust to Boxes 
+Double Pass Thru 
+Tandem Turn Back and Individually Roll 
+Cast Off Three Quarters 
+Pass the Ocean 
+Hinge 
+Centers Run 
+Couples Circulate 
+Girls Trade 
+Bend the Line 
+Star Thru 
+Pass Thru 
+Allemande Left""",
+
+      "Horseshoe Turn" to
+"""Heads Touch a Quarter 
+Sides Trade 
+Horseshoe Turn 
+Center 4 Face In 
+Outer 4 U-turn Back 
+Horseshoe Turn 
+Centers Run and Roll 
+Double Pass Thru 
+Ends U-turn Back 
 Allemande Left"""
 
   )
