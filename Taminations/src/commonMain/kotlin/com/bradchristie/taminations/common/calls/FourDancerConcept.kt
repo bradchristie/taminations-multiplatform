@@ -20,6 +20,8 @@ package com.bradchristie.taminations.common.calls
 */
 
 import com.bradchristie.taminations.common.*
+import com.bradchristie.taminations.common.calls.plus.Roll
+import com.bradchristie.taminations.platform.System
 
 //  This is a base class for concept calls that group or select
 //  dancers in a way that they perform a 4-dancer call.
@@ -28,7 +30,9 @@ import com.bradchristie.taminations.common.*
 abstract class FourDancerConcept(norm:String,name:String=norm) : Action(norm,name) {
 
   protected open val conceptName = ""
+  private val extraCall get() = name.toLowerCase().split("individually").getOrNull(1)
   protected val realCall get() = name.replace("$conceptName ".ri,"")
+      .replace("individually.*".ri,"")
 
   //  Return list of groups of dancers
   //  List must have 4 sub-lists
@@ -115,6 +119,13 @@ abstract class FourDancerConcept(norm:String,name:String=norm) : Action(norm,nam
     ctx.animateToEnd()
     conceptctx.dancers.forEachIndexed { ci,cd ->
       postAdjustment(ctx,cd,groups[ci])
+    }
+    //  Perform any calls for single dancers (e.g. "individually roll")
+    extraCall?.let {
+      if (it.trim().matches("roll".ri))
+        Roll("","").perform(ctx,1)
+      else
+        throw CallError("Don't know how to Individually $it")
     }
   }
 
