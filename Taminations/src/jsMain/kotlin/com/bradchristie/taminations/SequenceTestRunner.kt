@@ -1672,7 +1672,28 @@ Centers Trade
 Girls Start Swing Thru 
 Circulate 
 Heads Trade 
-Right and Left Grand"""
+Right and Left Grand""",
+
+      "Cast Back" to
+"""Heads Pair Off 
+Pass Thru 
+Outer 4 Cross Cast Back 
+Star Thru 
+Centers Pass Thru 
+Pass Thru 
+Triple Box Pass Thru 
+Outer 4 Cast Back 
+Butterfly Pass Thru 
+Outer 4 Squeeze 
+Checkmate 
+Turn and Deal 
+Centers Pass Thru 
+Star Thru 
+Pass Thru 
+Wheel and Deal 
+Double Pass Thru 
+Outer 4 Trade 
+Allemande Left"""
 
   )
 
