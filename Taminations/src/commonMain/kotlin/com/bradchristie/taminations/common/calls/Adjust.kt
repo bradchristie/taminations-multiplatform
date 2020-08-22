@@ -24,14 +24,15 @@ import com.bradchristie.taminations.common.*
 class Adjust(norm:String,name:String) : Action(norm,name) {
 
   override fun perform(ctx: CallContext, i: Int) {
-    val fname = name.replace("adjust to (a(n)?)?\\b".ri,"")
+    val fname = name.replace("adjust to (an?)?\\b".ri,"")
     val formation = when (norm) {
-      in ".*line(s)?".r -> TamUtils.getFormation("Normal Lines")
+      in ".*lines?".r -> TamUtils.getFormation("Normal Lines")
       in ".*thar".r -> TamUtils.getFormation("Thar RH Boys")
       in ".*square(d)?set".r -> TamUtils.getFormation("Squared Set")
-      in ".*boxes".r -> TamUtils.getFormation("Eight Chain Thru")
+      in ".*boxes?".r -> TamUtils.getFormation("Eight Chain Thru")
+      in ".*columns?".r -> TamUtils.getFormation("Eight Chain Thru")
       in ".*14tag".r -> TamUtils.getFormation("Quarter Tag")
-      in ".*diamonds".r -> TamUtils.getFormation("Diamonds RH Girl Points")
+      in ".*diamonds?".r -> TamUtils.getFormation("Diamonds RH Girl Points")
       in ".*tidal(wave|line)?" -> TamUtils.getFormation("Tidal Line RH")
       in ".*hourglass".r -> TamUtils.getFormation("Hourglass RH BP")
       in ".*galaxy".r -> TamUtils.getFormation("Galaxy RH GP")
@@ -44,6 +45,7 @@ class Adjust(norm:String,name:String) : Action(norm,name) {
       ?: throw CallError("Unable to match formation to $fname")
     val matchResult = ctx.computeFormationOffsets(ctx2,mapping,0.3)
     ctx.adjustToFormationMatch(matchResult)
+    ctx.noSnap()
   }
 
 }
