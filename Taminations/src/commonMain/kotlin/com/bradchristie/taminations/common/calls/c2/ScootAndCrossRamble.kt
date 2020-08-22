@@ -1,4 +1,4 @@
-package com.bradchristie.taminations.common.calls.c1
+package com.bradchristie.taminations.common.calls.c2
 /*
 
   Taminations Square Dance Animations
@@ -23,13 +23,14 @@ import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.LevelObject
 import com.bradchristie.taminations.common.calls.Action
 
-class ScootAndRamble : Action("Scoot and Ramble") {
+class ScootAndCrossRamble : Action("Scoot and Cross Ramble") {
 
   override val level = LevelObject("c1")
-  override val requires = listOf("ms/scoot_back") + Ramble().requires
+  override val requires = listOf("ms/scoot_back","a2/single_wheel","ms/slide_thru","b1/separate") + CrossRamble().requires
+
 
   override fun perform(ctx: CallContext, i: Int) {
-    ctx.applyCalls("Scoot Back","Ramble")
+    ctx.applyCalls("Scoot Back","Cross Ramble")
   }
 
 }
