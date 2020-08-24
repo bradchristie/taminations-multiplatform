@@ -131,8 +131,8 @@ class CallContext {
         "Facing Blocks Left" to 2.0,
         "Siamese Wave" to 2.0,
         "Concentric Diamonds RH" to 2.0,
-        "Quarter Z RH" to 2.0,
-        "Quarter Z LH" to 2.0
+        "Quarter Z RH" to 4.0,
+        "Quarter Z LH" to 4.0
     )
     private val twoCoupleFormations = mapOf(
         "Facing Couples Compact" to 1.0,
@@ -839,7 +839,7 @@ class CallContext {
                 f.key,  // only used for debugging
                 mapping,
                 matchResult,
-                totOffset
+                totOffset*favoring
             )
         }
       }

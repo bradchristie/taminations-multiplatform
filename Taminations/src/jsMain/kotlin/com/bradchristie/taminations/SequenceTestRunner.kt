@@ -380,6 +380,18 @@ Circulate
 Boys Run
 Allemande Left""",
 
+      "Half 2" to
+"""Sides Pass the Ocean 
+Extend 
+Centers Half Circulate 
+Hourglass Circulate 
+Cut the Hourglass 
+Boys Run 
+Circulate 
+Ferris Wheel 
+Centers Square Thru 3 
+Allemande Left""",
+
   "Half Sashay" to
 """Sides Half Sashay
 Heads Lead Right
