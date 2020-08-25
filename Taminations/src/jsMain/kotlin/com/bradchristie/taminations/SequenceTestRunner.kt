@@ -1738,6 +1738,21 @@ Horseshoe Turn
 Centers Run and Roll 
 Double Pass Thru 
 Ends U-turn Back 
+Allemande Left""",
+
+      "Rotate (C-2)" to
+"""Heads Lead Right 
+Veer Left 
+Bend the Line 
+Pass Thru 
+Rotate 1/4 
+Wheel and Deal 
+Rotate 1/2 
+Rotate 3/4 
+Wheel and Deal 
+Touch a Quarter 
+Circulate 
+Boys Run 
 Allemande Left"""
 
   )

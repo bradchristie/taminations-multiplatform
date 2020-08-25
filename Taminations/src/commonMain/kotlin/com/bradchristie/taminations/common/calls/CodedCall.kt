@@ -283,6 +283,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "\\d\\d".r -> Fraction(callnorm,callname)
         in "triplebox.*".r -> TripleBoxConcept(callnorm,callname)
         in "triple(lines?|waves?|columns?).*".r -> TripleLineConcept(callnorm,callname)
+        in "rotate(14|12|34)".r -> Rotate(callnorm,callname)
         else -> null
       }
         //  Other calls not easily handled by when expression
