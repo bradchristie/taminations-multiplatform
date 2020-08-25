@@ -210,7 +210,6 @@ class CallContext {
   val groupstr:String get() = groups.joinToString(separator = "") { it.count().toString() }
   private var source: CallContext? = null
   private var snap = true
-  private var extend = true
   private var thoseWhoCan = false
   private val genderMap = mapOf("boy" to Gender.BOY, "girl" to Gender.GIRL, "phantom" to Gender.PHANTOM)
 
@@ -275,10 +274,6 @@ class CallContext {
 
   fun noSnap() : CallContext {
     snap = false
-    return this
-  }
-  fun noExtend() : CallContext {
-    extend = false
     return this
   }
 
@@ -370,7 +365,6 @@ class CallContext {
       CallContext(this).applyCall(it)
     }
     val ctx = CallContext(this)
-    ctx.extend = extend
     ctx.applyCall(calltext.last())
     return this
   }

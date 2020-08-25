@@ -1764,7 +1764,9 @@ Centers Left Touch a Quarter
 Quarter Thru 
 Hinge 
 Centers Circulate 
-Trade 
+Boys Run 
+Trade Circulate 
+Boys Run 
 Right and Left Grand"""
 
   )

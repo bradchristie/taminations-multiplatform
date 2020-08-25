@@ -31,9 +31,7 @@ class While(norm:String,name:String) : Action(norm,name)  {
     ctx.contractPaths()
 
     //  Use another context to do the rest of the call
-    //  Don't add standing beats for the inactive dancers
-    //  Otherwise there's a lot of standing around at the end
-    val ctx2 = CallContext(ctx,beat=0.0).noSnap().noExtend()
+    val ctx2 = CallContext(ctx,beat=0.0).noSnap()
     ctx2.dancers.forEach { it.data.active = true }
     val whilecall = name.toLowerCase().replace("while(\\s+the)?\\s+".r,"")
     ctx2.applyCalls(whilecall)
