@@ -74,8 +74,4 @@ class StepToACompactWave(norm: String, name: String) : Action(norm, name) {
     return getMove("Extend $dir").scale(dist/2,0.5)
   }
 
-  override fun postProcess(ctx: CallContext, i: Int) {
-    //  Do not snap to formation, which parent does
-  }
-
 }

@@ -23,7 +23,7 @@ import com.bradchristie.taminations.common.*
 import com.bradchristie.taminations.common.TamUtils.getMove
 import com.bradchristie.taminations.common.calls.Action
 
-class PassThru(norm: String, name: String) : Action(norm, name) {
+open class PassThru(norm: String, name: String) : Action(norm, name) {
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
     //  If in wave then maybe Ocean Wave rule applies

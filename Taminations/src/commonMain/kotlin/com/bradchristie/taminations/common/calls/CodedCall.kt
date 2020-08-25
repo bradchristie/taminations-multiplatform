@@ -100,6 +100,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "passout" to { PassOut() },
         "passthru" to { PassThru("passthru","Pass Thru") },
         "leftpassthru" to { PassThru("leftpassthru","Left Pass Thru") },
+        "pullby" to { PullBy("pullby","Pull By") },
+        "leftpullby" to { PullBy("leftpullby","Left Pull By") },
         "point" to { Points() },
         "14in" to { QuarterIn("14in", "Quarter In") },
         "14out" to { QuarterIn("14out", "Quarter Out") },
@@ -284,6 +286,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "triplebox.*".r -> TripleBoxConcept(callnorm,callname)
         in "triple(lines?|waves?|columns?).*".r -> TripleLineConcept(callnorm,callname)
         in "rotate(14|12|34)".r -> Rotate(callnorm,callname)
+        in "rotary.+".r -> Rotary(callnorm,callname)
         else -> null
       }
         //  Other calls not easily handled by when expression

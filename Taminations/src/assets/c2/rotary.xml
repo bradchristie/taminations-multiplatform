@@ -23,7 +23,7 @@
 <tamination title="Rotary">
 
   <tam title="Rotary Explode the Wave" formation="Eight Chain Thru"
-       group="Rotary">
+       group="Rotary" parts="2">
     <path>
       <move select="Pull Left" scaleY=".5"/>
       <move select="Extend Right" scaleY=".5"/>

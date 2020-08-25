@@ -1753,7 +1753,19 @@ Wheel and Deal
 Touch a Quarter 
 Circulate 
 Boys Run 
-Allemande Left"""
+Allemande Left""",
+
+      "Rotary" to
+"""Heads Lead Right 
+Rotary Explode and Right and Left Thru 
+Cycle and Wheel 
+Rotary Recycle 
+Centers Left Touch a Quarter 
+Quarter Thru 
+Hinge 
+Centers Circulate 
+Trade 
+Right and Left Grand"""
 
   )
 
