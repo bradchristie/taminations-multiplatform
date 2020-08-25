@@ -362,9 +362,9 @@
 
 
   <tam title="All 8 Swing and Mix"
-       from="Thar"
+       from="Right-Hand Thar"
        formation="Thar LH Girls"
-       parts="3;4.5" group=" ">
+       parts="3;4.5">
     <path couples="2 4">
       <move select="Swing Right"/>
       <move select="Stand" beats="1.5" />
@@ -386,6 +386,34 @@
       <move select="Swing Right"/>
       <move select="Hinge Left" />
       <move select="Lead Left" beats="3" scaleX="3" />
+    </path>
+  </tam>
+
+  <tam title="All 8 Swing and Mix"
+       from="Left-Hand Thar"
+       formation="Thar RH Girls"
+       parts="3;4.5">
+    <path>
+      <move select="Swing Left"/>
+      <move select="Stand" beats="1.5" />
+      <move select="Dodge Left" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Swing Left"/>
+      <move select="Hinge Right" />
+      <move select="Lead Right" beats="3" scaleX="3" />
+    </path>
+    <path>
+      <move select="Swing Left"/>
+      <move select="Stand" beats="1.5" />
+      <move select="Dodge Left" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Swing Left"/>
+      <move select="Hinge Right" />
+      <move select="Lead Right" beats="3" scaleX="3" />
     </path>
   </tam>
 
