@@ -24,7 +24,6 @@ import com.bradchristie.taminations.common.CallError
 import com.bradchristie.taminations.common.LevelObject
 import com.bradchristie.taminations.common.calls.Action
 import com.bradchristie.taminations.common.ri
-import com.bradchristie.taminations.platform.System
 
 class Start(norm: String, name: String) : Action(norm, name) {
 
@@ -32,7 +31,6 @@ class Start(norm: String, name: String) : Action(norm, name) {
   override val requires = listOf("b1/pass_thru","b2/trade","c1/finish")
 
   override fun perform(ctx: CallContext, i: Int) {
-    System.log("Start $name")
     val finishCall = name.replace("^start\\s+".ri,"")
     //  There has to be a subset of dancers selected to Start
     if (ctx.actives.count() >= ctx.dancers.count())

@@ -1,7 +1,4 @@
 package com.bradchristie.taminations.common.calls
-
-import com.bradchristie.taminations.common.*
-
 /*
 
   Taminations Square Dance Animations
@@ -22,10 +19,12 @@ import com.bradchristie.taminations.common.*
 
 */
 
+import com.bradchristie.taminations.common.*
+
 class BackAway : Action("Back Away") {
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
-    if (d.isFacingIn && ctx.dancersInBack(d).count()==0)
+    if (ctx.dancersInBack(d).count()==0)
       //  TODO hold hands with partner?
       return TamUtils.getMove("Back 2")
     throw CallError("Dancer $d cannot Back Away")

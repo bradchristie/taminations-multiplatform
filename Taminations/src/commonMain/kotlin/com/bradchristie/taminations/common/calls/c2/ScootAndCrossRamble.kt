@@ -26,8 +26,7 @@ import com.bradchristie.taminations.common.calls.Action
 class ScootAndCrossRamble : Action("Scoot and Cross Ramble") {
 
   override val level = LevelObject("c1")
-  override val requires = listOf("ms/scoot_back","a2/single_wheel","ms/slide_thru","b1/separate") + CrossRamble().requires
-
+  override val requires = listOf("ms/scoot_back") + CrossRamble().requires
 
   override fun perform(ctx: CallContext, i: Int) {
     ctx.applyCalls("Scoot Back","Cross Ramble")
