@@ -285,6 +285,7 @@ object TamUtils {
           .replace("\\bcentres?\\b".r,"center")
           .replace("\\b(1|3)4 tag the line\\b".r,"$14 tag")
           .replace("\\b12 square thru\\b".r,"square thru 2")
+          .replace("\\bbox recycle\\b".r,"recycle")
           //  'Dixie Style' -> 'Dixie Style to a Wave'
           .replace("\\bdixie style(?! to)".r,"dixie style to a wave")
           .replace("\\bchase left\\b".r,"left chase")
@@ -296,7 +297,6 @@ object TamUtils {
           //  Finally remove non-alphanums and strip spaces
           .replace("\\W".r,"")
           .replace("\\s".r,"")
-
 }
 
 //  Returns list of animations from an xml document
