@@ -361,11 +361,9 @@ class CallContext {
   }
 
   fun applyCalls(vararg calltext:String):CallContext {
-    calltext.dropLast(1).forEach {
+    calltext.forEach {
       CallContext(this).applyCall(it)
     }
-    val ctx = CallContext(this)
-    ctx.applyCall(calltext.last())
     return this
   }
   private fun checkCalls(vararg calltext:String):Boolean {
