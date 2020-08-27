@@ -185,6 +185,41 @@
     </path>
   </tam>
 
+  <tam title="Left Swing the Fractions"
+       from="Facing Diamonds"
+       parts="1.5;3;4.5;3" >
+    <formation>
+      <dancer gender="boy" y="0" x="-3" angle="270"/>
+      <dancer gender="girl" y="3" x="-2" angle="0"/>
+      <dancer gender="boy" y="0" x="-1" angle="90"/>
+      <dancer gender="girl" y="-3" x="-2" angle="180"/>
+    </formation>
+    <path>
+      <move select="Hinge Left" />
+      <move select="Swing Right" />
+      <move select="Stand" beats="9" />
+    </path>
+    <path>
+      <move select="Stand" beats="1.5" />
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+      <move select="Swing Right" />
+      <move select="Hinge Left" />
+    </path>
+    <path>
+      <move select="Hinge Left" />
+      <move select="Swing Right" />
+      <move select="Stand" beats="9" />
+    </path>
+    <path>
+      <move select="Stand" beats="1.5" />
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+      <move select="Stand" beats="3" />
+      <move select="Hinge Left" />
+    </path>
+  </tam>
+
   <tam title="Any Hand Swing the Fractions" parts="1.5;3;4.5;3"
        from="Inverted Line Ends Facing In" group=" ">
     <formation>
