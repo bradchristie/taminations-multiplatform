@@ -47,7 +47,6 @@
     </path>
   </tam>
 
-
   <tam title="Box Circulate"
        from="Couples Facing Out"
      formation="Couples Facing Out" difficulty="3" fractions="1.5">
@@ -830,6 +829,38 @@
     </path>
     <path>
       <move select="Run Left"/>
+    </path>
+  </tam>
+
+  <tam title="Outer 6 Circulate"
+       from="Right-Hand Quarter Waves" sequencer="perimeter"
+       formation="Mixed Quarter Tag #1" difficulty="2">
+    <path>
+      <move select="Extend Left" beats="4" scaleX="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="4" scaleX="3" scaleY="2"/>
+    </path>
+    <path>
+    </path>
+  </tam>
+
+  <tam title="Outer 6 Circulate"
+       from="Left-Hand Quarter Waves" sequencer="perimeter"
+       formation="Mixed Quarter Tag #6" difficulty="2">
+    <path>
+      <move select="Run Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="4" scaleX="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="4" scaleX="3" scaleY="2"/>
+    </path>
+    <path>
     </path>
   </tam>
 

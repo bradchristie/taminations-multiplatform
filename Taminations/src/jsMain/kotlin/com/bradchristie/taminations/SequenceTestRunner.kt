@@ -1767,7 +1767,29 @@ Centers Circulate
 Boys Run 
 Trade Circulate 
 Boys Run 
-Right and Left Grand"""
+Right and Left Grand""",
+
+      "Outer 6 Circulate" to
+"""Heads Pass the Ocean 
+Extend 
+Switch to an Hourglass 
+Outer 6 Circulate 
+U-turn Back 
+Outer 6 Circulate 
+Cut the Hourglass 
+Mini-Busy 
+Outer Girls Run 
+Outer 6 Circulate 
+Boys Mix While Girls Turn Back 
+Outer 6 Circulate 
+Facing Dancers Pass Thru 
+Clover and Crossfire 
+Girls Run 
+Boys Touch a Quarter 
+Boys Run 
+Left Turn and Deal 
+Right and Left Thru 
+Allemande Left"""
 
   )
 

@@ -1094,9 +1094,9 @@ class CallContext {
   }
 
   //  Return true if 8 dancers are in 2 general columns of 4 dancers each
-  fun isColumns():Boolean =
+  fun isColumns(num:Int=3):Boolean =
       dancers.all {
-        d -> dancersInFront(d).count() + dancersInBack(d).count() == 3
+        d -> dancersInFront(d).count() + dancersInBack(d).count() == num-1
       }
 
   //  Return true if 8 dancers are in two-faced lines

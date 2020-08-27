@@ -21,6 +21,7 @@ package com.bradchristie.taminations.common.calls.b1
 
 import com.bradchristie.taminations.common.*
 import com.bradchristie.taminations.common.calls.Action
+import kotlin.math.PI
 
 class Circulate : Action("Circulate") {
 
@@ -48,10 +49,12 @@ class Circulate : Action("Circulate") {
       ctx.applyCalls("all 8 circulate")
     //  If in columns, do Column Circulate
     //  (if there are 6 dancers, must be 2 columns of 3)
-    else if (ctx.actives.count() == 6 || ctx.isColumns())
+    else if (ctx.isColumns())
       ctx.applyCalls("column circulate")
-    //  If none of those, but tBones, calculate each path individually
-    else if (ctx.isTBone()) {
+    else if (ctx.actives.count() == 6 && ctx.isColumns(3))
+      ctx.applyCalls("column circulate")
+    //  If none of those, but tBones, or 6 dancers, calculate each path individually
+    else if (ctx.actives.count() == 6 || ctx.isTBone()) {
       super.perform(ctx, i)
       if (ctx.isCollision())
         throw CallError("Cannot handle dancer collision here.")
@@ -88,6 +91,34 @@ class Circulate : Action("Circulate") {
             TamUtils.getMove("Extend Left").scale(dist / 2.0, 0.5).changebeats(2.0) +
                 TamUtils.getMove("Extend Right").scale(dist / 2.0, 0.5).changebeats(2.0)
         }
+      }
+    }
+
+    //  A littler harder - 6 dancers not in columns
+    else if (ctx.actives.count() == 6) {
+      //  If there is a dancer directly or diagonally in front, go there
+      val d2 = ctx.dancerClosest(d) {
+        it.data.active && d.angleToDancer(it).abs.isLessThan(PI/2.0) &&
+            !d.angleFacing.isAround(it.angleFacing+PI)
+      }
+      return if (d2 != null) {
+        val v = d.vectorToDancer(d2)
+        if (d.angleFacing.isAround(d2.angleFacing))
+          TamUtils.getMove("Extend Left").changebeats(3.0).scale(v.x,v.y)
+        else if (d.angleFacing.isAround(d2.angleFacing+PI/2))
+          TamUtils.getMove("Lead Left").changebeats(3.0).scale(v.x,v.y)
+        else if (d.angleFacing.isAround(d2.angleFacing-PI/2))
+          TamUtils.getMove("Lead Right").changebeats(3.0).scale(v.x,-v.y)
+        else
+          throw CallError("Unable to calculate Circulate path.")
+      } else {   //  Otherwise look for a dancer to the side
+        val d3 = ctx.dancerClosest(d) { it.data.active && it.isRightOf(d) }
+          ?: ctx.dancerClosest(d) { it.data.active && it.isLeftOf(d) }
+        if (d3 != null) {
+          val v = d.vectorToDancer(d3)
+          TamUtils.getMove("Run Left").scale(1.0, v.y / 2.0)
+        } else
+          throw CallError("Unable to calculate Circulate for dancer $d.")
       }
     }
 
