@@ -286,6 +286,7 @@ object TamUtils {
           .replace("\\b(1|3)4 tag the line\\b".r,"$14 tag")
           .replace("\\b12 square thru\\b".r,"square thru 2")
           .replace("\\bbox recycle\\b".r,"recycle")
+          .replace("interlocked (flip|cut) the".r,"$1 the interlocked")
           //  'Dixie Style' -> 'Dixie Style to a Wave'
           .replace("\\bdixie style(?! to)".r,"dixie style to a wave")
           .replace("\\bchase left\\b".r,"left chase")
