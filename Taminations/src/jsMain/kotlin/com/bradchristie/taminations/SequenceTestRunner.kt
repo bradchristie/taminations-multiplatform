@@ -1811,6 +1811,27 @@ Boys Run
 Circulate 
 Ferris Wheel 
 Centers Pass Thru 
+Allemande Left""",
+
+      "Split Circulate" to
+"""Heads Touch a Quarter 
+Girls Touch a Quarter 
+Split Circulate 
+Split Circulate 
+Split Circulate 
+Split Circulate 
+U-turn Back 
+Split Circulate 
+Split Circulate 
+Split Circulate 
+Split Circulate 
+Girls Partner Tag 
+Clover and Left 1/4 Thru 
+Centers Recycle 
+Double Pass Thru 
+Trade and Roll 
+Star Thru 
+Centers Square Thru 3 
 Allemande Left"""
 
   )

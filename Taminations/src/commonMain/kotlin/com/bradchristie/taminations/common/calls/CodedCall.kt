@@ -198,6 +198,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "crosscastback" to { CastBack("crosscastback","Cross Cast Back") },
         "horseshoeturn" to { HorseshoeTurn() },
         "scootandcrossramble" to { ScootAndCrossRamble() },
+        "splitcirculate" to { SplitCirculate() }
     )
 
     //  More complex calls where the text is needed either to select
