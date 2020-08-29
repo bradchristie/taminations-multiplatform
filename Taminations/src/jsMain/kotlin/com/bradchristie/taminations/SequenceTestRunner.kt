@@ -1789,6 +1789,28 @@ Boys Touch a Quarter
 Boys Run 
 Left Turn and Deal 
 Right and Left Thru 
+Allemande Left""",
+
+      "Ignore" to
+"""Heads Lead Right 
+Ignore the Head Girls Wheel Thru  
+Boys Trade and Roll 
+Girls U-turn Back 
+Side Boys Run and Roll 
+Outer 4 Counter Rotate 
+Circulate 
+Ignore the Side Boys Turn Back 
+Ignore the Side Girls Tally Ho 
+Girls Fold 
+Side Boys Run 
+Double Pass Thru 
+Right Roll to a Wave 
+Hinge 
+Swing Thru 
+Boys Run 
+Circulate 
+Ferris Wheel 
+Centers Pass Thru 
 Allemande Left"""
 
   )

@@ -392,8 +392,9 @@ class CallContext {
   /**
    * This is the main loop for interpreting a call
    * @param calltxt  One complete call, lower case, words separated by single spaces
+   * @param noAction set to true if it's ok for this call not to do anything
    */
-  fun interpretCall(calltxt:String): CallContext {
+  fun interpretCall(calltxt:String, noAction:Boolean=false): CallContext {
     var calltext = cleanupCall(calltxt)
     var err: CallError = CallNotFoundError(calltxt)
     //  Clear out any previous paths from incomplete parsing
@@ -434,7 +435,8 @@ class CallContext {
         //  Every combination from callwords.chopped failed
         throw err
     }
-    checkForAction(calltxt)
+    if (!noAction)
+      checkForAction(calltxt)
     return this
   }
 

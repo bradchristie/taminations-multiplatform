@@ -213,7 +213,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
     //  Note that String.matches(Regex) requires that the Regex match the entire String
     //  Here we hack the "in" operator to use in the match below
     operator fun Regex.contains(s:String):Boolean = s.matches(this)
-    private const val specifier = "\\s*(boys?|girls?|beaus?|belles?|centers?|ends?|leaders?|trailers?|heads?|sides?|very centers?)\\s*"
+    const val specifier = "\\s*(?:boys?|girls?|beaus?|belles?|centers?|ends?|leaders?|trailers?|heads?|sides?|very centers?)\\s*"
     fun getCodedCall(callname:String):CodedCall? {
       val callnorm = TamUtils.normalizeCall(callname)
       //  Most calls can be found by a lookup in one of the maps
@@ -287,6 +287,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "triple(lines?|waves?|columns?).*".r -> TripleLineConcept(callnorm,callname)
         in "rotate(14|12|34)".r -> Rotate(callnorm,callname)
         in "rotary.+".r -> Rotary(callnorm,callname)
+        in "ignore.+".r -> Ignore(callnorm,callname)
         else -> null
       }
         //  Other calls not easily handled by when expression
