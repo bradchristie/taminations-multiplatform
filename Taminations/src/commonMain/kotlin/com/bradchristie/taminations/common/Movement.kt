@@ -47,10 +47,10 @@ fun getHands(h:String):Int =
  */
 class Movement(val beats:Double, val hands:Int,
                val btranslate: Bezier,
-               val brotate: Bezier) {
+               val brotate: Bezier,
+    //  for sequencer
+               val fromCall:Boolean=true) {
 
-  //  for sequencer
-  var fromCall = true
 
   /**
    * Construct a Movement from the attributes of an XML movement
@@ -98,12 +98,14 @@ class Movement(val beats:Double, val hands:Int,
   /**
    * Return a new movement by changing the beats
    */
-  fun time(b:Double): Movement = Movement(b, hands, btranslate, brotate)
+  fun time(b:Double): Movement = Movement(b, hands, btranslate, brotate, fromCall)
 
   /**
    * Return a new movement by changing the hands
    */
-  fun useHands(h:Int): Movement = Movement(beats, h, btranslate, brotate)
+  fun useHands(h:Int): Movement = Movement(beats, h, btranslate, brotate, fromCall)
+
+  fun notFromCall() : Movement = Movement(beats,hands,btranslate,brotate,false)
 
   /**
    * Return a new Movement scaled by x and y factors.

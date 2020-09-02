@@ -21,7 +21,6 @@ package com.bradchristie.taminations.common.calls
 
 import com.bradchristie.taminations.common.*
 import com.bradchristie.taminations.common.calls.plus.Roll
-import com.bradchristie.taminations.platform.System
 
 //  This is a base class for concept calls that group or select
 //  dancers in a way that they perform a 4-dancer call.
@@ -100,14 +99,13 @@ abstract class FourDancerConcept(norm:String,name:String=norm) : Action(norm,nam
           //  Get the 4 points needed to compute Bezier curve
           val p1 = if (i==0) (d.location - cd.location).rotate(-cd.angleFacing)
                    else computeLocation(cd,m,i,0.0,gi)
-          //val p1 = computeLocation(cd,m,i,0.0,gi)
           val p2 = computeLocation(cd,m,i,m.beats / 3.0,gi) - p1
           val p3 = computeLocation(cd,m,i,m.beats * 2.0 / 3.0,gi) - p1
           val p4 = computeLocation(cd,m,i,m.beats,gi) - p1
           //  Now we can compute the Bezier
           val cb = Bezier.fromPoints(Vector(), p2, p3, p4)
           //  And use it to build the Movement
-          val cm = Movement(m.beats,m.hands,cb, m.brotate)
+          val cm = Movement(m.beats,m.hands,cb, m.brotate, m.fromCall)
           //  And add the Movement to the Path
           d.path.add(cm)
         }
