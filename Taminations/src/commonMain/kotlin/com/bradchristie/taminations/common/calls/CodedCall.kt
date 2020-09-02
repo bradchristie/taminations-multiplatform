@@ -198,7 +198,9 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "crosscastback" to { CastBack("crosscastback","Cross Cast Back") },
         "horseshoeturn" to { HorseshoeTurn() },
         "scootandcrossramble" to { ScootAndCrossRamble() },
-        "splitcirculate" to { SplitCirculate() }
+        "splitcirculate" to { SplitCirculate() },
+        "dosado" to { Dosado("dosado","Dosado") },
+        "leftdosado" to { Dosado("leftdosado","Left Dosado") }
     )
 
     //  More complex calls where the text is needed either to select
@@ -269,8 +271,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "(left)?turnanddeal".r -> TurnAndDeal(callnorm, callname)
         in "phantom(.+)".r -> PhantomConcept(callnorm,callname)
         in "relocate(.+)".r -> Relocate(callnorm,callname)
-        in "(outside|point)?(out|in|left|right|(go)?(forward|asyouare))?little".r -> Little(callnorm,callname)
-        in "little(outside|point)(in|out|left|right|(go)?(forward|asyouare))?".r -> Little(callnorm,callname)
+        in "(scootand)?(outside|point)?(out|in|left|right|(go)?(forward|asyouare))?little".r -> Little(callnorm,callname)
+        in "(scootand)?little(outside|point)(in|out|left|right|(go)?(forward|asyouare))?".r -> Little(callnorm,callname)
         in "(reverse)?truck".r -> Truck(callnorm,callname)
         in "swingandcircle(12|34)?".r -> SwingAndCircle(callnorm,callname)
         in "concentric(.+)".r -> ConcentricConcept(callnorm,callname)

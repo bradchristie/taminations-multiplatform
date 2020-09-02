@@ -19,29 +19,36 @@ package com.bradchristie.taminations.common.calls.c1
 
 */
 
-import com.bradchristie.taminations.common.CallContext
-import com.bradchristie.taminations.common.CallError
-import com.bradchristie.taminations.common.LevelObject
+import com.bradchristie.taminations.common.*
 import com.bradchristie.taminations.common.calls.Action
 
 class Little(norm: String, name: String) : Action(norm, name) {
 
   override val level = LevelObject("c1")
-  override val requires = listOf("b1/face","c1/counter_rotate","c1/step_and_fold")
+  override val requires =
+      listOf("b1/face","c1/counter_rotate","c1/step_and_fold","ms/scoot_back")
 
   override fun perform(ctx: CallContext, i: Int) {
+
+    //  Do the Scoot Back of Scoot and Little
+    if (norm.startsWith("scootand"))
+      ctx.applyCalls("Scoot Back")
+    val norm2 = norm.replace("scootand","")
+
     //  Figure out which way the outside dancers turn
     var turn = "Face Right"
-    if (norm.startsWith("left") || norm.endsWith("left"))
+    if (norm2.startsWith("left") || norm.endsWith("left"))
       turn = "Face Left"
-    else if (norm.startsWith("right") || norm.endsWith("right"))
+    else if (norm2.startsWith("right") || norm.endsWith("right"))
       turn = "Face Right"
-    else if (norm.startsWith("in") || norm.endsWith("in"))
+    else if (norm2.startsWith("in") || norm.endsWith("in"))
       turn = "Face In"
-    else if (norm.startsWith("out") || norm.endsWith("out"))
+    else if (norm2.startsWith("out") || norm.endsWith("out"))
       turn = "Face Out"
-    else if (norm.endsWith("forward") || norm.endsWith("asyouare"))
+    else if (norm2.endsWith("forward") || norm.endsWith("asyouare"))
       turn = ""
+
+    //  Do the call, catch any errors triggered by bad counter rotates
     try {
       if (ctx.actives.count() == 8)
         ctx.applyCalls("Outer 4 $turn Counter Rotate While Center 4 Step and Fold")
