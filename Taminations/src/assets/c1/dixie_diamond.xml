@@ -111,6 +111,35 @@
     </path>
   </tam>
 
+  <tam title="Dixie Diamond"
+       from="Double Pass Thru"
+       formation="Double Pass Thru"
+       parts="4.5">
+    <path>
+      <move select="Stand" beats="2" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Hinge Left" scaleY=".5" />
+      <move select="Hinge Right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Hinge Left" scaleY=".5" />
+      <move select="Hinge Right" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" />
+      <move select="Hinge Left" scaleY=".5" />
+      <move select="U-Turn Left" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" />
+      <move select="Hinge Left" scaleY=".5" />
+      <move select="U-Turn Left" offsetX="-1"/>
+    </path>
+  </tam>
 
   <tam title="All 8 Dixie Diamond" group=" "
        formation="Static Square" parts="8">

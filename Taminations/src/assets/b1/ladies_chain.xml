@@ -156,7 +156,7 @@
     </path>
   </tam>
 
-  <tam title="Head Ladies Chain to the Right" group=" "
+  <tam title="Head Ladies Chain Right" group=" "
        formation="Static Square" sequencer="gender-specific" difficulty="2">
     <path>
       <move select="Stand" />
@@ -180,7 +180,7 @@
     </path>
   </tam>
 
-  <tam title="Side Ladies Chain to the Right" group=" "
+  <tam title="Side Ladies Chain Right" group=" "
        formation="Static Square" sequencer="gender-specific" difficulty="2">
     <path>
       <move select="Stand" />
@@ -202,6 +202,60 @@
       <move select="Lead Right" beats="3" scaleX="1.5" scaleY="3"/>
       <move select="Belle Wheel" scaleX="0.75" scaleY="0.5"/>
     </path>
+  </tam>
+
+  <tam title="Head Ladies Chain Left" group=" "
+       formation="Static Square" sequencer="gender-specific" difficulty="2">
+    <path>
+      <move select="Stand" />
+      <move select="Flip Left" beats="4" offsetY="-4" />
+      <move select="Beau Wheel" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="1.5" scaleY="2"/>
+      <move select="Lead Left" beats="3" scaleX="1.5" scaleY="2"/>
+      <move select="Belle Wheel" scaleX="0.75" scaleY="0.5"/>
+    </path>
+    <path>
+      <move select="Stand" />
+      <move select="Flip Left" beats="4" offsetY="-4" />
+      <move select="Beau Wheel" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="1.5"/>
+      <move select="Lead Right" beats="3" scaleX="1.5" scaleY="3"/>
+      <move select="Belle Wheel" scaleX="0.75" scaleY="0.5"/>
+    </path>
+    <taminator>
+      This is the same as Side Ladies Chain Right
+    </taminator>
+  </tam>
+
+  <tam title="Side Ladies Chain Left" group=" "
+       formation="Static Square" sequencer="gender-specific" difficulty="2">
+    <path>
+      <move select="Stand" />
+      <move select="Flip Left" beats="4" offsetY="-4" />
+      <move select="Beau Wheel" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="1.5"/>
+      <move select="Lead Right" beats="3" scaleX="1.5" scaleY="3"/>
+      <move select="Belle Wheel" scaleX="0.75" scaleY="0.5"/>
+    </path>
+    <path>
+      <move select="Stand" />
+      <move select="Flip Left" beats="4" offsetY="-4" />
+      <move select="Beau Wheel" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="1.5" scaleY="2"/>
+      <move select="Lead Left" beats="3" scaleX="1.5" scaleY="2"/>
+      <move select="Belle Wheel" scaleX="0.75" scaleY="0.5"/>
+    </path>
+    <taminator>
+      This is the same as Head Ladies Chain Right
+    </taminator>
   </tam>
 
   <tam title="End Ladies Chain on a Diagonal" group=" "
