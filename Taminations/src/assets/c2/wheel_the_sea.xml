@@ -22,8 +22,6 @@
 -->
 <tamination title="Wheel the Sea">
 
-
-
   <tam title="Wheel the Sea" from="Couples Facing Out"
        formation="Couples Facing Out" parts="3">
     <path>
@@ -124,8 +122,127 @@
     </path>
   </tam>
 
+
+
+  <tam title="Reverse Wheel the Sea" from="Couples Facing Out"
+       formation="Couples Facing Out" parts="3">
+    <path>
+      <move select="Belle Reverse Wheel" />
+      <move select="Dodge Left" />
+    </path>
+    <path>
+      <move select="Beau Reverse Wheel" />
+      <move select="Forward 4" />
+    </path>
+  </tam>
+
+  <tam title="Reverse Wheel the Sea" from="Lines Facing Out"
+       formation="Lines Facing Out" parts="3">
+    <path>
+      <move select="Belle Reverse Wheel" />
+      <move select="Dodge Left" />
+    </path>
+    <path>
+      <move select="Beau Reverse Wheel" />
+      <move select="Forward 4" />
+    </path>
+    <path>
+      <move select="Belle Reverse Wheel" />
+      <move select="Dodge Left" />
+    </path>
+    <path>
+      <move select="Beau Reverse Wheel" />
+      <move select="Forward 4" />
+    </path>
+  </tam>
+
+  <tam title="Reverse Wheel the Sea" from="Right-Hand Two-Faced Lines"
+       formation="Two-Faced Lines RH" parts="3">
+    <path>
+      <move select="Stand" beats="3"/>
+      <move select="Forward 4" />
+    </path>
+    <path>
+      <move select="Stand" beats="3"/>
+      <move select="Dodge Left" />
+    </path>
+    <path>
+      <move select="Belle Reverse Wheel" />
+      <move select="Dodge Left" />
+    </path>
+    <path>
+      <move select="Beau Reverse Wheel" />
+      <move select="Forward 4" />
+    </path>
+  </tam>
+
+  <tam title="Reverse Wheel the Sea" from="Left-Hand Two-Faced Lines"
+       formation="Two-Faced Lines LH" parts="3">
+    <path>
+      <move select="Belle Reverse Wheel" />
+      <move select="Dodge Left" />
+    </path>
+    <path>
+      <move select="Beau Reverse Wheel" />
+      <move select="Forward 4" />
+    </path>
+    <path>
+      <move select="Stand" beats="3"/>
+      <move select="Forward 4" />
+    </path>
+    <path>
+      <move select="Stand" beats="3"/>
+      <move select="Dodge Left" />
+    </path>
+  </tam>
+
+  <tam title="Reverse Wheel the Sea"
+       from="Trade By"
+       formation="Trade By"
+       parts="3" >
+    <path>
+      <move select="Belle Reverse Wheel" scaleX=".5" />
+      <move select="Dodge Left" />
+    </path>
+    <path>
+      <move select="Beau Reverse Wheel" scaleX=".5" />
+      <move select="Forward 2" />
+    </path>
+    <path>
+      <move select="Belle Reverse Wheel" scaleX=".5" />
+      <move select="Dodge Left" />
+    </path>
+    <path>
+      <move select="Beau Reverse Wheel" scaleX=".5" />
+      <move select="Forward 2" />
+    </path>
+  </tam>
+
+  <tam title="Reverse Wheel the Sea"
+       from="Completed Double Pass Thru"
+       formation="Completed Double Pass Thru"
+       parts="3" >
+    <path>
+      <move select="Belle Reverse Wheel" scaleX=".5" />
+      <move select="Dodge Left" />
+    </path>
+    <path>
+      <move select="Beau Reverse Wheel" scaleX=".5" />
+      <move select="Forward 2" />
+    </path>
+    <path>
+      <move select="Stand" beats="3" />
+      <move select="Dodge Left" />
+    </path>
+    <path>
+      <move select="Stand" beats="3" />
+      <move select="Forward 2" />
+    </path>
+  </tam>
+
+
   <tam title="Head Couples Wheel the Sea"
-       from="Promenade"
+       group=" "
        formation="Promenade"
        parts="2.25" >
     <path numbers="H H">
@@ -146,11 +263,10 @@
       <move select="HalfHinge Left" beats="2.25" scaleX=".5" scaleY=".5" />
       <move select="Forward" beats="4" scaleX="4" scaleY="4" offsetX="-.25" offsetY="-.75" />
     </path>
-    <taminator>The red and cyan couples are the heads.
-    </taminator>
   </tam>
 
-  <tam title="As Couples Wheel the Sea" from="Lines Facing Out"
+
+  <tam title="As Couples Wheel the Sea" group=" "
        formation="Lines Facing Out" parts="5">
     <path>
       <move select="Belle Wheel" beats="5" scaleX="3" scaleY="3"/>
@@ -170,7 +286,7 @@
     </path>
   </tam>
 
-  <tam title="All 8 Wheel the Sea" from="Squared Couples Facing Out"
+  <tam title="All 8 Wheel the Sea" group=" "
        formation="Static Facing Out" parts="3">
     <path>
       <move select="Beau Wheel"/>
@@ -187,6 +303,26 @@
     <path>
       <move select="Belle Wheel"/>
       <move select="Forward 6"/>
+    </path>
+  </tam>
+
+  <tam title="All 8 Reverse Wheel the Sea"  group=" "
+       formation="Static Facing Out" parts="3" display="none">
+    <path>
+      <move select="Beau Reverse Wheel"/>
+      <move select="Forward 6"/>
+    </path>
+    <path>
+      <move select="Belle Reverse Wheel"/>
+      <move select="Dodge Left" beats="6"/>
+    </path>
+    <path>
+      <move select="Beau Reverse Wheel"/>
+      <move select="Forward 6"/>
+    </path>
+    <path>
+      <move select="Belle Reverse Wheel"/>
+      <move select="Dodge Left" beats="6"/>
     </path>
   </tam>
 

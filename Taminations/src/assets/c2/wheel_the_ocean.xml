@@ -148,7 +148,152 @@
     </path>
   </tam>
 
-  <tam title="As Couples Wheel the Ocean" from="Lines Facing Out"
+  <tam title="Reverse Wheel the Ocean" from="Couples Facing Out"
+       formation="Couples Facing Out" parts="3">
+    <path>
+      <move select="Belle Reverse Wheel" />
+      <move select="Stand" beats="4" hands="nohands" />
+    </path>
+    <path>
+      <move select="Beau Reverse Wheel" />
+      <move select="Extend Right" hands="left" beats="3" scaleX="3" scaleY="2" />
+      <move select="Forward" />
+    </path>
+  </tam>
+
+  <tam title="Reverse Wheel the Ocean" from="Lines Facing Out"
+       formation="Lines Facing Out" parts="3">
+    <path>
+      <move select="Belle Reverse Wheel" />
+      <move select="Stand" beats="4" hands="nohands" />
+    </path>
+    <path>
+      <move select="Beau Reverse Wheel" />
+      <move select="Extend Right" hands="left" beats="3" scaleX="3" scaleY="2" />
+      <move select="Forward" />
+    </path>
+    <path>
+      <move select="Belle Reverse Wheel" />
+      <move select="Stand" beats="4" hands="nohands" />
+    </path>
+    <path>
+      <move select="Beau Reverse Wheel" />
+      <move select="Extend Right" hands="left" beats="3" scaleX="3" scaleY="2" />
+      <move select="Forward" />
+    </path>
+  </tam>
+
+  <tam title="Reverse Wheel the Ocean" from="Right-Hand Two-Faced Lines"
+       formation="Two-Faced Lines RH" parts="3">
+    <path>
+      <move select="Stand" beats="3" hands="nohands" />
+      <move select="Extend Right" hands="left" beats="3" scaleX="3" scaleY="2" />
+      <move select="Forward" />
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="Belle Reverse Wheel" />
+      <move select="Stand" beats="4" hands="nohands" />
+    </path>
+    <path>
+      <move select="Beau Reverse Wheel" />
+      <move select="Extend Right" hands="left" beats="3" scaleX="3" scaleY="2" />
+      <move select="Forward" />
+    </path>
+  </tam>
+
+  <tam title="Reverse Wheel the Ocean" from="Left-Hand Two-Faced Lines"
+       formation="Two-Faced Lines LH" parts="3">
+    <path>
+      <move select="Belle Reverse Wheel" />
+      <move select="Stand" beats="4" hands="nohands" />
+    </path>
+    <path>
+      <move select="Beau Reverse Wheel" />
+      <move select="Extend Right" hands="left" beats="3" scaleX="3" scaleY="2" />
+      <move select="Forward" />
+    </path>
+    <path>
+      <move select="Stand" beats="3" hands="nohands" />
+      <move select="Extend Right" hands="left" beats="3" scaleX="3" scaleY="2" />
+      <move select="Forward" />
+    </path>
+    <path>
+    </path>
+  </tam>
+
+  <tam title="Reverse Wheel the Ocean"
+       from="Trade By"
+       formation="Trade By"
+       parts="3" >
+    <path>
+      <move select="Belle Reverse Wheel" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Beau Reverse Wheel" scaleX=".5" />
+      <move select="Extend Right" hands="left" beats="2" scaleY="2" />
+      <move select="Forward" />
+    </path>
+    <path>
+      <move select="Belle Reverse Wheel" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Beau Reverse Wheel" scaleX=".5" />
+      <move select="Extend Right" hands="left" beats="2" scaleY="2" />
+      <move select="Forward" />
+    </path>
+  </tam>
+
+  <tam title="Reverse Wheel the Ocean"
+       from="Completed Double Pass Thru"
+       formation="Completed Double Pass Thru"
+       parts="3" >
+    <path>
+      <move select="Belle Reverse Wheel" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Beau Reverse Wheel" scaleX=".5" />
+      <move select="Extend Right" hands="left" beats="2" scaleY="2" />
+      <move select="Forward" />
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="Stand" beats="3" />
+      <move select="Extend Right" hands="left" beats="2" scaleY="2" />
+      <move select="Forward" />
+    </path>
+  </tam>
+
+  <tam title="Head Couples Wheel the Ocean"
+       group=" "
+       formation="Promenade"
+       parts="2.25" >
+    <path numbers="H H">
+      <move select="BackHinge Right" scaleY=".5" />
+      <move select="HalfBackHinge Right" />
+      <move select="Stand" beats="3" offsetX="-.25" offsetY=".25" />
+    </path>
+    <path numbers="H H">
+      <move select="Hinge Left" scaleY=".5" />
+      <move select="HalfHinge Left" />
+      <move select="Extend Left" hands="right" beats="4" scaleX="3" scaleY="2" offsetX="-.25" offsetY=".25" />
+      <move select="Forward"/>
+    </path>
+    <path numbers="S S">
+      <move select="HalfBackHinge Right" beats="2.25" scaleX=".5" scaleY=".5" />
+      <move select="Stand" beats="3" offsetX="-.25" offsetY=".25" />
+    </path>
+    <path numbers="S S">
+      <move select="HalfHinge Left" beats="2.25" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" hands="right" beats="4" scaleX="3" scaleY="2" offsetX="-.25" offsetY="-.75" />
+      <move select="Forward"/>
+    </path>
+  </tam>
+
+
+  <tam title="As Couples Wheel the Ocean" group=" "
        formation="Lines Facing Out" fractions="5">
     <path>
       <move select="Belle Wheel" beats="5" scaleX="3" scaleY="3"/>
@@ -170,7 +315,7 @@
     </path>
   </tam>
 
-  <tam title="All 8 Wheel the Ocean" from="Squared Couples Facing Out"
+  <tam title="All 8 Wheel the Ocean" group=" "
        formation="Static Facing Out" fractions="3">
     <path>
       <move select="Beau Wheel"/>
@@ -192,5 +337,26 @@
     </path>
   </tam>
 
+  <tam title="All 8 Reverse Wheel the Ocean" from="Squared Couples Facing Out"
+       formation="Static Facing Out" fractions="3" group=" " display="none">
+    <path>
+      <move select="Beau Reverse Wheel"/>
+      <move select="Lead Right" beats="2" scaleX="2"/>
+      <move select="Hinge Left"/>
+      <move select="Forward 3"/>
+    </path>
+    <path>
+      <move select="Belle Reverse Wheel"/>
+    </path>
+    <path>
+      <move select="Beau Reverse Wheel"/>
+      <move select="Lead Right" beats="2" scaleX="2"/>
+      <move select="Hinge Left"/>
+      <move select="Forward 3"/>
+    </path>
+    <path>
+      <move select="Belle Reverse Wheel"/>
+    </path>
+  </tam>
 
 </tamination>
