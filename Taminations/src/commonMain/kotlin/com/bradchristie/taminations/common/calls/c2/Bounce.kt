@@ -44,12 +44,13 @@ class Bounce(norm: String, name: String) : Action(norm, name) {
       throw CallError("Unable to calculate Bounce")
 
     //  Remember who to bounce
-    val who = norm.replace("bouncethe","")
+    val who = norm.replace("bounce(the)?".r,"")
     val whoctx = CallContext(ctx,ctx.actives)
     //  Do the veer
     ctx.applyCalls(veer)
     //  Do the bounce
-    whoctx.applyCalls("$who Turn Back").appendToSource()
+    if (!who.matches("no(body|one)".r))
+      whoctx.applyCalls("$who Turn Back").appendToSource()
   }
 
 }
