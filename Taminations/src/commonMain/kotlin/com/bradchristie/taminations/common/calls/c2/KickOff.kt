@@ -24,14 +24,15 @@ import com.bradchristie.taminations.common.LevelObject
 import com.bradchristie.taminations.common.TamUtils
 import com.bradchristie.taminations.common.calls.Action
 
-class KickOff : Action("Kick Off") {
+class KickOff(norm:String,name:String) : Action(norm,name) {
 
   override val level = LevelObject("c2")
   override val requires = listOf("b2/run","plus/anything_and_roll")
 
   override fun perform(ctx: CallContext, i: Int) {
-    //  Active dancers Run and Roll
-    ctx.applyCalls("Run and Roll")
+    //  Active dancers [Cross] Run and Roll
+    val cross = if (norm.startsWith("cross")) "Cross" else ""
+    ctx.applyCalls("$cross Run and Roll")
     //  Inactive dancers that moved do a Partner Tag
     ctx.dancers.filter {
       !it.data.active && it.path.movelist.count() > 0

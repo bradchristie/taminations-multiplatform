@@ -101,7 +101,10 @@ class Case2 : Action("and Spread") {
     else if (d.data.beau)
       v = Vector(0.0, -2.0)
     //  Pop off the last movement and shift it by that offset
-    val m = p.pop()
+    val m = if (p.movelist.count() > 0)
+      p.pop()
+    else
+      TamUtils.getMove("Stand").pop()
     val tx = m.rotate()
     v = v.concatenate(tx)
     p.add(m.skew(v.x,v.y).useHands(Hands.NOHANDS))
