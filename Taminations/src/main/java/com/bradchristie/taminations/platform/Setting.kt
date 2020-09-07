@@ -19,8 +19,8 @@ package com.bradchristie.taminations.platform
 
 */
 
+import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
-import android.preference.PreferenceManager
 import com.bradchristie.taminations.Taminations
 
 
@@ -35,7 +35,8 @@ import com.bradchristie.taminations.Taminations
 actual class Setting actual constructor(val name:String) {
 
   companion object {
-    val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(Taminations.context)
+    val prefs: SharedPreferences =
+        Taminations.context.getSharedPreferences("com.bradchristie.taminationsapp_preferences",MODE_PRIVATE)
   }
 
   actual var s:String? get() = if (prefs.contains(name)) prefs.getString(name,"") else null
