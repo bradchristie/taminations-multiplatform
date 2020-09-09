@@ -28,6 +28,15 @@ class CounterRotate : Action("Counter Rotate") {
 
   override val level = LevelObject("c1")
 
+  override fun perform(ctx: CallContext, i: Int) {
+    super.perform(ctx, i)
+    //  Looks much better if dancers all take the same time
+    val maxBeats = ctx.dancers.maxOf { it.path.beats }
+    ctx.dancers.forEach {
+      it.path.changebeats(maxBeats)
+    }
+  }
+
   override fun performOne(d: Dancer, ctx: CallContext): Path {
     val da = d.angleToOrigin
     //  Counter Rotate not possible if dancer is looking

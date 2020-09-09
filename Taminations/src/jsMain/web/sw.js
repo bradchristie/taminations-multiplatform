@@ -13,7 +13,7 @@ self.addEventListener('install', function(event) {
         "index.html",
         "kotlin.js",
         "kotlinx-coroutines-core.js",
-        "Taminations.js",
+        "Taminations-multiplatform-Taminations.js",
         "favicon.ico",
         "tam120.png",
         "notsupported.html",

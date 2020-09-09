@@ -23,9 +23,9 @@ import com.bradchristie.taminations.common.Color
 import com.bradchristie.taminations.common.d
 import com.bradchristie.taminations.common.i
 import com.bradchristie.taminations.common.s
+import kotlinx.browser.document
+import kotlinx.browser.window
 import org.w3c.dom.HTMLElement
-import kotlin.browser.document
-import kotlin.browser.window
 
 //  Base class for div used as a generic container
 //  with extra goodies

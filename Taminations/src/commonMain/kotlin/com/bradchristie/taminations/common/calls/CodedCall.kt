@@ -201,7 +201,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "scootandcrossramble" to { ScootAndCrossRamble() },
         "splitcirculate" to { SplitCirculate() },
         "dosado" to { Dosado("dosado","Dosado") },
-        "leftdosado" to { Dosado("leftdosado","Left Dosado") }
+        "leftdosado" to { Dosado("leftdosado","Left Dosado") },
+        "promenadehome" to { PromenadeHome() }
     )
 
     //  More complex calls where the text is needed either to select

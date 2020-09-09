@@ -64,7 +64,9 @@ kotlin {
       framework()
     }
   }
-  js()
+  js {
+    browser()
+  }
   sourceSets {
     commonMain {
       dependencies {

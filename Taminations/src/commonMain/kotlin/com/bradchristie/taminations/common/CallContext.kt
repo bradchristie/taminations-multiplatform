@@ -20,6 +20,7 @@ package com.bradchristie.taminations.common
 */
 
 import com.bradchristie.taminations.Application
+import com.bradchristie.taminations.common.TamUtils.getMove
 import com.bradchristie.taminations.common.calls.Action
 import com.bradchristie.taminations.common.calls.Call
 import com.bradchristie.taminations.common.calls.CodedCall
@@ -1216,6 +1217,25 @@ class CallContext {
     dancers.forEach { d ->
       d.setStartPosition(d.location - shift)
     }
+  }
+
+  //  Move a dancer to a specific position (location and angle)
+  fun moveToPosition(d:Dancer,location:Vector,angle:Double) : Path {
+    var tohome = location - d.location
+    tohome = tohome.rotate(-d.tx.angle)
+    val adiff = angle.angleDiff(d.tx.angle)
+    val turn = when {
+      adiff.angleEquals(0.0) -> "Stand"
+      adiff.angleEquals(PI/4) -> "Eighth Left"
+      adiff.angleEquals(PI/2) -> "Quarter Left"
+      adiff.angleEquals(3*PI/4) -> "3/8 Left"
+      adiff.angleEquals(PI) -> "U-Turn Right"
+      adiff.angleEquals(-3*PI/4) -> "3/8 Right"
+      adiff.angleEquals(-PI/2) -> "Quarter Right"
+      adiff.angleEquals(-PI/4) -> "Eighth Right"
+      else -> "Stand"
+    }
+    return getMove(turn).changebeats(2.0).skew(tohome.x,tohome.y)
   }
 
   //  This is useful for calls that depend on re-defining dancer types
