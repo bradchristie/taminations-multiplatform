@@ -202,7 +202,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "splitcirculate" to { SplitCirculate() },
         "dosado" to { Dosado("dosado","Dosado") },
         "leftdosado" to { Dosado("leftdosado","Left Dosado") },
-        "promenadehome" to { PromenadeHome() }
+        "promenadehome" to { PromenadeHome("promenadehome","Promenade Home") }
     )
 
     //  More complex calls where the text is needed either to select
@@ -293,6 +293,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "rotate(14|12|34)".r -> Rotate(callnorm,callname)
         in "rotary.+".r -> Rotary(callnorm,callname)
         in "ignore.+".r -> Ignore(callnorm,callname)
+        in "swing(your)?corner(and)?promenade(home)?".r -> PromenadeHome(callnorm,callname)
         else -> null
       }
         //  Other calls not easily handled by when expression

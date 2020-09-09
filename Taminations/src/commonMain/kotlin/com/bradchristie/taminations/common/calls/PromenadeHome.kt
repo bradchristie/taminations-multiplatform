@@ -22,7 +22,9 @@ package com.bradchristie.taminations.common.calls
 import com.bradchristie.taminations.common.*
 import kotlin.math.PI
 
-class PromenadeHome : Action("Promenade Home") {
+//  This covers both Promenade Home and
+//  Swing Your Corner And Promenade
+class PromenadeHome(norm:String,call:String) : Action(norm,call) {
 
   var startPoints = listOf<Vector>()
 
@@ -31,7 +33,13 @@ class PromenadeHome : Action("Promenade Home") {
       throw CallError("Only for 4 couples at this point.")
     //   Compute the center point of each couple
     startPoints = (1 .. 4).map { coupleNumber ->
-      val couple = ctx.dancers.filter { it.number_couple.i == coupleNumber }
+      val couple = ctx.dancers.filter { d ->
+        if (d.gender == Gender.GIRL && norm.contains("corner"))
+          d.number_couple.i.rem(4) + 1 == coupleNumber
+        else {
+          d.number_couple.i == coupleNumber
+        }
+      }
       val boy = couple[0]
       val girl = couple[1]
       val center = (boy.location + girl.location) / 2.0
@@ -63,17 +71,33 @@ class PromenadeHome : Action("Promenade Home") {
     //  Promenade to home
     do {
       ctx.applyCalls("Counter Rotate")
-    } while (ctx.dancers[0].path.movelist.count() < 5 && !ctx.dancers[0].anglePosition.angleEquals(PI))
+    } while (ctx.dancers[0].path.movelist.count() < 10 &&
+             !ctx.dancers[0].anglePosition.angleEquals(PI))
     //  Adjust to squared set
     ctx.applyCalls("Half Wheel Around")
     ctx.level = LevelObject("b1")  // otherwise Counter Rotate would set level to C-1
   }
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
-    val startCouple = startPoints[d.number_couple.i - 1]
+    val num = if (d.gender == Gender.GIRL && norm.contains("corner"))
+      d.number_couple.i.rem(4) + 1 else d.number_couple.i
+    val startCouple = startPoints[num - 1]
     val startLocation = startCouple * (if (d.gender == Gender.BOY) 1.0 else 1.5)
-    val startAngle = startCouple.angle + PI/2.0
-    return ctx.moveToPosition(d,startLocation,startAngle)
+    val startAngle =
+        if (norm.contains("corner")) {
+          if (d.gender == Gender.BOY)
+            startCouple.angle
+          else
+            startCouple.angle + PI
+        } else
+        startCouple.angle + PI/2.0
+    val extraMoves = if (norm.contains("corner"))
+      TamUtils.getMove("ssqtr") + TamUtils.getMove("ssqtr") +
+      TamUtils.getMove("ssqtr") + TamUtils.getMove("ssqtr") +
+      TamUtils.getMove(if (d.gender == Gender.BOY) "Quarter Left" else "Quarter Right")
+    else
+      Path()
+    return ctx.moveToPosition(d,startLocation,startAngle) + extraMoves
   }
 
 }
