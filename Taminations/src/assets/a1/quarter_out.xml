@@ -167,6 +167,28 @@
     </path>
   </tam>
 
+  <tam title="Heads Quarter Out" group=" " formation="Static Square">
+    <path>
+      <move select="Quarter Left"/>
+    </path>
+    <path>
+      <move select="Quarter Right"/>
+    </path>
+    <path/>
+    <path/>
+  </tam>
+
+  <tam title="Sides Quarter Out" group=" " formation="Static Square">
+    <path/>
+    <path/>
+    <path>
+      <move select="Quarter Left"/>
+    </path>
+    <path>
+      <move select="Quarter Right"/>
+    </path>
+  </tam>
+
   <tamxref title="All 4 Couples Quarter Out" group=" "
            xref-link="a2/all_4_all_8"
            xref-title="All 4 Couples (A-1) Quarter Out"/>

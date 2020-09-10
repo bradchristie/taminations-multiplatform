@@ -23,6 +23,7 @@ import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.Dancer
 import com.bradchristie.taminations.common.LevelObject
 import com.bradchristie.taminations.common.calls.QuarterTurns
+import com.bradchristie.taminations.common.r
 
 class QuarterIn(norm:String, name:String) : QuarterTurns(norm,name) {
 
@@ -31,7 +32,9 @@ class QuarterIn(norm:String, name:String) : QuarterTurns(norm,name) {
   override fun select(ctx: CallContext, d: Dancer) =
     if (!d.data.beau && !d.data.belle) {
       //  No partner - Face In
-      if (d.angleToOrigin < 0) "Quarter Right" else "Quarter Left"
-    } else if (d.data.beau xor norm.matches(Regex(".*out"))) "Quarter Right" else "Quarter Left"
+      if ((d.angleToOrigin < 0) xor norm.matches(".*out".r))
+        "Quarter Right" else "Quarter Left"
+    } else if (d.data.beau xor norm.matches(".*out".r))
+      "Quarter Right" else "Quarter Left"
 
 }
