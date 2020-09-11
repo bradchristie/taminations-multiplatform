@@ -118,42 +118,4 @@
     </path>
   </tam>
 
-  <tam title="Diamond Chain Thru"
-       from="Star Promenade" formation="Star Promenade"
-       parts="3;3">
-    <path>
-      <move select="Lead Left" beats="3" scaleX="3"/>
-      <move select="Stand" beats="3"/>
-      <move select="Quarter Right" hands="left" offsetX=".33"/>
-      <move select="Quarter Right" hands="left" offsetY=".33"/>
-      <move select="Quarter Right" hands="left" offsetX="-.33"/>
-    </path>
-    <path>
-      <move select="Lead Left" beats="3" scaleY="3"/>
-      <move select="Swing Left"/>
-      <move select="Hinge Right" scaleX="2" scaleY="2" offsetX=".33"/>
-      <move select="Hinge Right" scaleX="2" scaleY="2" offsetY=".33"/>
-      <move select="Hinge Right" scaleX="2" scaleY="2" offsetX="-.33"/>
-    </path>
-    <path>
-      <move select="Lead Left" beats="3" scaleX="3"/>
-      <move select="Stand" beats="3"/>
-      <move select="Quarter Right" hands="left" offsetX=".33"/>
-      <move select="Quarter Right" hands="left" offsetY=".33"/>
-      <move select="Quarter Right" hands="left" offsetX="-.33"/>
-    </path>
-    <path>
-      <move select="Lead Left" beats="3" scaleY="3"/>
-      <move select="Swing Left"/>
-      <move select="Hinge Right" scaleX="2" scaleY="2" offsetX=".33"/>
-      <move select="Hinge Right" scaleX="2" scaleY="2" offsetY=".33"/>
-      <move select="Hinge Right" scaleX="2" scaleY="2" offsetX="-.33"/>
-    </path>
-    <taminator>
-    This doesn't strictly follow the definition, but some use it anyway.
-      All the centers trade in
-    the second part as there are no very centers.
-    </taminator>
-  </tam>
-
 </tamination>
