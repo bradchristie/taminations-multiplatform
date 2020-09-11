@@ -546,6 +546,17 @@ Ferris Wheel
 Centers Square Thru 3
 Allemande Left""",
 
+      "Run 2" to
+"""Head Couples Pass Thru, Separate Around 2 to a Line 
+Pass Thru 
+Ends Cross Fold 
+Pass Thru 
+Ends Trade and Roll 
+Touch a Quarter 
+Boys Run 
+Centers Face Out 
+Allemande Left""",
+
       "Separate" to
 """Heads Lead Right
 Pass Thru

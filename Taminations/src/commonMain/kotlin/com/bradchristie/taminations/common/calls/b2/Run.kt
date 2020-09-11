@@ -19,73 +19,69 @@ package com.bradchristie.taminations.common.calls.b2
 
 */
 
-import com.bradchristie.taminations.common.CallContext
-import com.bradchristie.taminations.common.CallError
-import com.bradchristie.taminations.common.LevelObject
-import com.bradchristie.taminations.common.TamUtils
+import com.bradchristie.taminations.common.*
 import com.bradchristie.taminations.common.calls.Action
 
 class Run(norm:String, name:String) : Action(norm,name) {
 
   override val level = LevelObject("b2")
 
-  override fun perform(ctx: CallContext, i: Int) {
-    //  We need to look at all the dancers, not just actives
-    //  because partners of the runners need to dodge
-    ctx.dancers.forEach { d ->
-      if (d.data.active) {
-        //  Find dancer to run around
-        //  Usually it's the partner
-        var d2 = d.data.partner
+  private fun runOne(d:Dancer, d2: Dancer, dir:String) {
+    val dist = d.distanceTo(d2)
+    d.path.add(TamUtils.getMove("Run $dir").scale(1.0,dist/2))
+    val m2 = when {
+      d isRightOf d2 -> "Dodge Right"
+      d isLeftOf d2 -> "Dodge Left"
+      d isInFrontOf d2 -> "Forward 2"
+      d isInBackOf d2 -> "Back 2"   //  really ???
+      else -> "Stand"  // should never happen
+    }
+    d2.path.add(TamUtils.getMove(m2).scale(1.0,dist/2))
+  }
+
+  override fun perform(ctx:CallContext, i:Int) {
+    val dancersToRun = ctx.dancers.filter { it.data.active }.toMutableSet()
+    val dancersToWalk = ctx.dancers.filter { !it.data.active }.toMutableSet()
+    var usePartner = false
+    while (dancersToRun.isNotEmpty()) {
+      var foundRunner = false
+      dancersToRun.forEach { d ->
         val dleft = ctx.dancerToLeft(d)
         val dright = ctx.dancerToRight(d)
-        //  If that fails, look around
-        if (d2 == null || d.data.active) {
-          val leftcount = ctx.dancersToLeft(d).count()
-          val rightcount = ctx.dancersToRight(d).count()
-          if (dleft == null || dleft.data.active)
-            d2 = dright
-          else if (dright == null || dright.data.active)
-            d2 = dleft
-          else if (leftcount % 2 == 1 && rightcount % 2 == 0)
-            d2 = dleft
-          else if (rightcount % 2 == 1 && leftcount % 2 == 0)
-            d2 = dright
+        val isLeft = dleft != null && dancersToWalk.contains(dleft) &&
+            norm != "runright"
+        val isRight = dright != null && dancersToWalk.contains(dright) &&
+            norm != "runleft"
+        if (!isLeft && !isRight)
+          throw CallError("Dancer $d cannot Run")
+        else if (!isLeft ||
+            (usePartner && dright!=null && dright == d.data.partner)) {
+          //  Run Right
+          val d2 = dright ?: throw CallError("Dancer $d unable to Run")
+          runOne(d,d2,"Right")
+          dancersToRun.remove(d)
+          dancersToWalk.remove(d2)
+          foundRunner = true
+          usePartner = false
         }
-        //  If a direction was given, look there
-        if (norm == "runright")
-          d2 = dright
-        if (norm == "runleft")
-          d2 = dleft
-        if (d2 == null || d2.data.active)
-          throw CallError("Dancer $d has nobody to Run around")
-        //  But special case of t-bones, could be the dancer on the other side,
-        //  check if another dancer is running around this dancer's "partner"
-        //  also check if partner is also active
-        val d3 = d2.data.partner
-        if (d2.data.active)
-          d2 = (if (d2 isRightOf d) ctx.dancerToLeft(d) else ctx.dancerToRight(d))
-            ?: throw CallError("Dancer $d has nobody to Run around")
-        else if (d != d3 && d3!=null && d3.data.active) {
-          d2 = (if (d3 isRightOf d)
-            ctx.dancerToRight(d) else ctx.dancerToLeft(d))
-              ?: throw CallError("Dancer $d has nobody to Run around")
+        else if (!isRight ||
+          (usePartner && dleft!=null && dleft == d.data.partner)) {
+          //  Run Left
+          val d2 = dleft ?: throw CallError("Dancer $d unable to Run")
+          runOne(d,d2,"Left")
+          dancersToRun.remove(d)
+          dancersToWalk.remove(d2)
+          foundRunner = true
+          usePartner = false
         }
-        if (d2.data.active)
-          throw CallError("Dancers cannot Run around each other ($d around $d2).")
-        val m = if (d2 isRightOf d) "Run Right" else "Run Left"
-        val dist = d.distanceTo(d2)
-        d.path.add(TamUtils.getMove(m).scale(1.0,dist/2))
-        //  Also set path for partner
-        val m2 = when {
-          d isRightOf d2 -> "Dodge Right"
-          d isLeftOf d2 -> "Dodge Left"
-          d isInFrontOf d2 -> "Forward 2"
-          d isInBackOf d2 -> "Back 2"   //  really ???
-          else -> "Stand"  // should never happen
-        }
-        d2.path.add(TamUtils.getMove(m2).scale(1.0,dist/2))
+      }
+      if (!foundRunner) {
+        if (!usePartner)
+          usePartner = true
+        else
+          throw CallError("Unable to calculate $name for this formation.")
       }
     }
   }
+
 }
