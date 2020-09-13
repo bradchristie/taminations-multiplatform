@@ -36,7 +36,7 @@ class Run(norm:String, name:String) : Action(norm,name) {
       d isInBackOf d2 -> "Back 2"   //  really ???
       else -> "Stand"  // should never happen
     }
-    d2.path.add(TamUtils.getMove(m2).scale(1.0,dist/2))
+    d2.path.add(TamUtils.getMove(m2).scale(dist/2.0,dist/2))
   }
 
   override fun perform(ctx:CallContext, i:Int) {

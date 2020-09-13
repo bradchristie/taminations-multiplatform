@@ -36,21 +36,23 @@ class Bounce(norm: String, name: String) : Action(norm, name) {
     val centerBeaus = ctx.actives.filter {
       d -> d.data.center && d.data.beau
     }
-    val veer = if (centerBeaus.count()==0 && centerBelles.count() > 0)
-      "Veer Right"
+    val dir = if (centerBeaus.count()==0 && centerBelles.count() > 0)
+      "Right"
     else if (centerBeaus.count() > 0 && centerBelles.count() == 0)
-      "Veer Left"
+      "Left"
     else
       throw CallError("Unable to calculate Bounce")
 
     //  Remember who to bounce
     val who = norm.replace("bounce(the)?".r,"")
     val whoctx = CallContext(ctx,ctx.actives)
+    if (!who.matches("no(body|one)".r))
+      whoctx.applySpecifier(who)
     //  Do the veer
-    ctx.applyCalls(veer)
+    ctx.applyCalls("Veer $dir")
     //  Do the bounce
     if (!who.matches("no(body|one)".r))
-      whoctx.applyCalls("$who Turn Back").appendToSource()
+      whoctx.applyCalls("Face $dir","Face $dir").appendToSource()
   }
 
 }

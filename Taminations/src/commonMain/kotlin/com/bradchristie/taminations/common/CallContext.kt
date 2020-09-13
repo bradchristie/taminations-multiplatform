@@ -350,20 +350,23 @@ class CallContext {
     throw CallError("Dancer $d cannot $call")
   }
 
-  private fun applyCall(calltext: String) {
-    interpretCall(calltext)
-    performCall()
-    appendToSource()
-  }
-
   private fun checkForAction(calltext:String) {
     if (callstack.none { c -> c is Action || c is XMLCall})
       throw CallError("$calltext does nothing")
   }
 
+  fun applySpecifier(calltext:String) {
+    interpretCall(calltext,noAction = true)
+    performCall()
+  }
+
   fun applyCalls(vararg calltext:String):CallContext {
     calltext.forEach {
-      CallContext(this).applyCall(it)
+      CallContext(this).run {
+        interpretCall(it)
+        performCall()
+        appendToSource()
+      }
     }
     return this
   }
@@ -862,7 +865,7 @@ class CallContext {
         val m = if (d.path.movelist.count() > 0)
           d.path.pop()
         else
-          TamUtils.getMove("Stand").notFromCall().pop()
+          getMove("Stand").notFromCall().pop()
         //  Transform the offset to the dancer's angle
         d.animateToEnd()
         val vd = match.offsets[i].rotate(-d.tx.angle)
@@ -1193,7 +1196,7 @@ class CallContext {
     dancers.forEach { d ->
       val b = maxb - d.path.beats
       if (b > 0)
-        d.path.add(TamUtils.getMove("Stand").changebeats(b).notFromCall())
+        d.path.add(getMove("Stand").changebeats(b).notFromCall())
     }
   }
 

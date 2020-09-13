@@ -218,7 +218,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
     //  Note that String.matches(Regex) requires that the Regex match the entire String
     //  Here we hack the "in" operator to use in the match below
     operator fun Regex.contains(s:String):Boolean = s.matches(this)
-    const val specifier = "\\s*(?:boys?|girls?|beaus?|belles?|centers?|ends?|leaders?|trailers?|heads?|sides?|very centers?)\\s*"
+    const val specifier = "\\s*(?:boys?|girls?|beaus?|belles?|centers?|ends?|lead(?:er)?s?|trail(?:er)?s?|heads?|sides?|very ?centers?)\\s*"
     fun getCodedCall(callname:String):CodedCall? {
       val callnorm = TamUtils.normalizeCall(callname)
       //  Most calls can be found by a lookup in one of the maps
@@ -267,7 +267,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "(left)?verticaltagback(toawave)?".r -> VerticalTagBack(callnorm, callname)
         in "(left)?vertical(left)?(14|12|34)?tag".r -> VerticalTag(callnorm,callname)
         in "adjustto.*".r -> Adjust(callnorm,callname)
-        in "bounce(the)?.*".r -> Bounce(callnorm, callname)
+        in "bounce(the)?$specifier".r -> Bounce(callnorm, callname)
         in "(left)?tagback(toawave)?".r -> TagBack(callnorm, callname)
         in "transferand(.+)".r -> TransferAnd(callnorm, callname)
         in "(left)?turnanddeal".r -> TurnAndDeal(callnorm, callname)
