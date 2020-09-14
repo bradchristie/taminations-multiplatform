@@ -34,6 +34,16 @@
     </path>
   </tam>
 
+  <tam title="Trade the Wave" from="Compact Right-Hand Wave" display="none"
+       formation="Compact Wave RH">
+    <path>
+      <move select="Run Right" beats="6" scaleX="1.5" scaleY="1" />
+    </path>
+    <path>
+      <move select="Run Left" beats="6" scaleX=".5" scaleY="1" />
+    </path>
+  </tam>
+
   <tam title="Trade the Wave"
        from="Left-Hand Wave"
        formation="Wave LH Boys Center"
@@ -43,6 +53,16 @@
     </path>
     <path>
       <move select="Run Left" beats="6" scaleX=".5" scaleY="2" />
+    </path>
+  </tam>
+
+  <tam title="Trade the Wave" from="Compact Left-Hand Wave" display="none"
+       formation="Compact Wave LH">
+    <path>
+      <move select="Run Left" beats="6" scaleX=".5" scaleY="1" />
+    </path>
+    <path>
+      <move select="Run Right" beats="6" scaleX="1.5" scaleY="1" />
     </path>
   </tam>
 
