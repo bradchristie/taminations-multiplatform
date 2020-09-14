@@ -109,6 +109,45 @@
   </tam>
 
   <tam title="Split Square Chain Thru"
+       from="Center Wave"
+       parts="1;2;6" >
+    <formation>
+      <dancer gender="boy" x="-1" y="3" angle="270"/>
+      <dancer gender="girl" x="1" y="3" angle="270"/>
+      <dancer gender="boy" x="0" y="1.5" angle="0"/>
+      <dancer gender="girl" x="0" y=".5" angle="180"/>
+    </formation>
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+      <move select="Swing Left" />
+      <move select="Swing Right" />
+      <move select="Swing Left" />
+      <move select="Extend Left" beats="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Forward" beats="2" />
+      <move select="Swing Left" />
+      <move select="Stand" beats="3" />
+      <move select="Swing Left" />
+      <move select="Forward" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="2" scaleX="3" scaleY=".5" />
+      <move select="Swing Left" />
+      <move select="Swing Right" />
+      <move select="Swing Left" />
+      <move select="Extend Left" beats="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="2" scaleY="1.5" />
+      <move select="Swing Left" />
+      <move select="Stand" beats="3" />
+      <move select="Swing Left" />
+      <move select="Forward" />
+    </path>
+  </tam>
+
+  <tam title="Split Square Chain Thru"
        from="T-Bones 3" parts="1;2;6"
        formation="T-Bone RLUU">
     <path>
@@ -261,6 +300,45 @@
     </path>
     <path>
       <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Right" beats="2" scaleX="3" scaleY=".5" />
+      <move select="Swing Right" />
+      <move select="Swing Left" />
+      <move select="Swing Right" />
+      <move select="Extend Right" beats="2" scaleY="2" />
+    </path>
+  </tam>
+
+  <tam title="Left Split Square Chain Thru"
+       from="T-Bones, Center Wave"
+       parts="1;2;6" >
+    <formation>
+      <dancer gender="boy" x="-1" y="3" angle="270"/>
+      <dancer gender="girl" x="1" y="3" angle="270"/>
+      <dancer gender="boy" x="0" y=".5" angle="0"/>
+      <dancer gender="girl" x="0" y="1.5" angle="180"/>
+    </formation>
+    <path>
+      <move select="Forward" beats="2" />
+      <move select="Swing Right" />
+      <move select="Stand" beats="3" />
+      <move select="Swing Right" />
+      <move select="Forward" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleY="2" />
+      <move select="Swing Right" />
+      <move select="Swing Left" />
+      <move select="Swing Right" />
+      <move select="Extend Right" beats="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="2" scaleY="1.5" />
+      <move select="Swing Right" />
+      <move select="Stand" beats="3" />
+      <move select="Swing Right" />
+      <move select="Forward" />
+    </path>
+    <path>
       <move select="Lead Right" beats="2" scaleX="3" scaleY=".5" />
       <move select="Swing Right" />
       <move select="Swing Left" />
