@@ -213,6 +213,62 @@
     </path>
   </tam>
 
+  <tam title="All 4 Couples Slide Thru" group="All 4 Couples"
+       sequencer="gender-specific" display="none">
+    <formation>
+      <dancer gender="girl" x="-3" y="1" angle="0"/>
+      <dancer gender="boy" x="-3" y="-1" angle="0"/>
+      <dancer gender="boy" x="-1" y="-3" angle="90"/>
+      <dancer gender="girl" x="1" y="-3" angle="90"/>
+    </formation>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Forward" />
+      <move select="Quarter Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3" />
+      <move select="Lead Right"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Forward" />
+      <move select="Quarter Right" offsetX="1" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3" />
+      <move select="Quarter Left" offsetX="1" offsetY="-1" />
+    </path>
+  </tam>
+
+  <tam title="All 4 Couples Slide Thru" group="All 4 Couples"
+       sequencer="gender-specific" display="none">
+    <formation>
+      <dancer gender="girl" x="-3" y="1" angle="0"/>
+      <dancer gender="boy" x="-3" y="-1" angle="0"/>
+      <dancer gender="girl" x="-1" y="-3" angle="90"/>
+      <dancer gender="boy" x="1" y="-3" angle="90"/>
+    </formation>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Forward" />
+      <move select="Quarter Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3" />
+      <move select="Lead Right"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Forward" />
+      <move select="Quarter Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3" />
+      <move select="Lead Right"/>
+    </path>
+  </tam>
+
   <tam title="All 4 Couples Spin the Top" group="All 4 Couples"
        formation="Static Square">
     <path>
@@ -372,6 +428,62 @@
     <path>
       <move select="Extend Right" beats="3" scaleX="3" />
       <move select="Quarter Left" offsetX="1" offsetY="-1" />
+    </path>
+  </tam>
+
+  <tam title="All 4 Couples Star Thru" group="All 4 Couples"
+       sequencer="gender-specific" display="none">
+    <formation>
+      <dancer gender="girl" x="-3" y="1" angle="0"/>
+      <dancer gender="boy" x="-3" y="-1" angle="0"/>
+      <dancer gender="boy" x="-1" y="-3" angle="90"/>
+      <dancer gender="girl" x="1" y="-3" angle="90"/>
+    </formation>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Forward" />
+      <move select="Quarter Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3" />
+      <move select="Lead Right"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Forward" />
+      <move select="Quarter Right" offsetX="1" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3" />
+      <move select="Quarter Left" offsetX="1" offsetY="-1" />
+    </path>
+  </tam>
+
+  <tam title="All 4 Couples Star Thru" group="All 4 Couples"
+       sequencer="gender-specific" display="none">
+    <formation>
+      <dancer gender="girl" x="-3" y="1" angle="0"/>
+      <dancer gender="boy" x="-3" y="-1" angle="0"/>
+      <dancer gender="girl" x="-1" y="-3" angle="90"/>
+      <dancer gender="boy" x="1" y="-3" angle="90"/>
+    </formation>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Forward" />
+      <move select="Quarter Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3" />
+      <move select="Lead Right"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Forward" />
+      <move select="Quarter Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3" />
+      <move select="Lead Right"/>
     </path>
   </tam>
 
