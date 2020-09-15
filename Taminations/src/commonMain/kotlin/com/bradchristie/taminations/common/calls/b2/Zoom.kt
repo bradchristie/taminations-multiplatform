@@ -23,42 +23,48 @@ import com.bradchristie.taminations.common.*
 import com.bradchristie.taminations.common.TamUtils.getMove
 import com.bradchristie.taminations.common.calls.Action
 
-class Zoom : Action("Zoom") {
+//  This class implements both Zoom and Zing
+class Zoom(norm:String,name:String) : Action(norm,name) {
 
   override val level = LevelObject("b2")
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
+    val a = d.angleToOrigin
+    val centerLeft = ctx.dancersToRight(d).count()==2 &&
+                     ctx.dancersToLeft(d).count()==1
+    val centerRight = ctx.dancersToRight(d).count()==1 &&
+                      ctx.dancersToLeft(d).count()==2
+    val (c,c2,c3) = when {
+      centerLeft -> listOf("Run Right","Lead Right","Quarter Left")
+      centerRight -> listOf("Run Left","Lead Left","Quarter Right")
+      a < 0 -> listOf("Run Left","Lead Left","Quarter Right")
+      else -> listOf("Run Right","Lead Right","Quarter Left")
+    }
+    val s = if (centerLeft || centerRight) 0.25 else 1.0
     when {
       d.data.leader -> {
-        val d2 = ctx.dancerInBack(d) ?: throw CallError("Dancer $d cannot Zoom")
-        val a = d.angleToOrigin
-        var c = if (a < 0) "Run Left" else "Run Right"
-        var s = 1.0
-        //  But centers of lines turn towards the origin
-        //  no matter how awkward that is
-        //  Scrunch them in so they don't collide or pass other centers
-        if (ctx.dancersToRight(d).count()==2 && ctx.dancersToLeft(d).count()==1) {
-          c = "Run Right"
-          s = 0.25
-        }
-        if (ctx.dancersToRight(d).count()==1 && ctx.dancersToLeft(d).count()==2) {
-          c = "Run Left"
-          s = 0.25
-        }
+        val d2 = ctx.dancerInBack(d) ?: throw CallError("Dancer $d cannot $name")
         if (!d2.data.active)
           throw CallError("Trailer of dancer $d is not active")
         val dist = d.distanceTo(d2)
         return getMove(c).changebeats(2.0).skew(-dist/2,0.0).scale(1.0,s) +
-            getMove(c).changebeats(2.0).skew(dist/2.0,0.0).scale(1.0,s)
+            if (norm == "zoom")
+               getMove(c).changebeats(2.0).skew(dist/2.0,0.0).scale(1.0,s)
+            else
+              getMove(c2).changebeats(2.0).scale(dist/2.0,2.0*s)
       }
       d.data.trailer -> {
-        val d2 = ctx.dancerInFront(d) ?: throw CallError("Dancer $d cannot Zoom")
+        val d2 = ctx.dancerInFront(d) ?: throw CallError("Dancer $d cannot $name")
         if (!d2.data.active)
           throw CallError("Leader of dancer $d is not active")
         val dist = d.distanceTo(d2)
-        return getMove("Forward").changebeats(4.0).scale(dist,1.0)
+        return if (norm == "zoom")
+          getMove("Forward").changebeats(4.0).scale(dist,1.0)
+        else
+          getMove("Forward").changebeats(2.0).scale(dist-1,1.0) +
+          getMove(c3).changebeats(2.0).skew(1.0,0.0)
       }
-      else -> throw CallError("Dancer $d cannot Zoom")
+      else -> throw CallError("Dancer $d cannot $name")
     }
   }
 

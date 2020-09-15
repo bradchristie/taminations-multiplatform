@@ -990,6 +990,26 @@ Pass to the Center
 Centers Pass Thru
 Allemande Left""",
 
+      "Zing 2" to
+"""Heads Lead Right 
+Veer Left 
+Zing 
+Veer Right 
+Zing 
+Beaus Cross 
+Boys Zig Zag 
+Boys Zing 
+Girls Right Roll to a Wave 
+Ping Pong Circulate 
+Girls Face Right 
+Girls Zing 
+Extend 
+Circulate 
+Boys Run 
+Bend the Line 
+Pass Thru 
+Promenade Home""",
+
   "Squeeze the Hourglass" to
 """Heads Lead Right 
 Veer Left 
