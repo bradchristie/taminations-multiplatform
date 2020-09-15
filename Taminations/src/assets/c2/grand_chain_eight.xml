@@ -124,11 +124,96 @@
     </path>
   </tam>
 
-  <tam title="Split Grand Chain Eight" group=" " formation="T-Bone ULRU">
+  <tam title="Split Grand Chain Eight"
+       from="T-Bones, Ends Facing"
+       formation="T-Bone ULRU">
     <path>
       <move select="Extend Left" scaleY=".5"/>
       <move select="Lead Right 1/2" offsetY="-.5" />
       <move select="Lead Left 1/2" beats="1.5" offsetX="-.4" offsetY="-1" />
+      <move select="Quarter Left"/>
+      <move select="BackHinge Right"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2"/>
+      <move select="Extend Right" beats="2.5" scaleY=".5"/>
+      <move select="Quarter Left" hands="left" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Stand" beats="1"/>
+      <move select="Quarter Left" beats="1.5" offsetX="1" offsetY="-.5"/>
+      <move select="Quarter Left"/>
+      <move select="BackHinge Right"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Left" beats="2.5" scaleX="1.5" scaleY=".5"/>
+      <move select="Quarter Left" hands="left" offsetX="1"/>
+    </path>
+  </tam>
+
+  <tam title="Split Grand Chain Eight"
+       from="T-Bones, Centers Facing"
+       formation="T-Bone RUUL">
+    <path>
+      <move select="Stand" beats="2"/>
+      <move select="Extend Right" beats="2.5" scaleY=".5"/>
+      <move select="Quarter Left" hands="left" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Stand" beats="1"/>
+      <move select="Quarter Left" beats="1.5" offsetX="1" offsetY="-.5"/>
+      <move select="Quarter Left"/>
+      <move select="BackHinge Right"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Left" beats="2.5" scaleX="1.5" scaleY=".5"/>
+      <move select="Quarter Left" hands="left" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Right 1/2" offsetY="-.5" />
+      <move select="Lead Left 1/2" beats="1.5" offsetX="-.4" offsetY="-1" />
+      <move select="Quarter Left"/>
+      <move select="BackHinge Right"/>
+    </path>
+  </tam>
+
+  <tam title="Split Grand Chain Eight"
+       from="T-Bones 3"
+       formation="T-Bone RLUU">
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Left" beats="2.5" scaleX="1.5" scaleY=".5"/>
+      <move select="Hinge Left" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Right 1/2" offsetY="-.5" />
+      <move select="Lead Left 1/2" beats="1.5" offsetX="-.37" offsetY="-1" />
+      <move select="Quarter Left"/>
+      <move select="BackHinge Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Stand" beats="1"/>
+      <move select="Quarter Left" beats="1.5" offsetX="1" offsetY="-.5"/>
+      <move select="Quarter Left"/>
+      <move select="BackHinge Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2"/>
+      <move select="Extend Right" beats="2.5" scaleY=".5"/>
+      <move select="Hinge Left" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Split Grand Chain Eight"
+       from="T-Bones 4"
+       formation="T-Bone UURL">
+    <path>
+      <move select="Stand" beats="1"/>
+      <move select="Quarter Left" beats="1.5" offsetX="1" offsetY="-.5"/>
       <move select="Quarter Left"/>
       <move select="BackHinge Right" scaleY=".5"/>
     </path>
@@ -138,15 +223,16 @@
       <move select="Hinge Left" scaleY=".5"/>
     </path>
     <path>
-      <move select="Stand" beats="1"/>
-      <move select="Quarter Left" beats="1.5" offsetX="1" offsetY="-.5"/>
-      <move select="Quarter Left"/>
-      <move select="BackHinge Right" scaleY=".5"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Left" beats="2.5" scaleX="1.5" scaleY=".5"/>
+      <move select="Hinge Left" scaleY=".5"/>
     </path>
     <path>
       <move select="Extend Left" scaleY=".5"/>
-      <move select="Lead Left" beats="2.5" scaleX="1.5" scaleY=".5"/>
-      <move select="Hinge Left" beats="2" scaleY=".5"/>
+      <move select="Lead Right 1/2" offsetY="-.5" />
+      <move select="Lead Left 1/2" beats="1.5" offsetX="-.37" offsetY="-1" />
+      <move select="Quarter Left"/>
+      <move select="BackHinge Right" scaleY=".5"/>
     </path>
   </tam>
 
@@ -176,6 +262,35 @@
       <move select="Stand" beats="4"/>
       <move select="Extend Right" beats="2.5" scaleY=".5"/>
       <move select="Hinge Left" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Sides Start Split Grand Chain Eight" group=" "
+       formation="Static Square" display="none">
+    <path>
+      <move select="Stand" beats="3"/>
+      <move select="Quarter Left" beats="1.5" offsetX="1" offsetY="-.5"/>
+      <move select="Quarter Left"/>
+      <move select="BackHinge Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Stand" beats="4"/>
+      <move select="Extend Right" beats="2.5" scaleY=".5"/>
+      <move select="Hinge Left" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Left" beats="2.5" scaleX="1.5" scaleY=".5"/>
+      <move select="Hinge Left" beats="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Right 1/2" offsetY="-.5" />
+      <move select="Lead Left 1/2" beats="1.5" offsetX="-.4" offsetY="-1" />
+      <move select="Quarter Left"/>
+      <move select="BackHinge Right" scaleY=".5"/>
     </path>
   </tam>
 
