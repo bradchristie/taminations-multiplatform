@@ -289,11 +289,35 @@ Quarter In
 Right and Left Grand""",
 
       "Cross Run" to
-"""Sides Pair Off
-Pass the Ocean
-Girls Cross Run
-Boys Trade
-Recycle""",
+"""Sides Touch a Quarter and Spread 
+Circulate 
+Centers Cross Run 
+Centers Cross Run 
+Acey Deucey and Spread 
+Centers Run 
+Centers Cross Run 
+Trade and Roll 
+Right and Left Thru 
+Pass Thru 
+Trade By 
+Allemande Left 
+Promenade Home""",
+
+      "Cross Run 2" to
+"""Heads Pass the Ocean 
+Extend 
+Spin the Top 
+Boys Cross Run 
+Center 4 Centers Cross Run 
+Ends Cross Run 
+As Couples Wheel and Deal 
+Right and Left Thru 
+Star Thru 
+Centers Pass Thru 
+Right and Left Thru 
+Pass Thru 
+Allemande Left 
+Promenade Home""",
 
       "Double Star Thru" to
 """Heads Pass Thru

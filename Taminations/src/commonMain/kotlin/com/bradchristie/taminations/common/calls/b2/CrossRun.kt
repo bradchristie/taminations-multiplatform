@@ -19,54 +19,79 @@ package com.bradchristie.taminations.common.calls.b2
 
 */
 
-import com.bradchristie.taminations.common.CallContext
-import com.bradchristie.taminations.common.CallError
-import com.bradchristie.taminations.common.LevelObject
-import com.bradchristie.taminations.common.TamUtils
-import com.bradchristie.taminations.common.calls.Action
+import com.bradchristie.taminations.common.*
+import com.bradchristie.taminations.common.calls.ActivesOnlyAction
 
-class CrossRun : Action("Cross Run") {
+class CrossRun(norm:String,name:String) : ActivesOnlyAction(norm,name) {
 
   override val level = LevelObject("b2")
 
-  override fun perform(ctx: CallContext, i:Int) {
-    //  Centers and ends cannot both cross run
-    if (ctx.dancers.any {d -> d.data.active && d.data.center } &&
-        ctx.dancers.any {d -> d.data.active && d.data.end } )
-    throw CallError("Centers and ends cannot both Cross Run")
-    //  We need to look at all the dancers, not just actives
-    //  because partners of the runners need to dodge
-    ctx.dancers.forEach { d ->
-      if (d.data.active) {
-        //  Must be in a 4-dancer wave or line
-        if (!d.data.center && !d.data.end)
-          throw CallError("General line required for Cross Run")
-        //  Partner must be inactive
-        val d2 = d.data.partner ?: throw CallError("Nobody to Cross Run around")
-        if (d2.data.active)
-          throw CallError("Dancer and partner cannot both Cross Run")
-        //  Center beaus and end belles run left
-        val isright = d.data.beau xor d.data.center
-        //  TODO check for runners crossing paths
-        //    dancers would need to pass right shoulders
-        val m = if (isright) "Run Right" else "Run Left"
-        val d3 = if (isright)
-          ctx.dancersToRight(d).elementAtOrNull(1)
-        else
-          ctx.dancersToLeft(d).elementAtOrNull(1)
-        when {
-          d3 == null -> throw CallError("Unable to calcluate Cross Run")
-          d3.data.active -> throw CallError("Dancers cannot Cross Run each other")
-          else ->
-            d.path.add(TamUtils.getMove(m).scale(1.0, d.distanceTo(d3)/2.0))
-        }
-      } else {
-        //  Not an active dancer
-        //  If partner is active then this dancer needs to dodge
-        val d2 = d.data.partner
-        if (d2 != null && d2.data.active)
-          d.path.add(TamUtils.getMove(if (d.data.beau) "Dodge Right" else "Dodge Left")).scale(1.0,d.distanceTo(d2)/2.0)
+  /*
+  New algorithm -
+  Accept specifier as part of call so active dancers include dodgers
+  Parse specifier and apply to context to get runners
+  For each runner
+    Find active dancer 2 dancers away it can run to
+  For each dodger
+      Find a direction they can move to a runner's spot
+        I don't think there can be more than one
+        in a symmetric formation
+      Dodge or move forward/back to that spot
+   */
+
+  override fun perform(ctx: CallContext, i: Int) {
+    if (ctx.actives.count() < ctx.dancers.count()) {
+      super.perform(ctx, i)
+      return
+    }
+    //  Get runners and dodgers
+    val spec = name.replace("cross\\s*run".ri,"")
+    val specCtx = CallContext(ctx)
+    specCtx.applySpecifier(spec)
+    val runners = ctx.actives.filter { specCtx.actives.contains(it) }
+    val dodgers = ctx.actives.filter { !runners.contains(it) }
+    //  Loop through runners and figure out where they are going
+    runners.forEach { d ->
+      //  Find active dancer 2 dancers away it can run to
+      val dright = ctx.dancersToRight(d).getOrNull(1)
+      val dleft = ctx.dancersToLeft(d).getOrNull(1)
+      val dir = when {
+        dright?.data?.active != true -> "Left"
+        dleft?.data?.active != true -> "Right"
+        //  If 2 dancers away both left and right are active,
+        //  choose dancer furthest from the center,
+        //    as it must be a tidal formation and runners should not cross center
+        dright.location.length > dleft.location.length -> "Right"
+        else -> "Left"
+      }
+      val d2 = (if (dir == "Right") dright else dleft) ?:
+          throw CallError("Dancer $d cannot Cross Run")
+      val dist = d.distanceTo(d2)
+      d.path.add(TamUtils.getMove("Run $dir")).scale(1.5,dist/2.0)
+    }
+    //  Loop through each dodge and figure out which way they are moving
+    dodgers.forEach { d ->
+      //  Find a direction they can move to a runner's spot
+      //  I don't think there can be more than one
+      //  in a symmetric formation
+      val dright = ctx.dancerToRight(d)
+      val dleft = ctx.dancerToLeft(d)
+      val dfront = ctx.dancerInFront(d)
+      val dback = ctx.dancerInBack(d)
+      //  Dodge or move forward/back to that spot
+      when {
+        dright != null && runners.contains(dright) ->
+          d.path.add(TamUtils.getMove("Dodge Right")).scale(1.0,d.distanceTo(dright)/2.0)
+        dleft != null && runners.contains(dleft) ->
+          d.path.add(TamUtils.getMove("Dodge Left")).scale(1.0,d.distanceTo(dleft)/2.0)
+        dfront != null -> d.path.add(TamUtils.getMove("Forward"))
+            .changebeats(3.0).scale(d.distanceTo(dfront),1.0)
+        dback != null -> d.path.add(TamUtils.getMove("Forward"))
+            .changebeats(3.0).scale(d.distanceTo(dback),1.0)
+        else ->
+          throw CallError("Unable to calculate Cross Run action for dancer $d")
       }
     }
   }
+
 }

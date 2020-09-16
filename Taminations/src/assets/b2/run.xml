@@ -767,7 +767,7 @@
     </path>
   </tam>
 
-  <tam title="Centers Cross Run" from="Right-Hand Two-Faced Line" formation="Two-Faced Line RH">
+  <tam title="Centers Cross Run" from="Right-Hand Two-Faced Line" formation="Two-Faced Line RH" sequencer="no">
     <path>
       <move select="Dodge Right" beats="6"/>
     </path>
@@ -785,7 +785,8 @@
     </path>
   </tam>
 
-  <tam title="Centers Cross Run" from="Right-Hand Wave" formation="Wave RH">
+  <tam title="Centers Cross Run" from="Right-Hand Wave"
+       formation="Wave RH" sequencer="no">
     <path>
       <move select="Dodge Right" beats="6"/>
     </path>
@@ -794,7 +795,8 @@
     </path>
   </tam>
 
-  <tam title="Centers Cross Run" from="Left-Hand Wave" formation="Wave LH">
+  <tam title="Centers Cross Run" from="Left-Hand Wave"
+       formation="Wave LH" sequencer="no">
     <path>
       <move select="Dodge Left" beats="6"/>
     </path>
@@ -806,7 +808,7 @@
   <tam title="Centers Cross Run"
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       difficulty="2" >
+       difficulty="2" sequencer="no">
     <path>
       <move select="Dodge Left" beats="6" />
     </path>
@@ -828,7 +830,7 @@
   <tam title="Centers Cross Run"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       difficulty="1" >
+       difficulty="1" sequencer="no">
     <path>
       <move select="Dodge Right" beats="6" />
     </path>
@@ -846,7 +848,7 @@
   <tam title="Centers Cross Run"
        from="Left-Hand Waves"
        formation="Ocean Waves LH GBBG"
-       difficulty="1" >
+       difficulty="1" sequencer="no">
     <path>
       <move select="Dodge Left" beats="6" />
     </path>
@@ -864,7 +866,7 @@
   <tam title="Centers Cross Run"
        from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       difficulty="2" >
+       difficulty="2" sequencer="no">
     <path>
       <move select="Dodge Right" beats="6" />
     </path>
@@ -882,7 +884,7 @@
   <tam title="Centers Cross Run"
        from="Left-Hand Two-Faced Lines"
        formation="Two-Faced Lines LH"
-       difficulty="2" >
+       difficulty="2" sequencer="no">
     <path>
       <move select="Dodge Left" beats="6" />
     </path>
@@ -897,7 +899,7 @@
     </path>
   </tam>
 
-  <tam title="Ends Cross Run" from="Right-Hand Two-Faced Line" formation="Two-Faced Line RH">
+  <tam title="Ends Cross Run" from="Right-Hand Two-Faced Line" formation="Two-Faced Line RH" sequencer="no">
     <path>
       <move select="Run Right" beats="6" scaleX="1.5" scaleY="2"/>
     </path>
@@ -906,7 +908,8 @@
     </path>
   </tam>
 
-  <tam title="Ends Cross Run" from="Left-Hand Two-Faced Line" formation="Two-Faced Line LH">
+  <tam title="Ends Cross Run" from="Left-Hand Two-Faced Line"
+       formation="Two-Faced Line LH" sequencer="no">
     <path>
       <move select="Dodge Right" beats="6"/>
     </path>
@@ -915,7 +918,8 @@
     </path>
   </tam>
 
-  <tam title="Ends Cross Run" from="Right-Hand Wave" formation="Wave RH">
+  <tam title="Ends Cross Run" from="Right-Hand Wave"
+       formation="Wave RH" sequencer="no">
     <path>
       <move select="Run Right" beats="6" scaleX="1.5" scaleY="2"/>
     </path>
@@ -936,7 +940,7 @@
   <tam title="Ends Cross Run"
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       difficulty="2" >
+       difficulty="2" sequencer="no">
     <path>
       <move select="Run Left" beats="6" scaleY="2" />
     </path>
@@ -954,7 +958,7 @@
   <tam title="Ends Cross Run"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       difficulty="2" >
+       difficulty="2" sequencer="no">
     <path>
       <move select="Run Right" beats="6" scaleY="2" />
     </path>
@@ -972,7 +976,7 @@
   <tam title="Ends Cross Run"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       difficulty="2" >
+       difficulty="2" sequencer="no">
     <path>
       <move select="Run Left" beats="6" scaleY="2" />
     </path>
@@ -990,7 +994,7 @@
   <tam title="Ends Cross Run"
        from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       difficulty="2" >
+       difficulty="2" sequencer="no">
     <path>
       <move select="Run Right" beats="6" scaleY="2" />
     </path>
@@ -1008,7 +1012,7 @@
   <tam title="Ends Cross Run"
        from="Left-Hand Two-Faced Lines"
        formation="Two-Faced Lines LH"
-       difficulty="2" >
+       difficulty="2" sequencer="no">
     <path>
       <move select="Run Left" beats="6" scaleY="2" />
     </path>

@@ -63,7 +63,6 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "courtesyturn" to { CourtesyTurn() },
         "crossfold" to { CrossFold() },
         "crossovercirculate" to { CrossOverCirculate() },
-        "crossrun" to { CrossRun() },
         "cross" to { Cross() },
         "doublestarthru" to { DoubleStarThru() },
         "end" to { Ends() },
@@ -294,6 +293,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "rotary.+".r -> Rotary(callnorm,callname)
         in "ignore.+".r -> Ignore(callnorm,callname)
         in "swing(your)?corner(and)?promenade(home)?".r -> PromenadeHome(callnorm,callname)
+        in "${specifier}crossrun".r -> CrossRun(callnorm,callname)
         else -> null
       }
         //  Other calls not easily handled by when expression
