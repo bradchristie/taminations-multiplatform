@@ -264,7 +264,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "ascouples.*".r -> AsCouplesConcept(callnorm, callname)
         in "tandem.*".r -> TandemConcept(callnorm, callname)
         in "siamese.*".r -> SiameseConcept(callnorm, callname)
-        in "(12|34)?crazy.*".r -> Crazy(callnorm, callname)
+        in "(12|34)?(reverse)?crazy.*".r -> Crazy(callnorm, callname)
         in "(left)?verticaltagback(toawave)?".r -> VerticalTagBack(callnorm, callname)
         in "(left)?vertical(left)?(14|12|34)?tag".r -> VerticalTag(callnorm,callname)
         in "adjustto.*".r -> Adjust(callnorm,callname)

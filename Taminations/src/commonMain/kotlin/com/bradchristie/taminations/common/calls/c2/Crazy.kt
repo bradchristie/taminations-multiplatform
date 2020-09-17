@@ -34,20 +34,25 @@ class Crazy(norm:String,name:String) : Action(norm,name)  {
   override fun perform(ctx: CallContext, i: Int) {
     val crazycall = name.replace(".*Crazy ".r,"")
     val crazy8 = when (crazycall) {
-      in "Counter Rotate.*".r -> "Split"
-      in "Circulate.*".r -> "Split"
-      else -> ""
+      in "Counter Rotate.*".r -> "Split $crazycall"
+      in "Circulate.*".r -> "Split $crazycall"
+      else -> crazycall
     }
     val crazy4 = when (crazycall) {
-      in "Counter Rotate.*".r -> "Box"
-      else -> ""
+      in "Counter Rotate.*".r -> "Center 4 Box $crazycall"
+      else -> "Center 4 $crazycall"
     }
-    ctx.applyCalls("$crazy8 $crazycall","Center 4 $crazy4 $crazycall")
+
+    ctx.applyCalls(if (norm.contains("reverse")) crazy4 else crazy8)
+    ctx.matchStandardFormation()
+    ctx.applyCalls(if (norm.contains("reverse")) crazy8 else crazy4)
     if (!norm.startsWith("12")) {
       ctx.matchStandardFormation()
-      ctx.applyCalls("$crazy8 $crazycall")
-      if (!norm.startsWith("34"))
-        ctx.applyCalls("Center 4 $crazy4 $crazycall")
+      ctx.applyCalls(if (norm.contains("reverse")) crazy4 else crazy8)
+      if (!norm.startsWith("34")) {
+        ctx.matchStandardFormation()
+        ctx.applyCalls(if (norm.contains("reverse")) crazy8 else crazy4)
+      }
     }
   }
 }
