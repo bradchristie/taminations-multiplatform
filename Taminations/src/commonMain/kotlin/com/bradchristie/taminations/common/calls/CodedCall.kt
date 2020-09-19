@@ -279,7 +279,6 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "(reverse)?truck".r -> Truck(callnorm,callname)
         in "swingandcircle(12|34)?".r -> SwingAndCircle(callnorm,callname)
         in "concentric(.+)".r -> ConcentricConcept(callnorm,callname)
-        in "stretch(.+)".r -> StretchConcept(callnorm,callname)
         in "checkpoint(.+)by(.*)".r -> CheckpointConcept(callnorm,callname)
         in "(left|right|in|out)loop(1|2|3)".r -> Loop(callnorm,callname)
         in "stagger(.+)".r -> StaggerConcept(callnorm,callname)
@@ -308,6 +307,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
       //  Start should not match Star Thru e.g.
       ?: if (callname.matches("start .+".ri))
           Start(callnorm,callname) else null
+        ?: if (callname.matches("stretch ".ri))
+          StretchConcept(callnorm,callname) else null
     }
   }
 
