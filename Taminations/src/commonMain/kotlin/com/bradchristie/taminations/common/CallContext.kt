@@ -100,14 +100,15 @@ class CallContext {
         "b2/alamo_style",
         "c2/once_removed_concept",
         "c1/split_square_thru_variations",
-        "c2/unwrap"
+        "c2/unwrap",
+        "c2/stretched_concept"
     )
 
     private val standardFormations = mapOf(
         "Normal Lines Compact" to 1.0,
         "Normal Lines" to 1.0,
         "Double Pass Thru" to 1.0,
-        "Quarter Tag" to 1.0,
+        "Quarter Tag" to 1.5,
         "Tidal Line RH" to 1.0,
         "Tidal Wave of 6" to 2.0,
         "I-Beam" to 2.0,
@@ -127,6 +128,7 @@ class CallContext {
         //  This also covers C-1 Phantom formations
         "Siamese Box 1" to 2.0,
         "Siamese Box 2" to 2.0,
+        "Siamese Wave" to 2.0,
         //  Blocks
         "Facing Blocks Right" to 2.0,
         "Facing Blocks Left" to 2.0,
