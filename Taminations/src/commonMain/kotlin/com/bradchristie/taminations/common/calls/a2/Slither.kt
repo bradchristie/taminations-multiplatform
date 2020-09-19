@@ -29,7 +29,7 @@ class Slither : Action("Slither") {
   override fun perform(ctx: CallContext, i:Int) {
     //  If single wave in center, then very centers trade
     val ctx4 = CallContext(ctx,ctx.center(4))
-    if (ctx4.isLines() && !ctx.isTidal())
+    if (ctx.dancers.count() == 8 && ctx4.isLines() && !ctx.isTidal())
       ctx.dancers.filter { !it.data.verycenter }.forEach { it.data.active = false }
 
     else {
