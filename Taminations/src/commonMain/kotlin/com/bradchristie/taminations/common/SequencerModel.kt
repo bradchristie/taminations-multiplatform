@@ -268,7 +268,7 @@ class SequencerModel(private val seqView: SequencerLayout,
   }
 
   private fun isComment(text:String) =
-      text.trim().matches("\\W.*".r)
+      text.trim().matches("[^\\[a-zA-Z0-9].*".r)
 
   fun callNum2listNum(callNum:Int) : Int =
       if (callNum < 0)
@@ -315,7 +315,9 @@ class SequencerModel(private val seqView: SequencerLayout,
     val cctx = CallContext(avdancers)
     try {
       val prevbeats = seqView.animationView.movingBeats
-      cctx.interpretCall(calltxt)
+      //  Remove any [user annotations]
+      val call = calltxt.replace("\\[.*?\\]".r,"")
+      cctx.interpretCall(call)
       cctx.performCall()
       cctx.checkForCollisions()
       cctx.extendPaths()
