@@ -32,14 +32,14 @@ class Crazy(norm:String,name:String) : Action(norm,name)  {
       "b1/circulate")
 
   override fun perform(ctx: CallContext, i: Int) {
-    val crazycall = name.replace(".*Crazy ".r,"")
+    val crazycall = name.toLowerCase().replace(".*crazy ".r,"")
     val crazy8 = when (crazycall) {
-      in "Counter Rotate.*".r -> "Split $crazycall"
-      in "Circulate.*".r -> "Split $crazycall"
+      in "counter rotate.*".r -> "Split $crazycall"
+      in "circulate.*".r -> "Split $crazycall"
       else -> crazycall
     }
     val crazy4 = when (crazycall) {
-      in "Counter Rotate.*".r -> "Center 4 Box $crazycall"
+      in "counter rotate.*".r -> "Center 4 Box $crazycall"
       else -> "Center 4 $crazycall"
     }
 

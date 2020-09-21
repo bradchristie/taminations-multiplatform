@@ -307,7 +307,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
       //  Start should not match Star Thru e.g.
       ?: if (callname.matches("start .+".ri))
           Start(callnorm,callname) else null
-        ?: if (callname.matches("stretch ".ri))
+      ?: if (callname.matches("stretch .+".ri))
           StretchConcept(callnorm,callname) else null
     }
   }

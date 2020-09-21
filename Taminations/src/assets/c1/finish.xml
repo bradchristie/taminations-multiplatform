@@ -49,7 +49,7 @@
     </path>
   </tam>
 
-  <tam title="Finish Brace Thru" group="Finish">
+  <tam title="Finish Brace Thru" group="Finish" sequencer="gender-specific">
      <formation>
       <dancer gender="boy" x="2" y="3" angle="0"/>
       <dancer gender="girl" x="2" y="1" angle="0"/>
@@ -601,7 +601,7 @@
     </path>
   </tam>
 
-  <tam title="Finish Triple Star Thru" group="Finish"
+  <tam title="Finish Triple Star Thru" group="Finish" sequencer="gender-specific"
        formation="Normal Lines" parts="3.5" >
     <path>
       <move select="Extend Right" hands="left" beats="2" scaleX="2" scaleY=".5" />

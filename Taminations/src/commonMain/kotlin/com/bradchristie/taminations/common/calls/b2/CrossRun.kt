@@ -67,9 +67,9 @@ class CrossRun(norm:String,name:String) : ActivesOnlyAction(norm,name) {
       val d2 = (if (dir == "Right") dright else dleft) ?:
           throw CallError("Dancer $d cannot Cross Run")
       val dist = d.distanceTo(d2)
-      d.path.add(TamUtils.getMove("Run $dir")).scale(1.5,dist/2.0)
+      d.path.add(TamUtils.getMove("Run $dir").scale(1.5,dist/2.0))
     }
-    //  Loop through each dodge and figure out which way they are moving
+    //  Loop through each dodger and figure out which way they are moving
     dodgers.forEach { d ->
       //  Find a direction they can move to a runner's spot
       //  I don't think there can be more than one
@@ -84,9 +84,11 @@ class CrossRun(norm:String,name:String) : ActivesOnlyAction(norm,name) {
           d.path.add(TamUtils.getMove("Dodge Right")).scale(1.0,d.distanceTo(dright)/2.0)
         dleft != null && runners.contains(dleft) ->
           d.path.add(TamUtils.getMove("Dodge Left")).scale(1.0,d.distanceTo(dleft)/2.0)
-        dfront != null -> d.path.add(TamUtils.getMove("Forward"))
+        dfront != null && runners.contains(dfront) ->
+          d.path.add(TamUtils.getMove("Forward"))
             .changebeats(3.0).scale(d.distanceTo(dfront),1.0)
-        dback != null -> d.path.add(TamUtils.getMove("Forward"))
+        dback != null && runners.contains(dback) ->
+          d.path.add(TamUtils.getMove("Forward"))
             .changebeats(3.0).scale(d.distanceTo(dback),1.0)
         else ->
           throw CallError("Unable to calculate Cross Run action for dancer $d")

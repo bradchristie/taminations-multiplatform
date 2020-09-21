@@ -60,7 +60,6 @@ class Run(norm:String, name:String) : Action(norm,name) {
           //  Run Right
           val d2 = dright ?: throw CallError("Dancer $d unable to Run")
           runOne(d,d2,"Right")
-          //dancersToRun.remove(d)
           runnersRunned.add(d)
           dancersToWalk.remove(d2)
           foundRunner = true
@@ -71,7 +70,6 @@ class Run(norm:String, name:String) : Action(norm,name) {
           //  Run Left
           val d2 = dleft ?: throw CallError("Dancer $d unable to Run")
           runOne(d,d2,"Left")
-          //dancersToRun.remove(d)
           runnersRunned.add(d)
           dancersToWalk.remove(d2)
           foundRunner = true

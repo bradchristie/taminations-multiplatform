@@ -42,12 +42,13 @@ class Finish(callnorm:String,callname:String) : Action(callnorm,callname) {
           }?.first { tam ->
             //  Should be divided into parts, will also accept fractions
             val parts = tam.attr("parts") + tam.attr("fractions")
+            val sexy = tam.attr("sequencer").contains("gender")
             val allp = tam.children("path").map { Path(translatePath(it)) }
             parts.split(";").firstOrNull()?.d?.let { firstPart ->
               //  Load the call and animate past the first part
               val ctx2 = CallContext(tam,loadPaths = true)
               ctx2.animate(firstPart)
-              ctx.matchFormations(ctx2)?.let { mapping ->
+              ctx.matchFormations(ctx2,sexy=sexy)?.let { mapping ->
                 val matchResult = ctx.computeFormationOffsets(ctx2, mapping)
                 ctx.adjustToFormationMatch(matchResult)
                 mapping.forEachIndexed { i,m ->
