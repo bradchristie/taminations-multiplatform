@@ -54,6 +54,7 @@ actual open class Button actual constructor(t:String) : View() {
     textSize = 30.pp.f
     maxLines = 1
     text = t
+    isAllCaps = false   //  Default Android theme sets it
     setPadding(16,8,16,8)
     val rectShape = RoundRectShape(FloatArray(8) {8.dip.f},null,null)
     val borderShape = ShapeDrawable(rectBorder)
