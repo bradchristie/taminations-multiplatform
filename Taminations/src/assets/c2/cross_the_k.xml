@@ -49,4 +49,32 @@
     </path>
   </tam>
 
+	<tam title="Cross the K" from="Eight Chain Thru"
+			 formation="Eight Chain Thru" parts="6">
+		<path>
+			<move select="Extend Left" scaleY=".5" beats="2"/>
+			<movement beats="4" hands="none" cx1="1" cy1="0" cx2="0" cy2="-2.5" x2="1" y2="-2.5"
+								cx3="1" cx4="1" cy4="-.5" x4="2" y4="-.5"/>
+			<move select="Flip Left"/>
+		</path>
+		<path>
+			<move select="Extend Left" scaleY=".5" beats="2"/>
+			<movement beats="4" hands="none" cx1="1" cy1="0" cx2="1.5" cy2="1.5" x2="1" y2="1.5"
+								cx3="1" cx4="1" cy4=".5" x4="2" y4=".5"/>
+			<move select="Run Right" scaleX=".67"/>
+		</path>
+		<path>
+			<move select="Extend Left" scaleY=".5" beats="2"/>
+			<movement beats="4" hands="none" cx1="1" cy1="0" cx2="0" cy2="-2.5" x2="1" y2="-2.5"
+								cx3="1" cx4="1" cy4="-.5" x4="2" y4="-.5"/>
+			<move select="U-Turn Right"/>
+		</path>
+		<path>
+			<move select="Extend Left" scaleY=".5" beats="2"/>
+			<movement beats="4" hands="none" cx1="1" cy1="0" cx2="1.5" cy2="1.5" x2="1" y2="1.5"
+								cx3="1" cx4="1" cy4=".5" x4="2" y4=".5"/>
+			<move select="U-Turn Left"/>
+		</path>
+	</tam>
+
 </tamination>
