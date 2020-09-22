@@ -27,6 +27,12 @@ import com.bradchristie.taminations.common.calls.Action
 class FlipYourNeighbor(norm:String,name:String) : Action(norm,name) {
 
   override val level = LevelObject("c2")
+  override val requires = listOf(
+      "c1/flip_the_line",
+      "plus/follow_your_neighbor",
+      "c1/cross_your_neighbor",
+      "c2/criss_cross_your_neighbor"
+  )
 
   override fun perform(ctx: CallContext, i: Int) {
     val secondCall = when (norm) {
