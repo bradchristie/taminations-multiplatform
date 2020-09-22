@@ -203,7 +203,14 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "leftdosado" to { Dosado("leftdosado","Left Dosado") },
         "promenadehome" to { PromenadeHome("promenadehome","Promenade Home") },
         "thek" to { TheK() },
-        "halfthek" to { HalfTheK() }
+        "halfthek" to { HalfTheK() },
+        "flipyourneighbor" to { FlipYourNeighbor("flipyourneighbor","Flip Your Neighbor") },
+        "flipyourcrossneighbor" to
+            { FlipYourNeighbor("flipyourcrossneighbor",
+                "Flip Your Cross Neighbor") },
+        "flipyourcrisscrossneighbor" to
+            { FlipYourNeighbor("flipyourcrisscrossneighbor",
+                "Flip Your Criss Cross Neighbor") }
     )
 
     //  More complex calls where the text is needed either to select
