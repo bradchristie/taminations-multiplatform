@@ -26,7 +26,7 @@ import com.bradchristie.taminations.common.calls.Action
 //  This class implements both Zoom and Zing
 class Zoom(norm:String,name:String) : Action(norm,name) {
 
-  override val level = LevelObject("b2")
+  override val level = LevelObject(if (norm=="zing") "c1" else "b2")
 
   override fun performOne(d: Dancer, ctx: CallContext): Path {
     val a = d.angleToOrigin
