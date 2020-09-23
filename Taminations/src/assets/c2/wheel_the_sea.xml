@@ -79,6 +79,28 @@
   </tam>
 
   <tam title="Wheel the Sea"
+       from="Left-Hand Two-Faced Lines"
+       formation="Two-Faced Lines LH"
+       parts="3" >
+    <path>
+      <move select="Belle Wheel" />
+      <move select="Forward 4" />
+    </path>
+    <path>
+      <move select="Beau Wheel" />
+      <move select="Dodge Right" />
+    </path>
+    <path>
+      <move select="Stand" beats="3" />
+      <move select="Dodge Right" />
+    </path>
+    <path>
+      <move select="Stand" beats="3" />
+      <move select="Forward 4" />
+    </path>
+  </tam>
+
+  <tam title="Wheel the Sea"
        from="Trade By"
        formation="Trade By"
        parts="3" >
