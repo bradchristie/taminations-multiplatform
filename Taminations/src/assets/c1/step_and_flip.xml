@@ -73,7 +73,23 @@
     </path>
   </tam>
 
-  <tam title="Step and Flip" from="3 and 1 Lines">
+  <tam title="Step and Flip" from="3 and 1 Lines #5"
+       formation="3 and 1 lines #5">
+    <path>
+      <move select="Flip Right" offsetX="1" />
+    </path>
+    <path>
+      <move select="Forward" hands="left"/>
+    </path>
+    <path>
+      <move select="Forward" hands="right"/>
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="-1" />
+    </path>
+  </tam>
+
+  <tam title="Step and Flip" from="3 and 1 Lines #7">
     <formation>
       <dancer gender="boy" y="2" x="1" angle="90"/>
       <dancer gender="girl" y="2" x="3" angle="90"/>
@@ -91,6 +107,22 @@
     </path>
     <path>
       <move select="Forward" beats="3" scaleX="1.5"/>
+    </path>
+  </tam>
+
+  <tam title="Step and Flip" from="3 and 1 Lines #8"
+       formation="3 and 1 lines #8">
+    <path>
+      <move select="Flip Left" offsetX="-1" />
+    </path>
+    <path>
+      <move select="Forward" hands="left"/>
+    </path>
+    <path>
+      <move select="Forward" hands="right"/>
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="1" />
     </path>
   </tam>
 
