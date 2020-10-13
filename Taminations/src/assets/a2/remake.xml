@@ -449,6 +449,74 @@
     </path>
   </tam>
 
+  <tam title="All 8 Remake" group=" "
+       from="Static Mini-Waves"
+       formation="Static MiniWaves RH"
+       parts="1.5;3">
+    <path>
+      <move select="Hinge Right" offsetX="1"/>
+      <move select="Swing Left"/>
+      <move select="Hinge Right" offsetY="-.5"/>
+      <move select="Hinge Right" offsetX=".5"/>
+      <move select="Hinge Right"/>
+    </path>
+    <path>
+      <move select="Hinge Right" offsetX="-1"/>
+      <move select="Stand" beats="3"/>
+      <move select="Hinge Right" offsetY=".5"/>
+      <move select="Hinge Right" offsetX="-.5"/>
+      <move select="Hinge Right"/>
+    </path>
+    <path>
+      <move select="Hinge Right" offsetX="1"/>
+      <move select="Swing Left"/>
+      <move select="Hinge Right" offsetY="-.5"/>
+      <move select="Hinge Right" offsetX=".5"/>
+      <move select="Hinge Right"/>
+    </path>
+    <path>
+      <move select="Hinge Right" offsetX="-1"/>
+      <move select="Stand" beats="3"/>
+      <move select="Hinge Right" offsetY=".5"/>
+      <move select="Hinge Right" offsetX="-.5"/>
+      <move select="Hinge Right"/>
+    </path>
+  </tam>
+
+  <tam title="All 8 Left Remake" group=" "
+       from="Static Mini-Waves"
+       formation="Static MiniWaves LH"
+       parts="1.5;3">
+    <path>
+      <move select="Hinge Left" offsetX="-1"/>
+      <move select="Stand" beats="3"/>
+      <move select="Hinge Left" offsetY="-.5"/>
+      <move select="Hinge Left" offsetX="-.5"/>
+      <move select="Hinge Left"/>
+    </path>
+    <path>
+      <move select="Hinge Left" offsetX="1"/>
+      <move select="Swing Right"/>
+      <move select="Hinge Left" offsetY=".5"/>
+      <move select="Hinge Left" offsetX=".5"/>
+      <move select="Hinge Left"/>
+    </path>
+    <path>
+      <move select="Hinge Left" offsetX="-1"/>
+      <move select="Stand" beats="3"/>
+      <move select="Hinge Left" offsetY="-.5"/>
+      <move select="Hinge Left" offsetX="-.5"/>
+      <move select="Hinge Left"/>
+    </path>
+    <path>
+      <move select="Hinge Left" offsetX="1"/>
+      <move select="Swing Right"/>
+      <move select="Hinge Left" offsetY=".5"/>
+      <move select="Hinge Left" offsetX=".5"/>
+      <move select="Hinge Left"/>
+    </path>
+  </tam>
+
   <tam title="As Couples Remake" group=" "
        from="Two-Faced Lines"
        formation="Two-Faced Lines RH"

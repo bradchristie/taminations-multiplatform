@@ -1818,6 +1818,10 @@
            xref-link="a2/recycle"
            xref-title="All 8 Recycle"/>
 
+  <tamxref title="All 8 (A-2) Remake" group="All 8 (A-2)"
+           xref-link="a2/remake"
+           xref-title="All 8 Remake"/>
+
   <tamxref title="All 8 (A-2) Scoot and Weave" group="All 8 (A-2)"
            xref-link="a2/scoot_and_weave"
            xref-title="All 8 Scoot and Weave"/>
