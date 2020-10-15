@@ -1911,6 +1911,26 @@ Double Pass Thru
 Trade and Roll 
 Star Thru 
 Centers Square Thru 3 
+Allemande Left""",
+
+      "Grand Swing Thru" to
+"""Heads Pass the Ocean 
+Extend 
+Acey Deucey Once and a Half 
+Grand Swing Thru 
+U-turn Back 
+Grand Left Swing Thru 
+Grand Swing Thru 
+Boys Diamond Circulate 
+Those Who Can Hinge 
+Boys Wheel and Deal While Girls Trade and Roll 
+Boys Pass Thru 
+Split Square Thru 2 
+Trade By 
+Star Thru 
+Boys Trade 
+Ferris Wheel 
+Centers Pass Thru 
 Allemande Left"""
 
   )
