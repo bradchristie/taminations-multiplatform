@@ -50,7 +50,7 @@ class Spread(norm: String, name: String) : Action(norm, name) {
           Case2()  //  Case 2: Active dancers in line or wave spread among themselves
         else
           Case1()  //  Case 1: Active dancers spread and let in the others
-      ctx.isLines() ->
+      ctx.isLines() || ctx.isTidal() ->
         spreader = Case2()  //  Case 2
       ctx.dancers.all { d -> ctx.isInTandem(d) } ->
         spreader = Case3()  // case 3
@@ -97,9 +97,9 @@ class Case2 : Action("and Spread") {
     //  Compute offset for spread
     var v = Vector()
     if (d.data.belle)
-      v = Vector(0.0, 2.0)
+      v = Vector(0.0, ctx.dancerToLeft(d)!!.distanceTo(d))
     else if (d.data.beau)
-      v = Vector(0.0, -2.0)
+      v = Vector(0.0, -ctx.dancerToRight(d)!!.distanceTo(d))
     //  Pop off the last movement and shift it by that offset
     val m = if (p.movelist.count() > 0)
       p.pop()
