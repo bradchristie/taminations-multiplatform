@@ -22,6 +22,7 @@ package com.bradchristie.taminations.common.calls.c1
 import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.LevelObject
 import com.bradchristie.taminations.common.calls.Action
+import com.bradchristie.taminations.common.r
 
 class AnythingChainThru(norm: String, name: String) : Action(norm, name) {
 
@@ -33,7 +34,7 @@ class AnythingChainThru(norm: String, name: String) : Action(norm, name) {
   override fun perform(ctx: CallContext, i: Int) {
     val firstCall = norm.replace("chainthru","")
         .replace("triangle","trianglecirculate")
-        .replace("diamond","diamondcirculate")
+        .replace("interlockeddiamond".r,"interlockeddiamondcirculate")
     ctx.applyCalls(firstCall,"very centers trade","centers cast off 34")
   }
 

@@ -919,6 +919,16 @@ Girls Chase Right
 Slide
 Right and Left Grand """,
 
+      "Peel to a Diamond Chain Thru" to
+"""Heads Lead Right 
+Girls Cross 
+Peel to a Diamond Chain Thru 
+Girls Run 
+Ferris Wheel 
+Centers Square Thru 3 
+Allemande Left
+Promenade Home""",
+
       "Triangle Circulate" to
 """Sides Pass the Ocean
 Extend
