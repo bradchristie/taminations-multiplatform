@@ -289,7 +289,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "checkpoint(.+)by(.*)".r -> CheckpointConcept(callnorm,callname)
         in "(left|right|in|out)loop(1|2|3)".r -> Loop(callnorm,callname)
         in "stagger(.+)".r -> StaggerConcept(callnorm,callname)
-        in "(left)?tagyour((criss)?cross)?neighbor".r -> TagYourNeighbor(callnorm,callname)
+        in "(left|vertical){0,2}tagyour((criss)?cross)?neighbor".r -> TagYourNeighbor(callnorm,callname)
         in "castashadowcenter(go|cast)?34".r -> CastAShadow(callnorm,callname)
         in "finish.*".r -> Finish(callnorm,callname)
         in ".*(motivate|coordinate|percolate|perkup)".r ->

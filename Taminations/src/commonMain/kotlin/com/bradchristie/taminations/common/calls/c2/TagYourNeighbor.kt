@@ -31,14 +31,15 @@ class TagYourNeighbor(norm:String,name:String) : Action(norm,name)  {
                   "c1/cross_your_neighbor","c2/criss_cross_your_neighbor")
 
   override fun perform(ctx: CallContext, i: Int) {
-    val left = if (norm.startsWith("left")) "Left" else ""
-    val basecall = when (norm.replace("left","")) {
+    val left = if (norm.contains("left")) "Left" else ""
+    val vertical = if (norm.contains("vertical")) "Vertical" else ""
+    val basecall = when (norm.replace("left","").replace("vertical","")) {
       "tagyourneighbor" -> "Follow Your Neighbor"
       "tagyourcrossneighbor" -> "Cross Your Neighbor"
       "tagyourcrisscrossneighbor" -> "Criss Cross Your Neighbor"
       else -> throw CallError("Tag what?")  // should not happen
     }
-    ctx.applyCalls("$left Half Tag",basecall)
+    ctx.applyCalls("$vertical $left Half Tag",basecall)
   }
 
 }
