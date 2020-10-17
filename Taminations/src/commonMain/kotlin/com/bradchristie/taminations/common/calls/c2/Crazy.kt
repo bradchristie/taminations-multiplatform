@@ -43,15 +43,15 @@ class Crazy(norm:String,name:String) : Action(norm,name)  {
       else -> "Center 4 $crazycall"
     }
 
-    ctx.applyCalls(if (norm.contains("reverse")) crazy4 else crazy8)
+    ctx.applyCalls(if (norm.contains("reversecrazy")) crazy4 else crazy8)
     ctx.matchStandardFormation()
-    ctx.applyCalls(if (norm.contains("reverse")) crazy8 else crazy4)
+    ctx.applyCalls(if (norm.contains("reversecrazy")) crazy8 else crazy4)
     if (!norm.startsWith("12")) {
       ctx.matchStandardFormation()
-      ctx.applyCalls(if (norm.contains("reverse")) crazy4 else crazy8)
+      ctx.applyCalls(if (norm.contains("reversecrazy")) crazy4 else crazy8)
       if (!norm.startsWith("34")) {
         ctx.matchStandardFormation()
-        ctx.applyCalls(if (norm.contains("reverse")) crazy8 else crazy4)
+        ctx.applyCalls(if (norm.contains("reversecrazy")) crazy8 else crazy4)
       }
     }
   }
