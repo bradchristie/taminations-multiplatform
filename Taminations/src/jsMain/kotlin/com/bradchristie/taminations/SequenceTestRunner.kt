@@ -1194,6 +1194,23 @@ Wheel and Deal
 Centers Pass Thru 
 Allemande Left""",
 
+      "Twist And 2" to
+"""Heads Lead Right 
+Veer Left 
+Bend the Line 
+Twist and Split Dixie Sashay 
+Boys Trade 
+Twist and Split Square Thru 3 
+Twist and Split Dixie Diamond 
+Flip the Diamond 
+Hinge 
+Swing Thru 
+Acey Deucey 
+Boys Run 
+Ferris Wheel 
+Centers Square Thru 3 
+Allemande Left""",
+
       "As Couples" to
 """Heads Star Thru and Spread 
 As Couples Left Square Chain Thru to a Wave  

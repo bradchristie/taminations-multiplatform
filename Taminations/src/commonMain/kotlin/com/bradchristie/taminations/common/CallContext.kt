@@ -320,7 +320,7 @@ class CallContext {
   //  Apply a function as a method of the new CallContext.
   //  Then transfer any new calls from the created CallContext to this CallContext.
   //  Return true if anything new was added.
-  fun subContext(dancers:List<Dancer>,block:CallContext.()->Unit) : Boolean {
+  fun subContext(dancers:List<Dancer> = this.dancers, block:CallContext.()->Unit) : Boolean {
     val ctx = CallContext(dancers.inOrder().toTypedArray())
     ctx.block()
     return ctx.appendTo(this)
