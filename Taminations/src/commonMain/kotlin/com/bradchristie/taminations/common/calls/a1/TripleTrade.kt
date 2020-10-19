@@ -29,7 +29,18 @@ class TripleTrade : Action("Triple Trade") {
   override val requires = listOf("b2/trade")
 
   override fun perform(ctx: CallContext, i:Int) {
-    ctx.applyCalls("Center 6 Trade")
+    //  Check to see if there's a line of 6
+    //  If so, do it with those dancers
+    val lineOf6 = ctx.dancers.filter { d ->
+      ctx.dancersToRight(d).count() + ctx.dancersToLeft(d).count() == 5
+    }
+    if (lineOf6.count() == 6)
+      ctx.subContext(lineOf6) {
+        applyCalls("Trade")
+      }
+    else
+      //  Otherwise just try with center 6 however they are arranged
+      ctx.applyCalls("Center 6 Trade")
   }
 
 }

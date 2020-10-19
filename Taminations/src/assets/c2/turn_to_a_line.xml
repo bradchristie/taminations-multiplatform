@@ -206,6 +206,23 @@
   </tam>
 
   <tam title="Turn to a Line"
+       from="Left-Hand Two-Faced Lines"
+       formation="Two-Faced Lines LH">
+    <path>
+      <move select="Flip Right" offsetX="-2" offsetY="1.5" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="-2" offsetY=".5" />
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="2" offsetY="-1.5" />
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="2" offsetY="-.5" />
+    </path>
+  </tam>
+
+  <tam title="Turn to a Line"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGBG">
     <path>
@@ -267,7 +284,8 @@
     </path>
   </tam>
 
-  <tam title="Turn to a Line" from="Inverted Lines" formation="Inverted Lines Ends Facing Out">
+  <tam title="Turn to a Line" from="Inverted Lines, Ends Facing Out"
+       formation="Inverted Lines Ends Facing Out">
     <path>
       <move select="Flip Right" offsetX="-2" offsetY="1.5" />
     </path>
@@ -279,6 +297,150 @@
     </path>
     <path>
       <move select="Flip Right" offsetX="-2" offsetY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Turn to a Line" from="Inverted Lines, Ends Facing In"
+       formation="Inverted Lines Ends Facing In">
+    <path>
+      <move select="Flip Left" offsetX="2" offsetY="-1.5" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="-2" offsetY=".5" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="-2" offsetY="1.5" />
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="2" offsetY="-.5" />
+    </path>
+  </tam>
+
+  <tam title="Turn to a Line" from="3 and 1 Lines #1"
+       formation="3 and 1 lines #1">
+    <path>
+      <move select="Flip Right" offsetX="-2" offsetY="1.5" />
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="2" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="2" offsetY="-1.5" />
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="2" offsetY="-.5" />
+    </path>
+  </tam>
+
+  <tam title="Turn to a Line" from="3 and 1 Lines #2"
+       formation="3 and 1 lines #2">
+    <path>
+      <move select="Flip Left" offsetX="2" offsetY="-1.5" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="-2" offsetY=".5" />
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="2" offsetY="-1.5" />
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="2" offsetY="-.5" />
+    </path>
+  </tam>
+
+  <tam title="Turn to a Line" from="3 and 1 Lines #3"
+       formation="3 and 1 lines #3">
+    <path>
+      <move select="Flip Left" offsetX="2" offsetY="-1.5" />
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="2" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="-2" offsetY="1.5" />
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="2" offsetY="-.5" />
+    </path>
+  </tam>
+
+  <tam title="Turn to a Line" from="3 and 1 Lines #4"
+       formation="3 and 1 lines #4">
+    <path>
+      <move select="Flip Left" offsetX="2" offsetY="-1.5" />
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="2" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="2" offsetY="-1.5" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="-2" offsetY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Turn to a Line" from="3 and 1 Lines #5"
+       formation="3 and 1 lines #5">
+    <path>
+      <move select="Flip Left" offsetX="2" offsetY="-1.5" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="-2" offsetY=".5" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="-2" offsetY="1.5" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="-2" offsetY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Turn to a Line" from="3 and 1 Lines #6"
+       formation="3 and 1 lines #6">
+    <path>
+      <move select="Flip Right" offsetX="-2" offsetY="1.5" />
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="2" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="-2" offsetY="1.5" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="-2" offsetY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Turn to a Line" from="3 and 1 Lines #7"
+       formation="3 and 1 lines #7">
+    <path>
+      <move select="Flip Right" offsetX="-2" offsetY="1.5" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="-2" offsetY=".5" />
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="2" offsetY="-1.5" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="-2" offsetY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Turn to a Line" from="3 and 1 Lines #8"
+       formation="3 and 1 lines #8">
+    <path>
+      <move select="Flip Right" offsetX="-2" offsetY="1.5" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="-2" offsetY=".5" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="-2" offsetY="1.5" />
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="2" offsetY="-.5" />
     </path>
   </tam>
 
