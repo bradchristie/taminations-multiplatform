@@ -257,7 +257,7 @@
   </tam>
 
   <tam title="Follow Your Neighbor"
-       from="Right-Handed T-Bone"
+       from="T-Bones 1"
        formation="T-Bone DLDL"
        difficulty="3">
     <path>
@@ -281,7 +281,7 @@
   </tam>
 
   <tam title="Follow Your Neighbor"
-       from="Left-Handed T-Bone"
+       from="T-Bones 2"
        formation="T-Bone RDRD"
        difficulty="3">
     <path>
@@ -304,8 +304,8 @@
     </path>
   </tam>
 
-  <tam title="Follow Your Neighbor" display="none"
-       from="T-Bones URUR" formation="T-Bone URUR">
+  <tam title="Follow Your Neighbor" difficulty="3"
+       formation="T-Bone URUR" from="T-Bones 3">
     <path>
       <move select="Forward" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
@@ -326,8 +326,8 @@
     </path>
   </tam>
 
-  <tam title="Follow Your Neighbor" display="none"
-       from="T-Bones LULU" formation="T-Bone LULU">
+  <tam title="Follow Your Neighbor" difficulty="3"
+       formation="T-Bone LULU" from="T-Bones 4">
     <path>
       <move select="Lead Right" beats="2.5" scaleX="1.5" />
       <move select="Run Right" scaleX=".5" scaleY=".25" />
