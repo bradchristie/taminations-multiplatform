@@ -302,6 +302,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "ignore.+".r -> Ignore(callnorm,callname)
         in "swing(your)?corner(and)?promenade(home)?".r -> PromenadeHome(callnorm,callname)
         in "${specifier}crossrun".r -> CrossRun(callnorm,callname)
+        in "samesex(es)?.+".r -> SameSex(callnorm,callname)
         else -> null
       }
         //  Other calls not easily handled by when expression
