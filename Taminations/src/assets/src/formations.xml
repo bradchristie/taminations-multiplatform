@@ -1481,6 +1481,20 @@
     <dancer gender="girl" x="-1" y="-3" angle="90"/>
   </formation>
 
+  <formation name="T-Bone LRDU">
+    <dancer gender="boy" x="-1" y="3" angle="90"/>
+    <dancer gender="girl" x="-1" y="1" angle="270"/>
+    <dancer gender="boy" x="-1" y="-1" angle="180"/>
+    <dancer gender="girl" x="-1" y="-3" angle="0"/>
+  </formation>
+
+  <formation name="T-Bone UDLR">
+    <dancer gender="boy" x="-1" y="3" angle="0"/>
+    <dancer gender="girl" x="-1" y="1" angle="180"/>
+    <dancer gender="boy" x="-1" y="-1" angle="90"/>
+    <dancer gender="girl" x="-1" y="-3" angle="270"/>
+  </formation>
+
   <formation name="T-Bone Couples">
     <dancer gender="boy" x="-2" y="3" angle="0"/>
     <dancer gender="girl" x="-2" y="1" angle="0"/>

@@ -355,6 +355,58 @@
     </path>
   </tam>
 
+  <tam title="Tally Ho" from="T-Bones 3"
+       formation="T-Bone LRDU" parts="1.5;3">
+    <path>
+      <move select="Lead Right"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Cast Left"/>
+    </path>
+    <path>
+      <move select="Forward" beats="1.5"/>
+      <move select="Quarter Right" hands="right" offsetX="1"/>
+      <move select="Lead Right"/>
+      <move select="Extend Left" beats="4.5" scaleX="2"/>
+    </path>
+    <path>
+      <move select="Lead Right"/>
+      <move select="Hinge Right"/>
+      <move select="Forward" beats="1.5"/>
+      <move select="Cast Left"/>
+    </path>
+    <path>
+      <move select="Forward" beats="1.5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="2"/>
+    </path>
+  </tam>
+
+  <tam title="Tally Ho" from="T-Bones 4"
+       formation="T-Bone UDLR" parts="1.5;3">
+    <path>
+      <move select="Forward" beats="1.5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Lead Left"/>
+      <move select="Hinge Left"/>
+      <move select="Forward" beats="1.5"/>
+      <move select="Cast Right"/>
+    </path>
+    <path>
+      <move select="Forward" beats="1.5"/>
+      <move select="Quarter Left" hands="left" offsetX="1"/>
+      <move select="Lead Left"/>
+      <move select="Extend Right" beats="4.5" scaleX="2"/>
+    </path>
+    <path>
+      <move select="Lead Left"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Cast Right"/>
+    </path>
+  </tam>
+
   <tamxref title="Tally Ho, But Explode the Wave"
            group=" "
            xref-link="c1/replace"
