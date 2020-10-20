@@ -78,7 +78,7 @@
     </path>
   </tam>
 
-  <tam title="Scoot Back" from="Right-Hand T-Bone" display="none">
+  <tam title="Scoot Back" display="none">
     <formation>
       <dancer gender="boy" x="-1.0" y="1" angle="0" />
       <dancer gender="girl" x="-1.0" y="-1" angle="270" />
@@ -93,7 +93,7 @@
     </path>
   </tam>
 
-  <tam title="Scoot Back" from="Left-Hand T-Bone" display="none">
+  <tam title="Scoot Back" display="none">
     <formation>
       <dancer gender="boy" x="-1.0" y="-1" angle="0" />
       <dancer gender="girl" x="-1.0" y="1" angle="90" />

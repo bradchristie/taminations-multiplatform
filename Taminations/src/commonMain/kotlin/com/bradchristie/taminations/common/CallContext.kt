@@ -132,7 +132,6 @@ class CallContext {
         //  Blocks
         "Facing Blocks Right" to 2.0,
         "Facing Blocks Left" to 2.0,
-        "Siamese Wave" to 2.0,
         "Concentric Diamonds RH" to 2.0,
         "Quarter Z RH" to 4.0,
         "Quarter Z LH" to 4.0
