@@ -210,7 +210,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
                 "Flip Your Cross Neighbor") },
         "flipyourcrisscrossneighbor" to
             { FlipYourNeighbor("flipyourcrisscrossneighbor",
-                "Flip Your Criss Cross Neighbor") }
+                "Flip Your Criss Cross Neighbor") },
+        "detour" to { Detour() }
     )
 
     //  More complex calls where the text is needed either to select
@@ -303,6 +304,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "swing(your)?corner(and)?promenade(home)?".r -> PromenadeHome(callnorm,callname)
         in "${specifier}crossrun".r -> CrossRun(callnorm,callname)
         in "samesex(es)?.+".r -> SameSex(callnorm,callname)
+        in "disconnected.+".r -> DisconnectedConcept(callnorm,callname)
         else -> null
       }
         //  Other calls not easily handled by when expression
