@@ -160,6 +160,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         "twice" to { Twice("twice","Twice") },
         "gotwice" to { Twice("twice","Go Twice") },
         "verycenter" to { VeryCenters() },
+        "veryend" to { VeryEnds() },
         //  standard Walk and Dodge from waves, columns, etc
         //  also Centers Walk and Dodge goes through here
         "walkanddodge" to { WalkandDodge("walkanddodge","Walk and Dodge") },
@@ -305,6 +306,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "${specifier}crossrun".r -> CrossRun(callnorm,callname)
         in "samesex(es)?.+".r -> SameSex(callnorm,callname)
         in "disconnected.+".r -> DisconnectedConcept(callnorm,callname)
+        in "ripple.*".r  -> Ripple(callnorm,callname)
         else -> null
       }
         //  Other calls not easily handled by when expression
