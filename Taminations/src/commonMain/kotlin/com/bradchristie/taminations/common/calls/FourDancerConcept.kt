@@ -21,6 +21,7 @@ package com.bradchristie.taminations.common.calls
 
 import com.bradchristie.taminations.common.*
 import com.bradchristie.taminations.common.calls.plus.Roll
+import com.bradchristie.taminations.platform.System
 
 //  This is a base class for concept calls that group or select
 //  dancers in a way that they perform a 4-dancer call.
@@ -82,6 +83,7 @@ abstract class FourDancerConcept(norm:String,name:String=norm) : Action(norm,nam
     //  Create context for concept dancers
     val conceptctx = CallContext(singles.toTypedArray())
     //  And apply the call
+    System.log("Applying $realCall")
     conceptctx.applyCalls(realCall)
     //  Hook for concept to see the result
     conceptctx.animate(0.0)

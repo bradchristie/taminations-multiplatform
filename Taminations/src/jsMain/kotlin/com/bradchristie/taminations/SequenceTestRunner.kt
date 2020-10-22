@@ -1958,7 +1958,23 @@ Star Thru
 Boys Trade 
 Ferris Wheel 
 Centers Pass Thru 
-Allemande Left"""
+Allemande Left""",
+
+      "Ripple" to
+"""Heads Lead Right 
+Veer Left 
+Head Boys Ripple the Line 
+Head Girls Ripple 2 
+Pass the Ocean 
+Fan the Top 
+Very Ends Ripple 5 
+Centers Run 
+Head Boys Right Ripple 2 
+Wheel and Deal 
+Turn and Deal 
+Center 4 U-turn Back and Pass Thru 
+Allemande Left 
+Promenade Home"""
 
   )
 

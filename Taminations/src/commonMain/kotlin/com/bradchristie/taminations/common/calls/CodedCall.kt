@@ -306,7 +306,7 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
         in "${specifier}crossrun".r -> CrossRun(callnorm,callname)
         in "samesex(es)?.+".r -> SameSex(callnorm,callname)
         in "disconnected.+".r -> DisconnectedConcept(callnorm,callname)
-        in "ripple.*".r  -> Ripple(callnorm,callname)
+        in "(left|right)?ripple.*".r  -> Ripple(callnorm,callname)
         else -> null
       }
         //  Other calls not easily handled by when expression

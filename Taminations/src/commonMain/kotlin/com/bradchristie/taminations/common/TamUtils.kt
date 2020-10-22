@@ -254,7 +254,7 @@ object TamUtils {
           //  Non-alphanums are not used in matching
           //  so these fractions become 12 34 14 23
           //  Fortunately two-digit numbers are not used in calls
-          .replace("\\b12|((a|one).)?half\\b".r,"12")
+          .replace("\\b12|(and.)?((a|one).)?half\\b".r,"12")
           .replace("\\b(three.quarters?|34)\\b".r,"34")
           .replace("\\b(((a|one).)?quarter|14)\\b".r,"14")
           .replace("\\b23|two.thirds?\\b".r,"23")
@@ -269,6 +269,8 @@ object TamUtils {
           .replace("\\b(7|seven)\\b".r,"7")
           .replace("\\b(8|eight)\\b".r,"8")
           .replace("\\b(9|nine)\\b".r,"9")
+          //  2.5, 3.5 etc
+          .replace("\\b([1-9])5".r,"$112")
           //  Standardize 6 by 2, 6-2, 6 2 Acey Deucey
           .replace("(six|6)\\s*(by)?x?-?\\s*(two|2)".r,"62")
           .replace("(three|3)\\s*(by)?x?-?\\s*(two|2)".r,"32")
