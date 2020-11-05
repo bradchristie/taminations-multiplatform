@@ -83,7 +83,6 @@ abstract class FourDancerConcept(norm:String,name:String=norm) : Action(norm,nam
     //  Create context for concept dancers
     val conceptctx = CallContext(singles.toTypedArray())
     //  And apply the call
-    System.log("Applying $realCall")
     conceptctx.applyCalls(realCall)
     //  Hook for concept to see the result
     conceptctx.animate(0.0)

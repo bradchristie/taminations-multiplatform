@@ -19,8 +19,6 @@ package com.bradchristie.taminations.common
 
 */
 
-import com.bradchristie.taminations.platform.TamDocument
-
 object LevelObject {
 
   data class LevelData(val name:String, val dir:String, val selector:String, val color: Color) {
