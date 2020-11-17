@@ -19,6 +19,4 @@ package com.bradchristie.taminations.common
 
 */
 
-import com.bradchristie.taminations.common.CallError
-
 class CallNotFoundError(call:String) : CallError("Call $call not found.")

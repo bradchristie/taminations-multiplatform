@@ -22,18 +22,26 @@ package com.bradchristie.taminations.common.calls
 import com.bradchristie.taminations.common.CallContext
 import com.bradchristie.taminations.common.Dancer
 import com.bradchristie.taminations.common.r
+import com.bradchristie.taminations.platform.System
 
 class While(norm:String,name:String) : Action(norm,name)  {
 
   override fun perform(ctx: CallContext, i: Int) {
 
+    System.log("name: $name")
     //  First strip off extra beats added to the inactive dancers
     ctx.contractPaths()
 
     //  Use another context to do the rest of the call
     val ctx2 = CallContext(ctx,beat=0.0).noSnap()
-    ctx2.dancers.forEach { it.data.active = true }
-    val whilecall = name.toLowerCase().replace("while(\\s+the)?\\s+".r,"")
+    if (norm.contains("others"))
+      ctx2.dancers.forEach { it.data.active = !it.data.active }
+    else
+      ctx2.dancers.forEach { it.data.active = true }
+    val whilecall = name.toLowerCase()
+        .replace("while (the )?".r,"")
+        .replace("(the )?others? ".r,"")
+    System.log("whilecall: $whilecall")
     ctx2.applyCalls(whilecall)
     ctx2.appendToSource()
   }

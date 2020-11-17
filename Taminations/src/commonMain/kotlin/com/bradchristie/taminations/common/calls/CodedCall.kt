@@ -259,7 +259,8 @@ abstract class CodedCall(val norm:String, name:String=norm) : Call(name.capWords
           if (callname.toLowerCase() in ".*\\bstart\\b.*".r)
             HeadsStart(callnorm, callname) else null
         in "circleby.*".r -> CircleBy(callnorm, callname)
-        in "while.+".r -> While(callnorm,callname)
+        in "while(the)?(others?)?.+".r -> While(callnorm,callname)
+        in "(the)?other?.+".r -> While(callnorm,callname)
         in "(inside|outside|inpoint|outpoint|tandembased|wavebased)?trianglecirculate".r ->
           TriangleCirculate(callnorm, callname)
         in "minibusybut.*".r -> MiniBusyBut(callnorm, callname)

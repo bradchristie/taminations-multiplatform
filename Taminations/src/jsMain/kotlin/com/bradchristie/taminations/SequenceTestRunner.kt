@@ -1974,6 +1974,30 @@ Wheel and Deal
 Turn and Deal 
 Center 4 U-turn Back and Pass Thru 
 Allemande Left 
+Promenade Home""",
+
+      "While Others" to
+"""Heads Touch a Quarter 
+Facing Dancers Pass Thru While Others Turn Back 
+Boys Run 
+Centers Boys Cross While Others Turn Back 
+Girls Touch a Quarter While Others Zoom 
+Girls Hinge 
+Boys Half Zoom 
+Any Hand Quarter Thru 
+Chase Right 
+Fan the Top 
+Centers Hinge While Others Turn Back 
+Diamond Circulate 
+Flip the Diamond 
+Recycle 
+Pass the Ocean 
+Circulate 
+Boys Run 
+Wheel and Deal 
+Centers Flutterwheel 
+Centers Pass Thru 
+Allemande Left 
 Promenade Home"""
 
   )
