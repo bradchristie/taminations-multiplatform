@@ -289,6 +289,7 @@ object TamUtils {
           .replace("\\b12 square thru\\b".r,"square thru 2")
           .replace("\\bbox recycle\\b".r,"recycle")
           .replace("interlocked (flip|cut) the".r,"$1 the interlocked")
+          .replace("\\bsplit the outsides?( couple)?( 2)?".r,"split 2")
           //  'Dixie Style' -> 'Dixie Style to a Wave'
           .replace("\\bdixie style(?! to)".r,"dixie style to a wave")
           .replace("\\bchase left\\b".r,"left chase")

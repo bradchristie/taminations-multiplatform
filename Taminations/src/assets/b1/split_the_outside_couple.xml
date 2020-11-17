@@ -22,7 +22,7 @@
 -->
 <tamination title="Split Two">
 
-  <tam title="Split the Outside Couple" formation="Eight Chain Thru" group=" ">
+  <tam title="Split Two" formation="Eight Chain Thru" group=" ">
     <path>
       <move select="Extend Left" scaleY=".5"/>
       <move select="Extend Right" scaleY=".5"/>
