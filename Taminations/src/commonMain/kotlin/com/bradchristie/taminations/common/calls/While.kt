@@ -28,7 +28,6 @@ class While(norm:String,name:String) : Action(norm,name)  {
 
   override fun perform(ctx: CallContext, i: Int) {
 
-    System.log("name: $name")
     //  First strip off extra beats added to the inactive dancers
     ctx.contractPaths()
 
@@ -41,7 +40,6 @@ class While(norm:String,name:String) : Action(norm,name)  {
     val whilecall = name.toLowerCase()
         .replace("while (the )?".r,"")
         .replace("(the )?others? ".r,"")
-    System.log("whilecall: $whilecall")
     ctx2.applyCalls(whilecall)
     ctx2.appendToSource()
   }

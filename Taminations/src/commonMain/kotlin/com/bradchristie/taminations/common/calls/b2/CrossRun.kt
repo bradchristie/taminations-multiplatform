@@ -88,7 +88,7 @@ class CrossRun(norm:String,name:String) : ActivesOnlyAction(norm,name) {
           d.path.add(TamUtils.getMove("Forward"))
             .changebeats(3.0).scale(d.distanceTo(dfront),1.0)
         dback != null && runners.contains(dback) ->
-          d.path.add(TamUtils.getMove("Forward"))
+          d.path.add(TamUtils.getMove("Back"))
             .changebeats(3.0).scale(d.distanceTo(dback),1.0)
         else ->
           throw CallError("Unable to calculate Cross Run action for dancer $d")

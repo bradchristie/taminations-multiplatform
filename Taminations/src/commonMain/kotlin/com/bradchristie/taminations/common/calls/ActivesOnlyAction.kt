@@ -28,10 +28,10 @@ abstract class ActivesOnlyAction(norm:String,name:String=norm) : Action(norm,nam
 
   override fun perform(ctx: CallContext, i: Int) {
     if (ctx.actives.count() < ctx.dancers.count()) {
-      val ctx2 = CallContext(ctx,ctx.actives)
-      ctx2.analyze()
-      perform(ctx2, i)
-      ctx2.appendToSource()
+      ctx.subContext(ctx.actives) {
+        analyze();
+        perform(this,i);
+      }
     } else
       super.perform(ctx, i)
   }
